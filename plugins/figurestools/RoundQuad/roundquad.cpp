@@ -1,0 +1,5 @@
+#include "roundquad.h"
+
+bool D_RoundQuad::resourcesInited = false;
+
+EXPORT_PLUGIN( D_RoundQuad, FigureToolInterface )

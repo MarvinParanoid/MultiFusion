@@ -1,0 +1,205 @@
+<ui version="4.0" >
+ <class>BrushEditorForm</class>
+ <widget class="QWidget" name="BrushEditorForm" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>538</width>
+    <height>395</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Brush properties</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>9</number>
+   </property>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="PreviewBox" >
+     <property name="title" >
+      <string>Preview</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTabWidget" name="BrushPropsTab" >
+     <property name="currentIndex" >
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="patternBrushTab" >
+      <attribute name="title" >
+       <string>Pattern brush</string>
+      </attribute>
+      <layout class="QVBoxLayout" >
+       <property name="margin" >
+        <number>9</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="styleBox" >
+         <property name="title" >
+          <string>Style</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>9</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="1" >
+           <widget class="QRadioButton" name="dense4PatternButton" >
+            <property name="text" >
+             <string>Dense 4</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" >
+           <widget class="QRadioButton" name="dense1PatternButton" >
+            <property name="text" >
+             <string>Dense 1</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <widget class="QRadioButton" name="noBrushButton" >
+            <property name="text" >
+             <string>No brush</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" >
+           <widget class="QRadioButton" name="dense5PatternButton" >
+            <property name="text" >
+             <string>Dense 5</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2" >
+           <widget class="QRadioButton" name="FDiagPatternButton" >
+            <property name="text" >
+             <string>Forward diagonal lines</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QRadioButton" name="solidPatternButton" >
+            <property name="text" >
+             <string>Solid</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" >
+           <widget class="QRadioButton" name="dense2PatternButton" >
+            <property name="text" >
+             <string>Dense 2</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" >
+           <widget class="QRadioButton" name="dense6PatternButton" >
+            <property name="text" >
+             <string>Dense 6</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" >
+           <widget class="QRadioButton" name="dense7PatternButton" >
+            <property name="text" >
+             <string>Dense 7</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2" >
+           <widget class="QRadioButton" name="VerPatternButton" >
+            <property name="text" >
+             <string>Verital lines</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2" >
+           <widget class="QRadioButton" name="CrossPatternButton" >
+            <property name="text" >
+             <string>Cross lines</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2" >
+           <widget class="QRadioButton" name="BDiagPatternButton" >
+            <property name="text" >
+             <string>Backward diagonal lines</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" >
+           <widget class="QRadioButton" name="dense3PatternButton" >
+            <property name="text" >
+             <string>Dense 3</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1" >
+           <widget class="QRadioButton" name="HorPatternButton" >
+            <property name="text" >
+             <string>Horizontal lines</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2" >
+           <widget class="QRadioButton" name="DiagCrossPatternButton" >
+            <property name="text" >
+             <string>Crossing diagonal lines</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="colorBox" >
+         <property name="title" >
+          <string>Color</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gradientBrushTab" >
+      <attribute name="title" >
+       <string>Gradient brush</string>
+      </attribute>
+      <layout class="QGridLayout" >
+       <property name="margin" >
+        <number>9</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item row="0" column="0" >
+        <widget class="QGroupBox" name="gradientBox" >
+         <property name="title" >
+          <string>Gradient</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="textureBrushTab" >
+      <attribute name="title" >
+       <string>Texture brush</string>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

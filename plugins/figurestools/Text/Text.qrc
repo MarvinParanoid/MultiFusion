@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/text" >
+        <file>images/text.png</file>
+    </qresource>
+</RCC>

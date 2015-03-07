@@ -1,0 +1,23 @@
+######################################################################
+#	Spline tool MultiFusion build script. Kukushkin Alexey, 2009
+######################################################################
+
+TEMPLATE = lib
+TARGET = Spline
+CONFIG += plugin
+DEPENDPATH += . \
+    ./../../../pluginTool
+INCLUDEPATH += . \
+    ./../../../pluginTool \
+    ./../../../interfaces
+QT += xml \
+    xmlpatterns
+LIBS += -L./../../../pluginTool
+DESTDIR = ./../../../bin/plugins/Spline
+HEADERS += Spline.h \
+    Plugin.h \
+    FigureToolInterface.h \
+    InterfacePlugin.h \
+	SignalHolder.h
+SOURCES += Spline.cpp
+RESOURCES += Spline.qrc

@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/layerseditor" >
+        <file>images/addLayer.png</file>
+        <file>images/bottom.png</file>
+        <file>images/closedEye.png</file>
+        <file>images/delete.png</file>
+        <file>images/lock.png</file>
+        <file>images/moveDown.png</file>
+        <file>images/moveUp.png</file>
+        <file>images/openEye.png</file>
+        <file>images/process.png</file>
+        <file>images/top.png</file>
+        <file>images/unlock.png</file>
+        <file>images/unprocess.png</file>
+    </qresource>
+</RCC>

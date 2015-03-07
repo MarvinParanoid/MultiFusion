@@ -1,0 +1,22 @@
+# #####################################################################
+# Pen tool MultiFusion build script. Kukushkin Alexey, 2009
+# #####################################################################
+TEMPLATE = lib
+TARGET = PenTool
+CONFIG += plugin
+DEPENDPATH += . \
+    ./../../../pluginTool
+INCLUDEPATH += . \
+    ./../../../pluginTool \
+    ./../../../interfaces
+QT += xml \
+    xmlpatterns
+LIBS += -L./../../../pluginTool
+DESTDIR = ./../../../bin/plugins/PenTool
+HEADERS += PenTool.h \
+    Plugin.h \
+    FigureToolInterface.h \
+    InterfacePlugin.h \
+	SignalHolder.h
+SOURCES += PenTool.cpp
+RESOURCES += PenTool.qrc

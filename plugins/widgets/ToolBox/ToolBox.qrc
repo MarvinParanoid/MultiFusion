@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/toolbox" >
+        <file>images/addpoint.png</file>
+        <file>images/close_figure.png</file>
+        <file>images/selection.png</file>
+        <file>images/zoomin.png</file>
+        <file>images/zoomout.png</file>
+    </qresource>
+</RCC>

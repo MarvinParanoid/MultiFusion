@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/timeline" >
+        <file>images/addFrame.png</file>
+        <file>images/back.png</file>
+        <file>images/cursor.png</file>
+        <file>images/first.png</file>
+        <file>images/last.png</file>
+        <file>images/next.png</file>
+        <file>images/pause.png</file>
+        <file>images/pause_check.png</file>
+        <file>images/play.png</file>
+        <file>images/play_check.png</file>
+        <file>images/removeFrame.png</file>
+        <file>images/stop.png</file>
+        <file>images/stop_check.png</file>
+    </qresource>
+</RCC>

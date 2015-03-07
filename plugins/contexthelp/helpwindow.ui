@@ -1,0 +1,33 @@
+<ui version="4.0" >
+ <class>HelpWindowClass</class>
+ <widget class="QDialog" name="HelpWindowClass" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>588</width>
+    <height>584</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>HelpWindow</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" >
+   <item>
+    <widget class="QWebView" native="1" name="view" />
+   </item>
+  </layout>
+  <zorder>gridLayoutWidget</zorder>
+  <zorder>view</zorder>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>qwebview.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
