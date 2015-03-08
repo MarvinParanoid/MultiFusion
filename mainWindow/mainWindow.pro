@@ -13,7 +13,7 @@ INCLUDEPATH += . \
     ./../interfaces \
     ./../pluginTool \
     ./paintWidget
-DESTDIR = ./../../build/bin
+DESTDIR = ./../bin
 SOURCES += \
     Plugin.cpp \
     Main.cpp \
