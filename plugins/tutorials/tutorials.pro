@@ -13,12 +13,12 @@ QT += core \
     xml \
     xmlpatterns \
     webkit
-HEADERS += helpwindow.h \
-	tutorials.h \
-    tutorial.h \
+HEADERS += HelpWindow.h \
+        Tutorials.h \
+    Tutorial.h \
 	Plugin.h \
     InterfacePlugin.h \
     SignalHolder.h
-SOURCES += helpwindow.cpp \
-    tutorials.cpp
+SOURCES += HelpWindow.cpp \
+    Tutorials.cpp
 FORMS = helpwindow.ui

@@ -10,10 +10,10 @@ QT += core \
     xml \
     xmlpatterns \
     webkit
-HEADERS += helpwindow.h \
-    contexthelp.h \
+HEADERS += HelpWindow.h \
+    ContextHelp.h \
     Plugin.h \
     SignalHolder.h
-SOURCES += helpwindow.cpp \
-    contexthelp.cpp
+SOURCES += HelpWindow.cpp \
+    ContextHelp.cpp
 FORMS = helpwindow.ui

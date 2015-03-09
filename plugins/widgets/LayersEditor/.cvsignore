@@ -1,7 +1,0 @@
-debug
-release
-Makefile
-Makefile.Debug
-Makefile.Release
-.cproject
-.project

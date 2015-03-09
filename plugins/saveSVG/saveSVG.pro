@@ -13,5 +13,5 @@ QT += core \
     xmlpatterns \
     svg \
     opengl
-HEADERS += savesvg.h SignalHolder.h
-SOURCES += savesvg.cpp
+HEADERS += SaveSVG.h SignalHolder.h
+SOURCES += SaveSVG.cpp

@@ -7,11 +7,10 @@ TARGET = RoundQuad
 CONFIG += plugin
 DEPENDPATH += . ./../../../pluginsdk ./../../pluginTool
 INCLUDEPATH += . ./../../../pluginsdk ./../../../interfaces ./../../pluginTool
-LIBS += -L./../../../pluginsdk
 DESTDIR = ./../../../bin/plugins/RoundQuad
 
-HEADERS += roundquad.h Plugin.h figuretoolinterface.h SignalHolder.h
-SOURCES += roundquad.cpp
+HEADERS += RoundQuad.h Plugin.h FigureToolInterface.h SignalHolder.h
+SOURCES += RoundQuad.cpp
 RESOURCES += roundquad.qrc
 QT += core \
     gui \
