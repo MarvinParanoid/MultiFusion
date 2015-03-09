@@ -1,3 +1,3 @@
-#include "timeline.h"
+﻿#include "timeline.h"
 
 EXPORT_QOBJECT_PLUGIN( Timeline )

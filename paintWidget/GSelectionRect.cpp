@@ -1,4 +1,4 @@
-#include "GSelectionRect.h"
+ï»¿#include "GSelectionRect.h"
 #include "GObject.h"
 #include "GVectorFigure.h"
 
@@ -1008,7 +1008,7 @@ void GSelectionRect::normalize()
 	recalcCenter( oldPosition );
 }
 
-/**TODO Äîïèñàòü ôóíêöèè */
+/**TODO Ð”Ð¾Ð¿Ð¸ÑÐ°Ñ‚ÑŒ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ */
  QPoint GSelectionRect::getShearPoint()
  {
 	 return this->shearPoint;

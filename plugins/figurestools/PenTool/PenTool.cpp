@@ -1,4 +1,4 @@
-#include "PenTool.h"
+﻿#include "PenTool.h"
 
 bool A_Pen::resourcesInited = false;
 

@@ -1,4 +1,4 @@
-#include "Plugin.h"
+﻿#include "Plugin.h"
 #include "InterfacePlugin.h"
 
 #include <QLibrary>

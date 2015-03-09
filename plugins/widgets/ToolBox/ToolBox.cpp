@@ -1,4 +1,4 @@
-#include "ToolBox.h"
+﻿#include "ToolBox.h"
 
 bool ToolBox::resourcesInited = false;
 

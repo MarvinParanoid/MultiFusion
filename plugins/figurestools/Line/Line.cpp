@@ -1,4 +1,4 @@
-#include "Line.h"
+﻿#include "Line.h"
 
 bool B_Line::resourcesInited = false;
 

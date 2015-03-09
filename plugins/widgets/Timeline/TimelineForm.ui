@@ -1,4 +1,4 @@
-<ui version="4.0" >
+﻿<ui version="4.0" >
  <class>timelineForm</class>
  <widget class="QWidget" name="timelineForm" >
   <property name="geometry" >

@@ -1,4 +1,4 @@
-#include "PWE.h"
+﻿#include "PWE.h"
 #include "GPropertiesObj.h"
 #include "PaintWidget.h"
 

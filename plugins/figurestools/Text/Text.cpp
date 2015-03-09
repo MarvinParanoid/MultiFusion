@@ -1,4 +1,4 @@
-#include "text.h"
+﻿#include "text.h"
 
 bool I_Text::resourcesInited = false;
 

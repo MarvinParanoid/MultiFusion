@@ -1,4 +1,4 @@
-#include "Quad.h"
+﻿#include "Quad.h"
 
 bool E_Quad::resourcesInited = false;
 

@@ -1,4 +1,4 @@
-#include <QPointF>
+﻿#include <QPointF>
 #include <QLineF>
 #include <math.h>
 

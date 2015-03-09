@@ -1,4 +1,4 @@
-#include "star.h"
+﻿#include "star.h"
 
 bool G_Star::resourcesInited = false;
 

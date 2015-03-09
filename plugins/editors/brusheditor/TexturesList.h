@@ -1,4 +1,4 @@
-#ifndef __TEXTURES_LIST__
+﻿#ifndef __TEXTURES_LIST__
 #define __TEXTURES_LIST__
 
 #include <QDir>

@@ -1,4 +1,4 @@
-#ifndef __LINE_H__
+﻿#ifndef __LINE_H__
 #define __LINE_H__
 
 #include <QHBoxLayout>

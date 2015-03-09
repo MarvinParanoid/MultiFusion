@@ -1,3 +1,3 @@
-#include "Background.h"
+﻿#include "Background.h"
 
 EXPORT_PLUGIN( Background, BackgroundInterface )

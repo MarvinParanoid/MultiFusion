@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * tutorials.h
  *
  *  Created on: 18.04.2009
@@ -65,8 +65,7 @@ class Tutorials: public TutorialsInterface, public InterfacePlugin
 				mainWin = MAINWINDOW(parent);
 				if(mainWin!=0)
 				{
-					QTextCodec::setCodecForCStrings( QTextCodec::codecForName("cp-1251") );
-					QString title = "Îáó÷àþùèå ïîñîáèÿ...";
+					QString title = "ÐžÐ±ÑƒÑ‡Ð°ÑŽÑ‰Ð¸Ðµ Ð¿Ð¾ÑÐ¾Ð±Ð¸Ñ...";
 
 					QMenu *help = mainWin->getHelpMenu();
 					QAction *tutorialMenuAction = help->addAction( title );

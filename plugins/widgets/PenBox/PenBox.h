@@ -1,4 +1,4 @@
-/**
+п»ї/**
 * PenBox.h
 *
 *  Created on: 04.05.2009
@@ -184,15 +184,15 @@ class PenBox:public PenBoxInterface, public InterfacePlugin
 
 
 	private:
-		QPen _pen; /// Перо
-		QObject* penEditor; /// Указатель на плагин изменения пера(PenEditor)
+		QPen _pen; /// РџРµСЂРѕ
+		QObject* penEditor; /// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РїР»Р°РіРёРЅ РёР·РјРµРЅРµРЅРёСЏ РїРµСЂР°(PenEditor)
 
-		QDialog dialog; ///Диалог в который загружается плагин изменения пера(PenEditor)
+		QDialog dialog; ///Р”РёР°Р»РѕРі РІ РєРѕС‚РѕСЂС‹Р№ Р·Р°РіСЂСѓР¶Р°РµС‚СЃСЏ РїР»Р°РіРёРЅ РёР·РјРµРЅРµРЅРёСЏ РїРµСЂР°(PenEditor)
 		QVBoxLayout *l;
 
 		GSRInterface* selection;
-		MainWindowInterface* mainWin;/// Указатель на область рисования(PaintWidget)
-		PaintWidgetInterface* painter;/// Указатель на панель инструментов(ToolBox)
+		MainWindowInterface* mainWin;/// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±Р»Р°СЃС‚СЊ СЂРёСЃРѕРІР°РЅРёСЏ(PaintWidget)
+		PaintWidgetInterface* painter;/// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РїР°РЅРµР»СЊ РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ(ToolBox)
 		plugin::PluginsManager *_manager;
 
 		void selectPen()

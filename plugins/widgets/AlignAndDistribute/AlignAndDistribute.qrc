@@ -1,4 +1,4 @@
-<RCC>
+﻿<RCC>
     <qresource prefix="/AlignAndDistribute">
         <file>images/align-horizontal-center.png</file>
         <file>images/align-horizontal-left.png</file>

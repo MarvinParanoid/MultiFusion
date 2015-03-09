@@ -1,4 +1,4 @@
-#ifndef __ROUNDQUAD_H__
+﻿#ifndef __ROUNDQUAD_H__
 #define __ROUNDQUAD_H__
 
 #include "./../../../pluginTool/Plugin.h"

@@ -1,4 +1,4 @@
-/**
+﻿/**
 * PluginDialog.h
 *
 *  Created on: 12.05.2009

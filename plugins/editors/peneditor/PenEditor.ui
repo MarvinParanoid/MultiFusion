@@ -1,4 +1,4 @@
-<ui version="4.0" >
+﻿<ui version="4.0" >
  <class>PenEditorForm</class>
  <widget class="QWidget" name="PenEditorForm" >
   <property name="geometry" >

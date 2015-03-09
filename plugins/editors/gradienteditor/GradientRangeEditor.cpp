@@ -1,4 +1,4 @@
-#include "gradientrangeeditor.h"
+﻿#include "gradientrangeeditor.h"
 
 QPointF GradientRangeEditor::startPoint() const
 {

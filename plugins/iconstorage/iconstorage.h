@@ -1,4 +1,4 @@
-#ifndef __ICON_STORAGE_H__
+﻿#ifndef __ICON_STORAGE_H__
 #define __ICON_STORAGE_H__
 
 #include <QObject>

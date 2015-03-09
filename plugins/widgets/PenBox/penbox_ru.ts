@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.0" language="ru_RU">
 <context>
@@ -6,8 +6,8 @@
     <message>
         <location filename="PenBox.h" line="102"/>
         <source>Current pen</source>
-        <translatorcomment>Выбор пера</translatorcomment>
-        <translation>Текущее перо</translation>
+        <translatorcomment>Р’С‹Р±РѕСЂ РїРµСЂР°</translatorcomment>
+        <translation>РўРµРєСѓС‰РµРµ РїРµСЂРѕ</translation>
     </message>
     <message>
         <location filename="PenBox.h" line="208"/>

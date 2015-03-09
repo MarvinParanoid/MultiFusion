@@ -1,4 +1,4 @@
-<RCC>
+﻿<RCC>
     <qresource prefix="/toolbox" >
         <file>images/addpoint.png</file>
         <file>images/close_figure.png</file>

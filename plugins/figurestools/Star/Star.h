@@ -1,4 +1,4 @@
-#ifndef __STAR_H__
+﻿#ifndef __STAR_H__
 #define __STAR_H__
 
 #include <QInputDialog>

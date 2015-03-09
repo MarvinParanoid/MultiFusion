@@ -1,4 +1,4 @@
-#include "GContainer.h"
+﻿#include "GContainer.h"
 #include "GVectorfigure.h"
 #include "../PluginTool/Plugin.h"
 #include <QMessageBox>

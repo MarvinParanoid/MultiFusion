@@ -1,4 +1,4 @@
-/**
+п»ї/**
 * RPWInterface.h
 *
 *  Created on: 23.04.2009
@@ -29,7 +29,7 @@ class RPWInterface:public QGLWidget
 		void mouseMoveEvent(int x, int y);
 		
 		/**
-		 * Генерируется при перемещении по истории событий
+		 * Р“РµРЅРµСЂРёСЂСѓРµС‚СЃСЏ РїСЂРё РїРµСЂРµРјРµС‰РµРЅРёРё РїРѕ РёСЃС‚РѕСЂРёРё СЃРѕР±С‹С‚РёР№
 		 */
 		void undoEvents();
 
@@ -37,24 +37,24 @@ class RPWInterface:public QGLWidget
 
 	public slots:
 		/**
-		* Изменение прозрачности объекта
+		* РР·РјРµРЅРµРЅРёРµ РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚Рё РѕР±СЉРµРєС‚Р°
 		* @param _alpha
 		*/
 		virtual void alphaChanged(int _alpha) = 0;
 		/**
-		* Появление окна с характеристиками объекта
+		* РџРѕСЏРІР»РµРЅРёРµ РѕРєРЅР° СЃ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєР°РјРё РѕР±СЉРµРєС‚Р°
 		*/
 		virtual void onPropertiesObj() = 0;
 	public:
 
 		/**
-		 * Возвращает единицу истории
+		 * Р’РѕР·РІСЂР°С‰Р°РµС‚ РµРґРёРЅРёС†Сѓ РёСЃС‚РѕСЂРёРё
 		 */
 		virtual QObject* getUndo() = 0;
 
 		/**
-		 * Меняет состояние RealPaintWidget по информации из единици истории
-		 * @param undo единица истории
+		 * РњРµРЅСЏРµС‚ СЃРѕСЃС‚РѕСЏРЅРёРµ RealPaintWidget РїРѕ РёРЅС„РѕСЂРјР°С†РёРё РёР· РµРґРёРЅРёС†Рё РёСЃС‚РѕСЂРёРё
+		 * @param undo РµРґРёРЅРёС†Р° РёСЃС‚РѕСЂРёРё
 		 */
 		virtual void setFromUndo(QObject* undo) =0 ;
 
@@ -71,22 +71,22 @@ class RPWInterface:public QGLWidget
 		virtual void paintFrameTo( QPainter &to, const QRect &r, qreal frame ) = 0;
 		//virtual void paintWholeFrameTo( QPainter &to, const QRect &r, qreal frame ) = 0;
 
-		/**Добавляет новый слой
+		/**Р”РѕР±Р°РІР»СЏРµС‚ РЅРѕРІС‹Р№ СЃР»РѕР№
 		 *
-		 * @param visible видимость слоя
-		 * @param blocked блокировка слоя
-		 * @param name имя слоя
+		 * @param visible РІРёРґРёРјРѕСЃС‚СЊ СЃР»РѕСЏ
+		 * @param blocked Р±Р»РѕРєРёСЂРѕРІРєР° СЃР»РѕСЏ
+		 * @param name РёРјСЏ СЃР»РѕСЏ
 		 */
 		virtual void addLayer(bool visible, bool blocked, const QString &name) = 0;
 
 		/**
-		* Задание контектстного меню
+		* Р—Р°РґР°РЅРёРµ РєРѕРЅС‚РµРєС‚СЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 		* @param qMenu
 		*/
         virtual void setContextMenu(QMenu *qMenu) = 0;
 
 		/**
-		* Получение контектстного меню
+		* РџРѕР»СѓС‡РµРЅРёРµ РєРѕРЅС‚РµРєС‚СЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 		* @return
 		*/
         virtual QMenu* getContextMenu() = 0;
@@ -103,7 +103,7 @@ class RPWInterface:public QGLWidget
 
 		virtual void setSize(QSize sz) = 0;
 
-		/** Получение объекта для работы с выделением - класс GSelectionRect
+		/** РџРѕР»СѓС‡РµРЅРёРµ РѕР±СЉРµРєС‚Р° РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РІС‹РґРµР»РµРЅРёРµРј - РєР»Р°СЃСЃ GSelectionRect
 		*
 		* @return
 		*/

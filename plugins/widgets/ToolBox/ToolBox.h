@@ -1,4 +1,4 @@
-#ifndef __TOOL_BOX_H__
+п»ї#ifndef __TOOL_BOX_H__
 #define __TOOL_BOX_H__
 
 #include <QWidget>
@@ -48,8 +48,8 @@ class ToolBox: public ToolBoxInterface, public InterfacePlugin
 	signals:
 
 		 /**
-		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
-		 * @param event имя события
+		 * РћС‚РїСЂР°РІР»СЏРµС‚СЃСЏ РїРѕСЃР»Рµ РІС‹РїРѕР»РЅРµРЅРёСЏ СЃРѕР±С‹С‚РёСЏ, РєРѕС‚РѕСЂРѕРµ РЅР°Рј РЅСѓР¶РЅРѕ СЃРѕС…СЂР°РЅРёС‚СЊ РІ РёСЃС‚РѕСЂРёРё
+		 * @param event РёРјСЏ СЃРѕР±С‹С‚РёСЏ
 		 */
 		void StateChanged(QString event);
 		void selectionToolSelected();
@@ -62,7 +62,7 @@ class ToolBox: public ToolBoxInterface, public InterfacePlugin
 		void toolSelected( FigureToolInterface *tool );
 
 		/**
-		 * Сигнал, сообщающий о том, что данный инструмент был использован
+		 * РЎРёРіРЅР°Р», СЃРѕРѕР±С‰Р°СЋС‰РёР№ Рѕ С‚РѕРј, С‡С‚Рѕ РґР°РЅРЅС‹Р№ РёРЅСЃС‚СЂСѓРјРµРЅС‚ Р±С‹Р» РёСЃРїРѕР»СЊР·РѕРІР°РЅ
 		 */
 		void setActive(QString name);
 
@@ -134,8 +134,8 @@ class ToolBox: public ToolBoxInterface, public InterfacePlugin
 							this, SLOT( onEnabled( bool) ) );
 
 					/**
-					 * Здесь мы соединяем сигнал, сообщающий о том, что инструмент использован,
-					 * с сигналом класса SignalHolder.
+					 * Р—РґРµСЃСЊ РјС‹ СЃРѕРµРґРёРЅСЏРµРј СЃРёРіРЅР°Р», СЃРѕРѕР±С‰Р°СЋС‰РёР№ Рѕ С‚РѕРј, С‡С‚Рѕ РёРЅСЃС‚СЂСѓРјРµРЅС‚ РёСЃРїРѕР»СЊР·РѕРІР°РЅ,
+					 * СЃ СЃРёРіРЅР°Р»РѕРј РєР»Р°СЃСЃР° SignalHolder.
 					 */
 					connect(this, SIGNAL(setActive(QString)), getBeep(), SIGNAL(setActive(QString)));
 

@@ -1,4 +1,4 @@
-#include "gradientstopseditor.h"
+﻿#include "gradientstopseditor.h"
 
 /************************************************************
 *	GradientStopEditor class implementation

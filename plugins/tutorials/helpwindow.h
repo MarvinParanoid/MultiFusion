@@ -1,4 +1,4 @@
-#ifndef HELPWINDOW_H
+﻿#ifndef HELPWINDOW_H
 #define HELPWINDOW_H
 
 #include <QtGui/QDialog>

@@ -1,4 +1,4 @@
-#ifndef ColorBoxInterface_H
+﻿#ifndef ColorBoxInterface_H
 #define ColorBoxInterface_H
 
 

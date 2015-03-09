@@ -1,4 +1,4 @@
-/**
+Ôªø/**
  * contexthelp.h
  *
  *  Created on: 18.04.2009
@@ -89,13 +89,13 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 				{
 					QMenu *menu = mainWin->getHelpMenu();
 
-					QTextCodec::setCodecForCStrings( QTextCodec::codecForName("cp-1251") );
+                    //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("cp-1251") );
 
-					QAction* help = menu->addAction( "—Ó‰ÂÊ‡ÌËÂ..." );
+					QAction* help = menu->addAction( "–°–æ–¥–µ—Ä–∂–∞–Ω–∏–µ..." );
 					help->setShortcut( tr( "F1" ) );
 					help->setEnabled(true);
 
-					QAction* contextHelp = menu->addAction( "œÓÏÓ˘¸!" );
+					QAction* contextHelp = menu->addAction( "–ü–æ–º–æ—â—å!" );
 					contextHelp->setShortcut( tr( "Shift+F1" ) );
 					contextHelp->setEnabled(true);
 
@@ -131,8 +131,8 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 			query.setQuery(QUrl(pathToStylesheet));
 			query.evaluateTo(&helpHTML);
 
-			QTextCodec::setCodecForCStrings( QTextCodec::codecForName("cp-1251") );
-			QString helpTitle = "—Ô‡‚Í‡";
+            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("cp-1251") );
+			QString helpTitle = "–°–ø—Ä–∞–≤–∫–∞";
 
 			helpWindow = new HelpWindow(helpTitle, helpHTML, pathToHelp, 0);
 		}

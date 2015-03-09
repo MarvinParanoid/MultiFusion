@@ -1,4 +1,4 @@
-<plugins>
+﻿<plugins>
     <plugin included="false">
         <Id>Scale</Id>
         <path>./plugins/Scale/</path>

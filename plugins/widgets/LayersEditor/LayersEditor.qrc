@@ -1,4 +1,4 @@
-<RCC>
+﻿<RCC>
     <qresource prefix="/layerseditor" >
         <file>images/addLayer.png</file>
         <file>images/bottom.png</file>

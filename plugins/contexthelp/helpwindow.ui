@@ -1,4 +1,4 @@
-<ui version="4.0" >
+﻿<ui version="4.0" >
  <class>HelpWindowClass</class>
  <widget class="QDialog" name="HelpWindowClass" >
   <property name="geometry" >

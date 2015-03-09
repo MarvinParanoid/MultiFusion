@@ -1,4 +1,4 @@
-#ifndef __RULER_H__
+п»ї#ifndef __RULER_H__
 #define __RULER_H__
 
 #include <QClipboard>
@@ -19,7 +19,7 @@ class GRuler:public QWidget
 	signals:
 		void change();
 	protected:
-		virtual bool drawNumber(QString txt, int x, int y, QPainter p); //Рисует цифры на линейке
+		virtual bool drawNumber(QString txt, int x, int y, QPainter p); //Р РёСЃСѓРµС‚ С†РёС„СЂС‹ РЅР° Р»РёРЅРµР№РєРµ
 		virtual void paintEvent( QPaintEvent * event );
 		virtual void mousePressEvent( QMouseEvent *event );
 		virtual void mouseMoveEvent( QMouseEvent * event );

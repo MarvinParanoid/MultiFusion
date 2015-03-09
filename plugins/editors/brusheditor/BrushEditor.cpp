@@ -1,3 +1,3 @@
-#include "brusheditor.h"
+﻿#include "brusheditor.h"
 
 EXPORT_PLUGIN( BrushEditor, BrushEditorInterface )

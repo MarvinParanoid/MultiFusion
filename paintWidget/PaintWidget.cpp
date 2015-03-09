@@ -1,4 +1,4 @@
-#include "PaintWidget.h"
+п»ї#include "PaintWidget.h"
 
 #include <QDialog>
 #include <QDialogButtonBox>
@@ -22,7 +22,7 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 
     manager->addPlugins(this, "PaintWidget");
 
-    // добавление линеек
+    // РґРѕР±Р°РІР»РµРЅРёРµ Р»РёРЅРµРµРє
     setViewportMargins(RULER_BREADTH,RULER_BREADTH,0,0);
     QGridLayout* gridLayout = new QGridLayout();
     gridLayout->setSpacing(0);
@@ -361,7 +361,7 @@ int PaintWidget::getPositionFrame(int i)
 }
 
 /**
-*  Перемещает фигуру между слоями и внутри слоя по уровням
+*  РџРµСЂРµРјРµС‰Р°РµС‚ С„РёРіСѓСЂСѓ РјРµР¶РґСѓ СЃР»РѕСЏРјРё Рё РІРЅСѓС‚СЂРё СЃР»РѕСЏ РїРѕ СѓСЂРѕРІРЅСЏРј
 */
 void PaintWidget::moveFigure( int layerOld, int objOld, int layerNew, int objNew )
 {
@@ -374,7 +374,7 @@ void PaintWidget::moveFigure( int layerOld, int objOld, int layerNew, int objNew
 }
 
 /**
-*  Перемещает слой по уровням
+*  РџРµСЂРµРјРµС‰Р°РµС‚ СЃР»РѕР№ РїРѕ СѓСЂРѕРІРЅСЏРј
 */
 void PaintWidget::moveLayer(int layerOld, int layerNew)
 {
@@ -966,12 +966,12 @@ void PaintWidget::setViewportColor( const QColor &c )
 	update();
 }
 
-void PaintWidget::setContextMenu(QMenu *qMenu)//задание контектстного меню
+void PaintWidget::setContextMenu(QMenu *qMenu)//Р·Р°РґР°РЅРёРµ РєРѕРЅС‚РµРєС‚СЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 {
 	painter.setContextMenu(qMenu);
 }
 
-QMenu* PaintWidget::getContextMenu()//получение контектстного меню
+QMenu* PaintWidget::getContextMenu()//РїРѕР»СѓС‡РµРЅРёРµ РєРѕРЅС‚РµРєС‚СЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 {
 	return painter.getContextMenu();
 }

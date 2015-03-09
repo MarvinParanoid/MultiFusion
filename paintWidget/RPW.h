@@ -1,4 +1,4 @@
-// область для рисования
+п»ї// РѕР±Р»Р°СЃС‚СЊ РґР»СЏ СЂРёСЃРѕРІР°РЅРёСЏ
 
 #ifndef RPW_H
 #define RPW_H
@@ -43,13 +43,13 @@ class RealPaintWidget:public RPWInterface
         void mouseMoveEvent(int x, int y);
 
 		/**
-		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
-		 * @param event имя события
+		 * РћС‚РїСЂР°РІР»СЏРµС‚СЃСЏ РїРѕСЃР»Рµ РІС‹РїРѕР»РЅРµРЅРёСЏ СЃРѕР±С‹С‚РёСЏ, РєРѕС‚РѕСЂРѕРµ РЅР°Рј РЅСѓР¶РЅРѕ СЃРѕС…СЂР°РЅРёС‚СЊ РІ РёСЃС‚РѕСЂРёРё
+		 * @param event РёРјСЏ СЃРѕР±С‹С‚РёСЏ
 		 */
 		void StateChanged(QString event);
 
 		/**
-		 * Вызывается, когда в позиции таймлайна нет кадра
+		 * Р’С‹Р·С‹РІР°РµС‚СЃСЏ, РєРѕРіРґР° РІ РїРѕР·РёС†РёРё С‚Р°Р№РјР»Р°Р№РЅР° РЅРµС‚ РєР°РґСЂР°
 		 */
 		void isFrame(bool value);
 	public:
@@ -68,13 +68,13 @@ class RealPaintWidget:public RPWInterface
 		//virtual void paintWholeFrameTo( QPainter &to, const QRect &r, qreal frame );
 
 		/**
-		* Задание контектстного меню
+		* Р—Р°РґР°РЅРёРµ РєРѕРЅС‚РµРєС‚СЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 		* @param qMenu
 		*/
         virtual void setContextMenu(QMenu *qMenu);
 
 		/**
-		* Получение контектстного меню
+		* РџРѕР»СѓС‡РµРЅРёРµ РєРѕРЅС‚РµРєС‚СЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 		* @return
 		*/
         virtual QMenu* getContextMenu();
@@ -91,7 +91,7 @@ class RealPaintWidget:public RPWInterface
 
 		virtual void setSize(QSize sz);
 
-		/** Получение объекта для работы с выделением - класс GSelectionRect
+		/** РџРѕР»СѓС‡РµРЅРёРµ РѕР±СЉРµРєС‚Р° РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РІС‹РґРµР»РµРЅРёРµРј - РєР»Р°СЃСЃ GSelectionRect
 		*
 		* @return
 		*/
@@ -133,18 +133,18 @@ class RealPaintWidget:public RPWInterface
 
 	public slots:
 		/**
-		* Появление окна с характеристиками объекта
+		* РџРѕСЏРІР»РµРЅРёРµ РѕРєРЅР° СЃ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєР°РјРё РѕР±СЉРµРєС‚Р°
 		*/
 		virtual void onPropertiesObj();
 		/**
-		* Изменение прозрачности объекта
+		* РР·РјРµРЅРµРЅРёРµ РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚Рё РѕР±СЉРµРєС‚Р°
 		* @param _alpha
 		*/
 		virtual void alphaChanged(int _alpha);
 
 
 	private:
-        QMenu* paintConMenu; // контекстное меню для области рисования.
+        QMenu* paintConMenu; // РєРѕРЅС‚РµРєСЃС‚РЅРѕРµ РјРµРЅСЋ РґР»СЏ РѕР±Р»Р°СЃС‚Рё СЂРёСЃРѕРІР°РЅРёСЏ.
 		QAction *propertiesAct;
 		QObject *background;
 		bool fixedSize;

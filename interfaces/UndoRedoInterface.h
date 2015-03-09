@@ -1,4 +1,4 @@
-/**
+п»ї/**
  * UndoRedoInterface.h
  *
  *  Created on: 13.06.2009
@@ -13,26 +13,26 @@ class UndoRedoInterface
 	public:
 
 		/**
-		*	Конструктор.
+		*	РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ.
 		*/
 		UndoRedoInterface(){}
 
 		/**
-		*	Деструктор.
+		*	Р”РµСЃС‚СЂСѓРєС‚РѕСЂ.
 		*/
 		virtual ~UndoRedoInterface(){}
 };
 
 /**
- * Декларация интерфейса
+ * Р”РµРєР»Р°СЂР°С†РёСЏ РёРЅС‚РµСЂС„РµР№СЃР°
  */
 Q_DECLARE_INTERFACE( UndoRedoInterface, "com.alxn1.MultiFusion.TimelineInterface/1.0" )
 
 
 /**
-*	Приводит указатель на любой обьект к указателью на интерфейс TimelineInterface.
+*	РџСЂРёРІРѕРґРёС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° Р»СЋР±РѕР№ РѕР±СЊРµРєС‚ Рє СѓРєР°Р·Р°С‚РµР»СЊСЋ РЅР° РёРЅС‚РµСЂС„РµР№СЃ TimelineInterface.
 *
-*	@return Приведённый указатель или 0, если произошла ошибка.
+*	@return РџСЂРёРІРµРґС‘РЅРЅС‹Р№ СѓРєР°Р·Р°С‚РµР»СЊ РёР»Рё 0, РµСЃР»Рё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°.
 */
 template < class T > inline UndoRedoInterface* UNDOREDO( T *o )
 {

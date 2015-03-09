@@ -1,4 +1,4 @@
-#ifndef __COLOR_EDITOR_H__
+﻿#ifndef __COLOR_EDITOR_H__
 #define __COLOR_EDITOR_H__
 
 #include <QWidget>

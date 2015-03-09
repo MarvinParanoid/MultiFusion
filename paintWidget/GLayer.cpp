@@ -1,4 +1,4 @@
-/**
+﻿/**
 * GLayer.cpp
 *
 *  Created on: 08.06.2009

@@ -1,4 +1,4 @@
-#include "roundquad.h"
+﻿#include "roundquad.h"
 
 bool D_RoundQuad::resourcesInited = false;
 

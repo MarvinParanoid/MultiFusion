@@ -1,31 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.0" language="ru_RU">
 <context>
     <name>ToolBox</name>
     <message>
         <source>Tools</source>
-        <translation>Инструменты</translation>
+        <translation>РРЅСЃС‚СЂСѓРјРµРЅС‚С‹</translation>
     </message>
     <message>
         <source>Selection</source>
-        <translation>Выделение</translation>
+        <translation>Р’С‹РґРµР»РµРЅРёРµ</translation>
     </message>
     <message>
         <source>Add or delete point</source>
-        <translation>Добавить или удалить точку</translation>
+        <translation>Р”РѕР±Р°РІРёС‚СЊ РёР»Рё СѓРґР°Р»РёС‚СЊ С‚РѕС‡РєСѓ</translation>
     </message>
     <message>
         <source>Zoom in frame</source>
-        <translation>Увеличить кадр</translation>
+        <translation>РЈРІРµР»РёС‡РёС‚СЊ РєР°РґСЂ</translation>
     </message>
     <message>
         <source>Zoom out frame</source>
-        <translation>Уменьшить кадр</translation>
+        <translation>РЈРјРµРЅСЊС€РёС‚СЊ РєР°РґСЂ</translation>
     </message>
     <message>
         <source>Figure is closed</source>
-        <translation>Фигура замкнута</translation>
+        <translation>Р¤РёРіСѓСЂР° Р·Р°РјРєРЅСѓС‚Р°</translation>
     </message>
 </context>
 </TS>

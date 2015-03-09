@@ -1,4 +1,4 @@
-<ui version="4.0" >
+﻿<ui version="4.0" >
  <class>Form</class>
  <widget class="QWidget" name="Form" >
   <property name="geometry" >

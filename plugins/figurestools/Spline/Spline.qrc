@@ -1,4 +1,4 @@
-<RCC>
+﻿<RCC>
     <qresource prefix="/spline" >
         <file>images/spline.png</file>
     </qresource>

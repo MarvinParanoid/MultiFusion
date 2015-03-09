@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * savesvg.h
  *
  *  Created on: 4.11.2009
@@ -45,10 +45,8 @@ class SaveSVG: public SaveSVGInterface, public InterfacePlugin
 		double fps;
 
 	public slots:
-		void ShowWindow(){
-			QTextCodec::setCodecForCStrings( QTextCodec::codecForName("cp-1251") );
-			QString header = "İêñïîğòèğîâàòü â SVG...";
-			QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+		void ShowWindow(){        
+            QString header = "Ğ­ĞºÑĞ¿Ğ¾Ñ€Ñ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ Ğ² SVG...";
 			QString fileName = QFileDialog::getSaveFileName( this,
 					header,
 					lastTo,
@@ -64,13 +62,9 @@ class SaveSVG: public SaveSVGInterface, public InterfacePlugin
 				lastTo += ".svg";
 
 			if (SaveFile(lastTo)) {
-				QTextCodec::setCodecForCStrings( QTextCodec::codecForName("cp-1251") );
-				QMessageBox::information( 0, "SVG", "Àíèìàöèÿ óñïåøíî ñîõğàíåíà." );
-				QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+				QMessageBox::information( 0, "SVG", "ĞĞ½Ğ¸Ğ¼Ğ°Ñ†Ğ¸Ñ ÑƒÑĞ¿ĞµÑˆĞ½Ğ¾ ÑĞ¾Ñ…Ñ€Ğ°Ğ½ĞµĞ½Ğ°." );
 			} else {
-				QTextCodec::setCodecForCStrings( QTextCodec::codecForName("cp-1251") );
-				QMessageBox::information( 0, "Îøèáêà!", "Íåâîçìîæíî ñîõğàíèòü àíèìàöèş." );
-				QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+				QMessageBox::information( 0, "ĞÑˆĞ¸Ğ±ĞºĞ°!", "ĞĞµĞ²Ğ¾Ğ·Ğ¼Ğ¾Ğ¶Ğ½Ğ¾ ÑĞ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒ Ğ°Ğ½Ğ¸Ğ¼Ğ°Ñ†Ğ¸Ñ." );
 			}
 		};
 
@@ -182,8 +176,7 @@ class SaveSVG: public SaveSVGInterface, public InterfacePlugin
 				if(mainWin!=0)
 				{
 					QMenu* fileMenu = mainWin->getFileMenu();
-					QTextCodec::setCodecForCStrings( QTextCodec::codecForName("cp-1251") );
-					QAction* Export = fileMenu->addAction( "İêñïîğòèğîâàòü â SVG..." );
+					QAction* Export = fileMenu->addAction( "Ğ­ĞºÑĞ¿Ğ¾Ñ€Ñ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ Ğ² SVG..." );
 					Export->setShortcut( tr( "Ctrl+E" ) );
 					Export->setEnabled(true);
 

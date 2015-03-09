@@ -1,4 +1,4 @@
-#ifndef __SPLINE_H__
+﻿#ifndef __SPLINE_H__
 #define __SPLINE_H__
 
 #include <QHBoxLayout>

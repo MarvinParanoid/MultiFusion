@@ -1,3 +1,3 @@
-#include "BrushBox.h"
+﻿#include "BrushBox.h"
 
 EXPORT_PLUGIN( BrushBox, BrushBoxInterface )

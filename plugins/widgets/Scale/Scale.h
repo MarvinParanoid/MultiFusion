@@ -1,4 +1,4 @@
-#ifndef __SCALE_H__
+﻿#ifndef __SCALE_H__
 #define __SCALE_H__
 
 #include <QWidget>

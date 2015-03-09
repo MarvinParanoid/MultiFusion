@@ -1,7 +1,7 @@
-// Demidov Alexey 8.03.14
-// Класс, реализующий линейку
+п»ї// Demidov Alexey 8.03.14
+// РљР»Р°СЃСЃ, СЂРµР°Р»РёР·СѓСЋС‰РёР№ Р»РёРЅРµР№РєСѓ
 
-/* Добавление линеек в виджет
+/* Р”РѕР±Р°РІР»РµРЅРёРµ Р»РёРЅРµРµРє РІ РІРёРґР¶РµС‚
     setViewportMargins(RULER_BREADTH,RULER_BREADTH,0,0);
     QGridLayout* gridLayout = new QGridLayout();
     gridLayout->setSpacing(0);
@@ -22,7 +22,7 @@
 #ifndef QDRULER_H
 #define QDRULER_H
 
-// ширина линейки
+// С€РёСЂРёРЅР° Р»РёРЅРµР№РєРё
 #define RULER_BREADTH 20
 
 #include <QFont>

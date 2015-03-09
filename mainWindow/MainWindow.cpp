@@ -1,4 +1,4 @@
-#include <QtGui>
+ï»¿#include <QtGui>
 #include "MainWindow.h"
 #include "../pluginTool/PluginDialog.h"
 
@@ -296,7 +296,7 @@ void mainWindow::onOpenFile()
 	}
 
 	QDataStream s( &file );
-	//s.setVersion( QDataStream::Qt_4_5 ); // Äëÿ ñîâìåñòèìîñòè ñ áóäóþùèìè âåðñèìè Qt
+	//s.setVersion( QDataStream::Qt_4_5 ); // Ð”Ð»Ñ ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼Ð¾ÑÑ‚Ð¸ Ñ Ð±ÑƒÐ´ÑƒÑŽÑ‰Ð¸Ð¼Ð¸ Ð²ÐµÑ€ÑÐ¸Ð¼Ð¸ Qt
 	if( !painter->load( s ) )
 	{
 		QMessageBox::critical( this,
@@ -330,7 +330,7 @@ void mainWindow::onSaveFile()
 	}
 
 	QDataStream s( &file );
-	//s.setVersion( QDataStream::Qt_4_5 ); // Äëÿ ñîâìåñòèìîñòè ñ áóäóþùèìè âåðñèìè Qt
+	//s.setVersion( QDataStream::Qt_4_5 ); // Ð”Ð»Ñ ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼Ð¾ÑÑ‚Ð¸ Ñ Ð±ÑƒÐ´ÑƒÑŽÑ‰Ð¸Ð¼Ð¸ Ð²ÐµÑ€ÑÐ¸Ð¼Ð¸ Qt
 	painter->save( s );
 }
 
@@ -358,7 +358,7 @@ void mainWindow::onSaveFileAs()
 	}
 
 	QDataStream s( &file );
-	//s.setVersion( QDataStream::Qt_4_5 ); // Äëÿ ñîâìåñòèìîñòè ñ áóäóþùèìè âåðñèìè Qt
+	//s.setVersion( QDataStream::Qt_4_5 ); // Ð”Ð»Ñ ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼Ð¾ÑÑ‚Ð¸ Ñ Ð±ÑƒÐ´ÑƒÑŽÑ‰Ð¸Ð¼Ð¸ Ð²ÐµÑ€ÑÐ¸Ð¼Ð¸ Qt
 	painter->save( s );
 	lastSavedFile = fileName;
 	setWindowTitle( QString( APP_NAME ) + tr( ":" ) + lastSavedFile );

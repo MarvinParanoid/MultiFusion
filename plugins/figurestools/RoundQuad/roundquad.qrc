@@ -1,4 +1,4 @@
-<RCC>
+﻿<RCC>
     <qresource prefix="/roundquad" >
         <file>images/roundquad.png</file>
     </qresource>

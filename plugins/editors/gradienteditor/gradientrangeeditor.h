@@ -1,4 +1,4 @@
-#ifndef __GRADIENT_RANGE_EDITOR__
+﻿#ifndef __GRADIENT_RANGE_EDITOR__
 #define __GRADIENT_RANGE_EDITOR__
 
 #include <QWidget>

@@ -1,4 +1,4 @@
-#ifndef __QUAD_H__
+﻿#ifndef __QUAD_H__
 #define __QUAD_H__
 
 #include <QHBoxLayout>

@@ -1,4 +1,4 @@
-#ifndef BrushEditor_H
+﻿#ifndef BrushEditor_H
 #define BrushEditor_H
 
 #include <QObject>

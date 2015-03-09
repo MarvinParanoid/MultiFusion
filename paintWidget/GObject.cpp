@@ -1,4 +1,4 @@
-#include "GObject.h"
+﻿#include "GObject.h"
 #include "GContainer.h"
 #include "GVectorFigure.h"
 #include "../PluginTool/Plugin.h"

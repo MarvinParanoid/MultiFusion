@@ -1,4 +1,4 @@
-#include "polygon.h"
+﻿#include "polygon.h"
 
 bool F_Polygon::resourcesInited = false;
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * SignalHolder.h
  *
  *  Created on: 10.05.2010

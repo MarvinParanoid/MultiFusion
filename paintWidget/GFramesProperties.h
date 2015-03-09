@@ -1,4 +1,4 @@
-#ifndef __GFRAMES_PROPERTIES_H__
+﻿#ifndef __GFRAMES_PROPERTIES_H__
 #define __GFRAMES_PROPERTIES_H__
 
 #include <QDataStream>

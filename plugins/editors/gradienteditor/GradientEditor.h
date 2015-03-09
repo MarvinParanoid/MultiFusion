@@ -1,4 +1,4 @@
-#ifndef __GRADIENT_EDITOR_H__
+﻿#ifndef __GRADIENT_EDITOR_H__
 #define __GRADIENT_EDITOR_H__
 
 #include <QWidget>

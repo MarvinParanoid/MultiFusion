@@ -1,4 +1,4 @@
-#ifndef __GRADIENT_STOPS_EDITOR_H__
+﻿#ifndef __GRADIENT_STOPS_EDITOR_H__
 #define __GRADIENT_STOPS_EDITOR_H__
 
 #include <QImage>

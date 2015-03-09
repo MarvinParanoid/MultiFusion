@@ -1,4 +1,4 @@
-#ifndef __PEN_EDITOR_H__
+﻿#ifndef __PEN_EDITOR_H__
 #define __PEN_EDITOR_H__
 
 #include <QPen>

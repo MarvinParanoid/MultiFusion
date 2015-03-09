@@ -1,4 +1,4 @@
-#ifndef __LAYERS_EDITOR_H__
+п»ї#ifndef __LAYERS_EDITOR_H__
 #define __LAYERS_EDITOR_H__
 
 #include <QInputDialog>
@@ -214,10 +214,10 @@ class ItemMenu:public QFrame
 
 		QFrame visibleFrame;
 		QFrame blockedFrame;
-		LineEditor ItemName;	//имя элемента
-		bool visible; 		//видимость элемента
-		bool blocked; 	 	//блокировка элемента
-		bool transformed;	//трансформирование элемента
+		LineEditor ItemName;	//РёРјСЏ СЌР»РµРјРµРЅС‚Р°
+		bool visible; 		//РІРёРґРёРјРѕСЃС‚СЊ СЌР»РµРјРµРЅС‚Р°
+		bool blocked; 	 	//Р±Р»РѕРєРёСЂРѕРІРєР° СЌР»РµРјРµРЅС‚Р°
+		bool transformed;	//С‚СЂР°РЅСЃС„РѕСЂРјРёСЂРѕРІР°РЅРёРµ СЌР»РµРјРµРЅС‚Р°
 		QString type;
 		int layer;
 		int object;
@@ -629,7 +629,7 @@ class LayersView:public QWidget
 			}
 		}
 
-		virtual QFrame* addPlaceDrag(const QString &type, int layer, int obj)//место для вставки виджета
+		virtual QFrame* addPlaceDrag(const QString &type, int layer, int obj)//РјРµСЃС‚Рѕ РґР»СЏ РІСЃС‚Р°РІРєРё РІРёРґР¶РµС‚Р°
 		{
 			PlaceDrag* place = new PlaceDrag(this, layer, obj, type);
 			mainVLayout.addWidget(place);
@@ -1007,7 +1007,7 @@ class LayersView:public QWidget
 		QVector <PlaceDrag*> placesDrag;
 		QVBoxLayout mainVLayout;
 
-		int selLayers; //Текущий слой и текущая фигура
+		int selLayers; //РўРµРєСѓС‰РёР№ СЃР»РѕР№ Рё С‚РµРєСѓС‰Р°СЏ С„РёРіСѓСЂР°
 		int selFigure;
 
 		QColor SelectedFigure;

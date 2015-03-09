@@ -1,4 +1,4 @@
-#ifndef ToolButtonInterface_H
+﻿#ifndef ToolButtonInterface_H
 #define ToolButtonInterface_H
 
 #include <QToolButton>

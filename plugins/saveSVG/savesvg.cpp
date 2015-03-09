@@ -1,3 +1,3 @@
-#include "savesvg.h"
+﻿#include "savesvg.h"
 
 EXPORT_QOBJECT_PLUGIN( SaveSVG )

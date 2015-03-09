@@ -1,4 +1,4 @@
-
+п»ї
 #include "RPW.h"
 #include "GPropertiesObj.h"
 #include "UndoStructure.h"
@@ -9,7 +9,7 @@
 *		RealPaintWidget class implementation
 */
 
-void RealPaintWidget::setContextMenu(QMenu *qMenu)//задание контектстного меню
+void RealPaintWidget::setContextMenu(QMenu *qMenu)//Р·Р°РґР°РЅРёРµ РєРѕРЅС‚РµРєС‚СЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 {
 	paintConMenu = qMenu;
 }
@@ -51,7 +51,7 @@ void RealPaintWidget::setFromUndo(QObject* undo)
 	emit undoEvents();
 }
 
-QMenu* RealPaintWidget::getContextMenu()//получение контектстного меню
+QMenu* RealPaintWidget::getContextMenu()//РїРѕР»СѓС‡РµРЅРёРµ РєРѕРЅС‚РµРєС‚СЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 {
 	return paintConMenu;
 }

@@ -1,4 +1,4 @@
-#ifndef MAINWINDOWINTERFACE_H_
+п»ї#ifndef MAINWINDOWINTERFACE_H_
 #define MAINWINDOWINTERFACE_H_
 
 #include <QMainWindow>
@@ -9,8 +9,8 @@ class MainWindowInterface :public QMainWindow
 {
 	signals:
 		 /**
-		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
-		 * @param event имя события
+		 * РћС‚РїСЂР°РІР»СЏРµС‚СЃСЏ РїРѕСЃР»Рµ РІС‹РїРѕР»РЅРµРЅРёСЏ СЃРѕР±С‹С‚РёСЏ, РєРѕС‚РѕСЂРѕРµ РЅР°Рј РЅСѓР¶РЅРѕ СЃРѕС…СЂР°РЅРёС‚СЊ РІ РёСЃС‚РѕСЂРёРё
+		 * @param event РёРјСЏ СЃРѕР±С‹С‚РёСЏ
 		 */
 		void StateChanged(QString event);
 	public:

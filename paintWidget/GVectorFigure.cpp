@@ -1,4 +1,4 @@
-#include <QMessageBox>
+﻿#include <QMessageBox>
 #include "BrushEditorInterface.h"
 #include "GVectorFigure.h"
 #include "../PluginTool/Plugin.h"

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * UndoStructure.h
  *
  *  Created on: 13.06.2009

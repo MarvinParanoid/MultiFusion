@@ -1,4 +1,4 @@
-/**
+﻿/**
 * PWEInterface.h
 *
 *  Created on: 23.04.2009

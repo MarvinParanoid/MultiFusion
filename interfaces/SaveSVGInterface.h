@@ -1,4 +1,4 @@
-/*
+п»ї/*
  * SaveSVGInterface.h
  *
  *  Created on: 04.11.2009
@@ -13,12 +13,12 @@ class SaveSVGInterface: public QWidget
 	public:
 
 		/**
-		*	Конструктор.
+		*	РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ.
 		*/
 		SaveSVGInterface(){}
 
 		/**
-		*	Деструктор.
+		*	Р”РµСЃС‚СЂСѓРєС‚РѕСЂ.
 		*/
 		virtual ~SaveSVGInterface(){}
 
@@ -26,15 +26,15 @@ class SaveSVGInterface: public QWidget
 };
 
 /**
- * Декларация интерфейса
+ * Р”РµРєР»Р°СЂР°С†РёСЏ РёРЅС‚РµСЂС„РµР№СЃР°
  */
 Q_DECLARE_INTERFACE( SaveSVGInterface, "ifmo.lothe.SaveSVGInterface/1.0" )
 
 
 /**
-*	Приводит указатель на любой обьект к указателью на интерфейс SaveSVGInterface.
+*	РџСЂРёРІРѕРґРёС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° Р»СЋР±РѕР№ РѕР±СЊРµРєС‚ Рє СѓРєР°Р·Р°С‚РµР»СЊСЋ РЅР° РёРЅС‚РµСЂС„РµР№СЃ SaveSVGInterface.
 *
-*	@return Приведённый указатель или 0, если произошла ошибка.
+*	@return РџСЂРёРІРµРґС‘РЅРЅС‹Р№ СѓРєР°Р·Р°С‚РµР»СЊ РёР»Рё 0, РµСЃР»Рё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°.
 */
 template < class T > inline SaveSVGInterface* SAVESVG( T *o )
 {

@@ -1,4 +1,4 @@
-#include "GradientEditor.h"
+﻿#include "GradientEditor.h"
 
 void GradientEditor::createPlugin(QObject *parent, QString idParent,plugin::PluginsManager *manager)
 {

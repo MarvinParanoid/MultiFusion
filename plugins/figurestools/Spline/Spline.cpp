@@ -1,4 +1,4 @@
-#include "spline.h"
+﻿#include "spline.h"
 
 bool H_Spline::resourcesInited = false;
 

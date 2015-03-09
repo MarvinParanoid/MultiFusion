@@ -1,4 +1,4 @@
-#ifndef GLAYER__H
+﻿#ifndef GLAYER__H
 #define GLAYER__H
 
 #include "GObject.h"

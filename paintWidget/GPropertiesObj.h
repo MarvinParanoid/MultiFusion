@@ -1,4 +1,4 @@
-#ifndef GPROPERTIESOBJ_H_
+﻿#ifndef GPROPERTIESOBJ_H_
 #define GPROPERTIESOBJ_H_
 
 #include <QLayout>

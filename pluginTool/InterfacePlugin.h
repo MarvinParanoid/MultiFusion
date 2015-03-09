@@ -1,4 +1,4 @@
-#ifndef INTERFACEPLUGIN_H_
+﻿#ifndef INTERFACEPLUGIN_H_
 #define INTERFACEPLUGIN_H_
 
 #include "Plugin.h"

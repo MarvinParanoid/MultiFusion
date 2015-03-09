@@ -1,4 +1,4 @@
-#ifndef __ALIGNANDDISTRIBUTE_H__
+﻿#ifndef __ALIGNANDDISTRIBUTE_H__
 #define __ALIGNANDDISTRIBUTE_H__
 
 #include <QDockWidget>

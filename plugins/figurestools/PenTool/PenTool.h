@@ -1,4 +1,4 @@
-#ifndef __PEN_H__
+﻿#ifndef __PEN_H__
 #define __PEN_H__
 
 #include <QHBoxLayout>

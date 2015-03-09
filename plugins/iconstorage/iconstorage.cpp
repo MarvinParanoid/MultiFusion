@@ -1,4 +1,4 @@
-#include "iconstorage.h"
+﻿#include "iconstorage.h"
 
 bool IconStorage::resourcesInited = false;
 
