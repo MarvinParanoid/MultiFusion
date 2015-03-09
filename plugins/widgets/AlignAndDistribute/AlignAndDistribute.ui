@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>261</width>
-    <height>274</height>
+    <height>264</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,13 +16,13 @@
   </property>
   <layout class="QVBoxLayout">
    <property name="spacing">
-    <number>6</number>
+    <number>3</number>
    </property>
    <property name="margin">
-    <number>9</number>
+    <number>3</number>
    </property>
    <item>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="AlignGroupBox">
      <property name="title">
       <string>Align</string>
      </property>
@@ -30,13 +30,16 @@
       <property name="spacing">
        <number>3</number>
       </property>
+      <property name="margin">
+       <number>3</number>
+      </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
+       <layout class="QHBoxLayout" name="AlignHorizontalLayout_1">
         <property name="spacing">
          <number>0</number>
         </property>
         <item>
-         <widget class="QToolButton" name="toolButton">
+         <widget class="QToolButton" name="AlignButton_01">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -65,7 +68,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_2">
+         <widget class="QToolButton" name="AlignButton_02">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -94,7 +97,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_3">
+         <widget class="QToolButton" name="AlignButton_03">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -123,7 +126,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_4">
+         <widget class="QToolButton" name="AlignButton_04">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -152,7 +155,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_5">
+         <widget class="QToolButton" name="AlignButton_05">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -181,7 +184,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer">
+         <spacer name="AlignHorizontalSpacer_1">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -199,12 +202,12 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="AlignHorizontalLayout_2">
         <property name="spacing">
          <number>0</number>
         </property>
         <item>
-         <widget class="QToolButton" name="toolButton_6">
+         <widget class="QToolButton" name="AlignButton_06">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -233,7 +236,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_7">
+         <widget class="QToolButton" name="AlignButton_07">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -262,7 +265,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_8">
+         <widget class="QToolButton" name="AlignButton_08">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -291,7 +294,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_9">
+         <widget class="QToolButton" name="AlignButton_09">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -320,7 +323,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_10">
+         <widget class="QToolButton" name="AlignButton_10">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -349,7 +352,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_2">
+         <spacer name="AlignHorizontalSpacer_2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -367,7 +370,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_2">
+    <widget class="QGroupBox" name="DistributeGroupBox">
      <property name="title">
       <string>Distribute</string>
      </property>
@@ -375,13 +378,16 @@
       <property name="spacing">
        <number>3</number>
       </property>
+      <property name="margin">
+       <number>3</number>
+      </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <layout class="QHBoxLayout" name="DistributeHorizontalLayout_4">
         <property name="spacing">
          <number>0</number>
         </property>
         <item>
-         <widget class="QToolButton" name="toolButton_11">
+         <widget class="QToolButton" name="DistributeButton_1">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -410,7 +416,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_12">
+         <widget class="QToolButton" name="DistributeButton_2">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -439,7 +445,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_13">
+         <widget class="QToolButton" name="DistributeButton_3">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -468,7 +474,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_14">
+         <widget class="QToolButton" name="DistributeButton_4">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -497,7 +503,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_5">
+         <spacer name="DistributeHorizontalSpacer_1">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -512,12 +518,12 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <layout class="QHBoxLayout" name="DistributeHorizontalLayout_3">
         <property name="spacing">
          <number>0</number>
         </property>
         <item>
-         <widget class="QToolButton" name="toolButton_15">
+         <widget class="QToolButton" name="DistributeButton_5">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -546,7 +552,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_16">
+         <widget class="QToolButton" name="DistributeButton_6">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -575,7 +581,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_17">
+         <widget class="QToolButton" name="DistributeButton_7">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -604,7 +610,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="toolButton_18">
+         <widget class="QToolButton" name="DistributeButton_8">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -633,7 +639,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_7">
+         <spacer name="DistributeHorizontalSpacer_2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -666,24 +672,24 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>toolButton</tabstop>
-  <tabstop>toolButton_2</tabstop>
-  <tabstop>toolButton_3</tabstop>
-  <tabstop>toolButton_4</tabstop>
-  <tabstop>toolButton_5</tabstop>
-  <tabstop>toolButton_6</tabstop>
-  <tabstop>toolButton_7</tabstop>
-  <tabstop>toolButton_8</tabstop>
-  <tabstop>toolButton_9</tabstop>
-  <tabstop>toolButton_10</tabstop>
-  <tabstop>toolButton_11</tabstop>
-  <tabstop>toolButton_12</tabstop>
-  <tabstop>toolButton_13</tabstop>
-  <tabstop>toolButton_14</tabstop>
-  <tabstop>toolButton_15</tabstop>
-  <tabstop>toolButton_16</tabstop>
-  <tabstop>toolButton_17</tabstop>
-  <tabstop>toolButton_18</tabstop>
+  <tabstop>AlignButton_01</tabstop>
+  <tabstop>AlignButton_02</tabstop>
+  <tabstop>AlignButton_03</tabstop>
+  <tabstop>AlignButton_04</tabstop>
+  <tabstop>AlignButton_05</tabstop>
+  <tabstop>AlignButton_06</tabstop>
+  <tabstop>AlignButton_07</tabstop>
+  <tabstop>AlignButton_08</tabstop>
+  <tabstop>AlignButton_09</tabstop>
+  <tabstop>AlignButton_10</tabstop>
+  <tabstop>DistributeButton_1</tabstop>
+  <tabstop>DistributeButton_2</tabstop>
+  <tabstop>DistributeButton_3</tabstop>
+  <tabstop>DistributeButton_4</tabstop>
+  <tabstop>DistributeButton_5</tabstop>
+  <tabstop>DistributeButton_6</tabstop>
+  <tabstop>DistributeButton_7</tabstop>
+  <tabstop>DistributeButton_8</tabstop>
  </tabstops>
  <resources>
   <include location="AlignAndDistribute.qrc"/>

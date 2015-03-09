@@ -7,13 +7,6 @@
         </Widgets>
     </plugin>
     <plugin included="true">
-        <Id>AlignAndDistribute</Id>
-        <path>./plugins/AlignAndDistribute/</path>
-        <Widgets>
-            <Widget>Main</Widget>
-        </Widgets>
-    </plugin>
-    <plugin included="true">
         <Id>ToolBox</Id>
         <path>./plugins/ToolBox/</path>
         <Widgets>
@@ -148,6 +141,13 @@
     <plugin included="true">
         <Id>LayersEditor</Id>
         <path>./plugins/LayersEditor/</path>
+        <Widgets>
+            <Widget>Main</Widget>
+        </Widgets>
+    </plugin>
+    <plugin included="true">
+        <Id>AlignAndDistribute</Id>
+        <path>./plugins/AlignAndDistribute/</path>
         <Widgets>
             <Widget>Main</Widget>
         </Widgets>
