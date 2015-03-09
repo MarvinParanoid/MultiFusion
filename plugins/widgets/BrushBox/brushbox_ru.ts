@@ -6,12 +6,12 @@
     <message>
         <location filename="BrushBox.h" line="94"/>
         <source>Current brush</source>
-        <translation>РўРµРєСѓС‰Р°СЏ РєРёСЃС‚СЊ</translation>
+        <translation>Текущая кисть</translation>
     </message>
     <message>
         <location filename="BrushBox.h" line="184"/>
         <source>Selection of brush</source>
-        <translation>Р’С‹Р±РѕСЂ РєРёСЃС‚Рё</translation>
+        <translation>Выбор кисти</translation>
     </message>
 </context>
 </TS>

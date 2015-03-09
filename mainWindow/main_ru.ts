@@ -5,11 +5,11 @@
     <name></name>
     <message>
         <source>Exit from MultiFusion.</source>
-        <translation type="obsolete">Р’С‹С…РѕРґ РёР· MultiFusion.</translation>
+        <translation type="obsolete">Выход из MultiFusion.</translation>
     </message>
     <message>
         <source>Are you shure to exit from MultiFusion?</source>
-        <translation type="obsolete">Р’С‹ С…РѕС‚РёС‚Рµ РІС‹Р№С‚Рё РёР· MultiFusion?</translation>
+        <translation type="obsolete">Вы хотите выйти из MultiFusion?</translation>
     </message>
     <message>
         <source>MultiFusion application</source>
@@ -20,204 +20,204 @@
     <name>GSelectionRect</name>
     <message>
         <source>Deleting point from layer.</source>
-        <translation>РЈРґР°Р»РµРЅРёРµ С‚РѕС‡РєРё РёР· С„РёРіСѓСЂС‹.</translation>
+        <translation>Удаление точки из фигуры.</translation>
     </message>
     <message>
         <source>Are you shure to delete this point? </source>
-        <translation>Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ СЌС‚Сѓ С‚РѕС‡РєСѓ?</translation>
+        <translation>Вы уверены что хотите удалить эту точку?</translation>
     </message>
     <message>
         <source>It delete point from all frames in animation.</source>
-        <translation>Р­С‚Рѕ СѓРґР°Р»РёС‚ С‚РѕС‡РєСѓ РёР· РІСЃРµС… РєР°РґСЂРѕРІ СЂРѕР»РёРєР°.</translation>
+        <translation>Это удалит точку из всех кадров ролика.</translation>
     </message>
 </context>
 <context>
     <name>PaintWidget</name>
     <message>
         <source>Layer </source>
-        <translation>РЎР»РѕР№</translation>
+        <translation>Слой</translation>
     </message>
     <message>
         <source>Viewport properties</source>
-        <translation>РЎРІРѕР№СЃС‚РІР° СЂРѕР»РёРєР°</translation>
+        <translation>Свойства ролика</translation>
     </message>
 </context>
 <context>
     <name>RealPaintWidget</name>
     <message>
         <source>Layer</source>
-        <translation>РЎР»РѕР№</translation>
+        <translation>Слой</translation>
     </message>
     <message>
         <source>Properties...</source>
-        <translation>РЎРІРѕР№СЃС‚РІР° ...</translation>
+        <translation>Свойства ...</translation>
     </message>
     <message>
         <source>Properties of figure</source>
-        <translation>РЎРІРѕР№СЃС‚РІР° С„РёРіСѓСЂС‹</translation>
+        <translation>Свойства фигуры</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>Р”РѕР±Р°РІРёС‚СЊ СЃР»РѕР№</translation>
+        <translation>Добавить слой</translation>
     </message>
 </context>
 <context>
     <name>mainWindow</name>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Р¤Р°Р№Р»</translation>
+        <translation>&amp;Файл</translation>
     </message>
     <message>
         <source>Main toolbar</source>
-        <translation>Р“Р»Р°РІРЅР°СЏ РїР°РЅРµР»СЊ РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ</translation>
+        <translation>Главная панель инструментов</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;РџСЂР°РІРєР°</translation>
+        <translation>&amp;Правка</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation>&amp;РСЃС‚СЂСѓРјРµРЅС‚С‹</translation>
+        <translation>&amp;Иструменты</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;РЎРїСЂР°РІРєР°</translation>
+        <translation>&amp;Справка</translation>
     </message>
     <message>
         <source>&amp;Plugins...</source>
-        <translation>&amp;Р”РѕРїРѕР»РЅРµРЅРёСЏ...</translation>
+        <translation>&amp;Дополнения...</translation>
     </message>
     <message>
         <source>Show viewport properties...</source>
-        <translation>РЎРІРѕР№СЃС‚РІР° СЂРѕР»РёРєР°...</translation>
+        <translation>Свойства ролика...</translation>
     </message>
     <message>
         <source>&amp;Help...</source>
-        <translation>&amp;РЎРїСЂР°РІРєР°...</translation>
+        <translation>&amp;Справка...</translation>
     </message>
     <message>
         <source>About &amp;Qt...</source>
-        <translation>Рћ Qt...</translation>
+        <translation>О Qt...</translation>
     </message>
     <message>
         <source>&amp;About...</source>
-        <translation>&amp;Рћ РїСЂРѕРіСЂР°РјРјРјРµ...</translation>
+        <translation>&amp;О программме...</translation>
     </message>
     <message>
         <source>:Untitled</source>
-        <translation>:Р‘РµР· РёРјРµРЅРё</translation>
+        <translation>:Без имени</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation>РЎРѕР·РґР°С‚СЊ</translation>
+        <translation>Создать</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation>РћС‚РєСЂС‹С‚СЊ...</translation>
+        <translation>Открыть...</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>РЎРѕС…СЂР°РЅРёС‚СЊ</translation>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>Save &amp;as...</source>
-        <translation>РЎРѕС…СЂР°РЅРёС‚СЊ РєР°Рє...</translation>
+        <translation>Сохранить как...</translation>
     </message>
     <message>
         <source>&amp;Exit</source>
-        <translation>Р’С‹С…РѕРґ</translation>
+        <translation>Выход</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>РЈРґР°Р»РёС‚СЊ</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <source>C&amp;ut</source>
-        <translation>Р’С‹СЂРµР·Р°С‚СЊ</translation>
+        <translation>Вырезать</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>РљРѕРїРёСЂРѕРІР°С‚СЊ</translation>
+        <translation>Копировать</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation>Р’СЃС‚Р°РІРёС‚СЊ</translation>
+        <translation>Вставить</translation>
     </message>
     <message>
         <source>&amp;Group</source>
-        <translation>Р“СЂСѓРїРїРёСЂРѕРІР°С‚СЊ</translation>
+        <translation>Группировать</translation>
     </message>
     <message>
         <source>&amp;Ungroup</source>
-        <translation>Р Р°Р·РіСЂСѓРїРїРёСЂРѕРІР°С‚СЊ</translation>
+        <translation>Разгруппировать</translation>
     </message>
     <message>
         <source>Deleting selection.</source>
-        <translation type="obsolete">РЈРґР°Р»РµРЅРёРµ РІС‹РґРµР»РµРЅРЅРѕРіРѕ.</translation>
+        <translation type="obsolete">Удаление выделенного.</translation>
     </message>
     <message>
         <source>Are you shure to delete this layers?</source>
-        <translation type="obsolete">Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ СЌС‚Рё СЃР»РѕРё?</translation>
+        <translation type="obsolete">Вы уверены что хотите удалить эти слои?</translation>
     </message>
     <message>
         <source>Cut selection to clipboard.</source>
-        <translation>Р’С‹СЂРµР·Р°РЅРёРµ РІС‹РґРµР»РµРЅРЅРѕРіРѕ РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°.</translation>
+        <translation>Вырезание выделенного в буфер обмена.</translation>
     </message>
     <message>
         <source>Are you shure to cut this layers to clipboard?</source>
-        <translation>Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ РІС‹СЂРµР·Р°С‚СЊ СЌС‚Рё СЃР»РѕРё РІ Р±СѓС„РµСЂ РѕР±РјРµРЅР°?</translation>
+        <translation>Вы уверены что хотите вырезать эти слои в буфер обмена?</translation>
     </message>
     <message>
         <source>Create new animation.</source>
-        <translation>РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ СЂРѕР»РёРєР°.</translation>
+        <translation>Создание нового ролика.</translation>
     </message>
     <message>
         <source>Are you shure to create new animation?</source>
-        <translation>Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ СЃРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ СЂРѕР»РёРє?</translation>
+        <translation>Вы уверены что хотите создать новый ролик?</translation>
     </message>
     <message>
         <source>It delete loaded film, if it unsaved.</source>
-        <translation>Р­С‚Рѕ СѓРґР°Р»РёС‚ С‚РµРєСѓС‰РёР№, РµСЃР»Рё РѕРЅ РЅРµ СЃРѕС…СЂР°РЅС‘РЅ.</translation>
+        <translation>Это удалит текущий, если он не сохранён.</translation>
     </message>
     <message>
         <source>Loading animation.</source>
-        <translation>Р—Р°РіСЂСѓР·РєР° СЂРѕР»РёРєР°.</translation>
+        <translation>Загрузка ролика.</translation>
     </message>
     <message>
         <source>Are you shure to load animation?</source>
-        <translation>Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ Р·Р°РіСЂСѓР·РёС‚СЊ РЅРѕРІС‹Р№ СЂРѕР»РёРє?</translation>
+        <translation>Вы уверены что хотите загрузить новый ролик?</translation>
     </message>
     <message>
         <source>Can&apos;t open file.</source>
-        <translation>РќРµРІРѕР·РјРѕР¶РЅРѕ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р».</translation>
+        <translation>Невозможно открыть файл.</translation>
     </message>
     <message>
         <source>Can&apos;t open selected file to reading.</source>
-        <translation>РќРµРІРѕР·РјРѕР¶РЅРѕ РѕС‚РєСЂС‹С‚СЊ РІС‹Р±СЂР°РЅРЅС‹Р№ С„Р°Р№Р».</translation>
+        <translation>Невозможно открыть выбранный файл.</translation>
     </message>
     <message>
         <source>Error reading animation.</source>
-        <translation>РћС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё Р°РЅРёРјР°С†РёРё.</translation>
+        <translation>Ошибка загрузки анимации.</translation>
     </message>
     <message>
         <source>Can&apos;t open selected file to writing.</source>
-        <translation>РќРµРІРѕР·РјРѕР¶РЅРѕ РѕС‚РєСЂС‹С‚СЊ РІС‹Р±СЂР°РЅРЅС‹Р№ С„Р°Р№Р» РґР»СЏ С‡С‚РµРЅРёСЏ.</translation>
+        <translation>Невозможно открыть выбранный файл для чтения.</translation>
     </message>
     <message>
         <source>Deleting current frame.</source>
-        <translation>РЈРґР°Р»РµРЅРёРµ С‚РµРєСѓС‰РµРіРѕ РєР°РґСЂР°.</translation>
+        <translation>Удаление текущего кадра.</translation>
     </message>
     <message>
         <source>Are you shure to delete this frame?</source>
-        <translation>Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ С‚РµРєСѓС‰РёР№ РєР°РґСЂ?</translation>
+        <translation>Вы уверены что хотите удалить текущий кадр?</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>РЎРїСЂР°РІРєР°</translation>
+        <translation>Справка</translation>
     </message>
     <message>
         <source>About MultiFusion</source>
-        <translation>Рћ MultiFusion</translation>
+        <translation>О MultiFusion</translation>
     </message>
     <message>
         <source>Ctrl+N</source>
@@ -261,7 +261,7 @@
     </message>
     <message>
         <source>Open SACS2 animation</source>
-        <translation>РћС‚РєСЂС‹С‚СЊ MultiFusion Р°РЅРёРјР°С†РёСЋ</translation>
+        <translation>Открыть MultiFusion анимацию</translation>
     </message>
     <message>
         <source>SACS2 animation (*.sacs2);;All files (*)</source>
@@ -269,11 +269,11 @@
     </message>
     <message>
         <source>May be you don&apos;t have permissions?</source>
-        <translation>Р’РѕР·РјРѕР¶РЅРѕ Сѓ РІР°СЃ РЅРµС‚ РїСЂР°РІ?</translation>
+        <translation>Возможно у вас нет прав?</translation>
     </message>
     <message>
         <source>Data is corrupt or saved in unsupported format.</source>
-        <translation>Р”Р°РЅРЅС‹Рµ РїРѕРІСЂРµР¶РґРµРЅС‹ РёР»Рё СЃРѕС…СЂР°РЅРµРЅС‹ РІ РЅРµРїРѕРґРґРµСЂР¶РёРІР°РµРјРѕРј С„РѕСЂРјР°С‚Рµ.</translation>
+        <translation>Данные повреждены или сохранены в неподдерживаемом формате.</translation>
     </message>
     <message>
         <source>:</source>
@@ -281,7 +281,7 @@
     </message>
     <message>
         <source>Save SACS2 animation</source>
-        <translation>РЎРѕС…СЂР°РЅРёС‚СЊ MultiFusion Р°РЅРёРјР°С†РёСЋ</translation>
+        <translation>Сохранить MultiFusion анимацию</translation>
     </message>
     <message>
         <source>SACS2 animation (*.sacs2)</source>
@@ -289,35 +289,35 @@
     </message>
     <message>
         <source>Currently not implemented :)</source>
-        <translation>РџРѕРєР° С‡С‚Рѕ РЅРµ СЃРґРµР»Р°РЅРѕ :)</translation>
+        <translation>Пока что не сделано :)</translation>
     </message>
     <message>
         <source>To spline</source>
-        <translation>РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РІ СЃРїР»Р°Р№РЅ</translation>
+        <translation>Преобразовать в сплайн</translation>
     </message>
     <message>
         <source>Show Bezier points</source>
-        <translation>РџРѕРєР°Р·Р°С‚СЊ С‚РѕС‡РєРё Р‘РµР·СЊРµ</translation>
+        <translation>Показать точки Безье</translation>
     </message>
     <message>
         <source>To normal</source>
-        <translation>РџСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РІ РїРѕР»РёРіРѕРЅ</translation>
+        <translation>Преобразовать в полигон</translation>
     </message>
     <message>
         <source>Hide bezier points</source>
-        <translation>РЎРєСЂС‹С‚СЊ С‚РѕС‡РєРё Р‘РµР·СЊРµ</translation>
+        <translation>Скрыть точки Безье</translation>
     </message>
     <message>
         <source>Show bezier points</source>
-        <translation>РџРѕРєР°Р·Р°С‚СЊ С‚РѕС‡РєРё Р‘РµР·СЊРµ</translation>
+        <translation>Показать точки Безье</translation>
     </message>
     <message>
         <source>Exit from MultiFusion.</source>
-        <translation>Р’С‹С…РѕРґ РёР· MultiFusion.</translation>
+        <translation>Выход из MultiFusion.</translation>
     </message>
     <message>
         <source>Are you shure to exit from MultiFusion?</source>
-        <translation>Р’С‹ С…РѕС‚РёС‚Рµ РІС‹Р№С‚Рё РёР· MultiFusion?</translation>
+        <translation>Вы хотите выйти из MultiFusion?</translation>
     </message>
     <message>
         <source>&lt;CENTER&gt;&lt;B&gt;MultiFusion&lt;/B&gt; super-puper application.
@@ -329,43 +329,43 @@
     <name>viewportPropsForm</name>
     <message>
         <source>Viewport properties</source>
-        <translation>РЎРІРѕР№СЃС‚РІР° СЂРѕР»РёРєР°</translation>
+        <translation>Свойства ролика</translation>
     </message>
     <message>
         <source>Viewport background</source>
-        <translation>Р—Р°РґРЅРёР№ С„РѕРЅ</translation>
+        <translation>Задний фон</translation>
     </message>
     <message>
         <source>Window background</source>
-        <translation>Р—Р°РґРЅРёР№ С„РѕРЅ РѕРєРЅР°</translation>
+        <translation>Задний фон окна</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation>РЎС‚РёР»СЊ</translation>
+        <translation>Стиль</translation>
     </message>
     <message>
         <source>Colored background</source>
-        <translation>Р¦РІРµС‚РєРЅРѕР№ С„РѕРЅ</translation>
+        <translation>Цветкной фон</translation>
     </message>
     <message>
         <source>Transparency</source>
-        <translation>РџСЂРѕР·СЂР°С‡РЅС‹Р№ С„РѕРЅ</translation>
+        <translation>Прозрачный фон</translation>
     </message>
     <message>
         <source>Viewport style</source>
-        <translation>РЎС‚РёР»СЊ</translation>
+        <translation>Стиль</translation>
     </message>
     <message>
         <source>Size hints</source>
-        <translation>РўРѕР»СЊРєРѕ РіСЂР°РЅРёС†С‹ РІС‹Р±СЂР°РЅРЅРѕРіРѕ РѕР±СЉРµРєС‚Р°</translation>
+        <translation>Только границы выбранного объекта</translation>
     </message>
     <message>
         <source>Full window (resizable)</source>
-        <translation>Р’ СЂР°Р·РјРµСЂ РѕРєРЅР°</translation>
+        <translation>В размер окна</translation>
     </message>
     <message>
         <source>Fixed size</source>
-        <translation>Р¤РёРіСЃРёСЂРѕРІР°РЅРЅС‹Р№ СЂР°Р·РјРµСЂ</translation>
+        <translation>Фигсированный размер</translation>
     </message>
     <message>
         <source>320</source>

@@ -89,8 +89,6 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 				{
 					QMenu *menu = mainWin->getHelpMenu();
 
-                    //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("cp-1251") );
-
 					QAction* help = menu->addAction( "Содержание..." );
 					help->setShortcut( tr( "F1" ) );
 					help->setEnabled(true);
@@ -131,7 +129,6 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 			query.setQuery(QUrl(pathToStylesheet));
 			query.evaluateTo(&helpHTML);
 
-            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("cp-1251") );
 			QString helpTitle = "Справка";
 
 			helpWindow = new HelpWindow(helpTitle, helpHTML, pathToHelp, 0);

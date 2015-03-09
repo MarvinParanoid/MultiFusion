@@ -8,14 +8,14 @@
         <location filename="LayersEditor.h" line="1093"/>
         <location filename="LayersEditor.h" line="1263"/>
         <source>Delete</source>
-        <translation>РЈРґР°Р»РёС‚СЊ</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="LayersEditor.h" line="1096"/>
         <location filename="LayersEditor.h" line="1098"/>
         <location filename="LayersEditor.h" line="1257"/>
         <source>Add layer</source>
-        <translation>Р”РѕР±Р°РІРёС‚СЊ СЃР»РѕР№</translation>
+        <translation>Добавить слой</translation>
     </message>
     <message>
         <location filename="LayersEditor.h" line="1101"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="LayersEditor.h" line="1140"/>
         <source>Layers</source>
-        <translation>РЎР»РѕРё</translation>
+        <translation>Слои</translation>
     </message>
 </context>
 <context>
@@ -52,17 +52,17 @@
     <message>
         <location filename="LayersEditor.h" line="637"/>
         <source>Layer </source>
-        <translation>РЎР»РѕР№ </translation>
+        <translation>Слой </translation>
     </message>
     <message>
         <location filename="LayersEditor.h" line="691"/>
         <source>Exist only one layer!</source>
-        <translation>РЎСѓС‰РµСЃС‚РІСѓРµС‚ С‚РѕР»СЊРєРѕ РѕРґРёРЅ СЃР»РѕР№!</translation>
+        <translation>Существует только один слой!</translation>
     </message>
     <message>
         <location filename="LayersEditor.h" line="691"/>
         <source>You can&apos;t delete last layer.</source>
-        <translation>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СѓРґР°Р»РёС‚СЊ РїРѕСЃР»РµРґРЅРёР№ СЃР»РѕР№.</translation>
+        <translation>Вы не можете удалить последний слой.</translation>
     </message>
     <message>
         <location filename="LayersEditor.h" line="695"/>

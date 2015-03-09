@@ -6,8 +6,8 @@
     <message>
         <location filename="PenBox.h" line="102"/>
         <source>Current pen</source>
-        <translatorcomment>Р’С‹Р±РѕСЂ РїРµСЂР°</translatorcomment>
-        <translation>РўРµРєСѓС‰РµРµ РїРµСЂРѕ</translation>
+        <translatorcomment>Выбор пера</translatorcomment>
+        <translation>Текущее перо</translation>
     </message>
     <message>
         <location filename="PenBox.h" line="208"/>

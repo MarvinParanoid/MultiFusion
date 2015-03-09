@@ -6,12 +6,12 @@
     <message>
         <location filename="timeline.h" line="210"/>
         <source>You can&apos;t set length smallest than maximum frame!</source>
-        <translation>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ Р·Р°РґР°С‚СЊ РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РјРµРЅСЊС€Рµ С‡РµРј РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РєР°РґСЂ!</translation>
+        <translation>Вы не можете задать продолжительность меньше чем максимальный кадр!</translation>
     </message>
     <message>
         <location filename="timeline.h" line="266"/>
         <source>You can&apos;t delete 0 frame!!!</source>
-        <translation>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СѓРґР°Р»РёС‚СЊ РЅСѓР»РµРІРѕР№ РєР°РґСЂ!!!</translation>
+        <translation>Вы не можете удалить нулевой кадр!!!</translation>
     </message>
 </context>
 <context>
@@ -19,37 +19,37 @@
     <message>
         <location filename="timeline.h" line="406"/>
         <source>Timeline</source>
-        <translation>Р’РёРґРµРѕ РґРѕСЂРѕР¶РєР°</translation>
+        <translation>Видео дорожка</translation>
     </message>
     <message>
         <location filename="timeline.h" line="492"/>
         <source>Add frame</source>
-        <translation>Р”РѕР±Р°РІРёС‚СЊ РєР°РґСЂ</translation>
+        <translation>Добавить кадр</translation>
     </message>
     <message>
         <location filename="timeline.h" line="498"/>
         <source>Remove frame</source>
-        <translation>РЈРґР°Р»РёС‚СЊ РєР°РґСЂ</translation>
+        <translation>Удалить кадр</translation>
     </message>
     <message>
         <location filename="timeline.h" line="518"/>
         <source>Play</source>
-        <translation>РџСЂРѕРёРіСЂС‹РІР°С‚СЊ</translation>
+        <translation>Проигрывать</translation>
     </message>
     <message>
         <location filename="timeline.h" line="531"/>
         <source>Stop</source>
-        <translation>РћСЃС‚Р°РЅРѕРІРёС‚СЊ</translation>
+        <translation>Остановить</translation>
     </message>
     <message>
         <location filename="timeline.h" line="545"/>
         <source>Pause</source>
-        <translation>РџР°СѓР·Р°</translation>
+        <translation>Пауза</translation>
     </message>
     <message>
         <location filename="timeline.h" line="556"/>
         <source>Length timeline:</source>
-        <translation>РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ СЂРѕР»РёРєР°:</translation>
+        <translation>Продолжительность ролика:</translation>
     </message>
     <message>
         <location filename="timeline.h" line="558"/>
