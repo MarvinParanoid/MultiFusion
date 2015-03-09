@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Mangush Vadim, 2015</author>
+ <class>AlignAndDistributeForm</class>
+ <widget class="QWidget" name="AlignAndDistributeForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>261</width>
+    <height>274</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Timeline</string>
+  </property>
+  <layout class="QVBoxLayout">
+   <property name="spacing">
+    <number>6</number>
+   </property>
+   <property name="margin">
+    <number>9</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Align</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>3</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QToolButton" name="toolButton">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Align right edges of objects to the left edge of the anchor</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/align-horizontal-right-to-anchor.png</normaloff>:/AlignAndDistribute/images/align-horizontal-right-to-anchor.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_2">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Align left edges</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/align-horizontal-left.png</normaloff>:/AlignAndDistribute/images/align-horizontal-left.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_3">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Center on vertical axis</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/align-horizontal-center.png</normaloff>:/AlignAndDistribute/images/align-horizontal-center.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_4">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Align right sides</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/align-horizontal-right.png</normaloff>:/AlignAndDistribute/images/align-horizontal-right.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_5">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Align left edges of objects to the right edge of the anchor</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/align-horizontal-left-to-anchor.png</normaloff>:/AlignAndDistribute/images/align-horizontal-left-to-anchor.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QToolButton" name="toolButton_6">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Align bottom edges of objects to the top edge of the anchor</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/align-vertical-bottom-to-anchor.png</normaloff>:/AlignAndDistribute/images/align-vertical-bottom-to-anchor.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_7">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Align top edges</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/align-vertical-top.png</normaloff>:/AlignAndDistribute/images/align-vertical-top.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_8">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Center on horizontal axis</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/align-vertical-center.png</normaloff>:/AlignAndDistribute/images/align-vertical-center.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_9">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Align bottom edges</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/align-vertical-bottom.png</normaloff>:/AlignAndDistribute/images/align-vertical-bottom.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_10">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Align top edges of objects to the bottom edge of the anchor</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/align-vertical-top-to-anchor.png</normaloff>:/AlignAndDistribute/images/align-vertical-top-to-anchor.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Distribute</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>3</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QToolButton" name="toolButton_11">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Distribute left edges equidistantly</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/distribute-horizontal-left.png</normaloff>:/AlignAndDistribute/images/distribute-horizontal-left.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_12">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Distribute centers equidistantly horizontally</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/distribute-horizontal-center.png</normaloff>:/AlignAndDistribute/images/distribute-horizontal-center.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_13">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Distribute right edges equidistantly</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/distribute-horizontal-right.png</normaloff>:/AlignAndDistribute/images/distribute-horizontal-right.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_14">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Make horizontal gaps between objects equal</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/distribute-horizontal-gaps.png</normaloff>:/AlignAndDistribute/images/distribute-horizontal-gaps.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QToolButton" name="toolButton_15">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Distribute top edges equidistantly</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/distribute-vertical-top.png</normaloff>:/AlignAndDistribute/images/distribute-vertical-top.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_16">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Distribute centers equidistantly vertically</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/distribute-vertical-center.png</normaloff>:/AlignAndDistribute/images/distribute-vertical-center.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_17">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Distribute bottom edges equidistantly</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/distribute-vertical-bottom.png</normaloff>:/AlignAndDistribute/images/distribute-vertical-bottom.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton_18">
+          <property name="minimumSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Make vertical gaps between objects equal</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="AlignAndDistribute.qrc">
+            <normaloff>:/AlignAndDistribute/images/distribute-vertical-gaps.png</normaloff>:/AlignAndDistribute/images/distribute-vertical-gaps.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>toolButton</tabstop>
+  <tabstop>toolButton_2</tabstop>
+  <tabstop>toolButton_3</tabstop>
+  <tabstop>toolButton_4</tabstop>
+  <tabstop>toolButton_5</tabstop>
+  <tabstop>toolButton_6</tabstop>
+  <tabstop>toolButton_7</tabstop>
+  <tabstop>toolButton_8</tabstop>
+  <tabstop>toolButton_9</tabstop>
+  <tabstop>toolButton_10</tabstop>
+  <tabstop>toolButton_11</tabstop>
+  <tabstop>toolButton_12</tabstop>
+  <tabstop>toolButton_13</tabstop>
+  <tabstop>toolButton_14</tabstop>
+  <tabstop>toolButton_15</tabstop>
+  <tabstop>toolButton_16</tabstop>
+  <tabstop>toolButton_17</tabstop>
+  <tabstop>toolButton_18</tabstop>
+ </tabstops>
+ <resources>
+  <include location="AlignAndDistribute.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,28 +1,14 @@
 #ifndef __ALIGNANDDISTRIBUTE_H__
 #define __ALIGNANDDISTRIBUTE_H__
 
-#include <QWidget>
-#include <QFrame>
-
 #include <QDockWidget>
-#include <QMainWindow>
-#include <QMenuBar>
-#include <QLayout>
-#include <QPainter>
-#include <QToolButton>
-#include <QMessageBox>
-#include <QMouseEvent>
-#include <QLabel>
-#include <QPixmap>
-#include <QSpinBox>
-#include <QBitmap>
-#include <QTimer>
 
 #include "./../../../pluginTool/Plugin.h"
 #include "./../../../pluginTool/InterfacePlugin.h"
 #include "./../../../interfaces/AlignAndDistributeInterface.h"
 #include "./../../../interfaces/MainWindowInterface.h"
 #include "./../../../interfaces/PaintWidgetInterface.h"
+#include "ui_AlignAndDistribute.h"
 
 class AlignAndDistribute:public QWidget, public AlignAndDistributeInterface, public InterfacePlugin
 {
@@ -43,49 +29,39 @@ class AlignAndDistribute:public QWidget, public AlignAndDistributeInterface, pub
 
 
                 AlignAndDistributeWindow = new QDockWidget(mainWin);
-                AlignAndDistributeWindow->setWindowTitle( tr( "AlignAndDistribute" ) );
+                AlignAndDistributeWindow->setWindowTitle( tr( "Align And Distribute" ) );
                 this->setParent( AlignAndDistributeWindow );
                 AlignAndDistributeWindow->setWidget(this);
-                mainWin->addDockWidget( Qt::BottomDockWidgetArea, AlignAndDistributeWindow );
+                mainWin->addDockWidget( Qt::RightDockWidgetArea, AlignAndDistributeWindow );
 
-                manager->addPlugins(this, "AlignAndDistribute");
-
-                //QLabel *q = new QLabel("test");
-                //QStatusBar *w = mainWin->statusBar();
-                //w->addWidget(q);
-
+                manager->addPlugins(this, "Align And Distribute");
 			}
 
 		}
 
 		virtual QString getName()const
 		{
-            return "AlignAndDistribute";
+            return "Align And Distribute";
 		}
 
         AlignAndDistribute( plugin::PluginsManager *manager )
-		{
-
-
-		}
+        {
+            ui.setupUi( this );
+        }
 
         virtual ~AlignAndDistribute()
-		{
+        {
 		}
-
 
 
 	private slots:
 
-
 	private:
 
 		MainWindowInterface* mainWin;
-		PaintWidgetInterface* painter;
-		QFrame* fr;
-
+        PaintWidgetInterface* painter;
         QDockWidget *AlignAndDistributeWindow;
-
+        Ui::AlignAndDistributeForm ui;
 
 };
 

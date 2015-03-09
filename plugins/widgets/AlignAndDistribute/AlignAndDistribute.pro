@@ -19,4 +19,6 @@ SOURCES += AlignAndDistribute.cpp
 HEADERS += AlignAndDistribute.h \
 	Plugin.h \
 	InterfacePlugin.h \
-	SignalHolder.h
+        SignalHolder.h
+RESOURCES += AlignAndDistribute.qrc
+FORMS += AlignAndDistribute.ui

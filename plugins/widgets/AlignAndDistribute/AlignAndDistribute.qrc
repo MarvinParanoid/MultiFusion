@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/AlignAndDistribute">
+        <file>images/align-horizontal-center.png</file>
+        <file>images/align-horizontal-left.png</file>
+        <file>images/align-horizontal-left-to-anchor.png</file>
+        <file>images/align-horizontal-right.png</file>
+        <file>images/align-horizontal-right-to-anchor.png</file>
+        <file>images/align-vertical-bottom.png</file>
+        <file>images/align-vertical-bottom-to-anchor.png</file>
+        <file>images/align-vertical-center.png</file>
+        <file>images/align-vertical-top.png</file>
+        <file>images/align-vertical-top-to-anchor.png</file>
+        <file>images/distribute-horizontal-center.png</file>
+        <file>images/distribute-horizontal-gaps.png</file>
+        <file>images/distribute-horizontal-left.png</file>
+        <file>images/distribute-horizontal-right.png</file>
+        <file>images/distribute-vertical-bottom.png</file>
+        <file>images/distribute-vertical-center.png</file>
+        <file>images/distribute-vertical-gaps.png</file>
+        <file>images/distribute-vertical-top.png</file>
+    </qresource>
+</RCC>
