@@ -136,8 +136,8 @@ mainWindow::mainWindow( QWidget *parent):
 
         m_plblX = new QLabel("X=0",this);
         m_plblY = new QLabel("Y=0",this);
-        statusBar()->addWidget(m_plblY);
         statusBar()->addWidget(m_plblX);
+        statusBar()->addWidget(m_plblY);
 
 
         groupAction = objectMenu->addAction(  tr( "&Group" ) );
