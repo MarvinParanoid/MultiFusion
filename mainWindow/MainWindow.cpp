@@ -17,8 +17,9 @@ mainWindow::mainWindow( QWidget *parent):
 		fileMenu = mainMenu->addMenu( tr( "&File" ) );
 		fileToolBar = new QToolBar( tr( "Main toolbar" ),this );
 		addToolBar( fileToolBar );
-		fileToolBar->setIconSize(QSize(24,24));
-		editMenu = mainMenu->addMenu( tr( "&Edit" ) );
+        fileToolBar->setIconSize(QSize(24,24));
+        editMenu = mainMenu->addMenu( tr( "&Edit" ) );
+        objectMenu = mainMenu->addMenu( tr( "&Object" ) );
 		windowsMenu = mainMenu->addMenu( tr( "&Tools" ) );
 		helpMenu = mainMenu->addMenu( tr( "&Help" ) );
 
@@ -109,12 +110,7 @@ mainWindow::mainWindow( QWidget *parent):
 		copyAction = editMenu->addAction( tr( "&Copy" ) );
 		copyAction->setIcon( QIcon( ":/main/images/copy.png" ) );
 		pasteAction = editMenu->addAction( tr( "&Paste" ) );
-		pasteAction->setIcon( QIcon( ":/main/images/paste.png" ) );
-
-		editMenu->addSeparator();
-
-		groupAction = editMenu->addAction( tr( "&Group" ) );
-		ungroupAction = editMenu->addAction( tr( "&Ungroup" ) );
+        pasteAction->setIcon( QIcon( ":/main/images/paste.png" ) );
 
 		qMenu->addAction(toSplineAction);
 		qMenu->addAction(showBezier);
@@ -122,12 +118,8 @@ mainWindow::mainWindow( QWidget *parent):
 		qMenu->addAction(deleteAction);
 		qMenu->addAction(cutAction);
 		qMenu->addAction(copyAction);
-		qMenu->addAction(pasteAction);
-		qMenu->addAction(groupAction);
-		qMenu->addAction(ungroupAction);
-		connect( qMenu, SIGNAL( aboutToShow(  ) ), this, SLOT( onShowEditMenu() ) );
-		groupAction->setShortcut( tr( "Ctrl+G" ) );
-		ungroupAction->setShortcut( tr( "Ctrl+U" ) );
+        qMenu->addAction(pasteAction);
+        connect( qMenu, SIGNAL( aboutToShow(  ) ), this, SLOT( onShowEditMenu() ) );
 
 		deleteAction->setShortcut( tr( "Del" ) );
 		cutAction->setShortcut( tr( "Ctrl+X" ) );
@@ -135,9 +127,6 @@ mainWindow::mainWindow( QWidget *parent):
 		pasteAction->setShortcut( tr( "Ctrl+V" ) );
 		editMenu->addSeparator();
 
-		connect( groupAction, SIGNAL( triggered( bool ) ), this, SLOT( onGroupSelected() ) );
-		connect( groupAction, SIGNAL( triggered( bool ) ), this, SLOT( onGroupSelected() ) );
-		connect( ungroupAction, SIGNAL( triggered( bool ) ), this, SLOT( onUngroupSelected() ) );
 		connect( deleteAction, SIGNAL( triggered( bool ) ), this, SLOT( onDelete() ) );
 		connect( cutAction, SIGNAL( triggered( bool ) ), this, SLOT( onCut() ) );
 		connect( copyAction, SIGNAL( triggered( bool ) ), this, SLOT( onCopy() ) );
@@ -149,6 +138,59 @@ mainWindow::mainWindow( QWidget *parent):
         m_plblY = new QLabel("Y=0",this);
         statusBar()->addWidget(m_plblY);
         statusBar()->addWidget(m_plblX);
+
+
+        groupAction = objectMenu->addAction(  tr( "&Group" ) );
+        groupAction->setShortcut( tr( "Ctrl+G" ) );
+        groupAction->setIcon( QIcon( ":/main/images/object-group.png" ) );
+        connect( groupAction, SIGNAL( triggered( bool ) ), this, SLOT( onGroupSelected() ) );
+
+        ungroupAction = objectMenu->addAction( tr( "&Ungroup" ) );
+        ungroupAction->setShortcut( tr( "Ctrl+U" ) );
+        ungroupAction->setIcon( QIcon( ":/main/images/object-ungroup.png" ) );
+        connect( ungroupAction, SIGNAL( triggered( bool ) ), this, SLOT( onUngroupSelected() ) );
+
+        objectMenu->addSeparator();
+
+        raiseAction = objectMenu->addAction(  tr( "&Raise" ) );
+        raiseAction->setIcon( QIcon( ":/main/images/selection-raise.png" ) );
+        //connect( raiseAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+
+        lowerAction = objectMenu->addAction(  tr( "&Lower" ) );
+        lowerAction->setIcon( QIcon( ":/main/images/selection-lower.png" ) );
+        //connect( lowerAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+
+        topRaiseAction = objectMenu->addAction(  tr( "&Raise to Top" ) );
+        topRaiseAction->setIcon( QIcon( ":/main/images/selection-top.png" ) );
+        //connect( topRaiseAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+
+        bottomLowerAction = objectMenu->addAction(  tr( "&Lower to Bottom" ) );
+        bottomLowerAction->setIcon( QIcon( ":/main/images/selection-bottom.png" ) );
+        //connect( bottomLowerAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+
+        objectMenu->addSeparator();
+
+        rotateRightAction = objectMenu->addAction(  tr( "&Rotate90\xb0 CW" ) );
+        rotateRightAction->setIcon( QIcon( ":/main/images/object-rotate-right.png" ) );
+        //connect( rotateRightAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+
+        rotateLeftAction = objectMenu->addAction(  tr( "&Rotate90\xb0 CCW" ) );
+        rotateLeftAction->setIcon( QIcon( ":/main/images/object-rotate-left.png" ) );
+        //connect( rotateLeftAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+
+        flipHorizontalAction = objectMenu->addAction(  tr( "&Flip Horisontal" ) );
+        flipHorizontalAction->setIcon( QIcon( ":/main/images/object-flip-horizontal.png" ) );
+        //connect( flipHorizontalAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+
+        flipVerticalAction = objectMenu->addAction(  tr( "&Flip Vertical" ) );
+        flipVerticalAction->setIcon( QIcon( ":/main/images/object-flip-vertical.png" ) );
+        //connect( flipVerticalAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+
+        objectMenu->addSeparator();
+
+        AlignAndDistributeAction = objectMenu->addAction(  tr( "&Align and Distribute..." ) );
+        AlignAndDistributeAction->setIcon( QIcon( ":/main/images/dialog-align-and-distribute.png" ) );
+        //connect( AlignAndDistributeAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
 
 }
 
@@ -232,7 +274,7 @@ void mainWindow::onCut()
 {
 	if( QMessageBox::question( this,
 		tr( "Cut selection to clipboard." ),
-		tr( "Are you shure to cut this layers to clipboard?" ),
+		tr( "Are you sure want to cut this layers to clipboard?" ),
 		QMessageBox::Ok | QMessageBox::Cancel,
 		QMessageBox::Cancel ) == QMessageBox::Ok )
 	{
@@ -254,7 +296,7 @@ void mainWindow::onNewFile()
 {
 	if( QMessageBox::question( this,
 		tr( "Create new animation." ),
-		tr( "Are you shure to create new animation?" ) +
+		tr( "Are you sure want to create new animation?" ) +
 		tr( "It delete loaded film, if it unsaved." ),
 		QMessageBox::Ok | QMessageBox::Cancel,
 		QMessageBox::Cancel ) == QMessageBox::Cancel )
@@ -270,7 +312,7 @@ void mainWindow::onOpenFile()
 {
 	if( QMessageBox::question( this,
 	tr( "Loading animation." ),
-	tr( "Are you shure to load animation?" ) +
+	tr( "Are you sure want to load animation?" ) +
 	tr( "It delete loaded film, if it unsaved." ),
 	QMessageBox::Ok | QMessageBox::Cancel,
 	QMessageBox::Cancel ) == QMessageBox::Cancel )

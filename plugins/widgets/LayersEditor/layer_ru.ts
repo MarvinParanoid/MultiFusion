@@ -71,7 +71,7 @@
     </message>
     <message>
         <location filename="LayersEditor.h" line="696"/>
-        <source>Are you shure to delete this layer?</source>
+        <source>Are you sure want to delete this layer?</source>
         <translation></translation>
     </message>
     <message>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <location filename="LayersEditor.h" line="715"/>
-        <source>Are you shure to delete this figure?</source>
+        <source>Are you sure want to delete this figure?</source>
         <translation></translation>
     </message>
 </context>

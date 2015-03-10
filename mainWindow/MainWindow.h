@@ -81,7 +81,7 @@ class mainWindow: public MainWindowInterface
 
 		virtual void closeEvent( QCloseEvent *event )
 		{
-			if( QMessageBox::question( this,tr("Exit from MultiFusion."),tr("Are you shure to exit from MultiFusion?"),
+			if( QMessageBox::question( this,tr("Exit from MultiFusion."),tr("Are you sure want to exit from MultiFusion?"),
 				QMessageBox::Ok | QMessageBox::Cancel,
 				QMessageBox::Cancel ) == QMessageBox::Cancel )
 			{
@@ -101,16 +101,15 @@ class mainWindow: public MainWindowInterface
 		QMenuBar *mainMenu;
 		/** Menus **/
 		QMenu *helpMenu;
-		QMenu *windowsMenu;
-		QMenu *editMenu;
+        QMenu *windowsMenu;
+        QMenu *editMenu;
+        QMenu *objectMenu;
 		QMenu * fileMenu;
 
 		QAction *deleteAction;
 		QAction *copyAction;
 		QAction *cutAction;
-		QAction *pasteAction;
-		QAction *groupAction;
-		QAction *ungroupAction;
+        QAction *pasteAction;
 		QAction *toSplineAction;
 		QAction *showBezier;
 
@@ -121,6 +120,18 @@ class mainWindow: public MainWindowInterface
 
         QLabel* m_plblX;
         QLabel* m_plblY;
+
+        QAction *groupAction;
+        QAction *ungroupAction;
+        QAction *lowerAction;
+        QAction *raiseAction;
+        QAction *topRaiseAction;
+        QAction *bottomLowerAction;
+        QAction *rotateRightAction;
+        QAction *rotateLeftAction;
+        QAction *flipHorizontalAction;
+        QAction *flipVerticalAction;
+        QAction *AlignAndDistributeAction;
 };
 
 #endif /* __MAINWINDOW_H__ */

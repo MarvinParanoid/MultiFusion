@@ -15,7 +15,7 @@
     </message>
     <message>
         <location filename="mainWindow.cpp" line="606"/>
-        <source>Are you shure to exit from MultiFusion?</source>
+        <source>Are you sure want to exit from MultiFusion?</source>
         <translation></translation>
     </message>
 </context>
@@ -215,7 +215,7 @@
     </message>
     <message>
         <location filename="mainWindow.cpp" line="230"/>
-        <source>Are you shure to cut this layers to clipboard?</source>
+        <source>Are you sure want to cut this layers to clipboard?</source>
         <translation></translation>
     </message>
     <message>
@@ -225,7 +225,7 @@
     </message>
     <message>
         <location filename="mainWindow.cpp" line="252"/>
-        <source>Are you shure to create new animation?</source>
+        <source>Are you sure want to create new animation?</source>
         <translation></translation>
     </message>
     <message>
@@ -241,7 +241,7 @@
     </message>
     <message>
         <location filename="mainWindow.cpp" line="268"/>
-        <source>Are you shure to load animation?</source>
+        <source>Are you sure want to load animation?</source>
         <translation></translation>
     </message>
     <message>
@@ -312,7 +312,7 @@
     </message>
     <message>
         <location filename="mainWindow.cpp" line="378"/>
-        <source>Are you shure to delete this frame?</source>
+        <source>Are you sure want to delete this frame?</source>
         <translation></translation>
     </message>
     <message>

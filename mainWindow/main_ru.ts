@@ -8,7 +8,7 @@
         <translation type="obsolete">Выход из MultiFusion.</translation>
     </message>
     <message>
-        <source>Are you shure to exit from MultiFusion?</source>
+        <source>Are you sure want to exit from MultiFusion?</source>
         <translation type="obsolete">Вы хотите выйти из MultiFusion?</translation>
     </message>
     <message>
@@ -23,7 +23,7 @@
         <translation>Удаление точки из фигуры.</translation>
     </message>
     <message>
-        <source>Are you shure to delete this point? </source>
+        <source>Are you sure want to delete this point? </source>
         <translation>Вы уверены что хотите удалить эту точку?</translation>
     </message>
     <message>
@@ -156,7 +156,7 @@
         <translation type="obsolete">Удаление выделенного.</translation>
     </message>
     <message>
-        <source>Are you shure to delete this layers?</source>
+        <source>Are you sure want to delete this layers?</source>
         <translation type="obsolete">Вы уверены что хотите удалить эти слои?</translation>
     </message>
     <message>
@@ -164,7 +164,7 @@
         <translation>Вырезание выделенного в буфер обмена.</translation>
     </message>
     <message>
-        <source>Are you shure to cut this layers to clipboard?</source>
+        <source>Are you sure want to cut this layers to clipboard?</source>
         <translation>Вы уверены что хотите вырезать эти слои в буфер обмена?</translation>
     </message>
     <message>
@@ -172,7 +172,7 @@
         <translation>Создание нового ролика.</translation>
     </message>
     <message>
-        <source>Are you shure to create new animation?</source>
+        <source>Are you sure want to create new animation?</source>
         <translation>Вы уверены что хотите создать новый ролик?</translation>
     </message>
     <message>
@@ -184,7 +184,7 @@
         <translation>Загрузка ролика.</translation>
     </message>
     <message>
-        <source>Are you shure to load animation?</source>
+        <source>Are you sure want to load animation?</source>
         <translation>Вы уверены что хотите загрузить новый ролик?</translation>
     </message>
     <message>
@@ -208,7 +208,7 @@
         <translation>Удаление текущего кадра.</translation>
     </message>
     <message>
-        <source>Are you shure to delete this frame?</source>
+        <source>Are you sure want to delete this frame?</source>
         <translation>Вы уверены что хотите удалить текущий кадр?</translation>
     </message>
     <message>
@@ -316,7 +316,7 @@
         <translation>Выход из MultiFusion.</translation>
     </message>
     <message>
-        <source>Are you shure to exit from MultiFusion?</source>
+        <source>Are you sure want to exit from MultiFusion?</source>
         <translation>Вы хотите выйти из MultiFusion?</translation>
     </message>
     <message>
