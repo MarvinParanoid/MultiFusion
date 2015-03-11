@@ -552,6 +552,9 @@ class PaintWidget:public PaintWidgetInterface
 
 		virtual void doViewportTransparent();
 
+        virtual void rotate90CW();
+        virtual void rotate90CWW();
+
 		/**
 		*	Конструктор.
 		*

@@ -13,7 +13,7 @@ void GSelectionRect::mouseDoubleClick( const int button, const QPoint &pos, Qt::
 	if( button == Qt::RightButton )
 		return;
 
-	if( ( modifiers & Qt::ControlModifier ) == 0 )
+    if( ( modifiers & Qt::ShiftModifier ) == 0 )
 		createFigureMode = false;
 
 	movedMark = selectedMark( pos );
@@ -36,7 +36,7 @@ bool GSelectionRect::mousePress( const int button, const QPoint &pos, Qt::Keyboa
 	if( !visible ) return false;
 
 	if( isNewFigure ) visible = false;
-	if( ( modifiers & Qt::ControlModifier ) == 0 )
+    if( ( modifiers & Qt::ShiftModifier ) == 0 )
 		createFigureMode = false;
 
 	switch( button )
@@ -146,7 +146,7 @@ void GSelectionRect::mouseMove( const int button, const QPoint &pos, Qt::Keyboar
 	if( button == Qt::RightButton )
 		return;
 
-	if( ( modifiers & Qt::ControlModifier ) == 0 )
+    if( ( modifiers & Qt::ShiftModifier ) == 0 )
 		createFigureMode = false;
 
 	QPoint p = pos;
@@ -765,7 +765,7 @@ void GSelectionRect::moveMark( const MarksPositions mark, QPoint p, Qt::Keyboard
 	QPointF lastSheareOffsets =shearOffsets;
 	qreal lastRotateAngle = rotateAngle;
 
-	if( createFigureMode && ( ( modifiers & Qt::ControlModifier ) != 0 ) )
+    if( createFigureMode && ( ( modifiers & Qt::ShiftModifier ) != 0 ) )
 	{
 		QPoint tmp = p - lastHitPoint;
 		int t = ( tmp.x() > tmp.y() ) ? ( tmp.x() ) : ( tmp.y() );
@@ -1036,7 +1036,10 @@ void GSelectionRect::normalize()
 
  void GSelectionRect::setRotateAngle(qreal ra)
  {
-
+     selectedObjects->rotate(ra,getPosition().center());
+     position = selectedObjects->boundingRect().toRect();
+     emit changed();
+     emit StateChanged(QString("Rotate %1").arg(ra));
  }
 
  int GSelectionRect::getSelectedObjectPoint()

@@ -14,7 +14,7 @@ class mainWindow: public MainWindowInterface
 {
 	Q_OBJECT
 	Q_INTERFACES(MainWindowInterface)
-	signals:
+    signals:
 		 /**
 		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
 		 * @param event имя события
@@ -75,6 +75,9 @@ class mainWindow: public MainWindowInterface
 		void onAboutQt();
 
         void onRPWMouseMove(int x, int y);
+
+        void onRotate90CW();
+        void onRotate90CWW();
 
 
 	protected:

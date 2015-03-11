@@ -112,27 +112,27 @@ mainWindow::mainWindow( QWidget *parent):
 		pasteAction = editMenu->addAction( tr( "&Paste" ) );
         pasteAction->setIcon( QIcon( ":/main/images/paste.png" ) );
 
-		qMenu->addAction(toSplineAction);
-		qMenu->addAction(showBezier);
-		qMenu->addSeparator();
-		qMenu->addAction(deleteAction);
-		qMenu->addAction(cutAction);
-		qMenu->addAction(copyAction);
+        qMenu->addAction(toSplineAction);
+        qMenu->addAction(showBezier);
+        qMenu->addSeparator();
+        qMenu->addAction(deleteAction);
+        qMenu->addAction(cutAction);
+        qMenu->addAction(copyAction);
         qMenu->addAction(pasteAction);
         connect( qMenu, SIGNAL( aboutToShow(  ) ), this, SLOT( onShowEditMenu() ) );
 
-		deleteAction->setShortcut( tr( "Del" ) );
-		cutAction->setShortcut( tr( "Ctrl+X" ) );
-		copyAction->setShortcut( tr( "Ctrl+C" ) );
-		pasteAction->setShortcut( tr( "Ctrl+V" ) );
-		editMenu->addSeparator();
+        deleteAction->setShortcut( tr( "Del" ) );
+        cutAction->setShortcut( tr( "Ctrl+X" ) );
+        copyAction->setShortcut( tr( "Ctrl+C" ) );
+        pasteAction->setShortcut( tr( "Ctrl+V" ) );
+        editMenu->addSeparator();
 
-		connect( deleteAction, SIGNAL( triggered( bool ) ), this, SLOT( onDelete() ) );
-		connect( cutAction, SIGNAL( triggered( bool ) ), this, SLOT( onCut() ) );
-		connect( copyAction, SIGNAL( triggered( bool ) ), this, SLOT( onCopy() ) );
-		connect( pasteAction, SIGNAL( triggered( bool ) ), this, SLOT( onPaste() ) );
-		connect( toSplineAction, SIGNAL( triggered( bool ) ), this, SLOT( onStyleFigure() ) );
-		connect( showBezier, SIGNAL( triggered( bool ) ), this, SLOT( onShowBezier() ) );
+        connect( deleteAction, SIGNAL( triggered( bool ) ), this, SLOT( onDelete() ) );
+        connect( cutAction, SIGNAL( triggered( bool ) ), this, SLOT( onCut() ) );
+        connect( copyAction, SIGNAL( triggered( bool ) ), this, SLOT( onCopy() ) );
+        connect( pasteAction, SIGNAL( triggered( bool ) ), this, SLOT( onPaste() ) );
+        connect( toSplineAction, SIGNAL( triggered( bool ) ), this, SLOT( onStyleFigure() ) );
+        connect( showBezier, SIGNAL( triggered( bool ) ), this, SLOT( onShowBezier() ) );
 
         m_plblX = new QLabel("X=0",this);
         m_plblY = new QLabel("Y=0",this);
@@ -172,11 +172,11 @@ mainWindow::mainWindow( QWidget *parent):
 
         rotateRightAction = objectMenu->addAction(  tr( "&Rotate90\xb0 CW" ) );
         rotateRightAction->setIcon( QIcon( ":/main/images/object-rotate-right.png" ) );
-        //connect( rotateRightAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+        connect( rotateRightAction, SIGNAL( triggered( bool ) ), this, SLOT( onRotate90CW() ) );
 
         rotateLeftAction = objectMenu->addAction(  tr( "&Rotate90\xb0 CCW" ) );
         rotateLeftAction->setIcon( QIcon( ":/main/images/object-rotate-left.png" ) );
-        //connect( rotateLeftAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+        connect( rotateLeftAction, SIGNAL( triggered( bool ) ), this, SLOT( onRotate90CWW() ) );
 
         flipHorizontalAction = objectMenu->addAction(  tr( "&Flip Horisontal" ) );
         flipHorizontalAction->setIcon( QIcon( ":/main/images/object-flip-horizontal.png" ) );
@@ -649,6 +649,17 @@ void mainWindow::onRPWMouseMove(int x, int y)
 {
     m_plblX->setText("X=" + QString().setNum(x));
     m_plblY->setText("Y=" + QString().setNum(y));
+}
+
+
+void mainWindow::onRotate90CW()
+{
+    painter->rotate90CW();
+}
+
+void mainWindow::onRotate90CWW()
+{
+    painter->rotate90CWW();
 }
 
 

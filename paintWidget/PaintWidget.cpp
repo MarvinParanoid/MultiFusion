@@ -1008,4 +1008,15 @@ QObject* PaintWidget::getRealPaintWidget()
 	return &painter;
 }
 
+
+void PaintWidget::rotate90CW()
+{
+    painter.selection.setRotateAngle(90);
+}
+
+void PaintWidget::rotate90CWW()
+{
+    painter.selection.setRotateAngle(-90);
+}
+
 /*virtual QColor& getViewportColor();*/

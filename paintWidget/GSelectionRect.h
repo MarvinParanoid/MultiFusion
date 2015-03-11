@@ -27,7 +27,7 @@ class GSelectionRect: public GSRInterface
 	Q_OBJECT
 	Q_INTERFACES(GSRInterface)
 
-	signals:
+    signals:
 
 		/**
 		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
@@ -376,7 +376,7 @@ class GSelectionRect: public GSRInterface
 
 		virtual qreal getRotateAngle();
 
-		virtual void setRotateAngle(qreal ra);
+        virtual void setRotateAngle(qreal ra);
 
 		virtual int getSelectedObjectPoint();
 
@@ -456,7 +456,7 @@ class GSelectionRect: public GSRInterface
 
 		void normalize();
 
-		static void drawShiftArrow( QPainter &p, const QPoint &pos, const ShiftArrowDirection dir );
+        static void drawShiftArrow( QPainter &p, const QPoint &pos, const ShiftArrowDirection dir );
 		static void drawRotateArrow( QPainter &p, const QPoint &pos );
 		static qreal calcSheareAngle( qreal height, qreal width );
 		static qreal calcRotateAngle( const QPointF &center, const QPoint &beginPoint, const QPoint &endPoint );
