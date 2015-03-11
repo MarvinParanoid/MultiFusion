@@ -17,7 +17,7 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
     painter.setMouseTracking(true);
 
 	setWidget( &painter );
-	setAlignment( Qt::AlignCenter );
+    setAlignment( Qt::AlignLeft );
 	setViewportColor( QColor( 100, 100, 100 ) );
 
     manager->addPlugins(this, "PaintWidget");
@@ -37,6 +37,7 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
     gridLayout->addWidget(mHorzRuler,0,1);
     gridLayout->addWidget(mVertRuler,1,0);
     gridLayout->addWidget(this->viewport(),1,1);
+
     this->setLayout(gridLayout);
 
 	connect( &painter, SIGNAL( objectCreated() ),
