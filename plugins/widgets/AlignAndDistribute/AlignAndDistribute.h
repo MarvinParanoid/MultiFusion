@@ -16,7 +16,7 @@ class AlignAndDistribute:public QWidget, public AlignAndDistributeInterface, pub
     Q_INTERFACES( AlignAndDistributeInterface )
 	Q_INTERFACES( InterfacePlugin )
 
-	signals:
+    signals:
 
 	public:
 
@@ -33,6 +33,12 @@ class AlignAndDistribute:public QWidget, public AlignAndDistributeInterface, pub
                 this->setParent( AlignAndDistributeWindow );
                 AlignAndDistributeWindow->setWidget(this);
                 mainWin->addDockWidget( Qt::RightDockWidgetArea, AlignAndDistributeWindow );
+
+                QMenu* objectMenu = mainWin->getObjectMenu();
+                QAction* showAlignAndDistribute = objectMenu->addAction(  tr( "&Align and Distribute..." ) );
+                objectMenu->addSeparator();
+                showAlignAndDistribute->setIcon( QIcon( ":/main/images/dialog-align-and-distribute.png" ) );
+                connect( showAlignAndDistribute, SIGNAL( triggered( bool ) ), this, SLOT( showAlignAndDistribute() ) );
 
                 manager->addPlugins(this, "Align And Distribute");
 			}
@@ -51,7 +57,15 @@ class AlignAndDistribute:public QWidget, public AlignAndDistributeInterface, pub
 
         virtual ~AlignAndDistribute()
         {
-		}
+        }
+
+
+    public slots:
+
+        void showAlignAndDistribute()
+        {
+            AlignAndDistributeWindow->show();
+        }
 
 
 	private slots:

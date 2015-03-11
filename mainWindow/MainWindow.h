@@ -22,8 +22,9 @@ class mainWindow: public MainWindowInterface
 		void StateChanged(QString event);
 
 	public:
-		virtual QMenu * getFileMenu()const;
-		virtual QMenu * getEditMenu()const;
+        virtual QMenu * getFileMenu()const;
+        virtual QMenu * getEditMenu()const;
+        virtual QMenu * getObjectMenu()const;
 		virtual QMenu * getWindowsMenu()const;
 		virtual QMenu * getHelpMenu()const;
 		virtual QMenuBar * getMainMenu()const;
@@ -78,6 +79,8 @@ class mainWindow: public MainWindowInterface
 
         void onRotate90CW();
         void onRotate90CWW();
+        void flipHorisontal();
+        void flipVertical();
 
 
 	protected:
@@ -134,7 +137,6 @@ class mainWindow: public MainWindowInterface
         QAction *rotateLeftAction;
         QAction *flipHorizontalAction;
         QAction *flipVerticalAction;
-        QAction *AlignAndDistributeAction;
 };
 
 #endif /* __MAINWINDOW_H__ */

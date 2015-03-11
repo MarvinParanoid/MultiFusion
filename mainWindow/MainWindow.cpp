@@ -179,18 +179,14 @@ mainWindow::mainWindow( QWidget *parent):
         connect( rotateLeftAction, SIGNAL( triggered( bool ) ), this, SLOT( onRotate90CWW() ) );
 
         flipHorizontalAction = objectMenu->addAction(  tr( "&Flip Horisontal" ) );
+        flipHorizontalAction->setShortcut( tr( "H" ) );
         flipHorizontalAction->setIcon( QIcon( ":/main/images/object-flip-horizontal.png" ) );
-        //connect( flipHorizontalAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+        connect( flipHorizontalAction, SIGNAL( triggered( bool ) ), this, SLOT( flipHorisontal() ) );
 
         flipVerticalAction = objectMenu->addAction(  tr( "&Flip Vertical" ) );
+        flipVerticalAction->setShortcut( tr( "V" ) );
         flipVerticalAction->setIcon( QIcon( ":/main/images/object-flip-vertical.png" ) );
-        //connect( flipVerticalAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
-
-        objectMenu->addSeparator();
-
-        AlignAndDistributeAction = objectMenu->addAction(  tr( "&Align and Distribute..." ) );
-        AlignAndDistributeAction->setIcon( QIcon( ":/main/images/dialog-align-and-distribute.png" ) );
-        //connect( AlignAndDistributeAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
+        connect( flipVerticalAction, SIGNAL( triggered( bool ) ), this, SLOT( flipVertical() ) );
 
 }
 
@@ -586,7 +582,12 @@ QMenu * mainWindow::getFileMenu()const
 
 QMenu * mainWindow::getEditMenu()const
 {
-	return editMenu;
+    return editMenu;
+}
+
+QMenu * mainWindow::getObjectMenu()const
+{
+    return objectMenu;
 }
 
 QMenu * mainWindow::getWindowsMenu()const
@@ -660,6 +661,16 @@ void mainWindow::onRotate90CW()
 void mainWindow::onRotate90CWW()
 {
     painter->rotate90CWW();
+}
+
+void mainWindow::flipHorisontal()
+{
+    painter->flipHorisontal();
+}
+
+void mainWindow::flipVertical()
+{
+    painter->flipVertical();
 }
 
 

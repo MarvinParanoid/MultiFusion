@@ -1034,6 +1034,19 @@ void GSelectionRect::normalize()
 	 return this->rotateAngle;
  }
 
+ void GSelectionRect::setScale(qreal dx, qreal dy)
+ {
+     QPoint *p = new QPoint(getPosition().center().x(),getPosition().center().y());
+     if(dx<0)
+         p->setX(p->x()+1);
+     if(dy<0)
+         p->setY(p->y()+1);
+     selectedObjects->scale(dx,dy,*p);
+     position = selectedObjects->boundingRect().toRect();
+     emit changed();
+     emit StateChanged(QString("Scale"));
+ }
+
  void GSelectionRect::setRotateAngle(qreal ra)
  {
      selectedObjects->rotate(ra,getPosition().center());

@@ -1019,4 +1019,14 @@ void PaintWidget::rotate90CWW()
     painter.selection.setRotateAngle(-90);
 }
 
+void PaintWidget::flipHorisontal()
+{
+    painter.selection.setScale(-1,1);
+}
+
+void PaintWidget::flipVertical()
+{
+    painter.selection.setScale(1,-1);
+}
+
 /*virtual QColor& getViewportColor();*/

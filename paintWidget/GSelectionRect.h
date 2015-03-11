@@ -374,7 +374,9 @@ class GSelectionRect: public GSRInterface
 
 		virtual void setShearOffsets(QPointF so);
 
-		virtual qreal getRotateAngle();
+        virtual qreal getRotateAngle();
+
+        virtual void setScale(qreal dx, qreal dy);
 
         virtual void setRotateAngle(qreal ra);
 
@@ -389,7 +391,7 @@ class GSelectionRect: public GSRInterface
 		QVector< QRect > marksRects(); // задание положения и размеров (области рисования для каждого маркера) маркеров выделения
 
 				/**
-				*	Конструктор.
+                *	Конструктор.
 				*
 				*	@param parent указатель на элемент управления, в котором будет отображаться данная
 				*			рамка выделения.

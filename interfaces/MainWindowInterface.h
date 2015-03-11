@@ -14,8 +14,9 @@ class MainWindowInterface :public QMainWindow
 		 */
 		void StateChanged(QString event);
 	public:
-		virtual QMenu * getFileMenu()const = 0;
-		virtual QMenu * getEditMenu()const = 0;
+        virtual QMenu * getFileMenu()const = 0;
+        virtual QMenu * getEditMenu()const = 0;
+        virtual QMenu * getObjectMenu()const = 0;
 		virtual QMenu * getWindowsMenu()const = 0;
 		virtual QMenu * getHelpMenu()const = 0;
 		virtual QMenuBar * getMainMenu()const = 0;

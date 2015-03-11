@@ -554,6 +554,8 @@ class PaintWidget:public PaintWidgetInterface
 
         virtual void rotate90CW();
         virtual void rotate90CWW();
+        virtual void flipHorisontal();
+        virtual void flipVertical();
 
 		/**
 		*	Конструктор.
