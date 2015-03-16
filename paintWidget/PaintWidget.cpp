@@ -240,6 +240,7 @@ void PaintWidget::scale( qreal s )
 	{
 		painter.layers[i]->scale( s, s, center );
 	}
+    painter.resize(painter.width()*s,painter.height()*s);
 	painter.selection.reset();
 
 	painter.update();
