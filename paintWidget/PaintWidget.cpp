@@ -14,7 +14,7 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 {
     mainWin = MAINWINDOW(parent);
     connect(&painter, SIGNAL(mouseMoveEvent(int,int)), mainWin, SLOT(onRPWMouseMove(int,int)));
-    painter.setMouseTracking(true);
+    //painter.setMouseTracking(true);
 
 	setWidget( &painter );
 	setAlignment( Qt::AlignCenter );

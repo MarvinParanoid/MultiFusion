@@ -158,6 +158,7 @@ class RealPaintWidget:public RPWInterface
 		bool inSelectionMode;
 		plugin::PluginsManager *_manager;
 		QRect selectionRect;
+        bool isMousePress;
 
 		friend class PaintWidget;
 		friend class UndoStructure;

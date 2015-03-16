@@ -251,6 +251,7 @@ RealPaintWidget::RealPaintWidget( plugin::PluginsManager *manager, QWidget *pare
 
 	manager->addPlugins(this, "RealPaint");
 
+    isMousePress = false;
     setMouseTracking(true);
 }
 
@@ -317,6 +318,7 @@ void RealPaintWidget::mousePressEvent( QMouseEvent *event )
 
 		if( currentTool != 0 )
 		{
+            isMousePress = true;
 			GObjectInterface * o = GObject::create( currentTool, pos,
 								currentTool->figureName(), currentFrame);
 
@@ -436,8 +438,7 @@ void RealPaintWidget::mouseMoveEvent( QMouseEvent * event )
 		return;
 	}
 
-	if( ( currentTool != 0 ) &&
-		( currentTool->createStyle() == FigureToolInterface::paint ) )
+    if( ( currentTool != 0 ) && ( currentTool->createStyle() == FigureToolInterface::paint ) )
 	{
 		GObjectInterface *o = layers[currentLayer]->object( 0 );
 		if( o == 0 ) return;
@@ -448,7 +449,8 @@ void RealPaintWidget::mouseMoveEvent( QMouseEvent * event )
 			if( ( fabs( p.x() ) < 15 ) && ( fabs( p.y() ) < 15 ) )
 				return;
 		}
-		o->addPointToEnd( pos );
+        if (isMousePress)
+            o->addPointToEnd( pos );
 		update();
 		return;
 	}
@@ -517,6 +519,7 @@ void RealPaintWidget::mouseReleaseEvent( QMouseEvent * event )
 
 		//emit StateChanged("Create object");
 
+        isMousePress = false;
 		if( currentTool->createStyle() == FigureToolInterface::paint )
 		{
 			selection.setSelected( s );
