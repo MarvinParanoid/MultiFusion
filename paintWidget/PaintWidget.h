@@ -13,7 +13,8 @@
 #include "RPW.h"
 #include "./../interfaces/PaintWidgetInterface.h"
 #include "./../interfaces/GObjectInterface.h"
-
+#include <QDialog>
+#include <QDialogButtonBox>
 #include "../interfaces/MainWindowInterface.h"
 
 /**
@@ -587,6 +588,10 @@ class PaintWidget:public PaintWidgetInterface
 
 	private:
 
+        QDialogButtonBox *buttons;
+        bool isCreatedPWE;
+        PaintWidgetEditor *e;
+        QDialog *dialog;
         RealPaintWidget painter;
 		bool transparent;
 		QColor viewportColor;
