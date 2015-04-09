@@ -8,7 +8,7 @@ DEPENDPATH += . \
     ./../../pluginTool
 INCLUDEPATH += . \
     ./../../pluginTool
-LIBS += -L./../../libs
+
 DESTDIR = ./../../bin/plugins/Background
 HEADERS += Background.h \
     Plugin.h \

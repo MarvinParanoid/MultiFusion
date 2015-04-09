@@ -5,7 +5,7 @@ DEPENDPATH += . \
     ./../../pluginTool
 INCLUDEPATH += . \
     ./../../pluginTool \
-LIBS += -L./../../pluginTool
+
 DESTDIR = ./../../bin/plugins/SaveSVG
 QT += core \
     gui \
@@ -15,3 +15,5 @@ QT += core \
     opengl
 HEADERS += SaveSVG.h SignalHolder.h
 SOURCES += SaveSVG.cpp
+
+

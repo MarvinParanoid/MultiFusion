@@ -5,8 +5,8 @@
  *      Author: Trinity
  */
 
-#ifndef SAVESVGINTERFACE_H_
-#define SAVESVGINTERFACE_H_
+#ifndef __SAVESVGINTERFACE_H__
+#define __SAVESVGINTERFACE_H__
 
 class SaveSVGInterface: public QWidget
 {
@@ -28,7 +28,7 @@ class SaveSVGInterface: public QWidget
 /**
  * Декларация интерфейса
  */
-Q_DECLARE_INTERFACE( SaveSVGInterface, "ifmo.lothe.SaveSVGInterface/1.0" )
+Q_DECLARE_INTERFACE( SaveSVGInterface, "com.alxn1.sacs2.SaveSVGInterface/1.0" )
 
 
 /**
@@ -41,4 +41,4 @@ template < class T > inline SaveSVGInterface* SAVESVG( T *o )
 	return qobject_cast< SaveSVGInterface* >( o );
 }
 
-#endif /* SAVESVGINTERFACE_H_ */
+#endif /* __SAVESVGINTERFACE_H__ */

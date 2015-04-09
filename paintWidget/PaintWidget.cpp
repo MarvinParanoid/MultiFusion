@@ -6,6 +6,8 @@
 
 #include <QDRuler.h>
 
+#include <QDebug>
+
 const static QString SIGNATURE = "SACS2_GCORE_1.0";
 const static QString MIMETYPE = "sacs2/object";
 
@@ -17,8 +19,14 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
     painter.setMouseTracking(true);
 
 	setWidget( &painter );
-    setAlignment( Qt::AlignLeft );
+    setAlignment( Qt::AlignCenter );
 	setViewportColor( QColor( 100, 100, 100 ) );
+
+    qDebug() << widget()->pos();
+
+    //qDebug() << horizontalScrollBar();
+
+
 
     manager->addPlugins(this, "PaintWidget");
 

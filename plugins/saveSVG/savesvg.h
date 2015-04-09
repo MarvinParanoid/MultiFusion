@@ -6,8 +6,8 @@
  */
 
 
-#ifndef SAVESVG_H
-#define SAVESVG_H
+#ifndef __SAVESVG_H__
+#define __SAVESVG_H__
 
 #include <QtGui/QWidget>
 #include <QObject>
@@ -169,7 +169,7 @@ class SaveSVG: public SaveSVGInterface, public InterfacePlugin
 			return true;
 		}
 
-		virtual void createPlugin(QObject *parent, QString idParent,plugin::PluginsManager *manager)
+        virtual void createPlugin(QObject *parent, QString idParent, plugin::PluginsManager *manager)
 		{
 			if (idParent == "Main") {
 				mainWin = MAINWINDOW(parent);
@@ -181,7 +181,9 @@ class SaveSVG: public SaveSVGInterface, public InterfacePlugin
 					Export->setEnabled(true);
 
 					connect(Export,SIGNAL( triggered( bool ) ), this, SLOT( ShowWindow() ) );
-					manager->addPlugins(this, "SaveSVG");				}
+                    manager->addPlugins(this, "SaveSVG");
+                    QMessageBox::warning(0, "Help Error", "Error: It's magic");
+                }
 			}
 		}
 
@@ -191,6 +193,7 @@ class SaveSVG: public SaveSVGInterface, public InterfacePlugin
 		}
 
 		SaveSVG(plugin::PluginsManager *manager) {
+            QMessageBox::warning(0, "Help Error", "Error: 123");
 			lastTo = "/";
 			QString timelineStr = "Timeline";
 			timeline = manager->getPluginById(timelineStr);
@@ -238,4 +241,4 @@ class SaveSVG: public SaveSVGInterface, public InterfacePlugin
 };
 
 
-#endif // SAVESVG_H
+#endif // __SAVESVG_H__
