@@ -13,7 +13,6 @@ SOURCES += UndoStructure.cpp \
     ColorBox.cpp \
     GContainer.cpp \
     GObject.cpp \
-    GRuler.cpp \
     GSelectionRect.cpp \
     GVectorFigure.cpp \
     GuiUtils.cpp \
@@ -27,7 +26,6 @@ HEADERS += UndoStructure.h \
     GFramesProperties.h \
     GObject.h \
     GPropertiesObj.h \
-    GRuler.h \
     GSelectionRect.h \
     GVectorFigure.h \
     GuiUtils.h \
@@ -36,8 +34,7 @@ HEADERS += UndoStructure.h \
     RPW.h \
     Utils.h \
     InterfacePlugin.h \
-    plugin.h \
-    QDRuler.h
+    plugin.h
 QT += opengl \
     gui \
     xml \
