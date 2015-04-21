@@ -4,12 +4,14 @@
 #include "QDRuler.h"
 #include <QWidget>
 #include <QGridLayout>
+#include <QGLWidget>
 
 #include "./../../../pluginTool/Plugin.h"
 #include "./../../../pluginTool/InterfacePlugin.h"
 #include "./../../../interfaces/ScaleInterface.h"
 #include "./../../../interfaces/MainWindowInterface.h"
 #include "./../../../interfaces/PaintWidgetInterface.h"
+#include "./../../../interfaces/RPWInterface.h"
 
 
 class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
@@ -48,6 +50,9 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
                     gridLayout->addWidget(painter->viewport(),1,1);
                     painter->setLayout(gridLayout);
 
+                    realPainter = RPWINTEFACE(painter->getRealPaintWidget());
+                    connect(realPainter,SIGNAL(mouseMoveEvent(int,int)),this,SLOT(mouseMove(int,int)));
+
                 }
             }
 
@@ -55,16 +60,14 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
 //			if(mainWin!=0)
 //			{
 //				painter = PAINTWIDGETINTERFACE(mainWin->getPaintWidget());
-
-
 //                scaleWindow = new QDockWidget(mainWin);
 //                scaleWindow->setWindowTitle( tr( "Scale" ) );
 //                this->setParent( scaleWindow );
 //                scaleWindow->setWidget(this);
 //                mainWin->addDockWidget( Qt::BottomDockWidgetArea, scaleWindow );
-
 //                manager->addPlugins(this, "Scale");
 //			}
+
 
 		}
 
@@ -86,14 +89,19 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
 
 	private slots:
 
+        void mouseMove(int x, int y)
+        {
+
+        }
 
 	private:
 
 		MainWindowInterface* mainWin;
 		PaintWidgetInterface* painter;
-		QFrame* fr;
+        RPWInterface* realPainter;
 
-        QDockWidget *scaleWindow;
+        //QFrame* fr;
+        //QDockWidget *scaleWindow;
 
 
 };

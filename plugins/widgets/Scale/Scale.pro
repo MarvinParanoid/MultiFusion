@@ -7,7 +7,8 @@ CONFIG += plugin
 DEPENDPATH += ./../../../pluginTool
 INCLUDEPATH += ./../../../pluginTool
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    opengl
 DESTDIR = ./../../../bin/plugins/Scale
 SOURCES += Scale.cpp
 HEADERS += Scale.h \
