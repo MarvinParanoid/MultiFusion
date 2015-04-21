@@ -36,8 +36,7 @@ HEADERS += UndoStructure.h \
     RPW.h \
     Utils.h \
     InterfacePlugin.h \
-    plugin.h \
-    QDRuler.h
+    plugin.h
 QT += opengl \
     gui \
     xml \

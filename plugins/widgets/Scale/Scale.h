@@ -1,22 +1,9 @@
 ﻿#ifndef __SCALE_H__
 #define __SCALE_H__
 
+#include "QDRuler.h"
 #include <QWidget>
-#include <QFrame>
-
-#include <QDockWidget>
-#include <QMainWindow>
-#include <QMenuBar>
-#include <QLayout>
-#include <QPainter>
-#include <QToolButton>
-#include <QMessageBox>
-#include <QMouseEvent>
-#include <QLabel>
-#include <QPixmap>
-#include <QSpinBox>
-#include <QBitmap>
-#include <QTimer>
+#include <QGridLayout>
 
 #include "./../../../pluginTool/Plugin.h"
 #include "./../../../pluginTool/InterfacePlugin.h"
@@ -37,20 +24,47 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
 
 		virtual void createPlugin(QObject *parent, QString idParent,plugin::PluginsManager *manager)
 		{
-			mainWin = MAINWINDOW(parent);
-			if(mainWin!=0)
-			{
-				painter = PAINTWIDGETINTERFACE(mainWin->getPaintWidget());
+            if(idParent == "Main")
+            {
+                mainWin = MAINWINDOW(parent);
+                if(mainWin!=0)
+                {
+                    painter = PAINTWIDGETINTERFACE(mainWin->getPaintWidget());
+
+                    // добавление линеек
+                    //painter->setViewportMargins(RULER_BREADTH,RULER_BREADTH,0,0);
+                    QGridLayout* gridLayout = new QGridLayout();
+                    gridLayout->setSpacing(0);
+                    gridLayout->setMargin(0);
+                    QDRuler *mHorzRuler, *mVertRuler;
+                    mHorzRuler = new QDRuler(QDRuler::Horizontal,painter);
+                    mVertRuler = new QDRuler(QDRuler::Vertical,painter);
+                    QWidget* fake = new QWidget();
+                    fake->setBackgroundRole(QPalette::Window);
+                    fake->setFixedSize(RULER_BREADTH,RULER_BREADTH);
+                    gridLayout->addWidget(fake,0,0);
+                    gridLayout->addWidget(mHorzRuler,0,1);
+                    gridLayout->addWidget(mVertRuler,1,0);
+                    gridLayout->addWidget(painter->viewport(),1,1);
+                    painter->setLayout(gridLayout);
+
+                }
+            }
+
+//			mainWin = MAINWINDOW(parent);
+//			if(mainWin!=0)
+//			{
+//				painter = PAINTWIDGETINTERFACE(mainWin->getPaintWidget());
 
 
-                scaleWindow = new QDockWidget(mainWin);
-                scaleWindow->setWindowTitle( tr( "Scale" ) );
-                this->setParent( scaleWindow );
-                scaleWindow->setWidget(this);
-                mainWin->addDockWidget( Qt::BottomDockWidgetArea, scaleWindow );
+//                scaleWindow = new QDockWidget(mainWin);
+//                scaleWindow->setWindowTitle( tr( "Scale" ) );
+//                this->setParent( scaleWindow );
+//                scaleWindow->setWidget(this);
+//                mainWin->addDockWidget( Qt::BottomDockWidgetArea, scaleWindow );
 
-                manager->addPlugins(this, "Scale");
-			}
+//                manager->addPlugins(this, "Scale");
+//			}
 
 		}
 
@@ -60,14 +74,9 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
 		}
 
         Scale( plugin::PluginsManager *manager )
-		{
+        {
 
-            //fr = new QFrame(this);
-            //fr->setMinimumWidth(100);
-            //fr->setMinimumHeight(40);
-
-
-		}
+        }
 
         virtual ~Scale()
 		{

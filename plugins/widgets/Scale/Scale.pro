@@ -12,4 +12,5 @@ DESTDIR = ./../../../bin/plugins/Scale
 SOURCES += Scale.cpp
 HEADERS += Scale.h \
     Plugin.h \
-    SignalHolder.h
+    SignalHolder.h \
+    QDRuler.h
