@@ -29,6 +29,7 @@
 #include <QWidget>
 #include <QPainter>
 #include <QMouseEvent>
+#include <QDebug>
 
 class QDRuler : public QWidget
 {
@@ -43,8 +44,9 @@ public:
     enum RulerType { Horizontal, Vertical };
 
     QDRuler(QDRuler::RulerType rulerType, QWidget* parent):
-        QWidget(parent), mRulerType(rulerType), mOrigin(0.), mRulerUnit(1.),
-        mRulerZoom(1.), mMouseTracking(false), mDrawText(false)
+        QWidget(parent), mRulerType(rulerType), mRulerUnit(0.5),
+        mRulerZoom(1.0), mMouseTracking(true), mDrawText(false),
+        mOrigin(200.0)
     {
         setMouseTracking(true);
         QFont txtFont("Goudy Old Style", 8, 20);
@@ -97,6 +99,7 @@ public slots:
       }
     }
 
+    // изменение масштаба линейки
     void setRulerZoom(const qreal rulerZoom)
     {
       if (mRulerZoom != rulerZoom)
@@ -125,91 +128,86 @@ public slots:
 
 protected:
 
+    // вызывается при движении мыши (пока робит только на самой линейке)
     void mouseMoveEvent(QMouseEvent* event)
     {
+        //qDebug() << event;
       mCursorPos = event->pos();
       update();
       QWidget::mouseMoveEvent(event);
     }
 
+    // отрисовка всего
     void paintEvent(QPaintEvent* event)
     {
-      QPainter painter(this);
+        QPainter painter(this);
         painter.setRenderHints(QPainter::TextAntialiasing | QPainter::HighQualityAntialiasing);
         QPen pen(Qt::black,0); // zero width pen is cosmetic pen
         //pen.setCosmetic(true);
         painter.setPen(pen);
-      // We want to work with floating point, so we are considering
-      // the rect as QRectF
-      QRectF rulerRect = this->rect();
+        // We want to work with floating point, so we are considering the rect as QRectF
+        QRectF rulerRect = this->rect();
 
-      // at first fill the rect
-      //painter.fillRect(rulerRect,QColor(220,200,180));
-      painter.fillRect(rulerRect,QColor(236,233,216));
+        // at first fill the rect
+        //painter.fillRect(rulerRect,QColor(220,200,180));
+        painter.fillRect(rulerRect,QColor(236,233,216));
 
-      // drawing a scale of 25
-      drawAScaleMeter(&painter,rulerRect,25,(Horizontal == mRulerType ? rulerRect.height()
-            : rulerRect.width())/2);
-      // drawing a scale of 50
-      drawAScaleMeter(&painter,rulerRect,50,(Horizontal == mRulerType ? rulerRect.height()
-            : rulerRect.width())/4);
-      // drawing a scale of 100
-      mDrawText = true;
-      drawAScaleMeter(&painter,rulerRect,100,0);
-      mDrawText = false;
+        //qDebug() << rulerRect.height() << rulerRect.width();
 
-      // drawing the current mouse position indicator
+        // drawing a scale of 25
+        drawAScaleMeter(&painter,rulerRect,25,(Horizontal == mRulerType ? rulerRect.height() : rulerRect.width())/2);
+        // drawing a scale of 50
+        drawAScaleMeter(&painter,rulerRect,50,(Horizontal == mRulerType ? rulerRect.height() : rulerRect.width())/4);
+        // drawing a scale of 100
+        mDrawText = true;
+        drawAScaleMeter(&painter,rulerRect,100,0);
+        mDrawText = false;
+
+        // drawing the current mouse position indicator
         painter.setOpacity(0.4);
-      drawMousePosTick(&painter);
+        drawMousePosTick(&painter);
         painter.setOpacity(1.0);
 
-      // drawing no man's land between the ruler & view
-      QPointF starPt = Horizontal == mRulerType ? rulerRect.bottomLeft()
-          : rulerRect.topRight();
-      QPointF endPt = Horizontal == mRulerType ? rulerRect.bottomRight()
-          : rulerRect.bottomRight();
-      painter.setPen(QPen(Qt::black,2));
-      painter.drawLine(starPt,endPt);
+        // drawing no man's land between the ruler & view
+        QPointF starPt = Horizontal == mRulerType ? rulerRect.bottomLeft() : rulerRect.topRight();
+        QPointF endPt = Horizontal == mRulerType ? rulerRect.bottomRight() : rulerRect.bottomRight();
+        painter.setPen(QPen(Qt::black,2));
+        painter.drawLine(starPt,endPt);
     }
 
 private:
 
     void drawAScaleMeter(QPainter* painter, QRectF rulerRect, qreal scaleMeter, qreal startPositoin)
     {
-      // Flagging whether we are horizontal or vertical only to reduce
-      // to cheching many times
-      bool isHorzRuler = Horizontal == mRulerType;
+        // Flagging whether we are horizontal or vertical only to reduce
+        // to cheching many times
+        bool isHorzRuler = Horizontal == mRulerType;
 
-      scaleMeter  = scaleMeter * mRulerUnit * mRulerZoom;
+        scaleMeter  = scaleMeter * mRulerUnit * mRulerZoom;
 
-      // Ruler rectangle starting mark
-      qreal rulerStartMark = isHorzRuler ? rulerRect.left() : rulerRect.top();
-      // Ruler rectangle ending mark
-      qreal rulerEndMark = isHorzRuler ? rulerRect.right() : rulerRect.bottom();
+        // Ruler rectangle starting mark
+        qreal rulerStartMark = isHorzRuler ? rulerRect.left() : rulerRect.top();
+        // Ruler rectangle ending mark
+        qreal rulerEndMark = isHorzRuler ? rulerRect.right() : rulerRect.bottom();
 
-      // Condition A # If origin point is between the start & end mard,
-      //we have to draw both from origin to left mark & origin to right mark.
-      // Condition B # If origin point is left of the start mark, we have to draw
-      // from origin to end mark.
-      // Condition C # If origin point is right of the end mark, we have to draw
-      // from origin to start mark.
-      if (mOrigin >= rulerStartMark && mOrigin <= rulerEndMark)
-      {
+        // Condition A # If origin point is between the start & end mard, we have to draw both from origin to left mark & origin to right mark.
+        // Condition B # If origin point is left of the start mark, we have to draw from origin to end mark.
+        // Condition C # If origin point is right of the end mark, we have to draw from origin to start mark.
+        if (mOrigin >= rulerStartMark && mOrigin <= rulerEndMark)
+        {
         drawFromOriginTo(painter, rulerRect, mOrigin, rulerEndMark, 0, scaleMeter, startPositoin);
         drawFromOriginTo(painter, rulerRect, mOrigin, rulerStartMark, 0, -scaleMeter, startPositoin);
-      }
-      else if (mOrigin < rulerStartMark)
-      {
+        }
+        else if (mOrigin < rulerStartMark)
+        {
             int tickNo = int((rulerStartMark - mOrigin) / scaleMeter);
-            drawFromOriginTo(painter, rulerRect, mOrigin + scaleMeter * tickNo,
-                rulerEndMark, tickNo, scaleMeter, startPositoin);
-      }
-      else if (mOrigin > rulerEndMark)
-      {
+            drawFromOriginTo(painter, rulerRect, mOrigin + scaleMeter * tickNo, rulerEndMark, tickNo, scaleMeter, startPositoin);
+        }
+        else if (mOrigin > rulerEndMark)
+        {
             int tickNo = int((mOrigin - rulerEndMark) / scaleMeter);
-        drawFromOriginTo(painter, rulerRect, mOrigin - scaleMeter * tickNo,
-                rulerStartMark, tickNo, -scaleMeter, startPositoin);
-      }
+            drawFromOriginTo(painter, rulerRect, mOrigin - scaleMeter * tickNo, rulerStartMark, tickNo, -scaleMeter, startPositoin);
+        }
     }
 
     void drawFromOriginTo(QPainter* painter, QRectF rulerRect, qreal startMark, qreal endMark, int startTickNo, qreal step, qreal startPosition)
@@ -256,12 +254,13 @@ private:
         painter->drawLine(starPt,endPt);
       }
     }
+
 private:
 
-    RulerType mRulerType;
-    qreal mOrigin;
-    qreal mRulerUnit;
-    qreal mRulerZoom;
+    RulerType mRulerType;   // тип
+    qreal mOrigin;          // начальная точка
+    qreal mRulerUnit;       // расстояние между рисками
+    qreal mRulerZoom;       // масштаб
     QPoint mCursorPos;
     bool mMouseTracking;
     bool mDrawText;

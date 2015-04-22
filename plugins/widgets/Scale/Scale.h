@@ -53,6 +53,8 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
                     realPainter = RPWINTEFACE(painter->getRealPaintWidget());
                     connect(realPainter,SIGNAL(mouseMoveEvent(int,int)),this,SLOT(mouseMove(int,int)));
 
+
+                    manager->addPlugins(this, "Scale");
                 }
             }
 
@@ -99,9 +101,6 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
 		MainWindowInterface* mainWin;
 		PaintWidgetInterface* painter;
         RPWInterface* realPainter;
-
-        //QFrame* fr;
-        //QDockWidget *scaleWindow;
 
 
 };
