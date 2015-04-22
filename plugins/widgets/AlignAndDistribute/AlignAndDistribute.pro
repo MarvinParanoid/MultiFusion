@@ -5,15 +5,12 @@ TEMPLATE = lib
 TARGET = AlignAndDistribute
 CONFIG += plugin
 DEPENDPATH += . \
-	./../../../pluginTool \
-	./../../../interfaces
+        ./../../../pluginTool
 INCLUDEPATH += . \
-	./../../../pluginTool \
-	./../../../interfaces
+        ./../../../pluginTool
 LIBS += -L./../../../pluginTool
 QT += xml \
-	qt3support \
-	xmlpatterns
+        xmlpatterns
 DESTDIR = ./../../../bin/plugins/AlignAndDistribute
 SOURCES += AlignAndDistribute.cpp
 HEADERS += AlignAndDistribute.h \

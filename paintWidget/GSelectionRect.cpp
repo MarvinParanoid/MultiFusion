@@ -6,6 +6,15 @@ const int GSelectionRect::marksRadius = 4;
 const int GSelectionRect::displacement = 11;
 
 
+void GSelectionRect::emitChanged()
+{
+    emit changed();
+}
+void GSelectionRect::emitStateChanged(QString event)
+{
+    emit StateChanged(event);
+}
+
 void GSelectionRect::mouseDoubleClick( const int button, const QPoint &pos, Qt::KeyboardModifiers modifiers )
 {
 	if( ( !visible ) || addPointMode ) return;
@@ -465,7 +474,12 @@ void GSelectionRect::setSelected( GObjectInterface *o )
 
 QObject* GSelectionRect::getSelected()
 {
-	return selectedObjects;
+    return selectedObjects;
+}
+
+GContainer* GSelectionRect::getSelectedAsGContainer()
+{
+    return selectedObjects;
 }
 
 void GSelectionRect::addSelected( GObjectInterface *o )
@@ -957,7 +971,7 @@ void GSelectionRect::recalcCenter( const QRect &oldPosition )
 
 	if( ( sx != 1.0 ) || ( sy != 1.0 ) )
 	{
-		emit scaled( sx, sy, position.topLeft() );
+        emit scaled( sx, sy, position.topLeft() );
 		isScale = true;
 	}
 }
