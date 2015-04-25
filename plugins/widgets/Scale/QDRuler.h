@@ -46,9 +46,9 @@ public:
     QDRuler(QDRuler::RulerType rulerType, QWidget* parent):
         QWidget(parent), mRulerType(rulerType), mRulerUnit(0.5),
         mRulerZoom(1.0), mMouseTracking(true), mDrawText(false),
-        mOrigin(200.0)
+        mOrigin(0.0)
     {
-        setMouseTracking(true);
+        //setMouseTracking(true);
         QFont txtFont("Goudy Old Style", 8, 20);
         txtFont.setStyleHint(QFont::TypeWriter,QFont::PreferOutline);
         setFont(txtFont);
@@ -109,12 +109,10 @@ public slots:
       }
     }
 
-
     void setCursorPos(const QPoint cursorPos)
     {
-      mCursorPos = this->mapFromGlobal(cursorPos);
-      mCursorPos += QPoint(RULER_BREADTH,RULER_BREADTH);
-      update();
+        mCursorPos = cursorPos;
+        update();
     }
 
     void setMouseTrack(const bool track)
@@ -128,14 +126,13 @@ public slots:
 
 protected:
 
-    // вызывается при движении мыши (пока робит только на самой линейке)
-    void mouseMoveEvent(QMouseEvent* event)
-    {
-        //qDebug() << event;
-      mCursorPos = event->pos();
-      update();
-      QWidget::mouseMoveEvent(event);
-    }
+    // вызывается при движении мыши на самой линейке
+//    void mouseMoveEvent(QMouseEvent* event)
+//    {
+//      mCursorPos = event->pos();
+//      update();
+//      QWidget::mouseMoveEvent(event);
+//    }
 
     // отрисовка всего
     void paintEvent(QPaintEvent* event)
@@ -152,8 +149,6 @@ protected:
         //painter.fillRect(rulerRect,QColor(220,200,180));
         painter.fillRect(rulerRect,QColor(236,233,216));
 
-        //qDebug() << rulerRect.height() << rulerRect.width();
-
         // drawing a scale of 25
         drawAScaleMeter(&painter,rulerRect,25,(Horizontal == mRulerType ? rulerRect.height() : rulerRect.width())/2);
         // drawing a scale of 50
@@ -164,7 +159,7 @@ protected:
         mDrawText = false;
 
         // drawing the current mouse position indicator
-        painter.setOpacity(0.4);
+        painter.setOpacity(0.7);
         drawMousePosTick(&painter);
         painter.setOpacity(1.0);
 
@@ -179,8 +174,7 @@ private:
 
     void drawAScaleMeter(QPainter* painter, QRectF rulerRect, qreal scaleMeter, qreal startPositoin)
     {
-        // Flagging whether we are horizontal or vertical only to reduce
-        // to cheching many times
+        // Flagging whether we are horizontal or vertical only to reduce to cheching many times
         bool isHorzRuler = Horizontal == mRulerType;
 
         scaleMeter  = scaleMeter * mRulerUnit * mRulerZoom;
@@ -195,8 +189,8 @@ private:
         // Condition C # If origin point is right of the end mark, we have to draw from origin to start mark.
         if (mOrigin >= rulerStartMark && mOrigin <= rulerEndMark)
         {
-        drawFromOriginTo(painter, rulerRect, mOrigin, rulerEndMark, 0, scaleMeter, startPositoin);
-        drawFromOriginTo(painter, rulerRect, mOrigin, rulerStartMark, 0, -scaleMeter, startPositoin);
+            drawFromOriginTo(painter, rulerRect, mOrigin, rulerEndMark, 0, scaleMeter, startPositoin);
+            drawFromOriginTo(painter, rulerRect, mOrigin, rulerStartMark, 0, -scaleMeter, startPositoin);
         }
         else if (mOrigin < rulerStartMark)
         {
@@ -212,47 +206,62 @@ private:
 
     void drawFromOriginTo(QPainter* painter, QRectF rulerRect, qreal startMark, qreal endMark, int startTickNo, qreal step, qreal startPosition)
     {
-      bool isHorzRuler = Horizontal == mRulerType;
-      int iterate = 0;
+        bool isHorzRuler = Horizontal == mRulerType;
+        int iterate = 0;
 
-      for (qreal current = startMark;
-          (step < 0 ? current >= endMark : current <= endMark); current += step)
-      {
-        qreal x1 = isHorzRuler ? current : rulerRect.left() + startPosition;
-        qreal y1 = isHorzRuler ? rulerRect.top() + startPosition : current;
-        qreal x2 = isHorzRuler ? current : rulerRect.right();
-        qreal y2 = isHorzRuler ? rulerRect.bottom() : current;
-        painter->drawLine(QLineF(x1,y1,x2,y2));
-        if (mDrawText)
+        for (qreal current = startMark; (step < 0 ? current >= endMark : current <= endMark); current += step)
         {
-          QPainterPath txtPath;
+            qreal x1 = isHorzRuler ? current : rulerRect.left() + startPosition;
+            qreal y1 = isHorzRuler ? rulerRect.top() + startPosition : current;
+            qreal x2 = isHorzRuler ? current : rulerRect.right();
+            qreal y2 = isHorzRuler ? rulerRect.bottom() : current;
+            painter->drawLine(QLineF(x1,y1,x2,y2));
+            if (mDrawText)
+            {
+                QPainterPath txtPath;
                 txtPath.addText(x1 + 1,y1 + (isHorzRuler ? 7 : -2),this->font(),QString::number(qAbs(int(step) * startTickNo++)));
-          painter->drawPath(txtPath);
-          iterate++;
+                painter->drawPath(txtPath);
+                iterate++;
+            }
         }
-      }
     }
 
+    // отрисовка риски на линейке
     void drawMousePosTick(QPainter* painter)
     {
-      if (mMouseTracking)
-      {
-        QPoint starPt = mCursorPos;
-        QPoint endPt;
-        if (Horizontal == mRulerType)
+        if (mMouseTracking)
         {
-          starPt.setY(this->rect().top());
-          endPt.setX(starPt.x());
-          endPt.setY(this->rect().bottom());
+            QPoint starPt = mCursorPos;
+            QPoint endPt;
+            if (Horizontal == mRulerType)
+            {
+                drawDownTriangle(painter, RULER_BREADTH, mCursorPos.x());
+            }
+            else
+            {
+                drawRigthTriangle(painter, RULER_BREADTH, mCursorPos.y());
+            }
         }
-        else
-        {
-          starPt.setX(this->rect().left());
-          endPt.setX(this->rect().right());
-          endPt.setY(starPt.y());
-        }
-        painter->drawLine(starPt,endPt);
-      }
+    }
+
+    void drawDownTriangle(QPainter* painter, qreal a, qreal x)
+    {
+        QPainterPath path;
+        path.moveTo( x, a-1);
+        path.lineTo( x-a/3, a/2);
+        path.lineTo( x+a/3, a/2);
+        path.lineTo( x, a-1);
+        painter->fillPath(path, QBrush(QColor ("blue")));
+    }
+
+    void drawRigthTriangle(QPainter* painter, qreal a, qreal y)
+    {
+        QPainterPath path;
+        path.moveTo( a-1, y);
+        path.lineTo( a/2, y-a/3);
+        path.lineTo( a/2, y+a/3);
+        path.lineTo( a-1, y);
+        painter->fillPath(path, QBrush(QColor ("blue")));
     }
 
 private:

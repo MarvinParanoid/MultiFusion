@@ -26,7 +26,7 @@ class RPWInterface:public QGLWidget
 		void objectCreated();
 		void isPlayed();
 		
-		void mouseMoveEvent(int x, int y);
+		void mouseMoveEvent(QPoint global, QPoint rpw);
 		
 		/**
 		 * Генерируется при перемещении по истории событий

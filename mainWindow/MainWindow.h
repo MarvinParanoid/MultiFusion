@@ -75,7 +75,7 @@ class mainWindow: public MainWindowInterface
 		void onAbout();
 		void onAboutQt();
 
-        void onRPWMouseMove(int x, int y);
+        void onRPWMouseMove(QPoint, QPoint);
 
         void onRotate90CW();
         void onRotate90CWW();

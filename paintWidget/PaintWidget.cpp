@@ -12,13 +12,11 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 	PaintWidgetInterface(parent), painter(manager, this)
 {
     mainWin = MAINWINDOW(parent);
-    connect(&painter, SIGNAL(mouseMoveEvent(int,int)), mainWin, SLOT(onRPWMouseMove(int,int)));
+    connect(&painter, SIGNAL(mouseMoveEvent(QPoint,QPoint)), mainWin, SLOT(onRPWMouseMove(QPoint,QPoint)));
 
 	setWidget( &painter );
 	setAlignment( Qt::AlignCenter );
 	setViewportColor( QColor( 100, 100, 100 ) );
-
-    qDebug() << viewportType();
 
     isCreatedPWE = false;
 
@@ -44,6 +42,11 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 PaintWidget::~PaintWidget()
 {
 	delete painter.background;
+}
+
+void PaintWidget::mySetViewportMargins(int left, int top, int right, int bottom)
+{
+    setViewportMargins(left,top,right,bottom);
 }
 
 void PaintWidget::setHideFigures(int layer, bool value)
@@ -884,13 +887,13 @@ void PaintWidget::setViewportType( const PaintWidget::ViewportType t )
 	switch( t )
 	{
 		case fixedViewport:
-			painter.fixedSize = false;
+            painter.fixedSize = false;
             setWidgetResizable( false );
 			painter.resize( painter.size );
 			break;
 
 		case resizableViewport:
-			painter.fixedSize = false;
+            painter.fixedSize = false;
 			setWidgetResizable( true );
 			break;
 

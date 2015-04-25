@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QGridLayout>
 #include <QGLWidget>
+#include <QDebug>
 
 #include "./../../../pluginTool/Plugin.h"
 #include "./../../../pluginTool/InterfacePlugin.h"
@@ -34,11 +35,10 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
                     painter = PAINTWIDGETINTERFACE(mainWin->getPaintWidget());
 
                     // добавление линеек
-                    //painter->setViewportMargins(RULER_BREADTH,RULER_BREADTH,0,0);
+                    painter->mySetViewportMargins(RULER_BREADTH,RULER_BREADTH,0,0);
                     QGridLayout* gridLayout = new QGridLayout();
                     gridLayout->setSpacing(0);
                     gridLayout->setMargin(0);
-                    QDRuler *mHorzRuler, *mVertRuler;
                     mHorzRuler = new QDRuler(QDRuler::Horizontal,painter);
                     mVertRuler = new QDRuler(QDRuler::Vertical,painter);
                     QWidget* fake = new QWidget();
@@ -50,9 +50,8 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
                     gridLayout->addWidget(painter->viewport(),1,1);
                     painter->setLayout(gridLayout);
 
-                    realPainter = RPWINTEFACE(painter->getRealPaintWidget());
-                    connect(realPainter,SIGNAL(mouseMoveEvent(int,int)),this,SLOT(mouseMove(int,int)));
-
+                    realPainter = RPWINTEFACE(painter->getRealPaintWidget());  
+                    connect(realPainter,SIGNAL(mouseMoveEvent(QPoint,QPoint)),this,SLOT(mouseMove(QPoint,QPoint)));
 
                     manager->addPlugins(this, "Scale");
                 }
@@ -91,9 +90,13 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
 
 	private slots:
 
-        void mouseMove(int x, int y)
+        void mouseMove(QPoint global, QPoint rpw)
         {
-
+            QPoint p = (global-rpw);
+            mVertRuler->setOrigin(p.y());
+            mHorzRuler->setOrigin(p.x());
+            mHorzRuler->setCursorPos(global);
+            mVertRuler->setCursorPos(global);
         }
 
 	private:
@@ -101,6 +104,7 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
 		MainWindowInterface* mainWin;
 		PaintWidgetInterface* painter;
         RPWInterface* realPainter;
+        QDRuler *mHorzRuler, *mVertRuler;
 
 
 };

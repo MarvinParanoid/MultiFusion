@@ -72,7 +72,9 @@ class PaintWidgetInterface:public QScrollArea
 		void figureSelected(int layer , int obj);
 
 	public:
-
+	
+		virtual void mySetViewportMargins(int left, int top, int right, int bottom)=0;
+	
 		/**
 		 * Задает скрывать фигуры в текущем слое или нет
 		 */

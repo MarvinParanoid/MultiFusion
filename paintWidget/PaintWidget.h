@@ -98,7 +98,10 @@ class PaintWidget:public PaintWidgetInterface
 		void backgroundChanged( QWidget *from );
 
 	public:
-                MainWindowInterface* mainWin;
+
+        virtual void mySetViewportMargins(int left, int top, int right, int bottom);
+
+        MainWindowInterface* mainWin;
 
 		/**
 		 * Задает скрывать фигуры в текущем слое или нет
