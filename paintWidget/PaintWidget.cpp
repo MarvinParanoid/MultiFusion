@@ -238,7 +238,10 @@ void PaintWidget::scale( qreal s )
 	{
 		painter.layers[i]->scale( s, s, center );
 	}
+
+    //setViewportFixedSize( QSize( painter.width()*s, painter.height()*s ) );
     //painter.resize(painter.width()*s,painter.height()*s);
+
 	painter.selection.reset();
 
 	painter.update();
@@ -900,7 +903,8 @@ void PaintWidget::setViewportType( const PaintWidget::ViewportType t )
 	{
 		case fixedViewport:
             painter.fixedSize = false;
-            setWidgetResizable( false );
+            setWidgetResizable( true );
+            //setWidgetResizable( false );
 			painter.resize( painter.size );
 			break;
 

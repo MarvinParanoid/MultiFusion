@@ -135,8 +135,7 @@ void PaintWidgetEditor::onViewportWidthEdited( const QString &text )
 		val = 1;
 	}
 
-	_paintWidget.setViewportFixedSize( QSize( val,
-				ui.viewportHeight->currentText().toInt( &isInt ) ) );
+    _paintWidget.setViewportFixedSize( QSize( val, ui.viewportHeight->currentText().toInt( &isInt ) ) );
 	updateViews = true;
 	updateBackgroundViews();
 }
