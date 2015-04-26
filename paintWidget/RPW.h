@@ -40,7 +40,7 @@ class RealPaintWidget:public RPWInterface
 		void isPlayed();
 		void undoEvents();
 
-        void mouseMoveEvent(int x, int y);
+        void mouseMoveEvent(QPoint global, QPoint rpw);
 
 		/**
 		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
@@ -54,6 +54,7 @@ class RealPaintWidget:public RPWInterface
 		void isFrame(bool value);
 	public:
 
+        virtual QPoint getPoint();
 		virtual QObject* getUndo();
 
 		virtual void setFromUndo(QObject* undo);

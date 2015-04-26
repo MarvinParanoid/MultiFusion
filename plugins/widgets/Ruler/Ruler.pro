@@ -2,14 +2,16 @@
 #       Scale plugin. Demidov Alexey, 2014
 ######################################################################
 TEMPLATE = lib
-TARGET = Scale
+TARGET = Ruler
 CONFIG += plugin
 DEPENDPATH += ./../../../pluginTool
 INCLUDEPATH += ./../../../pluginTool
 QT += xml \
-    xmlpatterns
-DESTDIR = ./../../../bin/plugins/Scale
-SOURCES += Scale.cpp
-HEADERS += Scale.h \
+    xmlpatterns \
+    opengl
+DESTDIR = ./../../../bin/plugins/Ruler
+SOURCES += Ruler.cpp
+HEADERS += Ruler.h \
     Plugin.h \
-    SignalHolder.h
+    SignalHolder.h \
+    QDRuler.h

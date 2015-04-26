@@ -646,10 +646,10 @@ void mainWindow::onAboutQt()
     QMessageBox::aboutQt( this, tr( "MultiFusion application" ) );
 }
 
-void mainWindow::onRPWMouseMove(int x, int y)
+void mainWindow::onRPWMouseMove(QPoint global, QPoint rpw) //int x, int y)
 {
-    m_plblX->setText("X=" + QString().setNum(x));
-    m_plblY->setText("Y=" + QString().setNum(y));
+    m_plblX->setText("X=" + QString().setNum(rpw.x()));
+    m_plblY->setText("Y=" + QString().setNum(rpw.y()));
 }
 
 

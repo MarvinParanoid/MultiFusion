@@ -5,8 +5,6 @@
  *      Author: Admin
  */
 
-// область за рисунком
-
 #ifndef PWE_H_
 #define PWE_H_
 

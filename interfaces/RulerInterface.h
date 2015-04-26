@@ -1,5 +1,5 @@
-﻿#ifndef __SCALE_INTERFACE_H__
-#define __SCALE_INTERFACE_H__
+﻿#ifndef __RULER_INTERFACE_H__
+#define __RULER_INTERFACE_H__
 
 /**
 *	@file timelineinterface.h В данном файле описан интерфейс, который должен реализовывать
@@ -19,31 +19,31 @@
 *
 *	@endcode
 */
-class ScaleInterface
+class RulerInterface
 {
 	public:
 		/**
 		*	Конструктор.
 		*/
-		ScaleInterface() {}
+		RulerInterface() {}
 		
 		//virtual int getFps() = 0;
 		/**
 		*	Деструктор.
 		*/
-		virtual ~ScaleInterface(){}
+		virtual ~RulerInterface(){}
 };
 
-Q_DECLARE_INTERFACE( ScaleInterface, "com.alxn1.MultiFusion.ScaleInterface/1.0" )
+Q_DECLARE_INTERFACE( RulerInterface, "com.alxn1.MultiFusion.RulerInterface/1.0" )
 
 /**
 *	Приводит указатель на любой обьект к указателью на интерфейс TimelineInterface.
 *
 *	@return Приведённый указатель или 0, если произошла ошибка.
 */
-template < class T > inline ScaleInterface* SCALE( T *o )
+template < class T > inline RulerInterface* RULER( T *o )
 {
-	return qobject_cast< ScaleInterface* >( o );
+	return qobject_cast< RulerInterface* >( o );
 }
 
-#endif /* __SCALE_INTERFACE_H__ */
+#endif /* __RULER_INTERFACE_H__ */

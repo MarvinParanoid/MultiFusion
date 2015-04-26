@@ -14,6 +14,15 @@ void RealPaintWidget::setContextMenu(QMenu *qMenu)//задание контек�
 	paintConMenu = qMenu;
 }
 
+QPoint RealPaintWidget::getPoint()
+{
+//    QPoint point(event->x(),event->y());
+//    emit mouseMoveEvent(QWidget::mapToParent(point),pos);
+    QPoint p(10,10);
+    //qDebug() << QWidget::mapToParent(p) << p;
+    return QPoint(QWidget::mapToParent(p)-p);
+}
+
 QObject* RealPaintWidget::getUndo()
 {
 	UndoStructure* undo = new UndoStructure(this);
@@ -253,6 +262,10 @@ RealPaintWidget::RealPaintWidget( plugin::PluginsManager *manager, QWidget *pare
 
     isMousePress = false;
     setMouseTracking(true);
+
+    //qDebug() << getPoint();
+    QPoint p(10,10);
+    emit mouseMoveEvent(QWidget::mapToParent(p),p);
 }
 
 RealPaintWidget::~RealPaintWidget()
@@ -271,9 +284,7 @@ void RealPaintWidget::paintEvent( QPaintEvent * event )
 		viewportRect.setSize( size );
 	}
 
-	p.setRenderHints( QPainter::Antialiasing |
-						QPainter::TextAntialiasing |
-						QPainter::SmoothPixmapTransform );
+    p.setRenderHints( QPainter::Antialiasing | QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform );
 
 	viewportRect.setWidth( viewportRect.width() - 1 );
 	viewportRect.setHeight( viewportRect.height() - 1 );
@@ -301,6 +312,8 @@ void RealPaintWidget::paintEvent( QPaintEvent * event )
 		p.drawRect( selectionRect.x(), selectionRect.y(),
 			selectionRect.width() - 1, selectionRect.height() - 1 );
 	}
+
+
 }
 
 void RealPaintWidget::mousePressEvent( QMouseEvent *event )
@@ -422,8 +435,6 @@ void RealPaintWidget::mousePressEvent( QMouseEvent *event )
 void RealPaintWidget::mouseMoveEvent( QMouseEvent * event )
 {
 
-    emit mouseMoveEvent(event->x(),event->y());
-
 	QPoint pos = event->pos();
 	if( fixedSize )
 	{
@@ -431,7 +442,12 @@ void RealPaintWidget::mouseMoveEvent( QMouseEvent * event )
 		pos -= QPoint( sz.width() / 2, sz.height() / 2 );
 	}
 
-	if( inSelectionMode )
+
+    QPoint point(event->x(),event->y());
+    emit mouseMoveEvent(QWidget::mapToParent(point),pos);
+    QWidget::mouseMoveEvent(event);
+
+    if( inSelectionMode )
 	{
 		selectionRect.setBottomRight( pos );
 		update();

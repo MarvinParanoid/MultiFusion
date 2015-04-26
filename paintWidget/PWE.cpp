@@ -1,6 +1,7 @@
 ﻿#include "PWE.h"
 #include "GPropertiesObj.h"
 #include "PaintWidget.h"
+#include <QDebug>
 
 PaintWidgetEditor::PaintWidgetEditor(PaintWidget &paintWidget):
 					_paintWidget( paintWidget ),
@@ -47,7 +48,7 @@ PaintWidgetEditor::PaintWidgetEditor(PaintWidget &paintWidget):
 				this, SLOT( onViewportHeightChanged( const QString& ) ) );
 
 	connect( ui.viewportHeight, SIGNAL( editTextChanged( const QString& ) ),
-				this, SLOT( onViewportHeightEdited( const QString& ) ) );
+                this, SLOT( onViewportHeightEdited( const QString& ) ) );
 
 	syncWithPainter();
 }
