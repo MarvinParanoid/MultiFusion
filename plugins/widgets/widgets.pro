@@ -3,4 +3,4 @@
 ######################################################################
 
 TEMPLATE = subdirs
-SUBDIRS = BrushBox LayersEditor PenBox TimeLine ToolBox UndoRedo Scale AlignAndDistribute
+SUBDIRS = BrushBox LayersEditor PenBox TimeLine ToolBox UndoRedo Ruler AlignAndDistribute

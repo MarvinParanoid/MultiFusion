@@ -11,12 +11,14 @@ const static QString MIMETYPE = "sacs2/object";
 PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 	PaintWidgetInterface(parent), painter(manager, this)
 {
+    setMouseTracking(true);
     mainWin = MAINWINDOW(parent);
     connect(&painter, SIGNAL(mouseMoveEvent(QPoint,QPoint)), mainWin, SLOT(onRPWMouseMove(QPoint,QPoint)));
 
 	setWidget( &painter );
 	setAlignment( Qt::AlignCenter );
-	setViewportColor( QColor( 100, 100, 100 ) );
+    setViewportColor( QColor( 100, 100, 100 ) );
+
 
     isCreatedPWE = false;
 
@@ -42,6 +44,11 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 PaintWidget::~PaintWidget()
 {
 	delete painter.background;
+}
+
+void PaintWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    emit mouseMoveEvent(event->pos());
 }
 
 void PaintWidget::mySetViewportMargins(int left, int top, int right, int bottom)
@@ -217,6 +224,7 @@ int PaintWidget::countFrames() const
 	return painter.layers[painter.currentLayer]->countFramesForLayer();
 }
 
+// масштабирование
 void PaintWidget::scale( qreal s )
 {
 	QPointF center;

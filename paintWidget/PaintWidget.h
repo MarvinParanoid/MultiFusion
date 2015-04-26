@@ -16,6 +16,7 @@
 #include <QDialog>
 #include <QDialogButtonBox>
 #include "../interfaces/MainWindowInterface.h"
+#include <QMouseEvent>
 
 /**
 *	@file paintwidget.h Данный файл содержит описание класса, предоставляющего, собственно, элемент
@@ -37,6 +38,8 @@ class PaintWidget:public PaintWidgetInterface
 	Q_OBJECT
 	Q_INTERFACES(PaintWidgetInterface)
 	signals:
+
+        void mouseMoveEvent(QPoint global);
 
 		 /**
 		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
@@ -98,6 +101,8 @@ class PaintWidget:public PaintWidgetInterface
 		void backgroundChanged( QWidget *from );
 
 	public:
+
+        virtual void mouseMoveEvent( QMouseEvent * event );
 
         virtual void mySetViewportMargins(int left, int top, int right, int bottom);
 

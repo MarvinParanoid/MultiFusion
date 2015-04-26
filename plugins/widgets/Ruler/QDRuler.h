@@ -219,7 +219,8 @@ private:
             if (mDrawText)
             {
                 QPainterPath txtPath;
-                txtPath.addText(x1 + 1,y1 + (isHorzRuler ? 7 : -2),this->font(),QString::number(qAbs(int(step) * startTickNo++)));
+                txtPath.addText(x1 + 1,y1 + (isHorzRuler ? 7 : -2),this->font(),QString::number((int(step) * startTickNo++)));
+                //txtPath.addText(x1 + 1,y1 + (isHorzRuler ? 7 : -2),this->font(),QString::number(qAbs(int(step) * startTickNo++)));
                 painter->drawPath(txtPath);
                 iterate++;
             }
@@ -231,8 +232,6 @@ private:
     {
         if (mMouseTracking)
         {
-            QPoint starPt = mCursorPos;
-            QPoint endPt;
             if (Horizontal == mRulerType)
             {
                 drawDownTriangle(painter, RULER_BREADTH, mCursorPos.x());

@@ -17,6 +17,8 @@ class PaintWidgetInterface:public QScrollArea
 {
 	signals:
 
+		void mouseMoveEvent(QPoint global);
+	
 		 /**
 		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
 		 * @param event имя события
@@ -73,6 +75,7 @@ class PaintWidgetInterface:public QScrollArea
 
 	public:
 	
+		virtual void mouseMoveEvent( QMouseEvent * event ) = 0;
 		virtual void mySetViewportMargins(int left, int top, int right, int bottom)=0;
 	
 		/**

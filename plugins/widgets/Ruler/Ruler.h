@@ -1,5 +1,5 @@
-﻿#ifndef __SCALE_H__
-#define __SCALE_H__
+﻿#ifndef __RULER_H__
+#define __RULER_H__
 
 #include "QDRuler.h"
 #include <QWidget>
@@ -9,16 +9,16 @@
 
 #include "./../../../pluginTool/Plugin.h"
 #include "./../../../pluginTool/InterfacePlugin.h"
-#include "./../../../interfaces/ScaleInterface.h"
+#include "./../../../interfaces/RulerInterface.h"
 #include "./../../../interfaces/MainWindowInterface.h"
 #include "./../../../interfaces/PaintWidgetInterface.h"
 #include "./../../../interfaces/RPWInterface.h"
 
 
-class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
+class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
 {
 	Q_OBJECT
-    Q_INTERFACES( ScaleInterface )
+    Q_INTERFACES( RulerInterface )
 	Q_INTERFACES( InterfacePlugin )
 
 	signals:
@@ -33,6 +33,7 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
                 if(mainWin!=0)
                 {
                     painter = PAINTWIDGETINTERFACE(mainWin->getPaintWidget());
+                    realPainter = RPWINTEFACE(painter->getRealPaintWidget());
 
                     // добавление линеек
                     painter->mySetViewportMargins(RULER_BREADTH,RULER_BREADTH,0,0);
@@ -47,11 +48,11 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
                     gridLayout->addWidget(fake,0,0);
                     gridLayout->addWidget(mHorzRuler,0,1);
                     gridLayout->addWidget(mVertRuler,1,0);
-                    gridLayout->addWidget(painter->viewport(),1,1);
+                    //gridLayout->addWidget(painter->viewport(),1,1);
                     painter->setLayout(gridLayout);
 
-                    realPainter = RPWINTEFACE(painter->getRealPaintWidget());  
-                    connect(realPainter,SIGNAL(mouseMoveEvent(QPoint,QPoint)),this,SLOT(mouseMove(QPoint,QPoint)));
+                    connect(realPainter,SIGNAL(mouseMoveEvent(QPoint,QPoint)),this,SLOT(mouseMoveOrigin(QPoint,QPoint)));
+                    connect(painter,SIGNAL(mouseMoveEvent(QPoint)),this,SLOT(mouseMoveCoords(QPoint)));
 
                     manager->addPlugins(this, "Scale");
                 }
@@ -74,15 +75,15 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
 
 		virtual QString getName()const
 		{
-            return "Scale";
+            return "Ruler";
 		}
 
-        Scale( plugin::PluginsManager *manager )
+        Ruler( plugin::PluginsManager *manager )
         {
 
         }
 
-        virtual ~Scale()
+        virtual ~Ruler()
 		{
 		}
 
@@ -90,11 +91,17 @@ class Scale:public QWidget, public ScaleInterface, public InterfacePlugin
 
 	private slots:
 
-        void mouseMove(QPoint global, QPoint rpw)
+        void mouseMoveOrigin(QPoint global, QPoint rpw)
         {
             QPoint p = (global-rpw);
             mVertRuler->setOrigin(p.y());
             mHorzRuler->setOrigin(p.x());
+            mHorzRuler->setCursorPos(global);
+            mVertRuler->setCursorPos(global);
+        }
+
+        void mouseMoveCoords(QPoint global)
+        {
             mHorzRuler->setCursorPos(global);
             mVertRuler->setCursorPos(global);
         }
