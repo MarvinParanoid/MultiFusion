@@ -96,8 +96,8 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
             QPoint p = (global-rpw);
             mVertRuler->setOrigin(p.y());
             mHorzRuler->setOrigin(p.x());
-            mHorzRuler->setCursorPos(global);
-            mVertRuler->setCursorPos(global);
+            //mHorzRuler->setCursorPos(global);
+            //mVertRuler->setCursorPos(global);
         }
 
         void mouseMoveCoords(QPoint global)
