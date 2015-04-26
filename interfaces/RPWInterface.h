@@ -15,7 +15,7 @@
 #include <QSize>
 #include <QObject>
 #include <QMenu>
-#include <QGLWidget>
+#include <QtOpenGL/QGLWidget>
 
 class RPWInterface:public QGLWidget
 {

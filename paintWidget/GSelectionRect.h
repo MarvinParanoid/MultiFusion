@@ -78,8 +78,11 @@ class GSelectionRect: public GSRInterface
 		*/
 		void rotated( const qreal angle, const QPointF &center );
 
-	public:
+    public:
 
+
+        virtual void emitChanged();
+        virtual void emitStateChanged(QString event);
 
 		/**
 		*		Так, так данная рамка не является полноценным элементом управления и может существовать только
@@ -313,14 +316,15 @@ class GSelectionRect: public GSRInterface
 		*
 		*	@param o обьект, который необходимо выделить рамкой выделения.
 		*/
-		virtual void setSelected( GObjectInterface *o );
+        virtual void setSelected( GObjectInterface *o );
 
-		/**
-		*	Получаем выделенные объекты
-		*
-		*	@param o обьект, который выделен рамкой выделения.
-		*/
-		virtual QObject * getSelected();
+        /**
+        *	Получаем выделенные объекты
+        *
+        *	@param o обьект, который выделен рамкой выделения.
+        */
+        virtual QObject * getSelected();
+        virtual GContainer * getSelectedAsGContainer();
 
 		/**
 		*		Добавляет к выделению ещё один обьект. Если не было выделенно ни одного, то данный
@@ -416,7 +420,7 @@ class GSelectionRect: public GSRInterface
 		void onMoved( const qreal dx, const qreal dy );
 		void onScaled( const qreal sx, const qreal sy, const QPointF &scaleCenter );
 		void onSheared( const qreal sx, const qreal sy, const QPointF &shearPoint );
-		void onRotated( const qreal angle, const QPointF &center );
+        void onRotated( const qreal angle, const QPointF &center );
 
 	private:
 

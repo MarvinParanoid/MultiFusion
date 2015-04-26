@@ -47,35 +47,6 @@
            </size>
           </property>
           <property name="toolTip">
-           <string>Align right edges of objects to the left edge of the anchor</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="AlignAndDistribute.qrc">
-            <normaloff>:/AlignAndDistribute/images/align-horizontal-right-to-anchor.png</normaloff>:/AlignAndDistribute/images/align-horizontal-right-to-anchor.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>24</width>
-            <height>24</height>
-           </size>
-          </property>
-          <property name="autoRaise">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="AlignButton_02">
-          <property name="minimumSize">
-           <size>
-            <width>32</width>
-            <height>32</height>
-           </size>
-          </property>
-          <property name="toolTip">
            <string>Align left edges</string>
           </property>
           <property name="text">
@@ -97,7 +68,10 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="AlignButton_03">
+         <widget class="QToolButton" name="AlignButton_02">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -126,7 +100,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="AlignButton_04">
+         <widget class="QToolButton" name="AlignButton_03">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -142,35 +116,6 @@
           <property name="icon">
            <iconset resource="AlignAndDistribute.qrc">
             <normaloff>:/AlignAndDistribute/images/align-horizontal-right.png</normaloff>:/AlignAndDistribute/images/align-horizontal-right.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>24</width>
-            <height>24</height>
-           </size>
-          </property>
-          <property name="autoRaise">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="AlignButton_05">
-          <property name="minimumSize">
-           <size>
-            <width>32</width>
-            <height>32</height>
-           </size>
-          </property>
-          <property name="toolTip">
-           <string>Align left edges of objects to the right edge of the anchor</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="AlignAndDistribute.qrc">
-            <normaloff>:/AlignAndDistribute/images/align-horizontal-left-to-anchor.png</normaloff>:/AlignAndDistribute/images/align-horizontal-left-to-anchor.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -207,36 +152,7 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QToolButton" name="AlignButton_06">
-          <property name="minimumSize">
-           <size>
-            <width>32</width>
-            <height>32</height>
-           </size>
-          </property>
-          <property name="toolTip">
-           <string>Align bottom edges of objects to the top edge of the anchor</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="AlignAndDistribute.qrc">
-            <normaloff>:/AlignAndDistribute/images/align-vertical-bottom-to-anchor.png</normaloff>:/AlignAndDistribute/images/align-vertical-bottom-to-anchor.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>24</width>
-            <height>24</height>
-           </size>
-          </property>
-          <property name="autoRaise">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="AlignButton_07">
+         <widget class="QToolButton" name="AlignButton_04">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -265,7 +181,10 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="AlignButton_08">
+         <widget class="QToolButton" name="AlignButton_05">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -294,7 +213,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="AlignButton_09">
+         <widget class="QToolButton" name="AlignButton_06">
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -310,35 +229,6 @@
           <property name="icon">
            <iconset resource="AlignAndDistribute.qrc">
             <normaloff>:/AlignAndDistribute/images/align-vertical-bottom.png</normaloff>:/AlignAndDistribute/images/align-vertical-bottom.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>24</width>
-            <height>24</height>
-           </size>
-          </property>
-          <property name="autoRaise">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="AlignButton_10">
-          <property name="minimumSize">
-           <size>
-            <width>32</width>
-            <height>32</height>
-           </size>
-          </property>
-          <property name="toolTip">
-           <string>Align top edges of objects to the bottom edge of the anchor</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="AlignAndDistribute.qrc">
-            <normaloff>:/AlignAndDistribute/images/align-vertical-top-to-anchor.png</normaloff>:/AlignAndDistribute/images/align-vertical-top-to-anchor.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -388,6 +278,9 @@
         </property>
         <item>
          <widget class="QToolButton" name="DistributeButton_1">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -417,6 +310,9 @@
         </item>
         <item>
          <widget class="QToolButton" name="DistributeButton_2">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -446,6 +342,9 @@
         </item>
         <item>
          <widget class="QToolButton" name="DistributeButton_3">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -475,6 +374,9 @@
         </item>
         <item>
          <widget class="QToolButton" name="DistributeButton_4">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -524,6 +426,9 @@
         </property>
         <item>
          <widget class="QToolButton" name="DistributeButton_5">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -553,6 +458,9 @@
         </item>
         <item>
          <widget class="QToolButton" name="DistributeButton_6">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -582,6 +490,9 @@
         </item>
         <item>
          <widget class="QToolButton" name="DistributeButton_7">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -611,6 +522,9 @@
         </item>
         <item>
          <widget class="QToolButton" name="DistributeButton_8">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="minimumSize">
            <size>
             <width>32</width>
@@ -678,10 +592,6 @@
   <tabstop>AlignButton_04</tabstop>
   <tabstop>AlignButton_05</tabstop>
   <tabstop>AlignButton_06</tabstop>
-  <tabstop>AlignButton_07</tabstop>
-  <tabstop>AlignButton_08</tabstop>
-  <tabstop>AlignButton_09</tabstop>
-  <tabstop>AlignButton_10</tabstop>
   <tabstop>DistributeButton_1</tabstop>
   <tabstop>DistributeButton_2</tabstop>
   <tabstop>DistributeButton_3</tabstop>

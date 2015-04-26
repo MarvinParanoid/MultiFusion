@@ -15,6 +15,7 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
     mainWin = MAINWINDOW(parent);
     connect(&painter, SIGNAL(mouseMoveEvent(QPoint,QPoint)), mainWin, SLOT(onRPWMouseMove(QPoint,QPoint)));
 
+
 	setWidget( &painter );
 	setAlignment( Qt::AlignCenter );
     setViewportColor( QColor( 100, 100, 100 ) );
@@ -24,7 +25,7 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 
     manager->addPlugins(this, "PaintWidget");
 
-
+	
 	connect( &painter, SIGNAL( objectCreated() ),
 			this, SIGNAL( objectCreated() ) );
 
@@ -624,6 +625,7 @@ void PaintWidget::paintFrameTo( QPainter &to, const QRect &r, qreal frame )
 
 bool PaintWidget::reset()
 {
+    setFrame(0.0, false);
 	if( !painter.isEnabled() ) return false;
 
 	setViewportColor( QColor( 100, 100, 100 ) );
@@ -730,6 +732,8 @@ bool PaintWidget::load( QDataStream &stream )
 	emit figureSelected( 0 , -1);
 	emit allLayersChanged();
 	emit countFramesChanged( countFrames() );
+
+    setFrame(0.0, false);
 
 	return true;
 }

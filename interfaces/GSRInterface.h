@@ -13,6 +13,7 @@
 
 #include "GObjectInterface.h"
 
+class GContainer;
 /**
 *		Этот класс реализует рамку выделения графических обьектов. Он так же позволяет призводить
 *	различные операции с выделенными обьектами, такие как их перемещение, изменение из размера и
@@ -121,6 +122,9 @@ class GSRInterface:public QObject
 				moveResize, /** Состояние ожижания масштабирования или перемещения */
 				sheareRotate /** Состояние ожижания вращения или паралельного переноса граней */
 			};
+
+            virtual void emitChanged() = 0;
+            virtual void emitStateChanged(QString event) = 0;
 
 			/**
 			*		Так, так данная рамка не является полноценным элементом управления и может существовать только
@@ -270,14 +274,15 @@ class GSRInterface:public QObject
 			*
 			*	@param o обьект, который необходимо выделить рамкой выделения.
 			*/
-			virtual void setSelected( GObjectInterface *o ) = 0;
+            virtual void setSelected( GObjectInterface *o ) = 0;
 
-			/**
-			*	Получаем выделенные объекты
-			*
-			*	@param o обьект, который выделен рамкой выделения.
-			*/
-			virtual QObject * getSelected() = 0;
+            /**
+            *	Получаем выделенные объекты
+            *
+            *	@param o обьект, который выделен рамкой выделения.
+            */
+            virtual QObject * getSelected() = 0;
+            virtual GContainer * getSelectedAsGContainer() = 0;
 
 			/**
 			*		Добавляет к выделению ещё один обьект. Если не было выделенно ни одного, то данный
@@ -447,14 +452,14 @@ class GSRInterface:public QObject
 			*
 			*	@warning при удалении рамки, все обьекты просто исключаются из выделения, но не удаляются.
 			*/
-			virtual ~GSRInterface(){};
+            virtual ~GSRInterface(){};
 
 		public slots:
 
 			void onMoved( const qreal dx, const qreal dy );
 			void onScaled( const qreal sx, const qreal sy, const QPointF &scaleCenter );
 			void onSheared( const qreal sx, const qreal sy, const QPointF &shearPoint );
-			void onRotated( const qreal angle, const QPointF &center );
+            void onRotated( const qreal angle, const QPointF &center );
 
 };
 
