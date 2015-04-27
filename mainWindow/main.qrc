@@ -10,10 +10,6 @@
         <file>images/save.png</file>
         <file>images/object-group.png</file>
         <file>images/object-ungroup.png</file>
-        <file>images/selection-bottom.png</file>
-        <file>images/selection-lower.png</file>
-        <file>images/selection-raise.png</file>
-        <file>images/selection-top.png</file>
         <file>images/object-flip-horizontal.png</file>
         <file>images/object-flip-vertical.png</file>
         <file>images/object-rotate-left.png</file>

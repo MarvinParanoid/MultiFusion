@@ -129,10 +129,6 @@ class mainWindow: public MainWindowInterface
 
         QAction *groupAction;
         QAction *ungroupAction;
-        QAction *lowerAction;
-        QAction *raiseAction;
-        QAction *topRaiseAction;
-        QAction *bottomLowerAction;
         QAction *rotateRightAction;
         QAction *rotateLeftAction;
         QAction *flipHorizontalAction;

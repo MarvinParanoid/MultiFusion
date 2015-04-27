@@ -152,24 +152,6 @@ mainWindow::mainWindow( QWidget *parent):
 
         objectMenu->addSeparator();
 
-        raiseAction = objectMenu->addAction(  tr( "&Raise" ) );
-        raiseAction->setIcon( QIcon( ":/main/images/selection-raise.png" ) );
-        //connect( raiseAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
-
-        lowerAction = objectMenu->addAction(  tr( "&Lower" ) );
-        lowerAction->setIcon( QIcon( ":/main/images/selection-lower.png" ) );
-        //connect( lowerAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
-
-        topRaiseAction = objectMenu->addAction(  tr( "&Raise to Top" ) );
-        topRaiseAction->setIcon( QIcon( ":/main/images/selection-top.png" ) );
-        //connect( topRaiseAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
-
-        bottomLowerAction = objectMenu->addAction(  tr( "&Lower to Bottom" ) );
-        bottomLowerAction->setIcon( QIcon( ":/main/images/selection-bottom.png" ) );
-        //connect( bottomLowerAction, SIGNAL( triggered( bool ) ), this, SLOT(  ) );
-
-        objectMenu->addSeparator();
-
         rotateRightAction = objectMenu->addAction(  tr( "&Rotate90\xb0 CW" ) );
         rotateRightAction->setIcon( QIcon( ":/main/images/object-rotate-right.png" ) );
         connect( rotateRightAction, SIGNAL( triggered( bool ) ), this, SLOT( onRotate90CW() ) );

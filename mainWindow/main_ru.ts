@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.0" language="ru_RU">
 <context>
@@ -11,54 +11,65 @@
         <source>Are you sure want to exit from MultiFusion?</source>
         <translation type="obsolete">Вы хотите выйти из MultiFusion?</translation>
     </message>
-    <message>
-        <source>MultiFusion application</source>
-        <translation></translation>
-    </message>
 </context>
 <context>
     <name>GSelectionRect</name>
     <message>
         <source>Deleting point from layer.</source>
-        <translation>Удаление точки из фигуры.</translation>
+        <translation type="obsolete">Удаление точки из фигуры.</translation>
     </message>
     <message>
         <source>Are you sure want to delete this point? </source>
-        <translation>Вы уверены что хотите удалить эту точку?</translation>
+        <translation type="obsolete">Вы уверены что хотите удалить эту точку?</translation>
     </message>
     <message>
         <source>It delete point from all frames in animation.</source>
-        <translation>Это удалит точку из всех кадров ролика.</translation>
+        <translation type="obsolete">Это удалит точку из всех кадров ролика.</translation>
     </message>
 </context>
 <context>
     <name>PaintWidget</name>
     <message>
         <source>Layer </source>
-        <translation>Слой</translation>
+        <translation type="obsolete">Слой</translation>
     </message>
     <message>
         <source>Viewport properties</source>
-        <translation>Свойства ролика</translation>
+        <translation type="obsolete">Свойства ролика</translation>
+    </message>
+</context>
+<context>
+    <name>PluginDialog</name>
+    <message>
+        <source>Disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugins...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RealPaintWidget</name>
     <message>
         <source>Layer</source>
-        <translation>Слой</translation>
+        <translation type="obsolete">Слой</translation>
     </message>
     <message>
         <source>Properties...</source>
-        <translation>Свойства ...</translation>
+        <translation type="obsolete">Свойства ...</translation>
     </message>
     <message>
         <source>Properties of figure</source>
-        <translation>Свойства фигуры</translation>
+        <translation type="obsolete">Свойства фигуры</translation>
     </message>
     <message>
         <source>Add Layer</source>
-        <translation>Добавить слой</translation>
+        <translation type="obsolete">Добавить слой</translation>
     </message>
 </context>
 <context>
@@ -93,7 +104,7 @@
     </message>
     <message>
         <source>&amp;Help...</source>
-        <translation>&amp;Справка...</translation>
+        <translation type="obsolete">&amp;Справка...</translation>
     </message>
     <message>
         <source>About &amp;Qt...</source>
@@ -209,11 +220,11 @@
     </message>
     <message>
         <source>Are you sure want to delete this frame?</source>
-        <translation>Вы уверены что хотите удалить текущий кадр?</translation>
+        <translation type="obsolete">Вы уверены что хотите удалить текущий кадр?</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>Справка</translation>
+        <translation type="obsolete">Справка</translation>
     </message>
     <message>
         <source>About MultiFusion</source>
@@ -289,7 +300,7 @@
     </message>
     <message>
         <source>Currently not implemented :)</source>
-        <translation>Пока что не сделано :)</translation>
+        <translation type="obsolete">Пока что не сделано :)</translation>
     </message>
     <message>
         <source>To spline</source>
@@ -320,95 +331,87 @@
         <translation>Вы хотите выйти из MultiFusion?</translation>
     </message>
     <message>
-        <source>&lt;CENTER&gt;&lt;B&gt;MultiFusion&lt;/B&gt; super-puper application.
-</source>
-        <translation></translation>
+        <source>&amp;Object</source>
+        <translation>&amp;Объект</translation>
+    </message>
+    <message>
+        <source>&amp;Rotate90° CW</source>
+        <translation>&amp;Повернуть на 90° по часовой стрелке</translation>
+    </message>
+    <message>
+        <source>&amp;Rotate90° CCW</source>
+        <translation>&amp;Повернуть на 90° против часовой стрелки</translation>
+    </message>
+    <message>
+        <source>&amp;Flip Horisontal</source>
+        <translation>&amp;Отразить по горизонтали</translation>
+    </message>
+    <message>
+        <source>H</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Flip Vertical</source>
+        <translation>&amp;Отразить по вертикали</translation>
+    </message>
+    <message>
+        <source>V</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete this frame?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;CENTER&gt;&lt;B&gt;MultiFusion&lt;/B&gt; super-puper application.			&lt;BR&gt;&lt;B&gt;Serkov Alexander&lt;/B&gt;,&lt;BR&gt;            &lt;B&gt;IFMO&lt;/B&gt;, &lt;B&gt;KIKG&lt;/B&gt;, 2007&lt;/CENTER&gt;            &lt;BR&gt;Rofl 2014</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MultiFusion application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>viewportPropsForm</name>
     <message>
         <source>Viewport properties</source>
-        <translation>Свойства ролика</translation>
+        <translation type="obsolete">Свойства ролика</translation>
     </message>
     <message>
         <source>Viewport background</source>
-        <translation>Задний фон</translation>
+        <translation type="obsolete">Задний фон</translation>
     </message>
     <message>
         <source>Window background</source>
-        <translation>Задний фон окна</translation>
+        <translation type="obsolete">Задний фон окна</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation>Стиль</translation>
+        <translation type="obsolete">Стиль</translation>
     </message>
     <message>
         <source>Colored background</source>
-        <translation>Цветкной фон</translation>
+        <translation type="obsolete">Цветкной фон</translation>
     </message>
     <message>
         <source>Transparency</source>
-        <translation>Прозрачный фон</translation>
+        <translation type="obsolete">Прозрачный фон</translation>
     </message>
     <message>
         <source>Viewport style</source>
-        <translation>Стиль</translation>
+        <translation type="obsolete">Стиль</translation>
     </message>
     <message>
         <source>Size hints</source>
-        <translation>Только границы выбранного объекта</translation>
+        <translation type="obsolete">Только границы выбранного объекта</translation>
     </message>
     <message>
         <source>Full window (resizable)</source>
-        <translation>В размер окна</translation>
+        <translation type="obsolete">В размер окна</translation>
     </message>
     <message>
         <source>Fixed size</source>
-        <translation>Фигсированный размер</translation>
-    </message>
-    <message>
-        <source>320</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>640</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>800</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>1024</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>1280</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>240</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>480</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>600</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>768</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;X&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation type="obsolete">Фигсированный размер</translation>
     </message>
 </context>
 </TS>

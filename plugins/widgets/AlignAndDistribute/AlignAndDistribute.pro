@@ -17,5 +17,6 @@ HEADERS += AlignAndDistribute.h \
 	Plugin.h \
 	InterfacePlugin.h \
         SignalHolder.h
+TRANSLATIONS = AlignAndDistribute_ru.ts
 RESOURCES += AlignAndDistribute.qrc
 FORMS += AlignAndDistribute.ui

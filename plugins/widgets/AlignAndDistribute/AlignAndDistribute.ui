@@ -12,7 +12,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Timeline</string>
+   <string>Align And Distribute</string>
   </property>
   <layout class="QVBoxLayout">
    <property name="spacing">
