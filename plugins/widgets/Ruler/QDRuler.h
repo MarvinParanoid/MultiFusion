@@ -44,7 +44,7 @@ public:
     enum RulerType { Horizontal, Vertical };
 
     QDRuler(QDRuler::RulerType rulerType, QWidget* parent):
-        QWidget(parent), mRulerType(rulerType), mRulerUnit(0.5),
+        QWidget(parent), mRulerType(rulerType), mRulerUnit(1.0),
         mRulerZoom(1.0), mMouseTracking(true), mDrawText(false),
         mOrigin(0.0)
     {

@@ -188,6 +188,7 @@ mainWindow::mainWindow( QWidget *parent):
         flipVerticalAction->setIcon( QIcon( ":/main/images/object-flip-vertical.png" ) );
         connect( flipVerticalAction, SIGNAL( triggered( bool ) ), this, SLOT( flipVertical() ) );
 
+        connect(painter, SIGNAL(mouseMoveEvent(QPoint,QPoint)), this, SLOT( onRPWMouseMove(QPoint,QPoint)));
 }
 
 
@@ -646,10 +647,12 @@ void mainWindow::onAboutQt()
     QMessageBox::aboutQt( this, tr( "MultiFusion application" ) );
 }
 
-void mainWindow::onRPWMouseMove(QPoint global, QPoint rpw) //int x, int y)
+void mainWindow::onRPWMouseMove(QPoint origin, QPoint global)
 {
-    m_plblX->setText("X=" + QString().setNum(rpw.x()));
-    m_plblY->setText("Y=" + QString().setNum(rpw.y()));
+    QPoint local;
+    local = global - origin;
+    m_plblX->setText("X=" + QString().setNum(local.x()));
+    m_plblY->setText("Y=" + QString().setNum(local.y()));
 }
 
 

@@ -13,7 +13,7 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 {
     setMouseTracking(true);
     mainWin = MAINWINDOW(parent);
-    connect(&painter, SIGNAL(mouseMoveEvent(QPoint,QPoint)), mainWin, SLOT(onRPWMouseMove(QPoint,QPoint)));
+    //connect(&painter, SIGNAL(mouseMoveEvent(QPoint,QPoint)), mainWin, SLOT(onRPWMouseMove(QPoint,QPoint)));
 
 
 	setWidget( &painter );
@@ -47,9 +47,20 @@ PaintWidget::~PaintWidget()
 	delete painter.background;
 }
 
+QPoint PaintWidget::getOriginPoint()
+{
+    //qDebug() << "1 " << widget()->pos();
+    return widget()->pos();
+}
+
 void PaintWidget::mouseMoveEvent(QMouseEvent *event)
 {
-    emit mouseMoveEvent(event->pos());
+    emit mouseMoveEvent(widget()->pos(),event->pos());
+}
+
+void PaintWidget::paintEvent(QPaintEvent *event)
+{
+    emit paintEvent(widget()->pos());
 }
 
 void PaintWidget::mySetViewportMargins(int left, int top, int right, int bottom)

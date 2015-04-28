@@ -263,9 +263,8 @@ RealPaintWidget::RealPaintWidget( plugin::PluginsManager *manager, QWidget *pare
     isMousePress = false;
     setMouseTracking(true);
 
-    //qDebug() << getPoint();
-    QPoint p(10,10);
-    emit mouseMoveEvent(QWidget::mapToParent(p),p);
+    qDebug() << pos();
+
 }
 
 RealPaintWidget::~RealPaintWidget()
@@ -443,8 +442,8 @@ void RealPaintWidget::mouseMoveEvent( QMouseEvent * event )
 	}
 
 
-    QPoint point(event->x(),event->y());
-    emit mouseMoveEvent(QWidget::mapToParent(point),pos);
+    //QPoint point(event->x(),event->y());
+    //emit mouseMoveEvent(QWidget::mapToParent(point),pos);
     QWidget::mouseMoveEvent(event);
 
     if( inSelectionMode )

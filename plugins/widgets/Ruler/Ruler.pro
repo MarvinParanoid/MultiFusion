@@ -15,3 +15,5 @@ HEADERS += Ruler.h \
     Plugin.h \
     SignalHolder.h \
     QDRuler.h
+TRANSLATION = ruler_ru.ts   \
+                ruler_en.ts

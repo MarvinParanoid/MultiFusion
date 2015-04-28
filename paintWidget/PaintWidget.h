@@ -39,7 +39,8 @@ class PaintWidget:public PaintWidgetInterface
 	Q_INTERFACES(PaintWidgetInterface)
 	signals:
 
-        void mouseMoveEvent(QPoint global);
+        void paintEvent(QPoint origin);
+        void mouseMoveEvent(QPoint origin, QPoint global);
 
 		 /**
 		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
@@ -102,7 +103,9 @@ class PaintWidget:public PaintWidgetInterface
 
 	public:
 
+        virtual QPoint getOriginPoint();
         virtual void mouseMoveEvent( QMouseEvent * event );
+        virtual void paintEvent( QPaintEvent * event);
 
         virtual void mySetViewportMargins(int left, int top, int right, int bottom);
 
