@@ -279,7 +279,7 @@
         <item>
          <widget class="QToolButton" name="DistributeButton_1">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="minimumSize">
            <size>
@@ -311,7 +311,7 @@
         <item>
          <widget class="QToolButton" name="DistributeButton_2">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="minimumSize">
            <size>
@@ -343,7 +343,7 @@
         <item>
          <widget class="QToolButton" name="DistributeButton_3">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="minimumSize">
            <size>
@@ -375,7 +375,7 @@
         <item>
          <widget class="QToolButton" name="DistributeButton_4">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="minimumSize">
            <size>
@@ -427,7 +427,7 @@
         <item>
          <widget class="QToolButton" name="DistributeButton_5">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="minimumSize">
            <size>
@@ -459,7 +459,7 @@
         <item>
          <widget class="QToolButton" name="DistributeButton_6">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="minimumSize">
            <size>
@@ -491,7 +491,7 @@
         <item>
          <widget class="QToolButton" name="DistributeButton_7">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="minimumSize">
            <size>
@@ -523,7 +523,7 @@
         <item>
          <widget class="QToolButton" name="DistributeButton_8">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="minimumSize">
            <size>
