@@ -76,6 +76,7 @@ class PaintWidgetInterface:public QScrollArea
 
 	public:
 	
+		virtual void scrollContentsBy(int dx, int dy) = 0;
 		virtual void mouseMoveEvent( QMouseEvent * event ) = 0;
 		virtual void paintEvent( QPaintEvent * event) = 0;
 		virtual void mySetViewportMargins(int left, int top, int right, int bottom)=0;

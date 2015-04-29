@@ -48,10 +48,12 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
                     gridLayout->addWidget(fake,0,0);
                     gridLayout->addWidget(mHorzRuler,0,1);
                     gridLayout->addWidget(mVertRuler,1,0);
-                    //gridLayout->addWidget(painter->viewport(),1,1);
+
+                    painter->setBackgroundRole(QPalette::Window);
+                    gridLayout->addWidget(painter->viewport(),1,1);
+
                     painter->setLayout(gridLayout);
 
-                    //connect(realPainter,SIGNAL(mouseMoveEvent(QPoint,QPoint)),this,SLOT(mouseMoveOrigin(QPoint,QPoint)));
                     connect(painter,SIGNAL(mouseMoveEvent(QPoint,QPoint)),this,SLOT(mouseMoveCoords(QPoint,QPoint)));
                     connect(painter,SIGNAL(paintEvent(QPoint)),this,SLOT(mouseMoveOrigin(QPoint)));
 
@@ -94,6 +96,7 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
 
         void mouseMoveOrigin(QPoint origin)
         {
+            qDebug() << origin;
             mVertRuler->setOrigin(origin.y());
             mHorzRuler->setOrigin(origin.x());
         }

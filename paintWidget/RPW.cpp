@@ -1,26 +1,131 @@
-﻿
-#include "RPW.h"
+﻿#include "RPW.h"
 #include "GPropertiesObj.h"
 #include "UndoStructure.h"
 
+RealPaintWidget::RealPaintWidget( plugin::PluginsManager *manager, QWidget *parent ):
+    RPWInterface( parent ), background( 0 ),
+    fixedSize( false ), size( 640, 480 ),
+    selection( manager, this, QRect( QPoint( 0, 0 ), size ) ),
+    inKeyPressedHandler( false ),
+    currentTool( 0 ), inSelectionMode( false ), _manager(manager)
+{
+    GLayer* layer = new GLayer();
+    layer->setVisible(true);
+    layer->setObjectName(tr("Layer") + " 0");
+    layers.append(layer);
+    currentLayer = 0;
+    currentFrame = 0;
+    layers[currentLayer]->addFrameForLayer(currentFrame,false);
+    emit figureSelected(currentLayer, -1);
+    paintConMenu = new QMenu(this);
+    propertiesAct = paintConMenu->addAction(tr("Properties..."));
+    setAutoFillBackground( false );
+    resize( size );
 
-/*
-***************************************************
-*		RealPaintWidget class implementation
-*/
+    connect( propertiesAct,SIGNAL( triggered( bool ) ), this, SLOT( onPropertiesObj() ) );
+    connect( &selection, SIGNAL( changed() ), this, SLOT( update() ) );
+
+    manager->addPlugins(this, "RealPaint");
+
+    isMousePress = false;
+    setMouseTracking(true);
+
+}
+
+void RealPaintWidget::paintEvent( QPaintEvent * event )
+{
+    QPainter p( this );
+    QRect viewportRect( rect() );
+
+    QWidget::paintEvent(event);
+
+    if( fixedSize )
+    {
+        QPoint origin;
+        QSize sz = viewportRect.size() - size;
+        origin = QPoint( sz.width() / 2, sz.height() / 2 );
+        p.translate( origin );
+        viewportRect.setSize( size );
+        emit paintEvent(origin);
+    }
+   // else
+    {
+
+    }
+
+    p.setRenderHints( QPainter::Antialiasing | QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform );
+
+    viewportRect.setWidth( viewportRect.width() - 1 );
+    viewportRect.setHeight( viewportRect.height() - 1 );
+
+    FILL( background, p, viewportRect );
+
+    p.setPen( QColor( 0, 0, 0 ) );
+    p.drawRect( viewportRect );
+
+    for(int i = 0; i<layers.size(); i++)
+    {
+        layers[i]->paintLayer( p );
+    }
+    selection.paint( p );
+
+    if( inSelectionMode )
+    {
+        QPen selectionRectPen( Qt::DashLine );
+        selectionRectPen.setColor( QColor( 50, 50, 50, 200 ) );
+
+        p.setBrush( QBrush() );
+        p.setPen( selectionRectPen );
+
+        p.drawRect( selectionRect.x(), selectionRect.y(),
+            selectionRect.width() - 1, selectionRect.height() - 1 );
+    }
+}
+
+void RealPaintWidget::mouseMoveEvent( QMouseEvent * event )
+{
+
+    QPoint pos = event->pos();
+    if( fixedSize )
+    {
+        QSize sz = rect().size() - size;
+        pos -= QPoint( sz.width() / 2, sz.height() / 2 );
+    }
+
+    //QPoint point(event->x(),event->y());
+    //emit mouseMoveEvent(QWidget::mapToParent(point),pos);
+    QWidget::mouseMoveEvent(event);
+
+    if( inSelectionMode )
+    {
+        selectionRect.setBottomRight( pos );
+        update();
+        return;
+    }
+
+    if( ( currentTool != 0 ) && ( currentTool->createStyle() == FigureToolInterface::paint ) )
+    {
+        GObjectInterface *o = layers[currentLayer]->object( 0 );
+        if( o == 0 ) return;
+        QPolygonF points = o->points(currentFrame);
+        if( points.size() > 0 )
+        {
+            QPointF p = pos - points[ points.size() - 1 ];
+            if( ( fabs( p.x() ) < 15 ) && ( fabs( p.y() ) < 15 ) )
+                return;
+        }
+        if (isMousePress)
+            o->addPointToEnd( pos );
+        update();
+        return;
+    }
+
+    selection.mouseMove( event->button(), pos, event->modifiers() );
+}
 
 void RealPaintWidget::setContextMenu(QMenu *qMenu)//задание контектстного меню
 {
 	paintConMenu = qMenu;
-}
-
-QPoint RealPaintWidget::getPoint()
-{
-//    QPoint point(event->x(),event->y());
-//    emit mouseMoveEvent(QWidget::mapToParent(point),pos);
-    QPoint p(10,10);
-    //qDebug() << QWidget::mapToParent(p) << p;
-    return QPoint(QWidget::mapToParent(p)-p);
 }
 
 QObject* RealPaintWidget::getUndo()
@@ -110,41 +215,6 @@ int RealPaintWidget::countFrames() const
 
 void RealPaintWidget::paintFrameTo( QPainter &to, const QRect &r, qreal frame )
 {
-	/*qreal currentFrame = layers[currentLayer]->frame();
-		QRect viewportRect( rect() );
-
-		if( fixedSize )
-		{
-			QSize sz = viewportRect.size() - size;
-			viewportRect.setSize( size );
-		}
-
-		to.setRenderHints( QPainter::Antialiasing |
-							QPainter::TextAntialiasing |
-							QPainter::SmoothPixmapTransform );
-
-		to.save();
-		to.scale( qreal( r.width() ) / qreal( viewportRect.width() ),
-					qreal( r.height() ) / qreal( viewportRect.height() ) );
-
-		to.translate( r.x(), r.y() );
-
-		viewportRect.setWidth( viewportRect.width() - 1 );
-		viewportRect.setHeight( viewportRect.height() - 1 );
-
-		FILL( background, to, viewportRect );
-
-		to.setPen( QColor( 0, 0, 0 ) );
-		to.drawRect( viewportRect );
-
-		int size = layers.size();
-		for (int i = 0; i < size; i++) {
-			layers[i]->setFrame( frame );
-			layers[i]->paint( to );
-			layers[i]->setFrame( currentFrame );
-		}
-
-		to.restore();*/
 	qreal currentFrame = layers[currentLayer]->frame();
 	layers[currentLayer]->setFrame( frame );
 	QRect viewportRect( rect() );
@@ -178,45 +248,6 @@ void RealPaintWidget::paintFrameTo( QPainter &to, const QRect &r, qreal frame )
 	to.restore();
 }
 
-/*void RealPaintWidget::paintWholeFrameTo( QPainter &to, const QRect &r, qreal frame )
-{
-	qreal currentFrame = layers[currentLayer]->frame();
-	QRect viewportRect( rect() );
-
-	if( fixedSize )
-	{
-		QSize sz = viewportRect.size() - size;
-		viewportRect.setSize( size );
-	}
-
-	to.setRenderHints( QPainter::Antialiasing |
-						QPainter::TextAntialiasing |
-						QPainter::SmoothPixmapTransform );
-
-	to.save();
-	to.scale( qreal( r.width() ) / qreal( viewportRect.width() ),
-				qreal( r.height() ) / qreal( viewportRect.height() ) );
-
-	to.translate( r.x(), r.y() );
-
-	viewportRect.setWidth( viewportRect.width() - 1 );
-	viewportRect.setHeight( viewportRect.height() - 1 );
-
-	FILL( background, to, viewportRect );
-
-	to.setPen( QColor( 0, 0, 0 ) );
-	to.drawRect( viewportRect );
-
-	int size = layers.size();
-	for (int i = 0; i < size; i++) {
-		layers[i]->setFrame( frame );
-		layers[i]->paint( to );
-		layers[i]->setFrame( currentFrame );
-	}
-
-	to.restore();
-}*/
-
 void RealPaintWidget::addLayer(bool visible, bool blocked, const QString &name)
 {
 	GLayer* layer = new GLayer();
@@ -231,89 +262,10 @@ void RealPaintWidget::addLayer(bool visible, bool blocked, const QString &name)
 	emit figureSelected(currentLayer, -1);
 	update();
 	emit StateChanged(tr("Add Layer"));
-
-}
-
-
-RealPaintWidget::RealPaintWidget( plugin::PluginsManager *manager, QWidget *parent ):
-	RPWInterface( parent ), background( 0 ),
-    fixedSize( false ), size( 640, 480 ),
-	selection( manager, this, QRect( QPoint( 0, 0 ), size ) ),
-	inKeyPressedHandler( false ),
-	currentTool( 0 ), inSelectionMode( false ), _manager(manager)
-{
-	GLayer* layer = new GLayer();
-	layer->setVisible(true);
-	layer->setObjectName(tr("Layer") + " 0");
-	layers.append(layer);
-	currentLayer = 0;
-	currentFrame = 0;
-	layers[currentLayer]->addFrameForLayer(currentFrame,false);
-	emit figureSelected(currentLayer, -1);
-    paintConMenu = new QMenu(this);
-	propertiesAct = paintConMenu->addAction(tr("Properties..."));
-	setAutoFillBackground( false );
-	resize( size );
-
-	connect( propertiesAct,SIGNAL( triggered( bool ) ), this, SLOT( onPropertiesObj() ) );
-	connect( &selection, SIGNAL( changed() ), this, SLOT( update() ) );
-
-	manager->addPlugins(this, "RealPaint");
-
-    isMousePress = false;
-    setMouseTracking(true);
 }
 
 RealPaintWidget::~RealPaintWidget()
 {
-}
-
-void RealPaintWidget::paintEvent( QPaintEvent * event )
-{
-	QPainter p( this );
-	QRect viewportRect( rect() );
-
-    if( fixedSize )
-	{
-        QPoint origin;
-		QSize sz = viewportRect.size() - size;
-        origin = QPoint( sz.width() / 2, sz.height() / 2 );
-        p.translate( origin );
-        viewportRect.setSize( size );
-        qDebug() << "rpw" << origin;
-        emit paintEvent(origin);
-	}
-
-    p.setRenderHints( QPainter::Antialiasing | QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform );
-
-	viewportRect.setWidth( viewportRect.width() - 1 );
-	viewportRect.setHeight( viewportRect.height() - 1 );
-
-	FILL( background, p, viewportRect );
-
-	p.setPen( QColor( 0, 0, 0 ) );
-	p.drawRect( viewportRect );
-
-	for(int i = 0; i<layers.size(); i++)
-	{
-		layers[i]->paintLayer( p );
-	}
-	selection.paint( p );
-
-
-	if( inSelectionMode )
-	{
-		QPen selectionRectPen( Qt::DashLine );
-		selectionRectPen.setColor( QColor( 50, 50, 50, 200 ) );
-
-		p.setBrush( QBrush() );
-		p.setPen( selectionRectPen );
-
-		p.drawRect( selectionRect.x(), selectionRect.y(),
-			selectionRect.width() - 1, selectionRect.height() - 1 );
-	}
-
-
 }
 
 void RealPaintWidget::mousePressEvent( QMouseEvent *event )
@@ -430,48 +382,6 @@ void RealPaintWidget::mousePressEvent( QMouseEvent *event )
 	}
 
 
-}
-
-void RealPaintWidget::mouseMoveEvent( QMouseEvent * event )
-{
-
-	QPoint pos = event->pos();
-	if( fixedSize )
-	{
-		QSize sz = rect().size() - size;
-		pos -= QPoint( sz.width() / 2, sz.height() / 2 );
-	}
-
-
-    //QPoint point(event->x(),event->y());
-    //emit mouseMoveEvent(QWidget::mapToParent(point),pos);
-    QWidget::mouseMoveEvent(event);
-
-    if( inSelectionMode )
-	{
-		selectionRect.setBottomRight( pos );
-		update();
-		return;
-	}
-
-    if( ( currentTool != 0 ) && ( currentTool->createStyle() == FigureToolInterface::paint ) )
-	{
-		GObjectInterface *o = layers[currentLayer]->object( 0 );
-		if( o == 0 ) return;
-		QPolygonF points = o->points(currentFrame);
-		if( points.size() > 0 )
-		{
-			QPointF p = pos - points[ points.size() - 1 ];
-			if( ( fabs( p.x() ) < 15 ) && ( fabs( p.y() ) < 15 ) )
-				return;
-		}
-        if (isMousePress)
-            o->addPointToEnd( pos );
-		update();
-		return;
-	}
-
-	selection.mouseMove( event->button(), pos, event->modifiers() );
 }
 
 void RealPaintWidget::mouseReleaseEvent( QMouseEvent * event )

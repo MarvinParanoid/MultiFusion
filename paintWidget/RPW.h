@@ -55,7 +55,6 @@ class RealPaintWidget:public RPWInterface
 		void isFrame(bool value);
 	public:
 
-        virtual QPoint getPoint();
 		virtual QObject* getUndo();
 
 		virtual void setFromUndo(QObject* undo);

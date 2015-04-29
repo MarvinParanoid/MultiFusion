@@ -12,7 +12,6 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 	PaintWidgetInterface(parent), painter(manager, this)
 {
     setMouseTracking(true);
-    mainWin = MAINWINDOW(parent);
 
 	setWidget( &painter );
 	setAlignment( Qt::AlignCenter );
@@ -29,16 +28,18 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
     connect( &painter, SIGNAL( figureSelected( int, int ) ), this, SIGNAL( figureSelected( int, int ) ) );
 
     connect( &painter, SIGNAL( paintEvent(QPoint) ), this, SLOT( paintEvent2(QPoint) ) );
-}
 
-PaintWidget::~PaintWidget()
-{
-    delete painter.background;
 }
 
 void PaintWidget::paintEvent2(QPoint origin)
 {
     emit paintEvent(origin);
+}
+
+void PaintWidget::scrollContentsBy(int dx, int dy)
+{
+    viewport()->scroll(dx,dy);
+    emit paintEvent(widget()->pos());
 }
 
 void PaintWidget::mouseMoveEvent(QMouseEvent *event)
@@ -56,16 +57,77 @@ void PaintWidget::mouseMoveEvent(QMouseEvent *event)
 
 void PaintWidget::paintEvent(QPaintEvent *event)
 {
-    QPoint origin;
-    if (viewportType()==hintViewport)
+//    qDebug() << "pe";
+//    QPoint origin;
+//    if (viewportType()==hintViewport)
+//    {
+//        QSize sz = widget()->rect().size() - painter.getSize();
+//        origin = QPoint( sz.width() / 2, sz.height() / 2 );
+//    }
+//    else
+//        origin = widget()->pos();
+//    emit paintEvent(origin);
+        emit paintEvent(widget()->pos());
+}
+
+void PaintWidget::setViewportType( const PaintWidget::ViewportType t )
+{
+    switch( t )
     {
-        QSize sz = widget()->rect().size() - painter.getSize();
-        origin = QPoint( sz.width() / 2, sz.height() / 2 );
+        case fixedViewport:
+            painter.fixedSize = false;
+            setWidgetResizable( false );
+            painter.resize( painter.size );
+            break;
+
+        case resizableViewport:
+            painter.fixedSize = false;
+            setWidgetResizable( true );
+            break;
+
+        case hintViewport:
+            painter.fixedSize = true;
+            setWidgetResizable( true );
+            break;
     }
-    else
-        origin = widget()->pos();
-    qDebug() << "PE" << origin;
-    emit paintEvent(origin);
+
+    setAlignment( Qt::AlignCenter );
+    painter.update();
+    update();
+}
+
+bool PaintWidget::reset()
+{
+    setFrame(0.0, false);
+    if( !painter.isEnabled() ) return false;
+
+    setViewportColor( QColor( 100, 100, 100 ) );
+
+    BACKGROUND( painter.background )->reset();
+
+    setViewportType( fixedViewport );
+    //setViewportType( hintViewport );
+    setViewportFixedSize( QSize( 640, 480 ) );
+
+    for(int i=0; i<painter.layers.size(); i++)
+    {
+        while( painter.layers[i]->countObjects() > 0 )
+                delete painter.layers[i]->remove( 0 );
+        delete painter.layers[i];
+    }
+    painter.layers.clear();
+
+    painter.addLayer(true, false, tr("Layer ") + "0");
+    painter.selection.reset();
+    painter.inKeyPressedHandler = false;
+    painter.inSelectionMode = false;
+    update();
+
+    emit figureSelected( 0, -1);
+    emit allLayersChanged();
+    emit countFramesChanged( countFrames() );
+
+    return true;
 }
 
 void PaintWidget::mySetViewportMargins(int left, int top, int right, int bottom)
@@ -642,40 +704,6 @@ void PaintWidget::paintFrameTo( QPainter &to, const QRect &r, qreal frame )
 	painter.paintWholeFrameTo( to, r, frame );
 }*/
 
-bool PaintWidget::reset()
-{
-    setFrame(0.0, false);
-	if( !painter.isEnabled() ) return false;
-
-	setViewportColor( QColor( 100, 100, 100 ) );
-
-	BACKGROUND( painter.background )->reset();
-
-    setViewportType( fixedViewport );
-    //setViewportType( hintViewport );
-	setViewportFixedSize( QSize( 640, 480 ) );
-
-	for(int i=0; i<painter.layers.size(); i++)
-	{
-		while( painter.layers[i]->countObjects() > 0 )
-				delete painter.layers[i]->remove( 0 );
-		delete painter.layers[i];
-	}
-	painter.layers.clear();
-
-	painter.addLayer(true, false, tr("Layer ") + "0");
-	painter.selection.reset();
-	painter.inKeyPressedHandler = false;
-	painter.inSelectionMode = false;
-	update();
-
-	emit figureSelected( 0, -1);
-	emit allLayersChanged();
-	emit countFramesChanged( countFrames() );
-
-	return true;
-}
-
 void PaintWidget::save( QDataStream &stream )
 {
 	if( !painter.isEnabled() ) return;
@@ -913,33 +941,6 @@ PaintWidget::ViewportType PaintWidget::viewportType() const
 	return resizableViewport;
 }
 
-void PaintWidget::setViewportType( const PaintWidget::ViewportType t )
-{
-	switch( t )
-	{
-		case fixedViewport:
-            painter.fixedSize = false;
-            setWidgetResizable( true );
-            //setWidgetResizable( false );
-			painter.resize( painter.size );
-			break;
-
-		case resizableViewport:
-            painter.fixedSize = false;
-			setWidgetResizable( true );
-			break;
-
-		case hintViewport:
-			painter.fixedSize = true;
-			setWidgetResizable( true );
-			break;
-	}
-
-	setAlignment( Qt::AlignCenter );
-	painter.update();
-	update();
-}
-
 QSize PaintWidget::viewportFixedSize() const
 {
 	return painter.size;
@@ -1057,6 +1058,11 @@ void PaintWidget::flipHorisontal()
 void PaintWidget::flipVertical()
 {
     painter.selection.setScale(1,-1);
+}
+
+PaintWidget::~PaintWidget()
+{
+    delete painter.background;
 }
 
 /*virtual QColor& getViewportColor();*/

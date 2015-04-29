@@ -15,7 +15,6 @@
 #include "./../interfaces/GObjectInterface.h"
 #include <QDialog>
 #include <QDialogButtonBox>
-#include "../interfaces/MainWindowInterface.h"
 #include <QMouseEvent>
 
 /**
@@ -103,12 +102,12 @@ class PaintWidget:public PaintWidgetInterface
 
 	public:
 
+        virtual void scrollContentsBy(int dx, int dy);
         virtual void mouseMoveEvent( QMouseEvent * event );
         virtual void paintEvent( QPaintEvent * event);
 
         virtual void mySetViewportMargins(int left, int top, int right, int bottom);
 
-        MainWindowInterface* mainWin;
 
 		/**
 		 * Задает скрывать фигуры в текущем слое или нет
@@ -604,6 +603,9 @@ class PaintWidget:public PaintWidgetInterface
         bool isCreatedPWE;
         PaintWidgetEditor *e;
         QDialog *dialog;
+
+        QPoint scroll;
+
         RealPaintWidget painter;
 		bool transparent;
 		QColor viewportColor;
