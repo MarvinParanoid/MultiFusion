@@ -13,54 +13,59 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 {
     setMouseTracking(true);
     mainWin = MAINWINDOW(parent);
-    //connect(&painter, SIGNAL(mouseMoveEvent(QPoint,QPoint)), mainWin, SLOT(onRPWMouseMove(QPoint,QPoint)));
-
 
 	setWidget( &painter );
 	setAlignment( Qt::AlignCenter );
     setViewportColor( QColor( 100, 100, 100 ) );
 
-
     isCreatedPWE = false;
 
     manager->addPlugins(this, "PaintWidget");
-
 	
-	connect( &painter, SIGNAL( objectCreated() ),
-			this, SIGNAL( objectCreated() ) );
+    connect( &painter, SIGNAL( objectCreated() ), this, SIGNAL( objectCreated() ) );
+    connect( &painter, SIGNAL( frameChanged( qreal ) ), this, SIGNAL( frameChanged( qreal ) ) );
+    connect( &painter, SIGNAL( undoEvents() ), this, SIGNAL( undoEvents() ) );
+    connect( &painter, SIGNAL( isFrame( bool) ), this, SIGNAL( isFrame(bool) ) );
+    connect( &painter, SIGNAL( figureSelected( int, int ) ), this, SIGNAL( figureSelected( int, int ) ) );
 
-	connect( &painter, SIGNAL( frameChanged( qreal ) ),
-			this, SIGNAL( frameChanged( qreal ) ) );
-
-	connect( &painter, SIGNAL( undoEvents() ),
-			this, SIGNAL( undoEvents() ) );
-
-	connect( &painter, SIGNAL( isFrame( bool) ),
-		this, SIGNAL( isFrame(bool) ) );
-
-	connect( &painter, SIGNAL( figureSelected( int, int ) ),
-			this, SIGNAL( figureSelected( int, int ) ) );
+    connect( &painter, SIGNAL( paintEvent(QPoint) ), this, SLOT( paintEvent2(QPoint) ) );
 }
 
 PaintWidget::~PaintWidget()
 {
-	delete painter.background;
+    delete painter.background;
 }
 
-QPoint PaintWidget::getOriginPoint()
+void PaintWidget::paintEvent2(QPoint origin)
 {
-    //qDebug() << "1 " << widget()->pos();
-    return widget()->pos();
+    emit paintEvent(origin);
 }
 
 void PaintWidget::mouseMoveEvent(QMouseEvent *event)
 {
-    emit mouseMoveEvent(widget()->pos(),event->pos());
+    QPoint origin;
+    if (viewportType()==hintViewport)
+    {
+        QSize sz = widget()->rect().size() - painter.getSize();
+        origin = QPoint( sz.width() / 2, sz.height() / 2 );
+    }
+    else
+        origin = widget()->pos();
+    emit mouseMoveEvent(origin,event->pos());
 }
 
 void PaintWidget::paintEvent(QPaintEvent *event)
 {
-    emit paintEvent(widget()->pos());
+    QPoint origin;
+    if (viewportType()==hintViewport)
+    {
+        QSize sz = widget()->rect().size() - painter.getSize();
+        origin = QPoint( sz.width() / 2, sz.height() / 2 );
+    }
+    else
+        origin = widget()->pos();
+    qDebug() << "PE" << origin;
+    emit paintEvent(origin);
 }
 
 void PaintWidget::mySetViewportMargins(int left, int top, int right, int bottom)
@@ -646,8 +651,8 @@ bool PaintWidget::reset()
 
 	BACKGROUND( painter.background )->reset();
 
-    //setViewportType( fixedViewport );
-    setViewportType( hintViewport );
+    setViewportType( fixedViewport );
+    //setViewportType( hintViewport );
 	setViewportFixedSize( QSize( 640, 480 ) );
 
 	for(int i=0; i<painter.layers.size(); i++)

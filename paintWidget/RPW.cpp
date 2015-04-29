@@ -237,7 +237,7 @@ void RealPaintWidget::addLayer(bool visible, bool blocked, const QString &name)
 
 RealPaintWidget::RealPaintWidget( plugin::PluginsManager *manager, QWidget *parent ):
 	RPWInterface( parent ), background( 0 ),
-	fixedSize( true ), size( 640, 480 ),
+    fixedSize( false ), size( 640, 480 ),
 	selection( manager, this, QRect( QPoint( 0, 0 ), size ) ),
 	inKeyPressedHandler( false ),
 	currentTool( 0 ), inSelectionMode( false ), _manager(manager)
@@ -262,9 +262,6 @@ RealPaintWidget::RealPaintWidget( plugin::PluginsManager *manager, QWidget *pare
 
     isMousePress = false;
     setMouseTracking(true);
-
-    qDebug() << pos();
-
 }
 
 RealPaintWidget::~RealPaintWidget()
@@ -276,11 +273,15 @@ void RealPaintWidget::paintEvent( QPaintEvent * event )
 	QPainter p( this );
 	QRect viewportRect( rect() );
 
-	if( fixedSize )
+    if( fixedSize )
 	{
+        QPoint origin;
 		QSize sz = viewportRect.size() - size;
-		p.translate( QPoint( sz.width() / 2, sz.height() / 2 ) );
-		viewportRect.setSize( size );
+        origin = QPoint( sz.width() / 2, sz.height() / 2 );
+        p.translate( origin );
+        viewportRect.setSize( size );
+        qDebug() << "rpw" << origin;
+        emit paintEvent(origin);
 	}
 
     p.setRenderHints( QPainter::Antialiasing | QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform );

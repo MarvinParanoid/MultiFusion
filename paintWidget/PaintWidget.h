@@ -103,7 +103,6 @@ class PaintWidget:public PaintWidgetInterface
 
 	public:
 
-        virtual QPoint getOriginPoint();
         virtual void mouseMoveEvent( QMouseEvent * event );
         virtual void paintEvent( QPaintEvent * event);
 
@@ -586,6 +585,8 @@ class PaintWidget:public PaintWidgetInterface
 		virtual ~PaintWidget();
 
 	public slots:
+
+        void paintEvent2(QPoint origin);
 
 		/**
 		*  Перемещает фигуру между слоями и внутри слоя по уровням

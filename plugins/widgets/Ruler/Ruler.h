@@ -35,8 +35,6 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
                     painter = PAINTWIDGETINTERFACE(mainWin->getPaintWidget());
                     realPainter = RPWINTEFACE(painter->getRealPaintWidget());
 
-                    qDebug() << "Origin point: " << painter->getOriginPoint();
-
                     // добавление линеек
                     painter->mySetViewportMargins(RULER_BREADTH,RULER_BREADTH,0,0);
                     QGridLayout* gridLayout = new QGridLayout();
@@ -93,15 +91,6 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
 
 
 	private slots:
-
-//        void mouseMoveOrigin(QPoint global, QPoint rpw)
-//        {
-//            QPoint p = (global-rpw);
-//            mVertRuler->setOrigin(p.y());
-//            mHorzRuler->setOrigin(p.x());
-//            //mHorzRuler->setCursorPos(global);
-//            //mVertRuler->setCursorPos(global);
-//        }
 
         void mouseMoveOrigin(QPoint origin)
         {

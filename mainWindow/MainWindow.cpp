@@ -649,8 +649,8 @@ void mainWindow::onAboutQt()
 
 void mainWindow::onRPWMouseMove(QPoint origin, QPoint global)
 {
-    QPoint local;
-    local = global - origin;
+    //qDebug() << "123" << origin << global;
+    QPoint local = global - origin;
     m_plblX->setText("X=" + QString().setNum(local.x()));
     m_plblY->setText("Y=" + QString().setNum(local.y()));
 }

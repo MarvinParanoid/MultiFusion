@@ -40,6 +40,7 @@ class RealPaintWidget:public RPWInterface
 		void isPlayed();
 		void undoEvents();
 
+        void paintEvent(QPoint);
         void mouseMoveEvent(QPoint global, QPoint rpw);
 
 		/**
