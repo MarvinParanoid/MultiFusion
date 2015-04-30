@@ -96,7 +96,7 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
 
         void mouseMoveOrigin(QPoint origin)
         {
-            qDebug() << origin;
+            //qDebug() << origin;
             mVertRuler->setOrigin(origin.y());
             mHorzRuler->setOrigin(origin.x());
         }

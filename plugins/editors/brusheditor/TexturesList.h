@@ -59,7 +59,7 @@ class AlphaEditor:public QWidget
 		{
 			QPainter p( this );
 
-			QRect r = rect();
+            //QRect r = rect();
 
 			QGradient g = QLinearGradient( QPointF( 0, 0 ), QPointF( width(), 0 ) );
 			g.setColorAt( 0, QColor( 0, 0, 0, 0 ) );
@@ -147,7 +147,7 @@ class TexturesList:public QWidget
 			QStringList files = QDir( path ).entryList( QDir::Files );
 			int countFiles = files.size();
 
-			int item = 0;
+            //int item = 0;
 			for( int i = 0; i < countFiles; i++ )
 			{
 				QPixmap img( path + "/" + files[i] );

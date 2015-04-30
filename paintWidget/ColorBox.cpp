@@ -67,16 +67,9 @@ QColor* ColorBox::getGolor()const
 void ColorBox::paintEvent( QPaintEvent *event )
 {
 	QPainter p( this );
-	QRect r = rect();
-
-	p.setRenderHints( QPainter::Antialiasing |
-						QPainter::TextAntialiasing |
-						QPainter::SmoothPixmapTransform );
-
+    p.setRenderHints( QPainter::Antialiasing | QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform );
 	qDrawShadePanel( &p, 0, 0, width(), height(), palette(), true, 3 );
-
 	p.setPen( Qt::NoPen );
-
 	if( enabled )
 		p.fillRect( 3, 3, width() - 6, height() - 6, _color );
 }

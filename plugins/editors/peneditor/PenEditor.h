@@ -44,7 +44,7 @@ class PenBox:public QWidget
 		virtual void paintEvent( QPaintEvent *event )
 		{
 			QPainter p( this );
-			QRect r = rect();
+            //QRect r = rect();
 
 			p.setRenderHints( QPainter::Antialiasing |
 							  QPainter::TextAntialiasing |

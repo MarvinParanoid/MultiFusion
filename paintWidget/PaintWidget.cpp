@@ -29,6 +29,8 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 
     connect( &painter, SIGNAL( paintEvent(QPoint) ), this, SLOT( paintEvent2(QPoint) ) );
 
+
+
 }
 
 void PaintWidget::paintEvent2(QPoint origin)

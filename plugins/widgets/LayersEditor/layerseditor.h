@@ -130,8 +130,8 @@ class ItemMenu:public QFrame
 			blockedFrame.setFrameShadow(QFrame::Sunken);
 
 			connect(&ItemName,SIGNAL(onClick()),this, SLOT(onClick()));
-			connect(this,SIGNAL(onClicked(int, int)),this->parentWidget(), SLOT(onSelect(int, int)));
-			connect(this,SIGNAL(onClicked(int, int)),this->parentWidget()->parentWidget(), SLOT(onSelect(int, int)));
+//			connect(this,SIGNAL(onClicked(int, int)),this->parentWidget(), SLOT(onSelect(int, int)));
+//			connect(this,SIGNAL(onClicked(int, int)),this->parentWidget()->parentWidget(), SLOT(onSelect(int, int)));
 
 			ItemName.setFrame(false);
 
@@ -1043,7 +1043,7 @@ class LayersView:public QWidget
 
 					ObjectItem* obj = layerItems[i]->getObject(j);
 					QPoint pos = obj->mapFromParent(p);
-					QRect rectObj = obj->rect();
+                    //QRect rectObj = obj->rect();
 
 					setPallete(obj->getFrameTool() ,defaultColor);
 					if( rect.contains( pos ) )
@@ -1139,106 +1139,45 @@ private:
 				layersWindow->setWidget( this );
 				mainWin->addDockWidget( Qt::RightDockWidgetArea, layersWindow );
 
-				connect( painter, SIGNAL( allLayersChanged() ),
-						this, SLOT( onStateChanged() ) );
+                connect( painter, SIGNAL( allLayersChanged() ), this, SLOT( onStateChanged() ) );
+                connect( painter, SIGNAL( movedObject() ), this, SLOT( onStateChanged() ) );
+                connect( painter, SIGNAL( objectCreated() ), this, SLOT( onStateChanged() ) );
+                connect( painter, SIGNAL( undoEvents() ), this, SLOT( onStateChanged() ) );
+                connect( painter, SIGNAL( frameChanged(qreal) ), this, SLOT( onStateChanged() ) );
+                //connect( this, SIGNAL( movedFirst( int ) ), mainWin, SLOT( onMoveLayerToFirst( int ) ) );
+                //connect( this, SIGNAL( movedUp( int ) ), mainWin, SLOT( onMoveLayerUp( int ) ) );
+                //connect( this, SIGNAL( movedDown( int ) ), mainWin, SLOT( onMoveLayerDown( int ) ) );
+                //connect( this, SIGNAL( movedLast( int ) ), mainWin, SLOT( onMoveLayerToLast( int ) ) );
+                connect( this, SIGNAL( movedFirst( int ) ), this, SLOT( onTouched( ) ) );
+                connect( this, SIGNAL( movedUp( int ) ), this, SLOT( onTouched( ) ) );
+                connect( this, SIGNAL( movedDown( int ) ), this, SLOT( onTouched( ) ) );
+                connect( this, SIGNAL( movedLast( int ) ), this, SLOT( onTouched( ) ) );
 
-				connect( painter, SIGNAL( movedObject() ),
-						this, SLOT( onStateChanged() ) );
-
-				connect( painter, SIGNAL( objectCreated() ),
-						this, SLOT( onStateChanged() ) );
-
-				connect( painter, SIGNAL( undoEvents() ),
-						this, SLOT( onStateChanged() ) );
-
-				connect( painter, SIGNAL( frameChanged(qreal) ),
-						this, SLOT( onStateChanged() ) );
-
-				connect( this, SIGNAL( movedFirst( int ) ),
-						mainWin, SLOT( onMoveLayerToFirst( int ) ) );
-
-				connect( this, SIGNAL( movedUp( int ) ),
-						mainWin, SLOT( onMoveLayerUp( int ) ) );
-
-				connect( this, SIGNAL( movedDown( int ) ),
-						mainWin, SLOT( onMoveLayerDown( int ) ) );
-
-				connect( this, SIGNAL( movedLast( int ) ),
-						mainWin, SLOT( onMoveLayerToLast( int ) ) );
-
-				connect( this, SIGNAL( movedFirst( int ) ),
-						this, SLOT( onTouched( ) ) );
-
-				connect( this, SIGNAL( movedUp( int ) ),
-						this, SLOT( onTouched( ) ) );
-
-				connect( this, SIGNAL( movedDown( int ) ),
-						this, SLOT( onTouched( ) ) );
-
-				connect( this, SIGNAL( movedLast( int ) ),
-						this, SLOT( onTouched( ) ) );
-
-
-				connect( &view, SIGNAL( renamedFigure( int, int, const QString& ) ),
-						mainWin, SLOT( onRenameFigure( int, int, const QString& ) ) );
-
+                connect( &view, SIGNAL( renamedFigure( int, int, const QString& ) ), mainWin, SLOT( onRenameFigure( int, int, const QString& ) ) );
 				connect( &view, SIGNAL( renamedFigure( int, int, const QString& ) ), this, SLOT( onTouched() ) );
-
-				connect( &view, SIGNAL( layerAdded( bool, bool, const QString& ) ),
-										mainWin, SLOT( onAddLayer( bool, bool, const QString& ) ) );
-
+                connect( &view, SIGNAL( layerAdded( bool, bool, const QString& ) ), mainWin, SLOT( onAddLayer( bool, bool, const QString& ) ) );
 				connect( &view, SIGNAL( layerAdded( bool, bool, const QString& ) ), this, SLOT( onTouched() ) );
-
-				connect( &view, SIGNAL( movedFigure( int, int, int, int ) ),
-										painter, SLOT( moveFigure( int, int, int, int )) );
-
+                connect( &view, SIGNAL( movedFigure( int, int, int, int ) ), painter, SLOT( moveFigure( int, int, int, int )) );
 				connect( &view, SIGNAL( movedFigure( int, int, int, int ) ), this, SLOT( onTouched() ) );
-
-				connect( &view, SIGNAL( movedLayer( int, int ) ),
-										painter, SLOT( moveLayer( int, int )) );
-
+                connect( &view, SIGNAL( movedLayer( int, int ) ), painter, SLOT( moveLayer( int, int )) );
 				connect( &view, SIGNAL( movedLayer( int, int ) ), this, SLOT( onTouched() ) );
-
-				connect( &view, SIGNAL( renamedLayer( int, const QString& ) ),
-										mainWin, SLOT( onRenameLayer( int, const QString& ) ) );
-
+                connect( &view, SIGNAL( renamedLayer( int, const QString& ) ), mainWin, SLOT( onRenameLayer( int, const QString& ) ) );
 				connect( &view, SIGNAL( renamedLayer( int, const QString& ) ), this, SLOT( onTouched() ) );
-
-				connect( painter, SIGNAL( figureSelected( int, int ) ),
-						this, SLOT( onLayerSelectedFromViewport( int, int ) ) );
-
-				connect( &view, SIGNAL( figureSelected( int, int ) ),
-						mainWin, SLOT( onFigureSelected( int, int ) ) );
-
-				connect( &view, SIGNAL( visibleFigure( int, int, bool ) ),
-						mainWin, SLOT( onFigureVisibleChange( int, int, bool ) ) );
-
+                connect( painter, SIGNAL( figureSelected( int, int ) ), this, SLOT( onLayerSelectedFromViewport( int, int ) ) );
+                connect( &view, SIGNAL( figureSelected( int, int ) ), mainWin, SLOT( onFigureSelected( int, int ) ) );
+                connect( &view, SIGNAL( visibleFigure( int, int, bool ) ), mainWin, SLOT( onFigureVisibleChange( int, int, bool ) ) );
 				connect( &view, SIGNAL( visibleFigure( int, int, bool ) ), this, SLOT( onTouched() ) );
-
-				connect( &view, SIGNAL( visibleLayer( int, bool ) ),
-						mainWin, SLOT( onLayerVisibleChange( int, bool ) ) );
-
+                connect( &view, SIGNAL( visibleLayer( int, bool ) ), mainWin, SLOT( onLayerVisibleChange( int, bool ) ) );
 				connect( &view, SIGNAL( visibleLayer( int, bool ) ), this, SLOT( onTouched() ) );
-
-				connect( &view, SIGNAL( blockedFigure( int, int, bool ) ),
-						mainWin, SLOT( onFigureBlockedChange( int, int, bool ) ) );
-
+                connect( &view, SIGNAL( blockedFigure( int, int, bool ) ), mainWin, SLOT( onFigureBlockedChange( int, int, bool ) ) );
 				connect( &view, SIGNAL( blockedFigure( int, int, bool ) ), this, SLOT( onTouched() ) );
-
-				connect( &view, SIGNAL( blockedLayer( int, bool ) ),
-						mainWin, SLOT( onLayerBlockedChange( int, bool ) ) );
-
+                connect( &view, SIGNAL( blockedLayer( int, bool ) ), mainWin, SLOT( onLayerBlockedChange( int, bool ) ) );
 				connect( &view, SIGNAL( blockedLayer( int, bool ) ), this, SLOT( onTouched() ) );
-
-				connect( &view, SIGNAL( deletedFigure( int, int ) ),
-						mainWin, SLOT( onFigureDeletedFromLayersEditor( int, int ) ) );
-
+                connect( &view, SIGNAL( deletedFigure( int, int ) ), mainWin, SLOT( onFigureDeletedFromLayersEditor( int, int ) ) );
 				connect( &view, SIGNAL( deletedFigure( int, int ) ), this, SLOT( onTouched() ) );
-
-				connect( &view, SIGNAL( transformedFigure( int, int, bool ) ),
-						this, SLOT( onTransformedFigure( int, int, bool ) ) );
-
+                connect( &view, SIGNAL( transformedFigure( int, int, bool ) ), this, SLOT( onTransformedFigure( int, int, bool ) ) );
 				connect( &view, SIGNAL( transformedFigure( int, int, bool ) ), this, SLOT( onTouched() ) );
+
 				initLayersEditor();
 			}
 		}
@@ -1293,24 +1232,15 @@ private:
 					connect( &deleteBtn, SIGNAL( clicked() ), &view, SLOT( deleteFigure() ) );
 
 
-					connect( &view, SIGNAL( layerSelected( int ) ),
-									this, SLOT( onLayerSelected( int ) ) );
-					connect( &view, SIGNAL( layerSelected( int ) ),
-									this, SIGNAL( layerSelected( int ) ) );
-					connect( &view, SIGNAL( movedFirst( int ) ),
-									this, SIGNAL( movedFirst( int ) ) );
-					connect( &view, SIGNAL( movedUp( int ) ),
-									this, SIGNAL( movedUp( int ) ) );
-					connect( &view, SIGNAL( movedDown( int ) ),
-									this, SIGNAL( movedDown( int ) ) );
-					connect( &view, SIGNAL( movedLast( int ) ),
-									this, SIGNAL( movedLast( int ) ) );
-					connect( &view, SIGNAL( deleted( int ) ),
-									this, SIGNAL( deleted( int ) ) );
-					connect( &view, SIGNAL( visibleChanged( int, bool ) ),
-									this, SIGNAL( visibleChanged( int, bool ) ) );
-					connect( &view, SIGNAL( hideFigureChanged( int, bool ) ),
-														this, SLOT( onHideFigure( int, bool ) ) );
+                    //connect( &view, SIGNAL( layerSelected( int ) ), this, SLOT( onLayerSelected( int ) ) );
+                    //connect( &view, SIGNAL( layerSelected( int ) ), this, SIGNAL( layerSelected( int ) ) );
+                    //connect( &view, SIGNAL( movedFirst( int ) ), this, SIGNAL( movedFirst( int ) ) );
+                    //connect( &view, SIGNAL( movedUp( int ) ), this, SIGNAL( movedUp( int ) ) );
+                    //connect( &view, SIGNAL( movedDown( int ) ), this, SIGNAL( movedDown( int ) ) );
+                    //connect( &view, SIGNAL( movedLast( int ) ), this, SIGNAL( movedLast( int ) ) );
+                    //connect( &view, SIGNAL( deleted( int ) ), this, SIGNAL( deleted( int ) ) );
+                    //connect( &view, SIGNAL( visibleChanged( int, bool ) ), this, SIGNAL( visibleChanged( int, bool ) ) );
+                    connect( &view, SIGNAL( hideFigureChanged( int, bool ) ), this, SLOT( onHideFigure( int, bool ) ) );
 				}
 
 		virtual ~LayersEditor()

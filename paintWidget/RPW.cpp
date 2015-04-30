@@ -221,7 +221,7 @@ void RealPaintWidget::paintFrameTo( QPainter &to, const QRect &r, qreal frame )
 
 	if( fixedSize )
 	{
-		QSize sz = viewportRect.size() - size;
+        //QSize sz = viewportRect.size() - size;
 		viewportRect.setSize( size );
 	}
 

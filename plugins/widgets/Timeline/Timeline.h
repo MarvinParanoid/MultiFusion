@@ -126,7 +126,7 @@ class LinesDraw: public QFrame
 			cursorL = new QLabel(this);
 			cursorL->setPixmap(pixmap);
 			cursorL->setMask(pixmap.mask());
-			connect(this, SIGNAL(frameAdded(int)), this->parentWidget(), SIGNAL(frameAdded(int)));
+            //connect(this, SIGNAL(frameAdded(int)), this->parentWidget(), SIGNAL(frameAdded(int)));
 			connect( &timer, SIGNAL( timeout() ), this, SLOT( play() ) );
 		}
 
@@ -453,11 +453,11 @@ class Timeline:public QWidget, public TimelineInterface, public InterfacePlugin
 			QVBoxLayout *mainVLayout = new QVBoxLayout( this );
 			QHBoxLayout *toolHLayout = new QHBoxLayout( this );
 			QHBoxLayout *timeHLayout = new QHBoxLayout( this );
-			QHBoxLayout *buttonHLayout = new QHBoxLayout( this );
+            QHBoxLayout *buttonHLayout = new QHBoxLayout( this );
 
-			mainVLayout->addLayout(toolHLayout);
-			mainVLayout->addLayout(timeHLayout);
-			mainVLayout->addLayout(buttonHLayout);
+            mainVLayout->addLayout(toolHLayout);
+            mainVLayout->addLayout(timeHLayout);
+            mainVLayout->addLayout(buttonHLayout);
 
 			QScrollArea *scrollArea = new QScrollArea( this );
 			scrollArea->setAlignment(Qt::AlignHCenter|Qt::AlignCenter);

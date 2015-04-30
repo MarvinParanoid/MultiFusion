@@ -45,14 +45,9 @@ mainWindow::mainWindow( QWidget *parent):
 
 		this->setWindowTitle( QString( APP_NAME ) + tr( ":Untitled" ) );
 
-		connect( painter, SIGNAL( frameChanged( qreal ) ),
-				this, SLOT( onPlayFrameChanged( qreal ) ) );
-
-		connect( painter, SIGNAL( countFramesChanged( int ) ),
-				this, SLOT( onCountFramesChanged( int ) ) );
-
-		connect( painter, SIGNAL( objectCreated() ),
-				this, SLOT( onObjectCreated() ) );
+//        connect( painter, SIGNAL( frameChanged( qreal ) ), this, SLOT( onPlayFrameChanged( qreal ) ) );
+//        connect( painter, SIGNAL( countFramesChanged( int ) ), this, SLOT( onCountFramesChanged( int ) ) );
+//        connect( painter, SIGNAL( objectCreated() ), this, SLOT( onObjectCreated() ) );
 
 		QAction* newFileAction = fileMenu->addAction( tr( "&New" ) );
 		newFileAction->setIcon( QIcon( ":/main/images/new.png" ) );
