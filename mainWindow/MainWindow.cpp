@@ -426,14 +426,14 @@ void mainWindow::onZoomInPressed()
 {
 	if( !processSignals ) return;
 
-	painter->scale( 1.1 );
+    painter->scale( 0.1 );
 }
 
 void mainWindow::onZoomOutPressed()
 {
 	if( !processSignals ) return;
 
-	painter->scale( 0.9 );
+    painter->scale( -0.1 );
 }
 
 void mainWindow::onSelectionToolPressed()

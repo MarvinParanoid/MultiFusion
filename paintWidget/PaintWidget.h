@@ -604,6 +604,7 @@ class PaintWidget:public PaintWidgetInterface
         PaintWidgetEditor *e;
         QDialog *dialog;
 
+        qreal scaleVal;
         QPoint scroll;
 
         RealPaintWidget painter;

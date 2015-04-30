@@ -12,6 +12,7 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 	PaintWidgetInterface(parent), painter(manager, this)
 {
     setMouseTracking(true);
+    scaleVal = 1;
 
 	setWidget( &painter );
 	setAlignment( Qt::AlignCenter );
@@ -26,10 +27,7 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
     connect( &painter, SIGNAL( undoEvents() ), this, SIGNAL( undoEvents() ) );
     connect( &painter, SIGNAL( isFrame( bool) ), this, SIGNAL( isFrame(bool) ) );
     connect( &painter, SIGNAL( figureSelected( int, int ) ), this, SIGNAL( figureSelected( int, int ) ) );
-
     connect( &painter, SIGNAL( paintEvent(QPoint) ), this, SLOT( paintEvent2(QPoint) ) );
-
-
 
 }
 
@@ -72,6 +70,44 @@ void PaintWidget::paintEvent(QPaintEvent *event)
         emit paintEvent(widget()->pos());
 }
 
+// масштабирование
+void PaintWidget::scale( qreal s )
+{
+    // увеличить на n%:  a*(100/(100-n))
+
+    scaleVal += s;
+    qDebug() << scaleVal;
+
+    QPointF center;
+    //if( !painter.fixedSize ) center = QPointF( painter.width() / 2, painter.height() / 2 );
+    //else
+        center = QPointF( painter.size.width() / 2, painter.size.height() / 2 );
+
+    for(int i = 0; i<painter.layers.size(); i++ )
+    {
+        //painter.layers[i]->scale( s, s, center );
+        painter.layers[i]->scale( scaleVal, scaleVal, center );
+    }
+
+    //setViewportFixedSize( QSize( painter.size.width()*s, painter.size.height()*s ) );
+
+    painter.selection.reset();
+    painter.update();
+    emit StateChanged("Scale viewport");
+}
+
+void PaintWidget::setViewportFixedSize( const QSize &s )
+{
+    painter.size = s;
+
+    if( viewportType() == fixedViewport )
+        painter.resize( painter.size );
+
+    setAlignment( Qt::AlignCenter );
+    painter.update();
+    update();
+}
+
 void PaintWidget::setViewportType( const PaintWidget::ViewportType t )
 {
     switch( t )
@@ -108,7 +144,6 @@ bool PaintWidget::reset()
     BACKGROUND( painter.background )->reset();
 
     setViewportType( fixedViewport );
-    //setViewportType( hintViewport );
     setViewportFixedSize( QSize( 640, 480 ) );
 
     for(int i=0; i<painter.layers.size(); i++)
@@ -303,29 +338,6 @@ int PaintWidget::layer() const
 int PaintWidget::countFrames() const
 {
 	return painter.layers[painter.currentLayer]->countFramesForLayer();
-}
-
-// масштабирование
-void PaintWidget::scale( qreal s )
-{
-	QPointF center;
-	if( !painter.fixedSize )
-		center = QPointF( painter.width() / 2, painter.height() / 2 );
-	else
-		center = QPointF( painter.size.width() / 2, painter.size.height() / 2 );
-
-	for(int i = 0; i<painter.layers.size(); i++ )
-	{
-		painter.layers[i]->scale( s, s, center );
-	}
-
-    //setViewportFixedSize( QSize( painter.width()*s, painter.height()*s ) );
-    //painter.resize(painter.width()*s,painter.height()*s);
-
-	painter.selection.reset();
-
-	painter.update();
-	emit StateChanged("Scale viewport");
 }
 
 bool PaintWidget::canGroup()
@@ -946,18 +958,6 @@ PaintWidget::ViewportType PaintWidget::viewportType() const
 QSize PaintWidget::viewportFixedSize() const
 {
 	return painter.size;
-}
-
-void PaintWidget::setViewportFixedSize( const QSize &s )
-{
-	painter.size = s;
-
-	if( viewportType() == fixedViewport )
-		painter.resize( painter.size );
-
-	setAlignment( Qt::AlignCenter );
-	painter.update();
-	update();
 }
 
 void PaintWidget::doViewportTransparent()

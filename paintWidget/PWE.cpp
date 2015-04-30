@@ -141,14 +141,14 @@ void PaintWidgetEditor::onViewportHeightEdited( const QString &text )
 	updateViews = false;
 	bool isInt = false;
 	int val = text.toInt( &isInt );
+
 	if( ( !isInt ) || ( val < 1 ) || ( val > 4096 ) )
 	{
 		ui.viewportHeight->lineEdit()->setText( "1" );
 		val = 1;
 	}
 
-	_paintWidget.setViewportFixedSize( QSize(
-				ui.viewportWidth->currentText().toInt( &isInt ), val ) );
+	_paintWidget.setViewportFixedSize( QSize(ui.viewportWidth->currentText().toInt( &isInt ), val ) );
 	updateViews = true;
 	updateBackgroundViews();
 }
