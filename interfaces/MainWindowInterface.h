@@ -63,7 +63,7 @@ class MainWindowInterface :public QMainWindow
 		void onShowHelp();
 		void onAbout();
 		void onAboutQt();
-		void onRPWMouseMove(QPoint,QPoint);
+        void onRPWMouseMove(QPoint,QPoint,qreal);
 
 	protected:
 		virtual void closeEvent( QCloseEvent *event )= 0;

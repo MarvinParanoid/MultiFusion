@@ -131,9 +131,10 @@ mainWindow::mainWindow( QWidget *parent):
 
         m_plblX = new QLabel("X=0",this);
         m_plblY = new QLabel("Y=0",this);
+        m_plblScale = new QLabel("100%",this);
         statusBar()->addWidget(m_plblX);
         statusBar()->addWidget(m_plblY);
-
+        statusBar()->addWidget(m_plblScale);
 
         groupAction = objectMenu->addAction(  tr( "&Group" ) );
         groupAction->setShortcut( tr( "Ctrl+G" ) );
@@ -183,7 +184,8 @@ mainWindow::mainWindow( QWidget *parent):
         flipVerticalAction->setIcon( QIcon( ":/main/images/object-flip-vertical.png" ) );
         connect( flipVerticalAction, SIGNAL( triggered( bool ) ), this, SLOT( flipVertical() ) );
 
-        connect(painter, SIGNAL(mouseMoveEvent(QPoint,QPoint)), this, SLOT( onRPWMouseMove(QPoint,QPoint)));
+        connect(painter, SIGNAL(mouseMoveEvent(QPoint,QPoint,qreal)), this, SLOT( onRPWMouseMove(QPoint,QPoint,qreal)));
+        connect(painter, SIGNAL(zoomEvent(qreal)), this, SLOT(onZoom(qreal)));
 }
 
 
@@ -642,14 +644,18 @@ void mainWindow::onAboutQt()
     QMessageBox::aboutQt( this, tr( "MultiFusion application" ) );
 }
 
-void mainWindow::onRPWMouseMove(QPoint origin, QPoint global)
+void mainWindow::onRPWMouseMove(QPoint origin, QPoint global, qreal scale)
 {
-    //qDebug() << "123" << origin << global;
     QPoint local = global - origin;
+    local/=scale;
     m_plblX->setText("X=" + QString().setNum(local.x()));
     m_plblY->setText("Y=" + QString().setNum(local.y()));
 }
 
+void mainWindow::onZoom(qreal scale)
+{
+    m_plblScale->setText(QString().setNum(scale*100) + "%");
+}
 
 void mainWindow::onRotate90CW()
 {

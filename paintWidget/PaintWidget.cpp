@@ -52,7 +52,7 @@ void PaintWidget::mouseMoveEvent(QMouseEvent *event)
     }
     else
         origin = widget()->pos();
-    emit mouseMoveEvent(origin,event->pos());
+    emit mouseMoveEvent(origin,event->pos(),scaleVal);
 }
 
 void PaintWidget::paintEvent(QPaintEvent *event)
@@ -67,19 +67,18 @@ void PaintWidget::paintEvent(QPaintEvent *event)
 //    else
 //        origin = widget()->pos();
 //    emit paintEvent(origin);
-        emit paintEvent(widget()->pos());
+
+    emit paintEvent(widget()->pos());
 }
 
 // масштабирование
 void PaintWidget::scale( qreal s )
 {
     QPointF center = QPointF( painter.size.width() / 2, painter.size.height() / 2 );
+    //QPointF center = QPointF( 0,0 );
     qreal k = (scaleVal+s)/scaleVal;
     scaleVal += s;
 
-    // масштабируем лист
-    //setViewportFixedSize( QSize( painter.size.width()*k, painter.size.height()*k ) );
-    //resize(QSize( painter.size.width()*k, painter.size.height()*k ));
 
     // масштабируем фигуры
     for(int i = 0; i<painter.layers.size(); i++ )
@@ -87,9 +86,13 @@ void PaintWidget::scale( qreal s )
         painter.layers[i]->scale( k, k, center );
     }
 
+    // масштабируем лист
+    setViewportFixedSize( QSize( painter.size.width()*k, painter.size.height()*k ) );
 
     painter.selection.reset();
     painter.update();
+
+    emit zoomEvent(scaleVal);
     emit StateChanged("Scale viewport");
 }
 

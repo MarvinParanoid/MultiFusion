@@ -4,7 +4,7 @@
 #include "QDRuler.h"
 #include <QWidget>
 #include <QGridLayout>
-#include <QGLWidget>
+//#include <QGLWidget>
 #include <QDebug>
 
 #include "./../../../pluginTool/Plugin.h"
@@ -48,14 +48,14 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
                     gridLayout->addWidget(fake,0,0);
                     gridLayout->addWidget(mHorzRuler,0,1);
                     gridLayout->addWidget(mVertRuler,1,0);
-
                     painter->setBackgroundRole(QPalette::Window);
                     gridLayout->addWidget(painter->viewport(),1,1);
 
                     painter->setLayout(gridLayout);
 
-                    connect(painter,SIGNAL(mouseMoveEvent(QPoint,QPoint)),this,SLOT(mouseMoveCoords(QPoint,QPoint)));
+                    connect(painter,SIGNAL(mouseMoveEvent(QPoint,QPoint,qreal)),this,SLOT(mouseMoveCoords(QPoint,QPoint,qreal)));
                     connect(painter,SIGNAL(paintEvent(QPoint)),this,SLOT(mouseMoveOrigin(QPoint)));
+                    connect(painter,SIGNAL(zoomEvent(qreal)),this,SLOT(zoomEvent(qreal)));
 
                     manager->addPlugins(this, "Scale");
                 }
@@ -94,14 +94,19 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
 
 	private slots:
 
-        void mouseMoveOrigin(QPoint origin)
+        void zoomEvent(qreal scale)
         {
-            //qDebug() << origin;
-            mVertRuler->setOrigin(origin.y());
-            mHorzRuler->setOrigin(origin.x());
+            mHorzRuler->setRulerZoom(scale);
+            mVertRuler->setRulerZoom(scale);
         }
 
-        void mouseMoveCoords(QPoint origin, QPoint global)
+        void mouseMoveOrigin(QPoint origin)
+        {
+            mHorzRuler->setOrigin(origin.x());
+            mVertRuler->setOrigin(origin.y());
+        }
+
+        void mouseMoveCoords(QPoint origin, QPoint global, qreal scale)
         {
             mHorzRuler->setCursorPos(global);
             mVertRuler->setCursorPos(global);

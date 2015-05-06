@@ -17,8 +17,9 @@ class PaintWidgetInterface:public QScrollArea
 {
 	signals:
 
+		void zoomEvent(qreal scale);
 		void paintEvent(QPoint origin);
-        void mouseMoveEvent(QPoint origin, QPoint global);
+        void mouseMoveEvent(QPoint origin, QPoint global, qreal scale);
 	
 		 /**
 		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
