@@ -3,6 +3,16 @@
 #include "../PluginTool/Plugin.h"
 #include <QMessageBox>
 
+void GContainer::scale( qreal sx, qreal sy, const QPointF &scaleCenter )
+{
+    if( !isEditable() )
+        return;
+
+    int countObjects = objects.size();
+    for( int i = 0; i < countObjects; i++ )
+        objects[i]->scale( sx, sy, scaleCenter );
+}
+
 GObjectInterface* GContainer::copyObject()
 {
 	GContainer* c = new GContainer();
@@ -404,16 +414,6 @@ void GContainer::move( qreal dx, qreal dy )
 	int countObjects = objects.size();
 	for( int i = 0; i < countObjects; i++ )
 		objects[i]->move( dx, dy );
-}
-
-void GContainer::scale( qreal sx, qreal sy, const QPointF &scaleCenter )
-{
-	if( !isEditable() )
-		return;
-
-	int countObjects = objects.size();
-	for( int i = 0; i < countObjects; i++ )
-		objects[i]->scale( sx, sy, scaleCenter );
 }
 
 void GContainer::sheare( qreal sx, qreal sy, const QPointF &shearPoint )

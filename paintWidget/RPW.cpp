@@ -35,6 +35,7 @@ RealPaintWidget::RealPaintWidget( plugin::PluginsManager *manager, QWidget *pare
 void RealPaintWidget::paintEvent( QPaintEvent * event )
 {
     QPainter p( this );
+
     QRect viewportRect( rect() );
 
     QWidget::paintEvent(event);
@@ -84,6 +85,7 @@ void RealPaintWidget::paintEvent( QPaintEvent * event )
 
 void RealPaintWidget::mouseMoveEvent( QMouseEvent * event )
 {
+    QWidget::mouseMoveEvent(event);
 
     QPoint pos = event->pos();
     if( fixedSize )
@@ -91,10 +93,6 @@ void RealPaintWidget::mouseMoveEvent( QMouseEvent * event )
         QSize sz = rect().size() - size;
         pos -= QPoint( sz.width() / 2, sz.height() / 2 );
     }
-
-    //QPoint point(event->x(),event->y());
-    //emit mouseMoveEvent(QWidget::mapToParent(point),pos);
-    QWidget::mouseMoveEvent(event);
 
     if( inSelectionMode )
     {
@@ -221,17 +219,13 @@ void RealPaintWidget::paintFrameTo( QPainter &to, const QRect &r, qreal frame )
 
 	if( fixedSize )
 	{
-        //QSize sz = viewportRect.size() - size;
 		viewportRect.setSize( size );
 	}
 
-	to.setRenderHints( QPainter::Antialiasing |
-						QPainter::TextAntialiasing |
-						QPainter::SmoothPixmapTransform );
+    to.setRenderHints( QPainter::Antialiasing | QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform );
 
 	to.save();
-	to.scale( qreal( r.width() ) / qreal( viewportRect.width() ),
-				qreal( r.height() ) / qreal( viewportRect.height() ) );
+    to.scale( qreal( r.width() ) / qreal( viewportRect.width() ), qreal( r.height() ) / qreal( viewportRect.height() ) );
 
 	to.translate( r.x(), r.y() );
 

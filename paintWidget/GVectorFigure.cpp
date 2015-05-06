@@ -380,8 +380,7 @@ void GVectorFigure::scale( qreal sx, qreal sy, const QPointF &scaleCenter )
 	m.scale( sx, sy );
 	m.translate( -scaleCenter.x(), -scaleCenter.y() );
 	int i = getIndexFrameByPosition(_frame);
-	properties[i].points =
-		m.map( properties[i].points );
+    properties[i].points = m.map( properties[i].points );
 }
 
 void GVectorFigure::sheare( qreal sx, qreal sy, const QPointF &shearPoint )

@@ -73,23 +73,20 @@ void PaintWidget::paintEvent(QPaintEvent *event)
 // масштабирование
 void PaintWidget::scale( qreal s )
 {
-    // увеличить на n%:  a*(100/(100-n))
-
+    QPointF center = QPointF( painter.size.width() / 2, painter.size.height() / 2 );
+    qreal k = (scaleVal+s)/scaleVal;
     scaleVal += s;
-    qDebug() << scaleVal;
 
-    QPointF center;
-    //if( !painter.fixedSize ) center = QPointF( painter.width() / 2, painter.height() / 2 );
-    //else
-        center = QPointF( painter.size.width() / 2, painter.size.height() / 2 );
+    // масштабируем лист
+    //setViewportFixedSize( QSize( painter.size.width()*k, painter.size.height()*k ) );
+    //resize(QSize( painter.size.width()*k, painter.size.height()*k ));
 
+    // масштабируем фигуры
     for(int i = 0; i<painter.layers.size(); i++ )
     {
-        //painter.layers[i]->scale( s, s, center );
-        painter.layers[i]->scale( scaleVal, scaleVal, center );
+        painter.layers[i]->scale( k, k, center );
     }
 
-    //setViewportFixedSize( QSize( painter.size.width()*s, painter.size.height()*s ) );
 
     painter.selection.reset();
     painter.update();
@@ -1009,31 +1006,48 @@ void PaintWidget::updateAllViews( QWidget *from )
 
 void PaintWidget::showConfig()
 {
-
-    if (!isCreatedPWE)
-    {
-        dialog = new QDialog( this );
-        e = new PaintWidgetEditor( *this );
-        e->setParent( dialog );
-        isCreatedPWE = true;
+    QDialog dialog( this );
+        PaintWidgetEditor *e = new PaintWidgetEditor( *this );
+        e->setParent( &dialog );
 
         connect( this, SIGNAL( destroyed() ), e, SLOT( destroy() ) );
         connect( this, SIGNAL( backgroundChanged( QWidget* ) ), e, SLOT( onBackgroundChanged( QWidget* ) ) );
 
-        buttons = new QDialogButtonBox( QDialogButtonBox::Close, Qt::Horizontal, dialog );
+        QDialogButtonBox buttons( QDialogButtonBox::Close,
+                                Qt::Horizontal, &dialog );
 
-        QVBoxLayout *l = new QVBoxLayout( dialog );
+        QVBoxLayout *l = new QVBoxLayout( &dialog );
         l->addWidget( e );
-        l->addWidget( buttons );
+        l->addWidget( &buttons );
 
-        connect( buttons, SIGNAL( rejected() ), dialog, SLOT( reject() ) );
-        dialog->setWindowTitle( tr( "Viewport properties" ) );
+        connect( &buttons, SIGNAL( rejected() ), &dialog, SLOT( reject() ) );
+        dialog.setWindowTitle( tr( "Viewport properties" ) );
 
-        dialog->exec();
-    }
-    else{
-        dialog->exec();
-    }
+        dialog.exec();
+//    if (!isCreatedPWE)
+//    {
+//        dialog = new QDialog( this );
+//        e = new PaintWidgetEditor( *this );
+//        e->setParent( dialog );
+//        isCreatedPWE = true;
+
+//        connect( this, SIGNAL( destroyed() ), e, SLOT( destroy() ) );
+//        connect( this, SIGNAL( backgroundChanged( QWidget* ) ), e, SLOT( onBackgroundChanged( QWidget* ) ) );
+
+//        buttons = new QDialogButtonBox( QDialogButtonBox::Close, Qt::Horizontal, dialog );
+
+//        QVBoxLayout *l = new QVBoxLayout( dialog );
+//        l->addWidget( e );
+//        l->addWidget( buttons );
+
+//        connect( buttons, SIGNAL( rejected() ), dialog, SLOT( reject() ) );
+//        dialog->setWindowTitle( tr( "Viewport properties" ) );
+
+//        dialog->exec();
+//    }
+//    else{
+//        dialog->exec();
+//    }
 }
 
 QObject* PaintWidget::getRealPaintWidget()
