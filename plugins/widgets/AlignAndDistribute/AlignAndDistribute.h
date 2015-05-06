@@ -240,7 +240,7 @@ class AlignAndDistribute:public QWidget, public AlignAndDistributeInterface, pub
             selection->mouseRelease(Qt::LeftButton,rect.center(),Qt::NoModifier);
             // вызываем перерисовку и сохраняем в историю изменений
             selection->emitChanged();
-            selection->emitStateChanged("Align");
+            selection->emitStateChanged("Distribute");
         }
 
     private:

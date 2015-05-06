@@ -32,7 +32,7 @@ QToolTip {
 
 QToolButton{
 	min-width: 20;
-	min-height: 20;
+    /* min-height: 20;*/ /* breaks AlignAndDistribute-minimumHeight */
 	icon-size: 20px;
 }
 

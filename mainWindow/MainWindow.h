@@ -87,7 +87,7 @@ class mainWindow: public MainWindowInterface
 
 		virtual void closeEvent( QCloseEvent *event )
 		{
-			if( QMessageBox::question( this,tr("Exit from MultiFusion."),tr("Are you sure want to exit from MultiFusion?"),
+			if( QMessageBox::question( this,tr("Exit from MultiFusion."),tr("Are you shure to exit from MultiFusion?"),
 				QMessageBox::Ok | QMessageBox::Cancel,
 				QMessageBox::Cancel ) == QMessageBox::Cancel )
 			{

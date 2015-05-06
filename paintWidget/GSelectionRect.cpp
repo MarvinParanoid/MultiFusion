@@ -126,7 +126,7 @@ bool GSelectionRect::mousePress( const int button, const QPoint &pos, Qt::Keyboa
 
 			if( QMessageBox::question( _parent,
 				tr( "Deleting point from layer." ),
-				tr( "Are you sure want to delete this point? " ) +
+				tr( "Are you shure to delete this point? " ) +
 				tr( "It delete point from all frames in animation." ),
 				QMessageBox::Ok | QMessageBox::Cancel,
 				QMessageBox::Cancel ) == QMessageBox::Cancel )

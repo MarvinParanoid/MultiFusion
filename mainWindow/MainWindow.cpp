@@ -252,7 +252,7 @@ void mainWindow::onCut()
 {
 	if( QMessageBox::question( this,
 		tr( "Cut selection to clipboard." ),
-		tr( "Are you sure want to cut this layers to clipboard?" ),
+		tr( "Are you shure to cut this layers to clipboard?" ),
 		QMessageBox::Ok | QMessageBox::Cancel,
 		QMessageBox::Cancel ) == QMessageBox::Ok )
 	{
@@ -274,7 +274,7 @@ void mainWindow::onNewFile()
 {
 	if( QMessageBox::question( this,
 		tr( "Create new animation." ),
-		tr( "Are you sure want to create new animation?" ) +
+		tr( "Are you shure to create new animation?" ) +
 		tr( "It delete loaded film, if it unsaved." ),
 		QMessageBox::Ok | QMessageBox::Cancel,
 		QMessageBox::Cancel ) == QMessageBox::Cancel )
@@ -290,7 +290,7 @@ void mainWindow::onOpenFile()
 {
 	if( QMessageBox::question( this,
 	tr( "Loading animation." ),
-	tr( "Are you sure want to load animation?" ) +
+	tr( "Are you shure to load animation?" ) +
 	tr( "It delete loaded film, if it unsaved." ),
 	QMessageBox::Ok | QMessageBox::Cancel,
 	QMessageBox::Cancel ) == QMessageBox::Cancel )
