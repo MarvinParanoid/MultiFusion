@@ -551,6 +551,7 @@ class PaintWidget:public PaintWidgetInterface
 
 		virtual QSize viewportFixedSize() const;
 
+        virtual void setViewportFixedSizeScale( const QSize &s );
 		virtual void setViewportFixedSize( const QSize &s );
 
 		///virtual QColor& getViewportColor();
