@@ -12,6 +12,7 @@ DEPENDPATH += . \
 INCLUDEPATH += . \
     ./../interfaces \
     ./../pluginTool \
+    ./paintWidget
 DESTDIR = ./../bin
 SOURCES += \
     Plugin.cpp \
