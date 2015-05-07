@@ -5,7 +5,7 @@
 #include <QTextCodec>
 #include <QSize>
 #include <QDir>
-#include "helpwindow.h"
+#include "HelpWindow.h"
 
 HelpWindow::HelpWindow(QString caption, QString defaultContent, QString rootUrl, QWidget *parent)
     : QDialog(parent)

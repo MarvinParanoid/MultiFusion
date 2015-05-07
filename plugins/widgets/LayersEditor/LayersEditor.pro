@@ -10,7 +10,7 @@ TEMPLATE = lib
 CONFIG += plugin
 TARGET = LayersEditor
 DESTDIR = ./../../../bin/plugins/LayersEditor
-SOURCES += layerseditor.cpp
+SOURCES += LayersEditor.cpp
 HEADERS += LayersEditor.h \
     Plugin.h \
 	SignalHolder.h

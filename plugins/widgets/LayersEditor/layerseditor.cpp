@@ -1,4 +1,4 @@
-﻿#include "layerseditor.h"
+﻿#include "LayersEditor.h"
 
 bool LayersEditor::resourcesInited = false;
 

@@ -6,7 +6,7 @@
 #include <QSize>
 #include <QDir>
 #include <QMessageBox>
-#include "helpwindow.h"
+#include "HelpWindow.h"
 
 HelpWindow::HelpWindow(QWidget *parent)
     : QDialog(parent)
