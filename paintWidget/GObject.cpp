@@ -1,7 +1,7 @@
 ﻿#include "GObject.h"
 #include "GContainer.h"
 #include "GVectorFigure.h"
-#include "../PluginTool/Plugin.h"
+#include "../pluginTool/Plugin.h"
 #include <QMessageBox>
 
 static const QString SIGNATURE = "SACS2_GOBJECT_1.0";

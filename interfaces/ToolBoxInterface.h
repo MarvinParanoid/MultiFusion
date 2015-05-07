@@ -7,7 +7,7 @@
 #include <QGridLayout>
 
 #include "Plugin.h"
-#include "figuretoolinterface.h"
+#include "FigureToolInterface.h"
 
 /**
 *	@file toolboxinterface.h В данном файле описан интерфейс, который должен реализовывать

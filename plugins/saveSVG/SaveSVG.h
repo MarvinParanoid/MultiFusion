@@ -17,8 +17,8 @@
 #include <QMessageBox>
 #include <QSvgGenerator>
 #include <QPainter>
-#include <QFileDialog.h>
-#include <QImage.h>
+#include <QFileDialog>
+#include <QImage>
 #include <qfile.h>
 #include <qtextstream.h>
 #include <qregexp.h>

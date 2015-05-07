@@ -1,6 +1,6 @@
 ﻿#include "GContainer.h"
-#include "GVectorfigure.h"
-#include "../PluginTool/Plugin.h"
+#include "GVectorFigure.h"
+#include "../pluginTool/Plugin.h"
 #include <QMessageBox>
 
 void GContainer::scale( qreal sx, qreal sy, const QPointF &scaleCenter )

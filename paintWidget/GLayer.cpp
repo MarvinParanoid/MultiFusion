@@ -7,7 +7,7 @@
 #include <QtAlgorithms>
 #include <QMessageBox>
 #include "GLayer.h"
-#include "../PluginTool/Plugin.h"
+#include "../pluginTool/Plugin.h"
 #include "GVectorFigure.h"
 
 GLayer::~GLayer(){};

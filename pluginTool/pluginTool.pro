@@ -3,7 +3,7 @@
 # #####################################################################
 TEMPLATE = lib
 CONFIG += static
-TARGET = plugin
+TARGET = Plugin
 DEPENDPATH += .
 INCLUDEPATH += .
 DESTDIR = ./../libs

@@ -5,7 +5,7 @@
 #include <QBrush>
 #include <QMatrix>
 #include <QPainter>
-#include "gradienteditorinterface.h"
+#include "GradientEditorInterface.h"
 
 /**
 *	@file brusheditorinterface.h В данном файле описан интерфейс, который должен реализовывать

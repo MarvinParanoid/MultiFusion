@@ -7,8 +7,8 @@
 #include <QSpinBox>
 #include <QDialogButtonBox>
 
-#include "gvectorfigure.h"
-#include "gcontainer.h"
+#include "GVectorFigure.h"
+#include "GContainer.h"
 
 class PropertiesObjDialog:public QDialog
 {

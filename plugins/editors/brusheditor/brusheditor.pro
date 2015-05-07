@@ -15,7 +15,7 @@ HEADERS += BrushEditor.h \
 	TexturesList.h \
 	SignalHolder.h
 SOURCES += BrushEditor.cpp
-FORMS += BrushEditor.ui \
-	TexturesForm.ui
+FORMS += brusheditor.ui \
+        texturesform.ui
 QT += xml \
     xmlpatterns

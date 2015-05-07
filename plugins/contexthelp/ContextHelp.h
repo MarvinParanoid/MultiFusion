@@ -33,7 +33,7 @@
 #include "./../../interfaces/MainWindowInterface.h"
 #include "./../../interfaces/ContextHelpInterface.h"
 
-#include "helpwindow.h"
+#include "HelpWindow.h"
 
 class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 {

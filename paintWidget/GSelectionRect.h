@@ -5,7 +5,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QMessageBox>
-#include "../PluginTool/plugin.h"
+#include "../pluginTool/Plugin.h"
 #include "../interfaces/GSRInterface.h"
 #include "../interfaces/GObjectInterface.h"
 #include "GContainer.h"

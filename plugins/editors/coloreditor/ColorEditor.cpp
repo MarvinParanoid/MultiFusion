@@ -1,3 +1,3 @@
-﻿#include "coloreditor.h"
+﻿#include "ColorEditor.h"
 
 EXPORT_PLUGIN( ColorEditor, ColorEditorInterface )

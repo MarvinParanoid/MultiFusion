@@ -1,5 +1,5 @@
 ﻿<plugins>
-    <plugin included="false">
+    <plugin included="true">
         <Id>Ruler</Id>
         <path>./plugins/Ruler/</path>
         <Widgets>

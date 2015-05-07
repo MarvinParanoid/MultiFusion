@@ -2,7 +2,7 @@
 # MultiFusion main module makefile. Serkov Alexander, 2007
 # #####################################################################
 LIBS += -L./../libs \
-    -lpaintWidget
+    -lPaintWidget
 TEMPLATE = app
 TARGET = MultiFusion
 DEPENDPATH += . \
@@ -12,7 +12,6 @@ DEPENDPATH += . \
 INCLUDEPATH += . \
     ./../interfaces \
     ./../pluginTool \
-    ./paintWidget
 DESTDIR = ./../bin
 SOURCES += \
     Plugin.cpp \

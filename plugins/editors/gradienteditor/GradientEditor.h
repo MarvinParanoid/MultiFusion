@@ -4,8 +4,8 @@
 #include <QWidget>
 #include <QHBoxLayout>
 #include "ui_gradientform.h"
-#include "gradientstopseditor.h"
-#include "gradientrangeeditor.h"
+#include "GradientStopsEditor.h"
+#include "GradientRangeEditor.h"
 
 #include "./../../../pluginTool/Plugin.h"
 #include "./../../../pluginTool/InterfacePlugin.h"

@@ -3,4 +3,4 @@
 ######################################################################
 
 TEMPLATE = subdirs
-SUBDIRS = line circle roundquad quad polygon star pentool spline text
+SUBDIRS = Line Circle RoundQuad Quad Polygon Star PenTool Spline Text

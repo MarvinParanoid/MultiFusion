@@ -1,4 +1,4 @@
-﻿#include "circle.h"
+﻿#include "Circle.h"
 
 bool C_Circle::resourcesInited = false;
 

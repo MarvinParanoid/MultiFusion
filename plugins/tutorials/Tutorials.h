@@ -30,8 +30,8 @@
 #include "./../../interfaces/MainWindowInterface.h"
 #include "./../../interfaces/TutorialsInterface.h"
 
-#include "tutorial.h"
-#include "helpwindow.h"
+#include "Tutorial.h"
+#include "HelpWindow.h"
 
 class Tutorials: public TutorialsInterface, public InterfacePlugin
 {

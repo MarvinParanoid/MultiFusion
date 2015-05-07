@@ -14,6 +14,6 @@ HEADERS += PenEditor.h \
     Plugin.h \
 	SignalHolder.h
 SOURCES += PenEditor.cpp
-FORMS += PenEditor.ui
+FORMS += peneditor.ui
 QT += xml \
     xmlpatterns
