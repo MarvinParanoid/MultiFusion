@@ -15,7 +15,6 @@
 #include "./../interfaces/GObjectInterface.h"
 #include <QDialog>
 #include <QDialogButtonBox>
-#include "../interfaces/MainWindowInterface.h"
 #include <QMouseEvent>
 
 /**
@@ -39,7 +38,9 @@ class PaintWidget:public PaintWidgetInterface
 	Q_INTERFACES(PaintWidgetInterface)
 	signals:
 
-        void mouseMoveEvent(QPoint global);
+        void zoomEvent(qreal scale);
+        void paintEvent(QPoint origin);
+        void mouseMoveEvent(QPoint origin, QPoint global, qreal scale);
 
 		 /**
 		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
@@ -102,11 +103,12 @@ class PaintWidget:public PaintWidgetInterface
 
 	public:
 
+        virtual void scrollContentsBy(int dx, int dy);
         virtual void mouseMoveEvent( QMouseEvent * event );
+        virtual void paintEvent( QPaintEvent * event);
 
         virtual void mySetViewportMargins(int left, int top, int right, int bottom);
 
-        MainWindowInterface* mainWin;
 
 		/**
 		 * Задает скрывать фигуры в текущем слое или нет
@@ -549,6 +551,7 @@ class PaintWidget:public PaintWidgetInterface
 
 		virtual QSize viewportFixedSize() const;
 
+        virtual void setViewportFixedSizeScale( const QSize &s );
 		virtual void setViewportFixedSize( const QSize &s );
 
 		///virtual QColor& getViewportColor();
@@ -584,6 +587,8 @@ class PaintWidget:public PaintWidgetInterface
 
 	public slots:
 
+        void paintEvent2(QPoint origin);
+
 		/**
 		*  Перемещает фигуру между слоями и внутри слоя по уровням
 		*/
@@ -600,6 +605,10 @@ class PaintWidget:public PaintWidgetInterface
         bool isCreatedPWE;
         PaintWidgetEditor *e;
         QDialog *dialog;
+
+        qreal scaleVal;
+        QPoint scroll;
+
         RealPaintWidget painter;
 		bool transparent;
 		QColor viewportColor;

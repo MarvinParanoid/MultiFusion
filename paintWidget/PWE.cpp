@@ -22,33 +22,15 @@ PaintWidgetEditor::PaintWidgetEditor(PaintWidget &paintWidget):
 	ui.hboxLayout->addWidget( colorBox );
 
 	connect( colorBox, SIGNAL( colorChanged() ), this, SLOT( onColorChanged() ) );
-
-	connect( ui.colorFillBg, SIGNAL( clicked( bool ) ),
-				this, SLOT( onColorFillBgButton( bool ) ) );
-
-	connect( ui.transparencyFillBg, SIGNAL( clicked( bool ) ),
-				this, SLOT( onTransparencyFillBgButton( bool ) ) );
-
-	connect( ui.sizeHintStyle, SIGNAL( clicked( bool ) ),
-				this, SLOT( onSizeHintStyle( bool ) ) );
-
-	connect( ui.fullWindowStyle, SIGNAL( clicked( bool ) ),
-				this, SLOT( onFullWindowStyle( bool ) ) );
-
-	connect( ui.FixedSizeStyle, SIGNAL( clicked( bool ) ),
-				this, SLOT( onFixedSizeStyle( bool ) ) );
-
-	connect( ui.viewportWidth, SIGNAL( activated( const QString& ) ),
-				this, SLOT( onViewportWidthChanged( const QString& ) ) );
-
-	connect( ui.viewportWidth, SIGNAL( editTextChanged( const QString& ) ),
-				this, SLOT( onViewportWidthEdited( const QString& ) ) );
-
-	connect( ui.viewportHeight, SIGNAL( activated( const QString& ) ),
-				this, SLOT( onViewportHeightChanged( const QString& ) ) );
-
-	connect( ui.viewportHeight, SIGNAL( editTextChanged( const QString& ) ),
-                this, SLOT( onViewportHeightEdited( const QString& ) ) );
+    connect( ui.colorFillBg, SIGNAL( clicked( bool ) ), this, SLOT( onColorFillBgButton( bool ) ) );
+    connect( ui.transparencyFillBg, SIGNAL( clicked( bool ) ), this, SLOT( onTransparencyFillBgButton( bool ) ) );
+    connect( ui.sizeHintStyle, SIGNAL( clicked( bool ) ), this, SLOT( onSizeHintStyle( bool ) ) );
+    connect( ui.fullWindowStyle, SIGNAL( clicked( bool ) ), this, SLOT( onFullWindowStyle( bool ) ) );
+    connect( ui.FixedSizeStyle, SIGNAL( clicked( bool ) ), this, SLOT( onFixedSizeStyle( bool ) ) );
+    connect( ui.viewportWidth, SIGNAL( activated( const QString& ) ), this, SLOT( onViewportWidthChanged( const QString& ) ) );
+    connect( ui.viewportWidth, SIGNAL( editTextChanged( const QString& ) ), this, SLOT( onViewportWidthEdited( const QString& ) ) );
+    connect( ui.viewportHeight, SIGNAL( activated( const QString& ) ), this, SLOT( onViewportHeightChanged( const QString& ) ) );
+    connect( ui.viewportHeight, SIGNAL( editTextChanged( const QString& ) ), this, SLOT( onViewportHeightEdited( const QString& ) ) );
 
 	syncWithPainter();
 }
@@ -135,8 +117,7 @@ void PaintWidgetEditor::onViewportWidthEdited( const QString &text )
 		val = 1;
 	}
 
-	_paintWidget.setViewportFixedSize( QSize( val,
-				ui.viewportHeight->currentText().toInt( &isInt ) ) );
+    _paintWidget.setViewportFixedSize( QSize( val, ui.viewportHeight->currentText().toInt( &isInt ) ) );
 	updateViews = true;
 	updateBackgroundViews();
 }
@@ -160,14 +141,14 @@ void PaintWidgetEditor::onViewportHeightEdited( const QString &text )
 	updateViews = false;
 	bool isInt = false;
 	int val = text.toInt( &isInt );
+
 	if( ( !isInt ) || ( val < 1 ) || ( val > 4096 ) )
 	{
 		ui.viewportHeight->lineEdit()->setText( "1" );
 		val = 1;
 	}
 
-	_paintWidget.setViewportFixedSize( QSize(
-				ui.viewportWidth->currentText().toInt( &isInt ), val ) );
+	_paintWidget.setViewportFixedSize( QSize(ui.viewportWidth->currentText().toInt( &isInt ), val ) );
 	updateViews = true;
 	updateBackgroundViews();
 }

@@ -12,44 +12,152 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 	PaintWidgetInterface(parent), painter(manager, this)
 {
     setMouseTracking(true);
-    mainWin = MAINWINDOW(parent);
-    connect(&painter, SIGNAL(mouseMoveEvent(QPoint,QPoint)), mainWin, SLOT(onRPWMouseMove(QPoint,QPoint)));
-
+    scaleVal = 1;
+    isCreatedPWE = false;
 
 	setWidget( &painter );
 	setAlignment( Qt::AlignCenter );
     setViewportColor( QColor( 100, 100, 100 ) );
 
-
-    isCreatedPWE = false;
-
     manager->addPlugins(this, "PaintWidget");
-
 	
-	connect( &painter, SIGNAL( objectCreated() ),
-			this, SIGNAL( objectCreated() ) );
-
-	connect( &painter, SIGNAL( frameChanged( qreal ) ),
-			this, SIGNAL( frameChanged( qreal ) ) );
-
-	connect( &painter, SIGNAL( undoEvents() ),
-			this, SIGNAL( undoEvents() ) );
-
-	connect( &painter, SIGNAL( isFrame( bool) ),
-		this, SIGNAL( isFrame(bool) ) );
-
-	connect( &painter, SIGNAL( figureSelected( int, int ) ),
-			this, SIGNAL( figureSelected( int, int ) ) );
+    connect( &painter, SIGNAL( objectCreated() ), this, SIGNAL( objectCreated() ) );
+    connect( &painter, SIGNAL( frameChanged( qreal ) ), this, SIGNAL( frameChanged( qreal ) ) );
+    connect( &painter, SIGNAL( undoEvents() ), this, SIGNAL( undoEvents() ) );
+    connect( &painter, SIGNAL( isFrame( bool) ), this, SIGNAL( isFrame(bool) ) );
+    connect( &painter, SIGNAL( figureSelected( int, int ) ), this, SIGNAL( figureSelected( int, int ) ) );
+    connect( &painter, SIGNAL( paintEvent(QPoint) ), this, SLOT( paintEvent2(QPoint) ) );
 }
 
-PaintWidget::~PaintWidget()
+void PaintWidget::paintEvent2(QPoint origin)
 {
-	delete painter.background;
+    emit paintEvent(origin);
+}
+
+void PaintWidget::scrollContentsBy(int dx, int dy)
+{
+    viewport()->scroll(dx,dy);
+    emit paintEvent(widget()->pos());
 }
 
 void PaintWidget::mouseMoveEvent(QMouseEvent *event)
 {
-    emit mouseMoveEvent(event->pos());
+    QPoint origin;
+    if (viewportType()==hintViewport)
+    {
+        QSize sz = widget()->rect().size() - painter.getSize();
+        origin = QPoint( sz.width() / 2, sz.height() / 2 );
+    }
+    else
+        origin = widget()->pos();
+    emit mouseMoveEvent(origin,event->pos(),scaleVal);
+}
+
+void PaintWidget::paintEvent(QPaintEvent *event)
+{
+    emit paintEvent(widget()->pos());
+}
+
+// масштабирование
+void PaintWidget::scale( qreal s )
+{
+    qreal k = (scaleVal+s)/scaleVal;
+    scaleVal += s;
+
+    setViewportFixedSize( QSize( painter.size.width()*k, painter.size.height()*k ) );
+
+    // масштабируем фигуры
+    QPointF center = QPointF( 0,0 );
+    for(int i = 0; i<painter.layers.size(); i++ )
+    {
+        painter.layers[i]->scale( k, k, center );
+    }
+
+    // масштабируем лист
+
+    painter.selection.reset();
+    painter.update();
+
+    emit zoomEvent(scaleVal);
+    emit StateChanged("Scale viewport");
+}
+
+void PaintWidget::setViewportFixedSizeScale(const QSize &s )
+{
+}
+
+void PaintWidget::setViewportFixedSize( const QSize &s )
+{
+    painter.size = s;
+
+    if( viewportType() == fixedViewport )
+        painter.resize( painter.size );
+
+    setAlignment( Qt::AlignCenter );
+    painter.update();
+    update();
+}
+
+void PaintWidget::setViewportType( const PaintWidget::ViewportType t )
+{
+    switch( t )
+    {
+        case fixedViewport:
+            painter.fixedSize = false;
+            setWidgetResizable( false );
+            painter.resize( painter.size );
+            break;
+
+        case resizableViewport:
+            painter.fixedSize = false;
+            setWidgetResizable( true );
+            break;
+
+        case hintViewport:
+            painter.fixedSize = true;
+            setWidgetResizable( true );
+            break;
+    }
+
+    setAlignment( Qt::AlignCenter );
+    painter.update();
+    update();
+}
+
+bool PaintWidget::reset()
+{
+    scaleVal = 1;
+    emit zoomEvent(scaleVal);
+
+    setFrame(0.0, false);
+    if( !painter.isEnabled() ) return false;
+
+    setViewportColor( QColor( 100, 100, 100 ) );
+
+    BACKGROUND( painter.background )->reset();
+
+    setViewportType( fixedViewport );
+    setViewportFixedSize( QSize( 640, 480 ) );
+
+    for(int i=0; i<painter.layers.size(); i++)
+    {
+        while( painter.layers[i]->countObjects() > 0 )
+                delete painter.layers[i]->remove( 0 );
+        delete painter.layers[i];
+    }
+    painter.layers.clear();
+
+    painter.addLayer(true, false, tr("Layer ") + "0");
+    painter.selection.reset();
+    painter.inKeyPressedHandler = false;
+    painter.inSelectionMode = false;
+    update();
+
+    emit figureSelected( 0, -1);
+    emit allLayersChanged();
+    emit countFramesChanged( countFrames() );
+
+    return true;
 }
 
 void PaintWidget::mySetViewportMargins(int left, int top, int right, int bottom)
@@ -223,26 +331,6 @@ int PaintWidget::layer() const
 int PaintWidget::countFrames() const
 {
 	return painter.layers[painter.currentLayer]->countFramesForLayer();
-}
-
-// масштабирование
-void PaintWidget::scale( qreal s )
-{
-	QPointF center;
-	if( !painter.fixedSize )
-		center = QPointF( painter.width() / 2, painter.height() / 2 );
-	else
-		center = QPointF( painter.size.width() / 2, painter.size.height() / 2 );
-
-	for(int i = 0; i<painter.layers.size(); i++ )
-	{
-		painter.layers[i]->scale( s, s, center );
-	}
-    //painter.resize(painter.width()*s,painter.height()*s);
-	painter.selection.reset();
-
-	painter.update();
-	emit StateChanged("Scale viewport");
 }
 
 bool PaintWidget::canGroup()
@@ -623,40 +711,6 @@ void PaintWidget::paintFrameTo( QPainter &to, const QRect &r, qreal frame )
 	painter.paintWholeFrameTo( to, r, frame );
 }*/
 
-bool PaintWidget::reset()
-{
-    setFrame(0.0, false);
-	if( !painter.isEnabled() ) return false;
-
-	setViewportColor( QColor( 100, 100, 100 ) );
-
-	BACKGROUND( painter.background )->reset();
-
-    //setViewportType( fixedViewport );
-    setViewportType( hintViewport );
-	setViewportFixedSize( QSize( 640, 480 ) );
-
-	for(int i=0; i<painter.layers.size(); i++)
-	{
-		while( painter.layers[i]->countObjects() > 0 )
-				delete painter.layers[i]->remove( 0 );
-		delete painter.layers[i];
-	}
-	painter.layers.clear();
-
-	painter.addLayer(true, false, tr("Layer ") + "0");
-	painter.selection.reset();
-	painter.inKeyPressedHandler = false;
-	painter.inSelectionMode = false;
-	update();
-
-	emit figureSelected( 0, -1);
-	emit allLayersChanged();
-	emit countFramesChanged( countFrames() );
-
-	return true;
-}
-
 void PaintWidget::save( QDataStream &stream )
 {
 	if( !painter.isEnabled() ) return;
@@ -894,47 +948,9 @@ PaintWidget::ViewportType PaintWidget::viewportType() const
 	return resizableViewport;
 }
 
-void PaintWidget::setViewportType( const PaintWidget::ViewportType t )
-{
-	switch( t )
-	{
-		case fixedViewport:
-            painter.fixedSize = false;
-            setWidgetResizable( false );
-			painter.resize( painter.size );
-			break;
-
-		case resizableViewport:
-            painter.fixedSize = false;
-			setWidgetResizable( true );
-			break;
-
-		case hintViewport:
-			painter.fixedSize = true;
-			setWidgetResizable( true );
-			break;
-	}
-
-	setAlignment( Qt::AlignCenter );
-	painter.update();
-	update();
-}
-
 QSize PaintWidget::viewportFixedSize() const
 {
 	return painter.size;
-}
-
-void PaintWidget::setViewportFixedSize( const QSize &s )
-{
-	painter.size = s;
-
-	if( viewportType() == fixedViewport )
-		painter.resize( painter.size );
-
-	setAlignment( Qt::AlignCenter );
-	painter.update();
-	update();
 }
 
 void PaintWidget::doViewportTransparent()
@@ -986,6 +1002,8 @@ void PaintWidget::updateAllViews( QWidget *from )
 
 void PaintWidget::showConfig()
 {
+//    scaleVal = 1;
+//    scale(scaleVal);
 
     if (!isCreatedPWE)
     {
@@ -1037,6 +1055,11 @@ void PaintWidget::flipHorisontal()
 void PaintWidget::flipVertical()
 {
     painter.selection.setScale(1,-1);
+}
+
+PaintWidget::~PaintWidget()
+{
+    delete painter.background;
 }
 
 /*virtual QColor& getViewportColor();*/

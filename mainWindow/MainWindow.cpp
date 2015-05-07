@@ -45,14 +45,9 @@ mainWindow::mainWindow( QWidget *parent):
 
 		this->setWindowTitle( QString( APP_NAME ) + tr( ":Untitled" ) );
 
-		connect( painter, SIGNAL( frameChanged( qreal ) ),
-				this, SLOT( onPlayFrameChanged( qreal ) ) );
-
-		connect( painter, SIGNAL( countFramesChanged( int ) ),
-				this, SLOT( onCountFramesChanged( int ) ) );
-
-		connect( painter, SIGNAL( objectCreated() ),
-				this, SLOT( onObjectCreated() ) );
+//        connect( painter, SIGNAL( frameChanged( qreal ) ), this, SLOT( onPlayFrameChanged( qreal ) ) );
+//        connect( painter, SIGNAL( countFramesChanged( int ) ), this, SLOT( onCountFramesChanged( int ) ) );
+//        connect( painter, SIGNAL( objectCreated() ), this, SLOT( onObjectCreated() ) );
 
 		QAction* newFileAction = fileMenu->addAction( tr( "&New" ) );
 		newFileAction->setIcon( QIcon( ":/main/images/new.png" ) );
@@ -136,9 +131,10 @@ mainWindow::mainWindow( QWidget *parent):
 
         m_plblX = new QLabel("X=0",this);
         m_plblY = new QLabel("Y=0",this);
+        m_plblScale = new QLabel("100%",this);
         statusBar()->addWidget(m_plblX);
         statusBar()->addWidget(m_plblY);
-
+        statusBar()->addWidget(m_plblScale);
 
         groupAction = objectMenu->addAction(  tr( "&Group" ) );
         groupAction->setShortcut( tr( "Ctrl+G" ) );
@@ -170,6 +166,8 @@ mainWindow::mainWindow( QWidget *parent):
         flipVerticalAction->setIcon( QIcon( ":/main/images/object-flip-vertical.png" ) );
         connect( flipVerticalAction, SIGNAL( triggered( bool ) ), this, SLOT( flipVertical() ) );
 
+        connect(painter, SIGNAL(mouseMoveEvent(QPoint,QPoint,qreal)), this, SLOT( onRPWMouseMove(QPoint,QPoint,qreal)));
+        connect(painter, SIGNAL(zoomEvent(qreal)), this, SLOT(onZoom(qreal)));
 }
 
 
@@ -412,14 +410,14 @@ void mainWindow::onZoomInPressed()
 {
 	if( !processSignals ) return;
 
-	painter->scale( 1.1 );
+    painter->scale( 0.1 );
 }
 
 void mainWindow::onZoomOutPressed()
 {
 	if( !processSignals ) return;
 
-	painter->scale( 0.9 );
+    painter->scale( -0.1 );
 }
 
 void mainWindow::onSelectionToolPressed()
@@ -628,12 +626,18 @@ void mainWindow::onAboutQt()
     QMessageBox::aboutQt( this, tr( "MultiFusion application" ) );
 }
 
-void mainWindow::onRPWMouseMove(QPoint global, QPoint rpw) //int x, int y)
+void mainWindow::onRPWMouseMove(QPoint origin, QPoint global, qreal scale)
 {
-    m_plblX->setText("X=" + QString().setNum(rpw.x()));
-    m_plblY->setText("Y=" + QString().setNum(rpw.y()));
+    QPoint local = global - origin;
+    local/=scale;
+    m_plblX->setText("X=" + QString().setNum(local.x()));
+    m_plblY->setText("Y=" + QString().setNum(local.y()));
 }
 
+void mainWindow::onZoom(qreal scale)
+{
+    m_plblScale->setText(QString().setNum(scale*100) + "%");
+}
 
 void mainWindow::onRotate90CW()
 {

@@ -26,8 +26,6 @@ class RPWInterface:public QGLWidget
 		void objectCreated();
 		void isPlayed();
 		
-		void mouseMoveEvent(QPoint global, QPoint rpw);
-		
 		/**
 		 * Генерируется при перемещении по истории событий
 		 */
@@ -47,7 +45,6 @@ class RPWInterface:public QGLWidget
 		virtual void onPropertiesObj() = 0;
 	public:
 
-		virtual QPoint getPoint() = 0;
 		/**
 		 * Возвращает единицу истории
 		 */

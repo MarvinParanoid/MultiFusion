@@ -17,7 +17,9 @@ class PaintWidgetInterface:public QScrollArea
 {
 	signals:
 
-		void mouseMoveEvent(QPoint global);
+		void zoomEvent(qreal scale);
+		void paintEvent(QPoint origin);
+        void mouseMoveEvent(QPoint origin, QPoint global, qreal scale);
 	
 		 /**
 		 * Отправляется после выполнения события, которое нам нужно сохранить в истории
@@ -75,7 +77,9 @@ class PaintWidgetInterface:public QScrollArea
 
 	public:
 	
+		virtual void scrollContentsBy(int dx, int dy) = 0;
 		virtual void mouseMoveEvent( QMouseEvent * event ) = 0;
+		virtual void paintEvent( QPaintEvent * event) = 0;
 		virtual void mySetViewportMargins(int left, int top, int right, int bottom)=0;
 	
 		/**

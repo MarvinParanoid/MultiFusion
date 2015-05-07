@@ -75,7 +75,8 @@ class mainWindow: public MainWindowInterface
 		void onAbout();
 		void onAboutQt();
 
-        void onRPWMouseMove(QPoint,QPoint);
+        void onRPWMouseMove(QPoint,QPoint,qreal);
+        void onZoom(qreal);
 
         void onRotate90CW();
         void onRotate90CWW();
@@ -126,6 +127,7 @@ class mainWindow: public MainWindowInterface
 
         QLabel* m_plblX;
         QLabel* m_plblY;
+        QLabel* m_plblScale;
 
         QAction *groupAction;
         QAction *ungroupAction;

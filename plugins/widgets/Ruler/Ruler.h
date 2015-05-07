@@ -4,7 +4,7 @@
 #include "QDRuler.h"
 #include <QWidget>
 #include <QGridLayout>
-#include <QGLWidget>
+//#include <QGLWidget>
 #include <QDebug>
 
 #include "./../../../pluginTool/Plugin.h"
@@ -48,11 +48,14 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
                     gridLayout->addWidget(fake,0,0);
                     gridLayout->addWidget(mHorzRuler,0,1);
                     gridLayout->addWidget(mVertRuler,1,0);
-                    //gridLayout->addWidget(painter->viewport(),1,1);
+                    painter->setBackgroundRole(QPalette::Window);
+                    gridLayout->addWidget(painter->viewport(),1,1);
+
                     painter->setLayout(gridLayout);
 
-                    connect(realPainter,SIGNAL(mouseMoveEvent(QPoint,QPoint)),this,SLOT(mouseMoveOrigin(QPoint,QPoint)));
-                    connect(painter,SIGNAL(mouseMoveEvent(QPoint)),this,SLOT(mouseMoveCoords(QPoint)));
+                    connect(painter,SIGNAL(mouseMoveEvent(QPoint,QPoint,qreal)),this,SLOT(mouseMoveCoords(QPoint,QPoint,qreal)));
+                    connect(painter,SIGNAL(paintEvent(QPoint)),this,SLOT(mouseMoveOrigin(QPoint)));
+                    connect(painter,SIGNAL(zoomEvent(qreal)),this,SLOT(zoomEvent(qreal)));
 
                     manager->addPlugins(this, "Scale");
                 }
@@ -91,16 +94,19 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
 
 	private slots:
 
-        void mouseMoveOrigin(QPoint global, QPoint rpw)
+        void zoomEvent(qreal scale)
         {
-            QPoint p = (global-rpw);
-            mVertRuler->setOrigin(p.y());
-            mHorzRuler->setOrigin(p.x());
-            //mHorzRuler->setCursorPos(global);
-            //mVertRuler->setCursorPos(global);
+            mHorzRuler->setRulerZoom(scale);
+            mVertRuler->setRulerZoom(scale);
         }
 
-        void mouseMoveCoords(QPoint global)
+        void mouseMoveOrigin(QPoint origin)
+        {
+            mHorzRuler->setOrigin(origin.x());
+            mVertRuler->setOrigin(origin.y());
+        }
+
+        void mouseMoveCoords(QPoint origin, QPoint global, qreal scale)
         {
             mHorzRuler->setCursorPos(global);
             mVertRuler->setCursorPos(global);

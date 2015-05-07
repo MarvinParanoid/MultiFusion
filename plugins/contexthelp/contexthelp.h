@@ -180,8 +180,8 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 			if(xmlFile.open(QIODevice::ReadWrite))
 			{
 				QString errorStr;
-				int errorLine;
-				int errorColumn;
+                int errorLine;
+                int errorColumn;
 				helpDom = new QDomDocument();
 				if(!helpDom->setContent(&xmlFile, false))
 				{
