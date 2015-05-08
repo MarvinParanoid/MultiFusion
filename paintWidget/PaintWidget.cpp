@@ -26,21 +26,15 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
     connect( &painter, SIGNAL( undoEvents() ), this, SIGNAL( undoEvents() ) );
     connect( &painter, SIGNAL( isFrame( bool) ), this, SIGNAL( isFrame(bool) ) );
     connect( &painter, SIGNAL( figureSelected( int, int ) ), this, SIGNAL( figureSelected( int, int ) ) );
-    connect( &painter, SIGNAL( paintEvent(QPoint) ), this, SLOT( paintEvent2(QPoint) ) );
+    connect( &painter, SIGNAL( paintEvent(QPoint) ), this, SLOT( RPW_paintEvent(QPoint) ) );
 }
 
-void PaintWidget::paintEvent2(QPoint origin)
+void PaintWidget::RPW_paintEvent(QPoint origin)
 {
     emit paintEvent(origin);
 }
 
-void PaintWidget::scrollContentsBy(int dx, int dy)
-{
-    viewport()->scroll(dx,dy);
-    emit paintEvent(widget()->pos());
-}
-
-void PaintWidget::mouseMoveEvent(QMouseEvent *event)
+QPoint PaintWidget::getWidgetOriginPoint()
 {
     QPoint origin;
     if (viewportType()==hintViewport)
@@ -50,7 +44,17 @@ void PaintWidget::mouseMoveEvent(QMouseEvent *event)
     }
     else
         origin = widget()->pos();
-    emit mouseMoveEvent(origin,event->pos(),scaleVal);
+}
+
+void PaintWidget::scrollContentsBy(int dx, int dy)
+{
+    viewport()->scroll(dx,dy);
+    emit paintEvent(getWidgetOriginPoint());
+}
+
+void PaintWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    emit mouseMoveEvent(getWidgetOriginPoint(),event->pos(),scaleVal);
 }
 
 void PaintWidget::paintEvent(QPaintEvent *event)
