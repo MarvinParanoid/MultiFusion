@@ -16,3 +16,5 @@ QT += core \
 HEADERS += SaveSVG.h \
     ./../../pluginTool/SignalHolder.h
 SOURCES += SaveSVG.cpp
+
+TRANSLATIONS = SaveSVG_ru.ts

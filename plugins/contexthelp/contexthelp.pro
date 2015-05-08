@@ -21,3 +21,5 @@ HEADERS += HelpWindow.h \
 SOURCES += HelpWindow.cpp \
     ContextHelp.cpp
 FORMS = helpwindow.ui
+
+TRANSLATIONS = ContextHelp_ru.ts
