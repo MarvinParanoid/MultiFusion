@@ -1,7 +1,7 @@
 ﻿#ifndef HELPWINDOW_H
 #define HELPWINDOW_H
 
-#include <QtGui/QDialog>
+#include <QDialog>
 #include <QWebView>
 #include <QStringList>
 #include "ui_helpwindow.h"

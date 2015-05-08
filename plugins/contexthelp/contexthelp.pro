@@ -9,11 +9,15 @@ QT += core \
     gui \
     xml \
     xmlpatterns \
-    webkit
+    webkitwidgets
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+lessThan(QT_MAJOR_VERSION, 5): QT += webkit
+
 HEADERS += HelpWindow.h \
     ContextHelp.h \
     Plugin.h \
-    SignalHolder.h
+    ./../../PluginTool/SignalHolder.h
 SOURCES += HelpWindow.cpp \
     ContextHelp.cpp
 FORMS = helpwindow.ui

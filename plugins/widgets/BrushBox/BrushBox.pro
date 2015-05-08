@@ -13,6 +13,7 @@ DESTDIR = ./../../../bin/plugins/BrushBox
 SOURCES += BrushBox.cpp
 HEADERS += BrushBox.h \
     Plugin.h \
-	SignalHolder.h
+        ./../../../pluginTool/SignalHolder.h
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets

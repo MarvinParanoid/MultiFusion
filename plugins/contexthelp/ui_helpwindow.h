@@ -11,13 +11,13 @@
 #define UI_HELPWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QDialog>
-#include <QtGui/QHeaderView>
-#include <QtGui/QVBoxLayout>
-#include <QtWebKit/QWebView>
+#include <QAction>
+#include <QApplication>
+#include <QButtonGroup>
+#include <QDialog>
+#include <QHeaderView>
+#include <QVBoxLayout>
+#include <QWebView>
 
 QT_BEGIN_NAMESPACE
 
@@ -50,7 +50,7 @@ public:
 
     void retranslateUi(QDialog *HelpWindowClass)
     {
-        HelpWindowClass->setWindowTitle(QApplication::translate("HelpWindowClass", "HelpWindow", 0, QApplication::UnicodeUTF8));
+        HelpWindowClass->setWindowTitle(QApplication::translate("HelpWindowClass", "HelpWindow", 0));
         Q_UNUSED(HelpWindowClass);
     } // retranslateUi
 

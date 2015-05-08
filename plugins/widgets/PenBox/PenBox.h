@@ -18,6 +18,7 @@
 #include <QMouseEvent>
 #include <QCheckBox>
 #include <QDialogButtonBox>
+#include "qdrawutil.h"
 
 #include "./../../../pluginTool/Plugin.h"
 #include "./../../../pluginTool/InterfacePlugin.h"

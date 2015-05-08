@@ -9,7 +9,7 @@
 #ifndef CONTEXTHELP_H
 #define CONTEXTHELP_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <QObject>
 #include <QMainWindow>
 #include <QStringList>
@@ -62,7 +62,7 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 		}
 
 		void showContext() {
-			QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
 			if (!activePlugin.isEmpty() && haveHelp->contains(activePlugin)) {
 				QString style = contextStylesheetMock;
 				style.replace("%helpId%", activePlugin);
@@ -113,7 +113,7 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 		}
 
 		ContextHelp(plugin::PluginsManager *manager) {
-			QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
 
 			haveHelp = new QStringList();
 
@@ -175,7 +175,7 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 		}
 
 		void loadHelp() {
-			QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
 			QFile xmlFile(pathToHelp);
 			if(xmlFile.open(QIODevice::ReadWrite))
 			{

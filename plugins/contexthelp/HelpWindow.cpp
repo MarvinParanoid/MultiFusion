@@ -10,7 +10,7 @@
 HelpWindow::HelpWindow(QString caption, QString defaultContent, QString rootUrl, QWidget *parent)
     : QDialog(parent)
 {
-	QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+    //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
 	this->defaultContent = defaultContent;
 
 	this->basepath = QUrl::fromLocalFile(QDir::current().absoluteFilePath(rootUrl));
@@ -36,6 +36,6 @@ void HelpWindow::setUrl(QString url) {
 
 void HelpWindow::setContent(QString contents) {
 	QString current = ui.view->page()->currentFrame()->toHtml();
-	QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+    //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
 	ui.view->setHtml(contents.toUtf8(), basepath);
 }

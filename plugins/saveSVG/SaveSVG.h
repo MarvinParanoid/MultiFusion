@@ -9,7 +9,7 @@
 #ifndef SAVESVG_H
 #define SAVESVG_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <QObject>
 #include <QMainWindow>
 #include <QMenu>

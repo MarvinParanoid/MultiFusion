@@ -7,6 +7,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QListWidgetItem>
+#include "qdrawutil.h"
 
 #include "ui_texturesform.h"
 
@@ -201,10 +202,10 @@ class TexturesList:public QWidget
 			int a = alpha.alpha();
 			QPixmap p = pixmap;
 			QPixmap alpha( p.size() );
-			alpha.fill( QColor( a, a, a ) );
-			p.setAlphaChannel( alpha );
+            alpha.fill( QColor( a, a, a ) );
+            //p.setAlphaChannel( alpha );
 			return p;
-		}
+        }
 
 	private slots:
 		virtual void onTextureActivated( QListWidgetItem *item )

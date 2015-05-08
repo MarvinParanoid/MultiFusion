@@ -796,7 +796,7 @@ QBrush GVectorFigure::interpolatedBrush() const
 					break;
 				}
 
-				case Qt::TexturePattern:
+                /*case Qt::TexturePattern:
 				{
 					QPixmap pixmap = newBrush.texture();
 					QPixmap alpha = pixmap.alphaChannel();
@@ -810,7 +810,7 @@ QBrush GVectorFigure::interpolatedBrush() const
 					pixmap.setAlphaChannel( alpha );
 					newBrush.setTexture( pixmap );
 					break;
-				}
+                }*/
 
 				default:
 				{
@@ -852,7 +852,7 @@ QBrush GVectorFigure::interpolatedBrush() const
 			break;
 		}
 
-		case Qt::TexturePattern:
+        /*case Qt::TexturePattern:
 		{
 			QPixmap pixmap = newBrush.texture();
 			QPixmap alpha = pixmap.alphaChannel();
@@ -868,7 +868,7 @@ QBrush GVectorFigure::interpolatedBrush() const
 			pixmap.setAlphaChannel( alpha );
 			newBrush.setTexture( pixmap );
 			break;
-		}
+        }*/
 
 		default:
 		{

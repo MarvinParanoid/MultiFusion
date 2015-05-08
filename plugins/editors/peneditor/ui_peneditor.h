@@ -11,17 +11,17 @@
 #define UI_PENEDITOR_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QComboBox>
-#include <QtGui/QGroupBox>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QRadioButton>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QWidget>
+#include <QAction>
+#include <QApplication>
+#include <QButtonGroup>
+#include <QComboBox>
+#include <QGroupBox>
+#include <QHBoxLayout>
+#include <QHeaderView>
+#include <QLabel>
+#include <QRadioButton>
+#include <QVBoxLayout>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -267,68 +267,68 @@ public:
 
     void retranslateUi(QWidget *PenEditorForm)
     {
-        PenEditorForm->setWindowTitle(QApplication::translate("PenEditorForm", "Pen properties", 0, QApplication::UnicodeUTF8));
-        previewBox->setTitle(QApplication::translate("PenEditorForm", "Preview", 0, QApplication::UnicodeUTF8));
-        lineStyleBox->setTitle(QApplication::translate("PenEditorForm", "Line style", 0, QApplication::UnicodeUTF8));
-        noneLineStyleBtn->setText(QApplication::translate("PenEditorForm", "None", 0, QApplication::UnicodeUTF8));
-        solidLineStyleBtn->setText(QApplication::translate("PenEditorForm", "Solid", 0, QApplication::UnicodeUTF8));
-        dashLineStyleBtn->setText(QApplication::translate("PenEditorForm", "Dash", 0, QApplication::UnicodeUTF8));
-        dotLineStyleBtn->setText(QApplication::translate("PenEditorForm", "Dot", 0, QApplication::UnicodeUTF8));
-        dashDotLineStyleBtn->setText(QApplication::translate("PenEditorForm", "Dash && dot", 0, QApplication::UnicodeUTF8));
-        dashDotDotLineStyleBtn->setText(QApplication::translate("PenEditorForm", "Dash && double dot", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("PenEditorForm", "Line width", 0, QApplication::UnicodeUTF8));
+        PenEditorForm->setWindowTitle(QApplication::translate("PenEditorForm", "Pen properties", 0));
+        previewBox->setTitle(QApplication::translate("PenEditorForm", "Preview", 0));
+        lineStyleBox->setTitle(QApplication::translate("PenEditorForm", "Line style", 0));
+        noneLineStyleBtn->setText(QApplication::translate("PenEditorForm", "None", 0));
+        solidLineStyleBtn->setText(QApplication::translate("PenEditorForm", "Solid", 0));
+        dashLineStyleBtn->setText(QApplication::translate("PenEditorForm", "Dash", 0));
+        dotLineStyleBtn->setText(QApplication::translate("PenEditorForm", "Dot", 0));
+        dashDotLineStyleBtn->setText(QApplication::translate("PenEditorForm", "Dash && dot", 0));
+        dashDotDotLineStyleBtn->setText(QApplication::translate("PenEditorForm", "Dash && double dot", 0));
+        label->setText(QApplication::translate("PenEditorForm", "Line width", 0));
         lineWidthCombo->clear();
         lineWidthCombo->insertItems(0, QStringList()
-         << QApplication::translate("PenEditorForm", "1", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "2", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "3", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "4", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "5", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "6", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "7", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "8", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "9", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "10", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "11", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "12", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "13", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "14", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "15", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "16", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "17", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "18", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "19", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "20", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "21", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "22", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "23", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "24", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "25", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "26", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "27", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "28", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "29", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "30", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "35", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "40", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "45", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "50", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "55", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "60", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "70", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "80", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "90", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("PenEditorForm", "100", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("PenEditorForm", "1", 0)
+         << QApplication::translate("PenEditorForm", "2", 0)
+         << QApplication::translate("PenEditorForm", "3", 0)
+         << QApplication::translate("PenEditorForm", "4", 0)
+         << QApplication::translate("PenEditorForm", "5", 0)
+         << QApplication::translate("PenEditorForm", "6", 0)
+         << QApplication::translate("PenEditorForm", "7", 0)
+         << QApplication::translate("PenEditorForm", "8", 0)
+         << QApplication::translate("PenEditorForm", "9", 0)
+         << QApplication::translate("PenEditorForm", "10", 0)
+         << QApplication::translate("PenEditorForm", "11", 0)
+         << QApplication::translate("PenEditorForm", "12", 0)
+         << QApplication::translate("PenEditorForm", "13", 0)
+         << QApplication::translate("PenEditorForm", "14", 0)
+         << QApplication::translate("PenEditorForm", "15", 0)
+         << QApplication::translate("PenEditorForm", "16", 0)
+         << QApplication::translate("PenEditorForm", "17", 0)
+         << QApplication::translate("PenEditorForm", "18", 0)
+         << QApplication::translate("PenEditorForm", "19", 0)
+         << QApplication::translate("PenEditorForm", "20", 0)
+         << QApplication::translate("PenEditorForm", "21", 0)
+         << QApplication::translate("PenEditorForm", "22", 0)
+         << QApplication::translate("PenEditorForm", "23", 0)
+         << QApplication::translate("PenEditorForm", "24", 0)
+         << QApplication::translate("PenEditorForm", "25", 0)
+         << QApplication::translate("PenEditorForm", "26", 0)
+         << QApplication::translate("PenEditorForm", "27", 0)
+         << QApplication::translate("PenEditorForm", "28", 0)
+         << QApplication::translate("PenEditorForm", "29", 0)
+         << QApplication::translate("PenEditorForm", "30", 0)
+         << QApplication::translate("PenEditorForm", "35", 0)
+         << QApplication::translate("PenEditorForm", "40", 0)
+         << QApplication::translate("PenEditorForm", "45", 0)
+         << QApplication::translate("PenEditorForm", "50", 0)
+         << QApplication::translate("PenEditorForm", "55", 0)
+         << QApplication::translate("PenEditorForm", "60", 0)
+         << QApplication::translate("PenEditorForm", "70", 0)
+         << QApplication::translate("PenEditorForm", "80", 0)
+         << QApplication::translate("PenEditorForm", "90", 0)
+         << QApplication::translate("PenEditorForm", "100", 0)
         );
-        capStyleBox->setTitle(QApplication::translate("PenEditorForm", "Cap style", 0, QApplication::UnicodeUTF8));
-        squareCapStyleBtn->setText(QApplication::translate("PenEditorForm", "Square", 0, QApplication::UnicodeUTF8));
-        flatCapStyleBtn->setText(QApplication::translate("PenEditorForm", "Flat", 0, QApplication::UnicodeUTF8));
-        roundCapStyleBtn->setText(QApplication::translate("PenEditorForm", "Round", 0, QApplication::UnicodeUTF8));
-        joinStyleBox->setTitle(QApplication::translate("PenEditorForm", "Join style", 0, QApplication::UnicodeUTF8));
-        bevelJoinStyleBtn->setText(QApplication::translate("PenEditorForm", "Bevel", 0, QApplication::UnicodeUTF8));
-        miterJoinStyleBtn->setText(QApplication::translate("PenEditorForm", "Miter", 0, QApplication::UnicodeUTF8));
-        roundJoinStyleBtn->setText(QApplication::translate("PenEditorForm", "Round", 0, QApplication::UnicodeUTF8));
-        penColorBox->setTitle(QApplication::translate("PenEditorForm", "Pen color", 0, QApplication::UnicodeUTF8));
+        capStyleBox->setTitle(QApplication::translate("PenEditorForm", "Cap style", 0));
+        squareCapStyleBtn->setText(QApplication::translate("PenEditorForm", "Square", 0));
+        flatCapStyleBtn->setText(QApplication::translate("PenEditorForm", "Flat", 0));
+        roundCapStyleBtn->setText(QApplication::translate("PenEditorForm", "Round", 0));
+        joinStyleBox->setTitle(QApplication::translate("PenEditorForm", "Join style", 0));
+        bevelJoinStyleBtn->setText(QApplication::translate("PenEditorForm", "Bevel", 0));
+        miterJoinStyleBtn->setText(QApplication::translate("PenEditorForm", "Miter", 0));
+        roundJoinStyleBtn->setText(QApplication::translate("PenEditorForm", "Round", 0));
+        penColorBox->setTitle(QApplication::translate("PenEditorForm", "Pen color", 0));
         Q_UNUSED(PenEditorForm);
     } // retranslateUi
 

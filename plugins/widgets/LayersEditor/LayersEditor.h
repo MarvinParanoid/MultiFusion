@@ -12,7 +12,7 @@
 #include <QVector>
 #include <QFrame>
 #include <QtGui>
-#include <QtGui/QLineEdit>
+#include <QLineEdit>
 
 #include "./../../../pluginTool/Plugin.h"
 #include "./../../../pluginTool/InterfacePlugin.h"

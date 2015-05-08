@@ -4,6 +4,7 @@
 */
 
 #include "ColorBox.h"
+#include "qdrawutil.h"
 
 bool ColorBox::isEnabled() const
 {

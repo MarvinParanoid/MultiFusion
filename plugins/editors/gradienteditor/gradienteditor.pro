@@ -12,7 +12,7 @@ HEADERS += GradientEditor.h \
 	GradientStopsEditor.h \
 	GradientRangeEditor.h \
 	Plugin.h \
-	SignalHolder.h
+        ./../../../pluginTool/SignalHolder.h
 DEPENDPATH += . \
 	./../../../pluginTool
 INCLUDEPATH += . \
@@ -21,4 +21,5 @@ LIBS += -L./../../../pluginTool
 DESTDIR = ./../../../bin/plugins/GradientEditor
 FORMS += gradientform.ui
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets
