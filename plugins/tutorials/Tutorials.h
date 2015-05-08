@@ -64,11 +64,10 @@ class Tutorials: public TutorialsInterface, public InterfacePlugin
 			if (idParent == "Main") {
 				mainWin = MAINWINDOW(parent);
 				if(mainWin!=0)
-				{
-					QString title = "Обучающие пособия...";
+                {
 
 					QMenu *help = mainWin->getHelpMenu();
-					QAction *tutorialMenuAction = help->addAction( title );
+                    QAction *tutorialMenuAction = help->addAction( tr("Training manuals ...") );
 					tutorialMenuAction->setEnabled(true);
 					help->addAction(tutorialMenuAction);
 

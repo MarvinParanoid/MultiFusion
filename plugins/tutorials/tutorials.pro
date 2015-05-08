@@ -22,3 +22,5 @@ HEADERS += HelpWindow.h \
 SOURCES += HelpWindow.cpp \
     Tutorials.cpp
 FORMS = helpwindow.ui
+
+TRANSLATIONS = Tutorials_ru.ts
