@@ -12,13 +12,14 @@ INCLUDEPATH += . \
     ./../../../pluginTool \
     ./../../../interfaces
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets
 LIBS += -L./../../../pluginTool
 DESTDIR = ./../../../bin/plugins/Circle
 HEADERS += Circle.h \
 	Plugin.h \
     FigureToolInterface.h \
     InterfacePlugin.h \
-	SignalHolder.h
+    ./../../../pluginTool/SignalHolder.h
 SOURCES += Circle.cpp
 RESOURCES += Circle.qrc

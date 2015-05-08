@@ -796,7 +796,12 @@ QBrush GVectorFigure::interpolatedBrush() const
 					break;
 				}
 
-				case Qt::TexturePattern:
+                // Морфинг текстуры (Qt 4)
+                // В Qt5 методы QPixmap::alphaChannel() и QPixmap::setAlphaChannel() устарели,
+                // и если потребуется морфинг текстуры, то код ниже надо переписать
+                // Сейчас(май 2015) морфинг не нужен, поскольку текстура/заливка применяются
+                // ко всему объекту, а не к отдельному кадру.
+                /*case Qt::TexturePattern:
 				{
 					QPixmap pixmap = newBrush.texture();
 					QPixmap alpha = pixmap.alphaChannel();
@@ -810,7 +815,7 @@ QBrush GVectorFigure::interpolatedBrush() const
 					pixmap.setAlphaChannel( alpha );
 					newBrush.setTexture( pixmap );
 					break;
-				}
+                }*/
 
 				default:
 				{
@@ -852,7 +857,12 @@ QBrush GVectorFigure::interpolatedBrush() const
 			break;
 		}
 
-		case Qt::TexturePattern:
+        // Морфинг текстуры (Qt 4)
+        // В Qt5 методы QPixmap::alphaChannel() и QPixmap::setAlphaChannel() устарели,
+        // и если потребуется морфинг текстуры, то код ниже надо переписать
+        // Сейчас(май 2015) морфинг не нужен, поскольку текстура/заливка применяются
+        // ко всему объекту, а не к отдельному кадру.
+        /*case Qt::TexturePattern:
 		{
 			QPixmap pixmap = newBrush.texture();
 			QPixmap alpha = pixmap.alphaChannel();
@@ -868,7 +878,7 @@ QBrush GVectorFigure::interpolatedBrush() const
 			pixmap.setAlphaChannel( alpha );
 			newBrush.setTexture( pixmap );
 			break;
-		}
+        }*/
 
 		default:
 		{

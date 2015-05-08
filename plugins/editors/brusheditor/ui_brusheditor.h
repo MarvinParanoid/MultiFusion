@@ -11,16 +11,16 @@
 #define UI_BRUSHEDITOR_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QGridLayout>
-#include <QtGui/QGroupBox>
-#include <QtGui/QHeaderView>
-#include <QtGui/QRadioButton>
-#include <QtGui/QTabWidget>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QWidget>
+#include <QAction>
+#include <QApplication>
+#include <QButtonGroup>
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QHeaderView>
+#include <QRadioButton>
+#include <QTabWidget>
+#include <QVBoxLayout>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -212,29 +212,29 @@ public:
 
     void retranslateUi(QWidget *BrushEditorForm)
     {
-        BrushEditorForm->setWindowTitle(QApplication::translate("BrushEditorForm", "Brush properties", 0, QApplication::UnicodeUTF8));
-        PreviewBox->setTitle(QApplication::translate("BrushEditorForm", "Preview", 0, QApplication::UnicodeUTF8));
-        styleBox->setTitle(QApplication::translate("BrushEditorForm", "Style", 0, QApplication::UnicodeUTF8));
-        dense4PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 4", 0, QApplication::UnicodeUTF8));
-        dense1PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 1", 0, QApplication::UnicodeUTF8));
-        noBrushButton->setText(QApplication::translate("BrushEditorForm", "No brush", 0, QApplication::UnicodeUTF8));
-        dense5PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 5", 0, QApplication::UnicodeUTF8));
-        FDiagPatternButton->setText(QApplication::translate("BrushEditorForm", "Forward diagonal lines", 0, QApplication::UnicodeUTF8));
-        solidPatternButton->setText(QApplication::translate("BrushEditorForm", "Solid", 0, QApplication::UnicodeUTF8));
-        dense2PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 2", 0, QApplication::UnicodeUTF8));
-        dense6PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 6", 0, QApplication::UnicodeUTF8));
-        dense7PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 7", 0, QApplication::UnicodeUTF8));
-        VerPatternButton->setText(QApplication::translate("BrushEditorForm", "Verital lines", 0, QApplication::UnicodeUTF8));
-        CrossPatternButton->setText(QApplication::translate("BrushEditorForm", "Cross lines", 0, QApplication::UnicodeUTF8));
-        BDiagPatternButton->setText(QApplication::translate("BrushEditorForm", "Backward diagonal lines", 0, QApplication::UnicodeUTF8));
-        dense3PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 3", 0, QApplication::UnicodeUTF8));
-        HorPatternButton->setText(QApplication::translate("BrushEditorForm", "Horizontal lines", 0, QApplication::UnicodeUTF8));
-        DiagCrossPatternButton->setText(QApplication::translate("BrushEditorForm", "Crossing diagonal lines", 0, QApplication::UnicodeUTF8));
-        colorBox->setTitle(QApplication::translate("BrushEditorForm", "Color", 0, QApplication::UnicodeUTF8));
-        BrushPropsTab->setTabText(BrushPropsTab->indexOf(patternBrushTab), QApplication::translate("BrushEditorForm", "Pattern brush", 0, QApplication::UnicodeUTF8));
-        gradientBox->setTitle(QApplication::translate("BrushEditorForm", "Gradient", 0, QApplication::UnicodeUTF8));
-        BrushPropsTab->setTabText(BrushPropsTab->indexOf(gradientBrushTab), QApplication::translate("BrushEditorForm", "Gradient brush", 0, QApplication::UnicodeUTF8));
-        BrushPropsTab->setTabText(BrushPropsTab->indexOf(textureBrushTab), QApplication::translate("BrushEditorForm", "Texture brush", 0, QApplication::UnicodeUTF8));
+        BrushEditorForm->setWindowTitle(QApplication::translate("BrushEditorForm", "Brush properties", 0));
+        PreviewBox->setTitle(QApplication::translate("BrushEditorForm", "Preview", 0));
+        styleBox->setTitle(QApplication::translate("BrushEditorForm", "Style", 0));
+        dense4PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 4", 0));
+        dense1PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 1", 0));
+        noBrushButton->setText(QApplication::translate("BrushEditorForm", "No brush", 0));
+        dense5PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 5", 0));
+        FDiagPatternButton->setText(QApplication::translate("BrushEditorForm", "Forward diagonal lines", 0));
+        solidPatternButton->setText(QApplication::translate("BrushEditorForm", "Solid", 0));
+        dense2PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 2", 0));
+        dense6PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 6", 0));
+        dense7PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 7", 0));
+        VerPatternButton->setText(QApplication::translate("BrushEditorForm", "Verital lines", 0));
+        CrossPatternButton->setText(QApplication::translate("BrushEditorForm", "Cross lines", 0));
+        BDiagPatternButton->setText(QApplication::translate("BrushEditorForm", "Backward diagonal lines", 0));
+        dense3PatternButton->setText(QApplication::translate("BrushEditorForm", "Dense 3", 0));
+        HorPatternButton->setText(QApplication::translate("BrushEditorForm", "Horizontal lines", 0));
+        DiagCrossPatternButton->setText(QApplication::translate("BrushEditorForm", "Crossing diagonal lines", 0));
+        colorBox->setTitle(QApplication::translate("BrushEditorForm", "Color", 0));
+        BrushPropsTab->setTabText(BrushPropsTab->indexOf(patternBrushTab), QApplication::translate("BrushEditorForm", "Pattern brush", 0));
+        gradientBox->setTitle(QApplication::translate("BrushEditorForm", "Gradient", 0));
+        BrushPropsTab->setTabText(BrushPropsTab->indexOf(gradientBrushTab), QApplication::translate("BrushEditorForm", "Gradient brush", 0));
+        BrushPropsTab->setTabText(BrushPropsTab->indexOf(textureBrushTab), QApplication::translate("BrushEditorForm", "Texture brush", 0));
         Q_UNUSED(BrushEditorForm);
     } // retranslateUi
 

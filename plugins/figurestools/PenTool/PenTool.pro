@@ -10,13 +10,14 @@ INCLUDEPATH += . \
     ./../../../pluginTool \
     ./../../../interfaces
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets
 LIBS += -L./../../../pluginTool
 DESTDIR = ./../../../bin/plugins/PenTool
 HEADERS += PenTool.h \
     Plugin.h \
     FigureToolInterface.h \
     InterfacePlugin.h \
-	SignalHolder.h
+    ./../../../pluginTool/SignalHolder.h
 SOURCES += PenTool.cpp
 RESOURCES += PenTool.qrc

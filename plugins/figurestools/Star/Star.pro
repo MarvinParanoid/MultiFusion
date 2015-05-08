@@ -11,7 +11,8 @@ INCLUDEPATH += . \
     ./../../../pluginTool \
     ./../../../interfaces
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets
 LIBS += -L./../../../pluginTool
 DESTDIR = ./../../../bin/plugins/Star
 
@@ -19,6 +20,6 @@ HEADERS += Star.h \
     Plugin.h \
     FigureToolInterface.h \
     InterfacePlugin.h \
-	SignalHolder.h
+    ./../../../pluginTool/SignalHolder.h
 SOURCES += Star.cpp
 RESOURCES += Star.qrc

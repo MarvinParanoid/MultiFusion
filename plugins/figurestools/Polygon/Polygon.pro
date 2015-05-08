@@ -11,15 +11,16 @@ INCLUDEPATH += . \
     ./../../../pluginTool \
     ./../../../interfaces 
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets
 	
 LIBS += -L./../../../pluginTool/Polygon
 DESTDIR = ./../../../bin/plugins/Polygon
 
 HEADERS += Polygon.h \
-	Plugin.h \
+    Plugin.h \
     FigureToolInterface.h \
     InterfacePlugin.h \
-	SignalHolder.h
+    ./../../../pluginTool/SignalHolder.h
 SOURCES += Polygon.cpp
 RESOURCES += Polygon.qrc

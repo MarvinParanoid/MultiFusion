@@ -10,6 +10,8 @@
 #include "./../../../pluginTool/InterfacePlugin.h"
 #include "./../../../interfaces/PenEditorInterface.h"
 #include "./../../../interfaces/ColorEditorInterface.h"
+#include "qdrawutil.h"
+
 #include "ui_peneditor.h"
 
 class PenBox:public QWidget

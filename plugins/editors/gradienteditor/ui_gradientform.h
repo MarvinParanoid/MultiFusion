@@ -11,15 +11,15 @@
 #define UI_GRADIENTFORM_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QGroupBox>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QHeaderView>
-#include <QtGui/QRadioButton>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QWidget>
+#include <QAction>
+#include <QApplication>
+#include <QButtonGroup>
+#include <QGroupBox>
+#include <QHBoxLayout>
+#include <QHeaderView>
+#include <QRadioButton>
+#include <QVBoxLayout>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -136,17 +136,17 @@ public:
 
     void retranslateUi(QWidget *Form)
     {
-        Form->setWindowTitle(QApplication::translate("Form", "Form", 0, QApplication::UnicodeUTF8));
+        Form->setWindowTitle(QApplication::translate("Form", "Form", 0));
         gradientOptions->setTitle(QString());
-        gradientColorsBox->setTitle(QApplication::translate("Form", "Colors", 0, QApplication::UnicodeUTF8));
-        gradientTypeBox->setTitle(QApplication::translate("Form", "Type", 0, QApplication::UnicodeUTF8));
-        linearTypeButton->setText(QApplication::translate("Form", "Linear", 0, QApplication::UnicodeUTF8));
-        radialTypeButton->setText(QApplication::translate("Form", "Radial", 0, QApplication::UnicodeUTF8));
-        conicalTypeButton->setText(QApplication::translate("Form", "Conical", 0, QApplication::UnicodeUTF8));
-        spreadMethodBox->setTitle(QApplication::translate("Form", "Spread method", 0, QApplication::UnicodeUTF8));
-        padSpreadButton->setText(QApplication::translate("Form", "Pad", 0, QApplication::UnicodeUTF8));
-        repeatSpreadButton->setText(QApplication::translate("Form", "Repeat", 0, QApplication::UnicodeUTF8));
-        reflectSpreadButton->setText(QApplication::translate("Form", "Reflect", 0, QApplication::UnicodeUTF8));
+        gradientColorsBox->setTitle(QApplication::translate("Form", "Colors", 0));
+        gradientTypeBox->setTitle(QApplication::translate("Form", "Type", 0));
+        linearTypeButton->setText(QApplication::translate("Form", "Linear", 0));
+        radialTypeButton->setText(QApplication::translate("Form", "Radial", 0));
+        conicalTypeButton->setText(QApplication::translate("Form", "Conical", 0));
+        spreadMethodBox->setTitle(QApplication::translate("Form", "Spread method", 0));
+        padSpreadButton->setText(QApplication::translate("Form", "Pad", 0));
+        repeatSpreadButton->setText(QApplication::translate("Form", "Repeat", 0));
+        reflectSpreadButton->setText(QApplication::translate("Form", "Reflect", 0));
         Q_UNUSED(Form);
     } // retranslateUi
 

@@ -5,18 +5,19 @@ TEMPLATE = lib
 TARGET = AlignAndDistribute
 CONFIG += plugin
 DEPENDPATH += . \
-        ./../../../pluginTool
+    ./../../../pluginTool
 INCLUDEPATH += . \
-        ./../../../pluginTool
+    ./../../../pluginTool
 LIBS += -L./../../../pluginTool
 QT += xml \
-        xmlpatterns
+    xmlpatterns \
+    widgets
 DESTDIR = ./../../../bin/plugins/AlignAndDistribute
 SOURCES += AlignAndDistribute.cpp
 HEADERS += AlignAndDistribute.h \
-	Plugin.h \
-	InterfacePlugin.h \
-        SignalHolder.h
+    Plugin.h \
+    InterfacePlugin.h \
+    ./../../../pluginTool/SignalHolder.h
 TRANSLATIONS = AlignAndDistribute_ru.ts
 RESOURCES += AlignAndDistribute.qrc
 FORMS += AlignAndDistribute.ui

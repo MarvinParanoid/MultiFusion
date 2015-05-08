@@ -11,19 +11,19 @@
 #define UI_VIEWPORTPROPERTIES_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QComboBox>
-#include <QtGui/QGridLayout>
-#include <QtGui/QGroupBox>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QRadioButton>
-#include <QtGui/QTabWidget>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QWidget>
+#include <QAction>
+#include <QApplication>
+#include <QButtonGroup>
+#include <QComboBox>
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QHBoxLayout>
+#include <QHeaderView>
+#include <QLabel>
+#include <QRadioButton>
+#include <QTabWidget>
+#include <QVBoxLayout>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -184,37 +184,37 @@ public:
 
     void retranslateUi(QWidget *viewportPropsForm)
     {
-        viewportPropsForm->setWindowTitle(QApplication::translate("viewportPropsForm", "Viewport properties", 0, QApplication::UnicodeUTF8));
-        propertiesTabs->setTabText(propertiesTabs->indexOf(brushTab), QApplication::translate("viewportPropsForm", "Viewport background", 0, QApplication::UnicodeUTF8));
-        windowBgOptions->setTitle(QApplication::translate("viewportPropsForm", "Window background", 0, QApplication::UnicodeUTF8));
-        bgFillStyle->setTitle(QApplication::translate("viewportPropsForm", "Style", 0, QApplication::UnicodeUTF8));
-        colorFillBg->setText(QApplication::translate("viewportPropsForm", "Colored background", 0, QApplication::UnicodeUTF8));
-        transparencyFillBg->setText(QApplication::translate("viewportPropsForm", "Transparency", 0, QApplication::UnicodeUTF8));
-        viewportStyleOptions->setTitle(QApplication::translate("viewportPropsForm", "Viewport style", 0, QApplication::UnicodeUTF8));
-        sizeHintStyle->setText(QApplication::translate("viewportPropsForm", "Size hints", 0, QApplication::UnicodeUTF8));
-        fullWindowStyle->setText(QApplication::translate("viewportPropsForm", "Full window (resizable)", 0, QApplication::UnicodeUTF8));
-        FixedSizeStyle->setText(QApplication::translate("viewportPropsForm", "Fixed size", 0, QApplication::UnicodeUTF8));
+        viewportPropsForm->setWindowTitle(QApplication::translate("viewportPropsForm", "Viewport properties", 0));
+        propertiesTabs->setTabText(propertiesTabs->indexOf(brushTab), QApplication::translate("viewportPropsForm", "Viewport background", 0));
+        windowBgOptions->setTitle(QApplication::translate("viewportPropsForm", "Window background", 0));
+        bgFillStyle->setTitle(QApplication::translate("viewportPropsForm", "Style", 0));
+        colorFillBg->setText(QApplication::translate("viewportPropsForm", "Colored background", 0));
+        transparencyFillBg->setText(QApplication::translate("viewportPropsForm", "Transparency", 0));
+        viewportStyleOptions->setTitle(QApplication::translate("viewportPropsForm", "Viewport style", 0));
+        sizeHintStyle->setText(QApplication::translate("viewportPropsForm", "Size hints", 0));
+        fullWindowStyle->setText(QApplication::translate("viewportPropsForm", "Full window (resizable)", 0));
+        FixedSizeStyle->setText(QApplication::translate("viewportPropsForm", "Fixed size", 0));
         viewportWidth->clear();
         viewportWidth->insertItems(0, QStringList()
-         << QApplication::translate("viewportPropsForm", "320", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("viewportPropsForm", "640", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("viewportPropsForm", "800", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("viewportPropsForm", "1024", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("viewportPropsForm", "1280", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("viewportPropsForm", "320", 0)
+         << QApplication::translate("viewportPropsForm", "640", 0)
+         << QApplication::translate("viewportPropsForm", "800", 0)
+         << QApplication::translate("viewportPropsForm", "1024", 0)
+         << QApplication::translate("viewportPropsForm", "1280", 0)
         );
         viewportHeight->clear();
         viewportHeight->insertItems(0, QStringList()
-         << QApplication::translate("viewportPropsForm", "240", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("viewportPropsForm", "480", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("viewportPropsForm", "600", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("viewportPropsForm", "768", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("viewportPropsForm", "1024", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("viewportPropsForm", "240", 0)
+         << QApplication::translate("viewportPropsForm", "480", 0)
+         << QApplication::translate("viewportPropsForm", "600", 0)
+         << QApplication::translate("viewportPropsForm", "768", 0)
+         << QApplication::translate("viewportPropsForm", "1024", 0)
         );
         label->setText(QApplication::translate("viewportPropsForm", "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">X</span></p></body></html>", 0, QApplication::UnicodeUTF8));
-        propertiesTabs->setTabText(propertiesTabs->indexOf(viewportTab), QApplication::translate("viewportPropsForm", "Viewport style", 0, QApplication::UnicodeUTF8));
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">X</span></p></body></html>", 0));
+        propertiesTabs->setTabText(propertiesTabs->indexOf(viewportTab), QApplication::translate("viewportPropsForm", "Viewport style", 0));
         Q_UNUSED(viewportPropsForm);
     } // retranslateUi
 

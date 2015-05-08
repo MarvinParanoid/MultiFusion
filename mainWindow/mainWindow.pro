@@ -15,14 +15,14 @@ INCLUDEPATH += . \
     ./paintWidget
 DESTDIR = ./../bin
 SOURCES += \
-    Plugin.cpp \
+    ./../pluginTool/Plugin.cpp \
     Main.cpp \
     MainWindow.cpp
 HEADERS += \
-    Plugin.h \
+    ./../pluginTool/Plugin.h \
     MainWindowInterface.h \
     GObject.h \
-    PluginDialog.h \
+    ./../pluginTool/PluginDialog.h \
     MainWindow.h
 TRANSLATIONS += main_ru.ts
 QT += opengl \

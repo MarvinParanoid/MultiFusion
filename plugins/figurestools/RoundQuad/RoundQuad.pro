@@ -5,11 +5,15 @@
 TEMPLATE = lib
 TARGET = RoundQuad
 CONFIG += plugin
-DEPENDPATH += . ./../../../pluginsdk ./../../pluginTool
-INCLUDEPATH += . ./../../../pluginsdk ./../../../interfaces ./../../pluginTool
+DEPENDPATH += ./../../pluginTool
+INCLUDEPATH += ./../../../interfaces \
+     ./../../pluginTool
 DESTDIR = ./../../../bin/plugins/RoundQuad
 
-HEADERS += RoundQuad.h Plugin.h FigureToolInterface.h SignalHolder.h
+HEADERS += RoundQuad.h \
+    Plugin.h \
+    FigureToolInterface.h \
+    ./../../pluginTool/SignalHolder.h
 SOURCES += RoundQuad.cpp
 RESOURCES += roundquad.qrc
 QT += core \

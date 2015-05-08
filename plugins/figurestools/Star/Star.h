@@ -154,7 +154,7 @@ class G_Star:public FigureToolInterface, public InterfacePlugin
 			emit setActive(getName());
 			bool ok = false;
      		int value;
-			value = QInputDialog::getInteger( QApplication::activeWindow(),
+            value = QInputDialog::getInt( QApplication::activeWindow(),
 							tr( "Input count rays:" ),
                                tr( "Count rays:" ), countRays, 4, 25, 1, &ok );
 

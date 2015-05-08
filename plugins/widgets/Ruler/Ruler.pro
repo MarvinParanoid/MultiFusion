@@ -7,10 +7,11 @@ CONFIG += plugin
 DEPENDPATH += ./../../../pluginTool
 INCLUDEPATH += ./../../../pluginTool
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets
 DESTDIR = ./../../../bin/plugins/Ruler
 SOURCES += Ruler.cpp
 HEADERS += Ruler.h \
     Plugin.h \
-    SignalHolder.h \
+    ./../../../pluginTool/SignalHolder.h \
     QDRuler.h

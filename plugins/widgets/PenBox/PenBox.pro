@@ -13,6 +13,7 @@ DESTDIR = ./../../../bin/plugins/PenBox
 SOURCES += PenBox.cpp
 HEADERS += PenBox.h \
     Plugin.h \
-    SignalHolder.h
+    ./../../../pluginTool/SignalHolder.h
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets

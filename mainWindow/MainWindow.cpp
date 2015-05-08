@@ -1,6 +1,7 @@
 ﻿#include <QtGui>
 #include "MainWindow.h"
 #include "../pluginTool/PluginDialog.h"
+#include <QFileDialog>
 
 class QMainWindow;
 class QAction;
@@ -314,7 +315,7 @@ void mainWindow::onOpenFile()
 	}
 
 	QDataStream s( &file );
-	//s.setVersion( QDataStream::Qt_4_5 ); // Для совместимости с будующими версими Qt
+    s.setVersion( QDataStream::Qt_4_5 ); // Для совместимости с будующими версими Qt
 	if( !painter->load( s ) )
 	{
 		QMessageBox::critical( this,
@@ -348,7 +349,7 @@ void mainWindow::onSaveFile()
 	}
 
 	QDataStream s( &file );
-	//s.setVersion( QDataStream::Qt_4_5 ); // Для совместимости с будующими версими Qt
+    s.setVersion( QDataStream::Qt_4_5 ); // Для совместимости с будующими версими Qt
 	painter->save( s );
 }
 
@@ -376,7 +377,7 @@ void mainWindow::onSaveFileAs()
 	}
 
 	QDataStream s( &file );
-	//s.setVersion( QDataStream::Qt_4_5 ); // Для совместимости с будующими версими Qt
+    s.setVersion( QDataStream::Qt_4_5 ); // Для совместимости с будующими версими Qt
 	painter->save( s );
 	lastSavedFile = fileName;
 	setWindowTitle( QString( APP_NAME ) + tr( ":" ) + lastSavedFile );

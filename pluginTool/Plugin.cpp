@@ -4,6 +4,7 @@
 #include <QLibrary>
 #include <QDir>
 #include <QtGui>
+#include <QMessageBox>
 
 namespace plugin
 {

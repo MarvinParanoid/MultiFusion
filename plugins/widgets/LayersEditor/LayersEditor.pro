@@ -13,8 +13,9 @@ DESTDIR = ./../../../bin/plugins/LayersEditor
 SOURCES += LayersEditor.cpp
 HEADERS += LayersEditor.h \
     Plugin.h \
-	SignalHolder.h
+    ./../../../pluginTool/SignalHolder.h
 RESOURCES += LayersEditor.qrc
 TRANSLATIONS = layer_ru.ts
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets

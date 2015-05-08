@@ -158,7 +158,7 @@ class F_Polygon:public FigureToolInterface, public InterfacePlugin
 			bool ok = false;
      		int value;
 
-			value = QInputDialog::getInteger( QApplication::activeWindow(),
+            value = QInputDialog::getInt( QApplication::activeWindow(),
 								tr( "Input count vertexes:" ),
                                 tr( "Count vertexes:" ), countVertexes, 3, 50, 1, &ok );
 

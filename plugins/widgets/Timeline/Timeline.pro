@@ -9,11 +9,12 @@ DEPENDPATH += . \
 INCLUDEPATH += . \
     ./../../../pluginTool
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets
 DESTDIR = ./../../../bin/plugins/Timeline
 SOURCES += Timeline.cpp
 HEADERS += Timeline.h \
     Plugin.h \
-	SignalHolder.h
+    ./../../../pluginTool/SignalHolder.h
 RESOURCES += TimelineImages.qrc
 FORMS += TimelineForm.ui
