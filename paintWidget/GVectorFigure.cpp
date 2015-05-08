@@ -630,9 +630,15 @@ GProperties GVectorFigure::currentFrame() const
 
 	qreal inFramePos = qreal(frame1.position -  int( _frame ));
 
-	if(( !frame1.visible ) || ( !frame2.visible ) )
-			return frame1;
+    if(!frame1.visible )
+        return frame1;
 
+    if(frame1.visible && (!frame2.visible )){
+        if(inFramePos == 0)
+            return frame1;
+        else
+            return frame2;
+    }
 
 	GProperties newFrame = frame1;
 	newFrame.visible = true;
