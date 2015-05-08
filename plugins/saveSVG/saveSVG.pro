@@ -15,3 +15,5 @@ QT += core \
     opengl
 HEADERS += SaveSVG.h SignalHolder.h
 SOURCES += SaveSVG.cpp
+
+TRANSLATIONS = SaveSVG_ru.ts
