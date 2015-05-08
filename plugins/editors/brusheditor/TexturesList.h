@@ -203,8 +203,27 @@ class TexturesList:public QWidget
 			QPixmap p = pixmap;
 			QPixmap alpha( p.size() );
             alpha.fill( QColor( a, a, a ) );
-            //p.setAlphaChannel( alpha );
+            setAlphaChannel(p,a);
 			return p;
+        }
+
+        void setAlphaChannel(QPixmap& pixmap, int const alpha)
+        {
+          QImage image(pixmap.toImage().convertToFormat(QImage::Format_ARGB32));
+
+          for (int x(0); x != image.width(); ++x)
+          {
+            for (int y(0); y != image.height(); ++y)
+            {
+              QColor color(image.pixel(x,y));
+
+              color.setAlpha(alpha);
+
+              image.setPixel(x, y, color.rgba());
+            }
+          }
+
+          pixmap = QPixmap::fromImage(image);
         }
 
 	private slots:
