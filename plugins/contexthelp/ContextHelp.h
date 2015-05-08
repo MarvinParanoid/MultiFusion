@@ -89,11 +89,11 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 				{
 					QMenu *menu = mainWin->getHelpMenu();
 
-					QAction* help = menu->addAction( "Содержание..." );
+                    QAction* help = menu->addAction( tr("Content ...") );
 					help->setShortcut( tr( "F1" ) );
 					help->setEnabled(true);
 
-					QAction* contextHelp = menu->addAction( "Помощь!" );
+                    QAction* contextHelp = menu->addAction( tr("Help!") );
 					contextHelp->setShortcut( tr( "Shift+F1" ) );
 					contextHelp->setEnabled(true);
 
