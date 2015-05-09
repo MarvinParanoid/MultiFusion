@@ -14,7 +14,7 @@ DESTDIR = ./../../../bin/plugins/ToolBox
 SOURCES += ToolBox.cpp
 HEADERS += ToolBox.h \
 	Plugin.h \
-	SignalHolder.h
+        ./../../../pluginTool/SignalHolder.h
 RESOURCES += ToolBox.qrc
 TRANSLATIONS += toolbox_ru.ts
 QT += opengl \

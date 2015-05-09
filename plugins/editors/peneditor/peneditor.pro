@@ -12,8 +12,9 @@ LIBS += -L./../../../pluginTool
 DESTDIR = ./../../../bin/plugins/PenEditor
 HEADERS += PenEditor.h \
     Plugin.h \
-	SignalHolder.h
+    ./../../../pluginTool/SignalHolder.h
 SOURCES += PenEditor.cpp
 FORMS += peneditor.ui
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets

@@ -10,7 +10,8 @@ LIBS += -L./../../../pluginTool
 DESTDIR = ./../../../bin/plugins/ColorEditor
 HEADERS += ColorEditor.h \
     Plugin.h \
-	SignalHolder.h
+    ./../../../pluginTool/SignalHolder.h
 SOURCES += ColorEditor.cpp
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets

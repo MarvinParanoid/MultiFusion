@@ -76,13 +76,8 @@ int GLayer::maxFrame()
 void GLayer::paintLayer( QPainter &p )
 {
 	int countObjects = objects.size();
-	for( int i = countObjects - 1; i >= 0 ; i-- )
-	{
-		if( !objects[i]->isVisible() )
-			continue;
-
-		objects[i]->paint( p );
-	}
+    for( int i = countObjects - 1; i >= 0 ; i-- )
+        objects[i]->paint( p );
 
 	int countTransform = transformed.size();
 	for( int i = countTransform - 1; i >= 0 ; i-- )

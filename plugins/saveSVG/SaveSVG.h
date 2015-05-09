@@ -9,7 +9,7 @@
 #ifndef SAVESVG_H
 #define SAVESVG_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <QObject>
 #include <QMainWindow>
 #include <QMenu>
@@ -45,10 +45,9 @@ class SaveSVG: public SaveSVGInterface, public InterfacePlugin
 		double fps;
 
 	public slots:
-		void ShowWindow(){        
-            QString header = "Экспортировать в SVG...";
+        void ShowWindow(){
 			QString fileName = QFileDialog::getSaveFileName( this,
-					header,
+                    tr("Export to SVG ..."),
 					lastTo,
 					tr( "SVG graphics (*.svg)" ) );
 			if( fileName.isNull() ) {
@@ -62,9 +61,9 @@ class SaveSVG: public SaveSVGInterface, public InterfacePlugin
 				lastTo += ".svg";
 
 			if (SaveFile(lastTo)) {
-				QMessageBox::information( 0, "SVG", "Анимация успешно сохранена." );
+                QMessageBox::information( 0, "SVG", tr("Animation has been saved successfully.") );
 			} else {
-				QMessageBox::information( 0, "Ошибка!", "Невозможно сохранить анимацию." );
+                QMessageBox::information( 0, tr("Error!"), tr("Unable to save the animation.") );
 			}
 		};
 
@@ -176,7 +175,7 @@ class SaveSVG: public SaveSVGInterface, public InterfacePlugin
 				if(mainWin!=0)
 				{
 					QMenu* fileMenu = mainWin->getFileMenu();
-					QAction* Export = fileMenu->addAction( "Экспортировать в SVG..." );
+                    QAction* Export = fileMenu->addAction( tr("Export to SVG ...") );
 					Export->setShortcut( tr( "Ctrl+E" ) );
 					Export->setEnabled(true);
 

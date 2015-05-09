@@ -11,8 +11,8 @@ INCLUDEPATH += . \
 LIBS += -L./../../libs
 DESTDIR = ./../../bin/plugins/Background
 HEADERS += Background.h \
-    Plugin.h \
-    SignalHolder.h
+    ./../../pluginTool/Plugin.h \
+    ./../../pluginTool/SignalHolder.h
 SOURCES += Background.cpp
 QT += xml \
     xmlpatterns \

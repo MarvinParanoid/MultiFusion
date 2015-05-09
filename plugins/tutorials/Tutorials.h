@@ -9,7 +9,7 @@
 #ifndef TUTORIALS_H
 #define TUTORIALS_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <QObject>
 #include <QMainWindow>
 #include <QStringList>
@@ -46,7 +46,7 @@ class Tutorials: public TutorialsInterface, public InterfacePlugin
 
 	public:
 		void show(QString id, QString caption) {
-			QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
 			QString style = styleMock;
 			style.replace("%id%", id);
 			QString tutorialMessage;
@@ -64,11 +64,10 @@ class Tutorials: public TutorialsInterface, public InterfacePlugin
 			if (idParent == "Main") {
 				mainWin = MAINWINDOW(parent);
 				if(mainWin!=0)
-				{
-					QString title = "Обучающие пособия...";
+                {
 
 					QMenu *help = mainWin->getHelpMenu();
-					QAction *tutorialMenuAction = help->addAction( title );
+                    QAction *tutorialMenuAction = help->addAction( tr("Training manuals ...") );
 					tutorialMenuAction->setEnabled(true);
 					help->addAction(tutorialMenuAction);
 
@@ -130,7 +129,7 @@ class Tutorials: public TutorialsInterface, public InterfacePlugin
 
 			void parseTutorials() {
 				parsePlugins();
-				QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+                //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
 
 				QFile xmlFile(pathToTutorials);
 				if(xmlFile.open(QIODevice::ReadWrite))
@@ -160,7 +159,7 @@ class Tutorials: public TutorialsInterface, public InterfacePlugin
 						}
 
 						if(shouldRender) {
-							QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+                            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
 							QString currentCaption = element.firstChildElement("Caption").text().toUtf8();
 
 							Tutorial *showThis = new Tutorial(0, currentID, currentCaption);

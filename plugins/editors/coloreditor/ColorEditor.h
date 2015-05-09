@@ -8,6 +8,7 @@
 #include <QMouseEvent>
 #include <QBoxLayout>
 #include <QSlider>
+#include "qdrawutil.h"
 
 #include "./../../../pluginTool/Plugin.h"
 #include "./../../../pluginTool/InterfacePlugin.h"

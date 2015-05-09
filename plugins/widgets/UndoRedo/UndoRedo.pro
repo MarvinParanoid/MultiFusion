@@ -13,7 +13,7 @@ DESTDIR = ./../../../bin/plugins/UndoRedo
 SOURCES += UndoRedo.cpp
 HEADERS += UndoRedo.h \
     Plugin.h \
-	SignalHolder.h
+    ./../../../pluginTool/SignalHolder.h
 QT += opengl \
 	xml \
     xmlpatterns

@@ -13,9 +13,10 @@ DESTDIR = ./../../../bin/plugins/BrushEditor
 HEADERS += BrushEditor.h \
 	Plugin.h \
 	TexturesList.h \
-	SignalHolder.h
+        ./../../../PluginTool/SignalHolder.h
 SOURCES += BrushEditor.cpp
 FORMS += brusheditor.ui \
         texturesform.ui
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets

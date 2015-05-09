@@ -11,13 +11,13 @@
 #define UI_TEXTURESFORM_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QHeaderView>
-#include <QtGui/QListWidget>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QWidget>
+#include <QAction>
+#include <QApplication>
+#include <QButtonGroup>
+#include <QHeaderView>
+#include <QListWidget>
+#include <QVBoxLayout>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -62,7 +62,7 @@ public:
 
     void retranslateUi(QWidget *Form)
     {
-        Form->setWindowTitle(QApplication::translate("Form", "Form", 0, QApplication::UnicodeUTF8));
+        Form->setWindowTitle(QApplication::translate("Form", "Form", 0));
         Q_UNUSED(Form);
     } // retranslateUi
 

@@ -11,13 +11,14 @@ INCLUDEPATH += . \
     ./../../../pluginTool \
     ./../../../interfaces
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets
 LIBS += -L./../../../pluginTool
 DESTDIR = ./../../../bin/plugins/Spline
 HEADERS += Spline.h \
     Plugin.h \
     FigureToolInterface.h \
     InterfacePlugin.h \
-	SignalHolder.h
+    ./../../../pluginTool/SignalHolder.h
 SOURCES += Spline.cpp
 RESOURCES += Spline.qrc

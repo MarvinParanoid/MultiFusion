@@ -597,13 +597,8 @@ void GContainer::load( QDataStream &stream )
 void GContainer::paint( QPainter &p )
 {
 	int countObjects = objects.size();
-	for( int i = countObjects - 1; i >= 0 ; i-- )
-	{
-		if( !objects[i]->isVisible() )
-			continue;
-
-		objects[i]->paint( p );
-	}
+    for( int i = countObjects - 1; i >= 0 ; i-- )
+        objects[i]->paint( p );
 }
 
 GContainer::GContainer()

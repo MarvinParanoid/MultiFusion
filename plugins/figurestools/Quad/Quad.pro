@@ -16,8 +16,9 @@ HEADERS += Quad.h \
 	Plugin.h \
 	FigureToolInterface.h \
 	InterfacePlugin.h \
-	SignalHolder.h
+        ./../../../pluginTool/SignalHolder.h
 SOURCES += Quad.cpp
 RESOURCES += Quad.qrc
 QT += xml \
-    xmlpatterns
+    xmlpatterns \
+    widgets
