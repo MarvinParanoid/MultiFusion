@@ -1,6 +1,14 @@
 ﻿ПО:
-	Win
+	Win XP
 		Qt 4.8.6 (>4.5)
+		MinGW 4.9.1. 32bit
+
+	Win 7
+		Qt 4.8.6 (>4.5) ИЛИ Qt 5
+		MinGW 4.9.1. 32bit
+
+	Win 8
+		Qt 5
 		MinGW 4.9.1. 32bit
 		
 		
