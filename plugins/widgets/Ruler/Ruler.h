@@ -24,89 +24,34 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
 
 	public:
 
-		virtual void createPlugin(QObject *parent, QString idParent,plugin::PluginsManager *manager)
-		{
-            if(idParent == "Main")
-            {
-                mainWin = MAINWINDOW(parent);
-                if(mainWin!=0)
-                {
-                    painter = PAINTWIDGETINTERFACE(mainWin->getPaintWidget());
-
-                    // добавление линеек
-                    painter->mySetViewportMargins(RULER_BREADTH,RULER_BREADTH,0,0);
-                    QGridLayout* gridLayout = new QGridLayout();
-                    gridLayout->setSpacing(0);
-                    gridLayout->setMargin(0);
-                    mHorzRuler = new QDRuler(QDRuler::Horizontal,painter);
-                    mVertRuler = new QDRuler(QDRuler::Vertical,painter);
-                    QWidget* fake = new QWidget();
-                    fake->setBackgroundRole(QPalette::Window);
-                    fake->setFixedSize(RULER_BREADTH,RULER_BREADTH);
-                    gridLayout->addWidget(fake,0,0);
-                    gridLayout->addWidget(mHorzRuler,0,1);
-                    gridLayout->addWidget(mVertRuler,1,0);
-
-                    gridLayout->addWidget(painter->viewport(),1,1);
-
-                    //QLayout *ql = new QLayout();
-                    //WayLine *w1 = new WayLine(100);
-                    //w1->setGeometry(300,300,50,50);
-                    //ql->addWidget(w1);
-                    //gridLayout->addWidget();
-
-                    painter->setLayout(gridLayout);
-
-                    connect(painter,SIGNAL(mouseMoveEvent(QPoint,QPoint,qreal)),this,SLOT(mouseMoveCoords(QPoint,QPoint,qreal)));
-                    connect(painter,SIGNAL(paintEvent(QPoint)),this,SLOT(mouseMoveOrigin(QPoint)));
-                    connect(painter,SIGNAL(zoomEvent(qreal)),this,SLOT(zoomEvent(qreal)));
-
-                    manager->addPlugins(this, "Scale");
-                }
-            }
-		}
-
-		virtual QString getName()const
-		{
-            return "Ruler";
-		}
-
-        Ruler( plugin::PluginsManager *manager )
-        {
-
-        }
-
-        virtual ~Ruler()
-		{
-		}
-
-
+        Ruler(plugin::PluginsManager *manager);
+        virtual void createPlugin(QObject *parent, QString idParent,plugin::PluginsManager *manager);
+        virtual QString getName()const;
+        virtual ~Ruler(){}
 
 	private slots:
 
-        void zoomEvent(qreal scale)
-        {
-            mHorzRuler->setRulerZoom(scale);
-            mVertRuler->setRulerZoom(scale);
-        }
+        // изменение масштаба
+        void zoomEvent(qreal scale);
 
-        void mouseMoveOrigin(QPoint origin)
-        {
-            mHorzRuler->setOrigin(origin.x());
-            mVertRuler->setOrigin(origin.y());
-        }
+        // изменение точки отсчета
+        void mouseMoveOrigin(QPoint origin);
 
-        void mouseMoveCoords(QPoint origin, QPoint global, qreal scale)
-        {
-            mHorzRuler->setCursorPos(global);
-            mVertRuler->setCursorPos(global);
-        }
+        // изменение позиций маркеров курсора
+        void mouseMoveCoords(QPoint origin, QPoint global, qreal scale);
+
+        void rulerClicked(QPoint);
+        void moveWayline(QPoint);
 
 	private:
 
-		MainWindowInterface* mainWin;
+        MainWindowInterface* mainWin;
 		PaintWidgetInterface* painter;
-        QDRuler *mHorzRuler, *mVertRuler;
+        QDRuler *mHorzRuler;
+        QDRuler *mVertRuler;
+
+        QList <WayLine*> waylines;
+        WayLine *w1;
 
 
 };
