@@ -41,7 +41,6 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
         void mouseMoveCoords(QPoint origin, QPoint global, qreal scale);
 
         void rulerClicked(QPoint);
-        void moveWayline(QPoint);
 
 	private:
 

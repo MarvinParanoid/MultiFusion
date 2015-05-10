@@ -19,6 +19,8 @@ class WayLine : public QWidget
 public:
     enum WayLineType { Horizontal, Vertical };
     explicit WayLine(WayLine::WayLineType waylineType, int coord, QWidget *parent = 0);
+    WayLine::WayLineType getType();
+    bool getMousePress();
 
 private:
     WayLineType waylineType;
@@ -30,7 +32,7 @@ private:
     virtual void mouseMoveEvent(QMouseEvent *event);
 
 signals:
-    void moveWayline(QPoint);
+    void moveWayline();
 
 public slots:
 

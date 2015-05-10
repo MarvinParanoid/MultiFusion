@@ -31,12 +31,8 @@ void Ruler::createPlugin(QObject *parent, QString idParent,plugin::PluginsManage
             gridLayout->addWidget(painter->viewport(),1,1);
 
             //WayLine *w1 = new WayLine(WayLine::Horizontal,100,p);
-            //WayLine *
             w1 = new WayLine(WayLine::Horizontal,100,painter->viewport());
             w1->setVisible(false);
-
-            //w1->setGeometry(100,0,1,250);
-            //w1->move(100,100);
 
             painter->setLayout(gridLayout);
 
@@ -48,8 +44,6 @@ void Ruler::createPlugin(QObject *parent, QString idParent,plugin::PluginsManage
             // коннекты для направляющих
             connect(mHorzRuler,SIGNAL(rulerClick(QPoint)),this,SLOT(rulerClicked(QPoint)));
             connect(mVertRuler,SIGNAL(rulerClick(QPoint)),this,SLOT(rulerClicked(QPoint)));
-
-            connect(w1,SIGNAL(moveWayline(QPoint)),this,SLOT(moveWayline(QPoint)));
 
             manager->addPlugins(this, "Scale");
         }
@@ -75,31 +69,19 @@ void Ruler::mouseMoveOrigin(QPoint origin)
 
 void Ruler::mouseMoveCoords(QPoint origin, QPoint global, qreal scale)
 {
+    // здесь будем смотреть не выбрана ли направляющая
+    if (w1->getMousePress())
+        w1->setGeometry(global.x(),0,1,painter->viewport()->height());
+
     mHorzRuler->setCursorPos(global);
     mVertRuler->setCursorPos(global);
 }
 
 void Ruler::rulerClicked(QPoint point)
 {
-//    WayLine::WayLineType wlt;
-//    int x=0;
-//    int y=0;
-//    if (point.x()>RULER_BREADTH){
-//        wlt = WayLine::Horizontal;
-//        x = point.x();
-//    }
-//    else{
-//        wlt = WayLine::Vertical;
-//        y = point.y();
-//    }
-
 
     w1->setVisible(true);
     w1->setGeometry(point.x(),0,1,painter->viewport()->height());
 
 }
 
-void Ruler::moveWayline(QPoint point)
-{
-    w1->setGeometry(mHorzRuler->getCursorPos().x(),0,1,painter->viewport()->height());
-}

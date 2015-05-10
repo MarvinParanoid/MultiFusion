@@ -7,6 +7,16 @@ WayLine::WayLine(WayLine::WayLineType waylineType, int coord, QWidget *parent) :
     setMouseTracking(true);
 }
 
+WayLine::WayLineType WayLine::getType()
+{
+    return waylineType;
+}
+
+bool WayLine::getMousePress()
+{
+    return isMousePress;
+}
+
 void WayLine::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
@@ -30,12 +40,6 @@ void WayLine::mouseReleaseEvent(QMouseEvent *event)
 
 void WayLine::mouseMoveEvent(QMouseEvent *event)
 {
-    setCursor(Qt::PointingHandCursor);
-    if(isMousePress)
-    {
-        emit moveWayline(event->pos());
-    }
-
     QWidget::mouseMoveEvent(event);
-
+    setCursor(Qt::PointingHandCursor);
 }
