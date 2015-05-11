@@ -20,7 +20,7 @@
 #define W_COUNT 10
 
 // расстояние на котором рамка начинает присасываться к направляющей
-#define S_DIST 10
+#define S_DIST 5
 
 class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
 {
