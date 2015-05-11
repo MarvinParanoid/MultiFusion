@@ -14,6 +14,8 @@
 #include "./../../../interfaces/MainWindowInterface.h"
 #include "./../../../interfaces/PaintWidgetInterface.h"
 
+#define W_COUNT 10
+
 class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
 {
 	Q_OBJECT
@@ -28,6 +30,7 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
         virtual void createPlugin(QObject *parent, QString idParent,plugin::PluginsManager *manager);
         virtual QString getName()const;
         virtual ~Ruler(){}
+        WayLine *getFreeWayline();
 
 	private slots:
 
@@ -40,7 +43,8 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
         // изменение позиций маркеров курсора
         void mouseMoveCoords(QPoint origin, QPoint global, qreal scale);
 
-        void rulerClicked(QPoint);
+        void rulerClickedH(QPoint);
+        void rulerClickedV(QPoint);
 
 	private:
 

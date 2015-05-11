@@ -97,6 +97,7 @@ private:
     qreal mStep;
     QPoint mCursorPos;
     bool mDrawText;
+    bool isMousePress;
 
 };
 

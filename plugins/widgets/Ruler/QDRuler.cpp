@@ -5,6 +5,7 @@ QDRuler::QDRuler(QDRuler::RulerType rulerType, QWidget* parent):
     QWidget(parent), mRulerType(rulerType), mRulerUnit(1.0),
     mRulerZoom(1.0), mOrigin(0.0), mStep(mRulerUnit*100)
 {
+    isMousePress = false;
     setMouseTracking(true);
     QFont txtFont("Goudy Old Style", 8, 20);
     txtFont.setStyleHint(QFont::TypeWriter,QFont::PreferOutline);
@@ -78,6 +79,14 @@ void QDRuler::setCursorPos(const QPoint cursorPos)
 
 void QDRuler::mouseMoveEvent(QMouseEvent *event)
 {
+    if(isMousePress)
+    {
+        if ( (mRulerType==Horizontal && event->y()>RULER_BREADTH) || (mRulerType==Vertical && event->x()>RULER_BREADTH) )
+        {
+            isMousePress = false;
+            rulerClick(QPoint(event->pos()));
+        }
+    }
     mCursorPos = event->pos();
     update();
     QWidget::mouseMoveEvent(event);
@@ -85,7 +94,8 @@ void QDRuler::mouseMoveEvent(QMouseEvent *event)
 
 void QDRuler::mousePressEvent(QMouseEvent *event)
 {
-    emit rulerClick(QPoint(event->pos()));
+    isMousePress = true;
+    //emit rulerClick(QPoint(event->pos()));
 }
 
 // отрисовка всего

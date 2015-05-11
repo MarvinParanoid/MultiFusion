@@ -18,7 +18,10 @@ class WayLine : public QWidget
 
 public:
     enum WayLineType { Horizontal, Vertical };
-    explicit WayLine(WayLine::WayLineType waylineType, int coord, QWidget *parent = 0);
+
+    explicit WayLine(QWidget *parent = 0);
+
+    void setType(WayLine::WayLineType w_type);
     WayLine::WayLineType getType();
     bool getMousePress();
 
@@ -30,6 +33,7 @@ private:
     virtual void mousePressEvent(QMouseEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *event);
     virtual void mouseMoveEvent(QMouseEvent *event);
+    virtual void mouseDoubleClickEvent(QMouseEvent *event);
 
 signals:
     void moveWayline();

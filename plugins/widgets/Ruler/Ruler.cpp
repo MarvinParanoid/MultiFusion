@@ -29,12 +29,21 @@ void Ruler::createPlugin(QObject *parent, QString idParent,plugin::PluginsManage
             gridLayout->addWidget(mHorzRuler,0,1);
             gridLayout->addWidget(mVertRuler,1,0);
             gridLayout->addWidget(painter->viewport(),1,1);
+            painter->setLayout(gridLayout);
 
             //WayLine *w1 = new WayLine(WayLine::Horizontal,100,p);
-            w1 = new WayLine(WayLine::Horizontal,100,painter->viewport());
-            w1->setVisible(false);
+            //w1 = new WayLine(WayLine::Horizontal,100,painter->viewport());
+            //w1->setVisible(false);
 
-            painter->setLayout(gridLayout);
+            for(int i=0; i<W_COUNT; i++)
+            {
+                WayLine *w = new WayLine(painter->viewport());
+                w->setVisible(false);
+                waylines.append(w);
+            }
+
+            w1 = waylines[0];
+
 
             // сигналы из внешнего мира
             connect(painter,SIGNAL(mouseMoveEvent(QPoint,QPoint,qreal)),this,SLOT(mouseMoveCoords(QPoint,QPoint,qreal)));
@@ -42,8 +51,8 @@ void Ruler::createPlugin(QObject *parent, QString idParent,plugin::PluginsManage
             connect(painter,SIGNAL(zoomEvent(qreal)),this,SLOT(zoomEvent(qreal)));
 
             // коннекты для направляющих
-            connect(mHorzRuler,SIGNAL(rulerClick(QPoint)),this,SLOT(rulerClicked(QPoint)));
-            connect(mVertRuler,SIGNAL(rulerClick(QPoint)),this,SLOT(rulerClicked(QPoint)));
+            connect(mHorzRuler,SIGNAL(rulerClick(QPoint)),this,SLOT(rulerClickedH(QPoint)));
+            connect(mVertRuler,SIGNAL(rulerClick(QPoint)),this,SLOT(rulerClickedV(QPoint)));
 
             manager->addPlugins(this, "Scale");
         }
@@ -53,6 +62,14 @@ void Ruler::createPlugin(QObject *parent, QString idParent,plugin::PluginsManage
 QString Ruler::getName()const
 {
     return "Ruler";
+}
+
+WayLine *Ruler::getFreeWayline()
+{
+    for(int i=0; i<W_COUNT; i++)
+        if (waylines[i]->isVisible()==false)
+            return waylines[i];
+    return NULL;
 }
 
 void Ruler::zoomEvent(qreal scale)
@@ -69,19 +86,43 @@ void Ruler::mouseMoveOrigin(QPoint origin)
 
 void Ruler::mouseMoveCoords(QPoint origin, QPoint global, qreal scale)
 {
-    // здесь будем смотреть не выбрана ли направляющая
-    if (w1->getMousePress())
-        w1->setGeometry(global.x(),0,1,painter->viewport()->height());
+    // здесь будем смотреть не зажата ли направляющая
+    for (int i=0; i<W_COUNT; i++)
+    {
+        // если зажата, то передвигаем
+        if (waylines[i]->getMousePress())
+        {
+            if (waylines[i]->getType()==WayLine::Horizontal)
+                waylines[i]->setGeometry(global.x(),0,1,painter->viewport()->height());
+            else
+                waylines[i]->setGeometry(0,global.y(),painter->viewport()->width(),1);
+            break;
+        }
+    }
+
 
     mHorzRuler->setCursorPos(global);
     mVertRuler->setCursorPos(global);
 }
 
-void Ruler::rulerClicked(QPoint point)
+void Ruler::rulerClickedH(QPoint point)
 {
-
-    w1->setVisible(true);
-    w1->setGeometry(point.x(),0,1,painter->viewport()->height());
-
+    WayLine *w = getFreeWayline();
+    if (w)
+    {
+        w->setVisible(true);
+        w->setType(WayLine::Horizontal);
+        w->setGeometry(point.x(),0,1,painter->viewport()->height());
+    }
 }
 
+void Ruler::rulerClickedV(QPoint point)
+{
+    WayLine *w = getFreeWayline();
+    if (w)
+    {
+        w->setVisible(true);
+        w->setType(WayLine::Vertical);
+        w->setGeometry(0,point.y(),painter->viewport()->width(),1);
+    }
+}

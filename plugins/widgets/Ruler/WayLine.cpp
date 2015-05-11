@@ -1,10 +1,15 @@
 #include "WayLine.h"
 #include <QDebug>
 
-WayLine::WayLine(WayLine::WayLineType waylineType, int coord, QWidget *parent) :
-    QWidget(parent), waylineType(waylineType), coord(coord), isMousePress(false)
+WayLine::WayLine(QWidget *parent) :
+    QWidget(parent), isMousePress(false)
 {
     setMouseTracking(true);
+}
+
+void WayLine::setType(WayLine::WayLineType w_type)
+{
+    waylineType = w_type;
 }
 
 WayLine::WayLineType WayLine::getType()
@@ -29,17 +34,25 @@ void WayLine::paintEvent(QPaintEvent *event)
 void WayLine::mousePressEvent(QMouseEvent *event)
 {
     isMousePress = true;
-    //QWidget::mousePressEvent(event);
 }
 
 void WayLine::mouseReleaseEvent(QMouseEvent *event)
 {
     isMousePress = false;
-    //QWidget::mouseReleaseEvent(event);
 }
 
 void WayLine::mouseMoveEvent(QMouseEvent *event)
 {
+    if ( (waylineType == Horizontal && event->y()<0) || (waylineType == Vertical && event->x()<0) )
+    {
+        setVisible(false);
+        isMousePress = false;
+    }
     QWidget::mouseMoveEvent(event);
     setCursor(Qt::PointingHandCursor);
+}
+
+void WayLine::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    setVisible(false);
 }
