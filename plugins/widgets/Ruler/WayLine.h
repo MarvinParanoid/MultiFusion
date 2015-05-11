@@ -1,11 +1,8 @@
-// Demidov Alexey
+// Demidov Alexey, 2015
 // Класс, реализующий направляющие
 
 #ifndef WAYLINE_H
 #define WAYLINE_H
-
-#define WIDTH 1920
-#define HEIGHT 1080
 
 #include <QWidget>
 #include <QPainter>
@@ -24,11 +21,13 @@ public:
     void setType(WayLine::WayLineType w_type);
     WayLine::WayLineType getType();
     bool getMousePress();
+    void setMousePress(bool b);
 
 private:
     WayLineType waylineType;
     int coord;
     bool isMousePress;
+
     virtual void paintEvent(QPaintEvent* event);
     virtual void mousePressEvent(QMouseEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *event);

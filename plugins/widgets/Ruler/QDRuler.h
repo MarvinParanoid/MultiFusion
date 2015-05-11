@@ -1,5 +1,5 @@
-﻿// Demidov Alexey 8.03.14
-// Класс, реализующий линейку
+﻿// Demidov Alexey, 2015
+// Класс реализующий линейку
 
 /* Добавление линеек в виджет
     setViewportMargins(RULER_BREADTH,RULER_BREADTH,0,0);

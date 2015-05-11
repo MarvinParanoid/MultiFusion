@@ -1,6 +1,5 @@
 #include "QDRuler.h"
 
-
 QDRuler::QDRuler(QDRuler::RulerType rulerType, QWidget* parent):
     QWidget(parent), mRulerType(rulerType), mRulerUnit(1.0),
     mRulerZoom(1.0), mOrigin(0.0), mStep(mRulerUnit*100)
@@ -95,7 +94,6 @@ void QDRuler::mouseMoveEvent(QMouseEvent *event)
 void QDRuler::mousePressEvent(QMouseEvent *event)
 {
     isMousePress = true;
-    //emit rulerClick(QPoint(event->pos()));
 }
 
 // отрисовка всего

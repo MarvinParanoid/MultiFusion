@@ -17,6 +17,11 @@ WayLine::WayLineType WayLine::getType()
     return waylineType;
 }
 
+void WayLine::setMousePress(bool b)
+{
+    isMousePress = b;
+}
+
 bool WayLine::getMousePress()
 {
     return isMousePress;
@@ -43,7 +48,7 @@ void WayLine::mouseReleaseEvent(QMouseEvent *event)
 
 void WayLine::mouseMoveEvent(QMouseEvent *event)
 {
-    if ( (waylineType == Horizontal && event->y()<0) || (waylineType == Vertical && event->x()<0) )
+    if ( (waylineType == Vertical && event->y()<0) || (waylineType == Horizontal && event->x()<0) )
     {
         setVisible(false);
         isMousePress = false;

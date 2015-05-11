@@ -15,6 +15,10 @@ void Ruler::createPlugin(QObject *parent, QString idParent,plugin::PluginsManage
         {
             painter = PAINTWIDGETINTERFACE(mainWin->getPaintWidget());
 
+            realPainter = RPWINTEFACE(painter->getRealPaintWidget());
+            selection = GSRINTEFACE(realPainter->getSelection());
+            connect(selection,SIGNAL(moved(qreal,qreal)),this,SLOT(moveSelection(qreal,qreal)));
+
             // добавление линеек
             painter->mySetViewportMargins(RULER_BREADTH,RULER_BREADTH,0,0);
             QGridLayout* gridLayout = new QGridLayout();
@@ -31,19 +35,12 @@ void Ruler::createPlugin(QObject *parent, QString idParent,plugin::PluginsManage
             gridLayout->addWidget(painter->viewport(),1,1);
             painter->setLayout(gridLayout);
 
-            //WayLine *w1 = new WayLine(WayLine::Horizontal,100,p);
-            //w1 = new WayLine(WayLine::Horizontal,100,painter->viewport());
-            //w1->setVisible(false);
-
             for(int i=0; i<W_COUNT; i++)
             {
                 WayLine *w = new WayLine(painter->viewport());
                 w->setVisible(false);
                 waylines.append(w);
             }
-
-            w1 = waylines[0];
-
 
             // сигналы из внешнего мира
             connect(painter,SIGNAL(mouseMoveEvent(QPoint,QPoint,qreal)),this,SLOT(mouseMoveCoords(QPoint,QPoint,qreal)));
@@ -92,15 +89,17 @@ void Ruler::mouseMoveCoords(QPoint origin, QPoint global, qreal scale)
         // если зажата, то передвигаем
         if (waylines[i]->getMousePress())
         {
-            if (waylines[i]->getType()==WayLine::Horizontal)
+            if (waylines[i]->getType()==WayLine::Vertical)
+            {
                 waylines[i]->setGeometry(global.x(),0,1,painter->viewport()->height());
+            }
             else
+            {
                 waylines[i]->setGeometry(0,global.y(),painter->viewport()->width(),1);
+            }
             break;
         }
     }
-
-
     mHorzRuler->setCursorPos(global);
     mVertRuler->setCursorPos(global);
 }
@@ -111,7 +110,7 @@ void Ruler::rulerClickedH(QPoint point)
     if (w)
     {
         w->setVisible(true);
-        w->setType(WayLine::Horizontal);
+        w->setType(WayLine::Vertical);//
         w->setGeometry(point.x(),0,1,painter->viewport()->height());
     }
 }
@@ -122,7 +121,58 @@ void Ruler::rulerClickedV(QPoint point)
     if (w)
     {
         w->setVisible(true);
-        w->setType(WayLine::Vertical);
+        w->setType(WayLine::Horizontal);//
         w->setGeometry(0,point.y(),painter->viewport()->width(),1);
+    }
+}
+
+// метод вызывается при перемещении рамки выделения
+void Ruler::moveSelection(qreal dx, qreal dy)
+{
+    // прямоугольник выделения
+    QRect sRect = selection->getPosition();
+
+    // ищем есть ли рядом рамка к которой можно присосаться
+    for (int i=0; i<W_COUNT; i++)
+    {
+        if (waylines[i]->isVisible())
+        {
+            if (waylines[i]->getType()==WayLine::Horizontal)
+            {
+                int y = waylines[i]->geometry().y() - mVertRuler->origin();
+                int h = sRect.top()-y;
+                if (h>0 && h<S_DIST)
+                {
+                    QRect t( sRect.x() , sRect.y()-h+1, sRect.width(), sRect.height() );
+                    selection->setPosition(t);
+                    return;
+                }
+                h = sRect.bottom()-y;
+                if (h>-S_DIST && h<0)
+                {
+                    QRect t( sRect.x() , sRect.y()-h-1, sRect.width(), sRect.height() );
+                    selection->setPosition(t);
+                    return;
+                }
+            }
+            else
+            {
+                int x = waylines[i]->geometry().x() - mHorzRuler->origin();
+                int w = sRect.right()-x;
+                if (w<0 && w<-S_DIST)
+                {
+                    QRect t( sRect.x()-w-1 , sRect.y(), sRect.width(), sRect.height() );
+                    selection->setPosition(t);
+                    return;
+                }
+                w = sRect.left()-x;
+                if (w>0 && w<S_DIST)
+                {
+                    QRect t( sRect.x()-w+1 , sRect.y(), sRect.width(), sRect.height() );
+                    selection->setPosition(t);
+                    return;
+                }
+            }
+        }
     }
 }

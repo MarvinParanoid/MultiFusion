@@ -13,8 +13,14 @@
 #include "./../../../interfaces/RulerInterface.h"
 #include "./../../../interfaces/MainWindowInterface.h"
 #include "./../../../interfaces/PaintWidgetInterface.h"
+#include "./../../../interfaces/GSRInterface.h"
+#include "./../../../interfaces/RPWInterface.h"
 
+// максимальное кол-во направляющих
 #define W_COUNT 10
+
+// расстояние на котором рамка начинает присасываться к направляющей
+#define S_DIST 10
 
 class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
 {
@@ -45,17 +51,17 @@ class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
 
         void rulerClickedH(QPoint);
         void rulerClickedV(QPoint);
+        void moveSelection(qreal,qreal);
 
 	private:
 
+        GSRInterface* selection;
+        RPWInterface* realPainter;
         MainWindowInterface* mainWin;
 		PaintWidgetInterface* painter;
         QDRuler *mHorzRuler;
         QDRuler *mVertRuler;
-
         QList <WayLine*> waylines;
-        WayLine *w1;
-
 
 };
 
