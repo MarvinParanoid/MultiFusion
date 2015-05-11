@@ -159,7 +159,7 @@ void Ruler::moveSelection(qreal dx, qreal dy)
             {
                 int x = waylines[i]->geometry().x() - mHorzRuler->origin();
                 int w = sRect.right()-x;
-                if (w<0 && w<-S_DIST)
+                if (w<0 && w>-S_DIST)
                 {
                     QRect t( sRect.x()-w-1 , sRect.y(), sRect.width(), sRect.height() );
                     selection->setPosition(t);
