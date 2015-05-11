@@ -29,6 +29,8 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
     connect( &painter, SIGNAL( paintEvent(QPoint) ), this, SLOT( RPW_paintEvent(QPoint) ) );
 }
 
+// когда мыша на листе с fixedSize, почемуто paintEvent не отрабатывает
+// поэтому имитируем сигнал с текущими координатами мышки
 void PaintWidget::RPW_paintEvent(QPoint origin)
 {
     emit paintEvent(origin);
@@ -37,13 +39,14 @@ void PaintWidget::RPW_paintEvent(QPoint origin)
 QPoint PaintWidget::getWidgetOriginPoint()
 {
     QPoint origin;
-    if (viewportType()==hintViewport)
+    if (painter.getFixedSize()) //et viewportType()==hintViewport)
     {
         QSize sz = widget()->rect().size() - painter.getSize();
         origin = QPoint( sz.width() / 2, sz.height() / 2 );
     }
     else
         origin = widget()->pos();
+    return origin;
 }
 
 void PaintWidget::scrollContentsBy(int dx, int dy)
@@ -130,8 +133,7 @@ void PaintWidget::setViewportType( const PaintWidget::ViewportType t )
 
 bool PaintWidget::reset()
 {
-    scaleVal = 1;
-    emit zoomEvent(scaleVal);
+    emit zoomEvent(scaleVal = 1);
 
     setFrame(0.0, false);
     if( !painter.isEnabled() ) return false;

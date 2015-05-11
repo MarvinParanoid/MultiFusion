@@ -1,4 +1,4 @@
-// Demidov Alexey
+// Demidov Alexey, 2015
 // Класс, реализующий направляющие
 
 #ifndef WAYLINE_H
@@ -14,14 +14,28 @@ class WayLine : public QWidget
     Q_OBJECT
 
 public:
-    explicit WayLine(int coord, QWidget *parent = 0);
+    enum WayLineType { Horizontal, Vertical };
+
+    explicit WayLine(QWidget *parent = 0);
+
+    void setType(WayLine::WayLineType w_type);
+    WayLine::WayLineType getType();
+    bool getMousePress();
+    void setMousePress(bool b);
 
 private:
+    WayLineType waylineType;
     int coord;
-    void paintEvent(QPaintEvent* event);
-    void mouseMoveEvent(QMouseEvent *event);
+    bool isMousePress;
+
+    virtual void paintEvent(QPaintEvent* event);
+    virtual void mousePressEvent(QMouseEvent *event);
+    virtual void mouseReleaseEvent(QMouseEvent *event);
+    virtual void mouseMoveEvent(QMouseEvent *event);
+    virtual void mouseDoubleClickEvent(QMouseEvent *event);
 
 signals:
+    void moveWayline();
 
 public slots:
 

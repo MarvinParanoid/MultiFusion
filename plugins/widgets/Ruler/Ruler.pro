@@ -11,9 +11,11 @@ QT += xml \
     widgets
 DESTDIR = ./../../../bin/plugins/Ruler
 SOURCES += Ruler.cpp \
-    WayLine.cpp
+    WayLine.cpp \
+    QDRuler.cpp
 HEADERS += Ruler.h \
     Plugin.h \
     ./../../../pluginTool/SignalHolder.h \
-    QDRuler.h
+    QDRuler.h \
+    WayLine.h
 
