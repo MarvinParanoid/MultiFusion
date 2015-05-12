@@ -46,7 +46,9 @@ class Tutorials: public TutorialsInterface, public InterfacePlugin
 
 	public:
 		void show(QString id, QString caption) {
-            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+                QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            #endif
 			QString style = styleMock;
 			style.replace("%id%", id);
 			QString tutorialMessage;
@@ -129,7 +131,9 @@ class Tutorials: public TutorialsInterface, public InterfacePlugin
 
 			void parseTutorials() {
 				parsePlugins();
-                //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+                #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+                    QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+                #endif
 
 				QFile xmlFile(pathToTutorials);
 				if(xmlFile.open(QIODevice::ReadWrite))
@@ -159,7 +163,9 @@ class Tutorials: public TutorialsInterface, public InterfacePlugin
 						}
 
 						if(shouldRender) {
-                            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+                            #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+                                QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+                            #endif
 							QString currentCaption = element.firstChildElement("Caption").text().toUtf8();
 
 							Tutorial *showThis = new Tutorial(0, currentID, currentCaption);

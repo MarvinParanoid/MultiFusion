@@ -62,7 +62,9 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 		}
 
 		void showContext() {
-            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+                QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            #endif
 			if (!activePlugin.isEmpty() && haveHelp->contains(activePlugin)) {
 				QString style = contextStylesheetMock;
 				style.replace("%helpId%", activePlugin);
@@ -113,7 +115,9 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 		}
 
 		ContextHelp(plugin::PluginsManager *manager) {
-            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+                QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            #endif
 
 			haveHelp = new QStringList();
 
@@ -175,7 +179,9 @@ class ContextHelp: public ContextHelpInterface, public InterfacePlugin
 		}
 
 		void loadHelp() {
-            //QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
+                QTextCodec::setCodecForCStrings( QTextCodec::codecForName("utf8") );
+            #endif
 			QFile xmlFile(pathToHelp);
 			if(xmlFile.open(QIODevice::ReadWrite))
 			{
