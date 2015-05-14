@@ -24,6 +24,8 @@
 После скопировать содержимое папки bin(files) в папку bin собранного проекта.
 
 Для работы программы без Qt Creator'a требуются добавить следующие библиотеки в папку bin (сами либы лежат в папке с Qt)
+(Список может отличаться в зависимости от реализованых расширений)
+(Без части библиотек не запустится, без некоторых "молча" не будут работать некоторые расширения)
 Qt 4.8
 	libwinpthread-1.dll
 	QtCore4.dll
@@ -34,3 +36,30 @@ Qt 4.8
 	QtWebKit4.dll
 	QtXml4.dll
 	QtXmlPatterns.dll
+
+Qt 5.4.0
+	icudt53.dll
+	icuin53.dll
+	icuuc53.dll
+	libgcc_s_dw2-1.dll
+	libstdc++-6.dll
+	libwinpthread-1.dll
+	Qt5Core.dll
+	Qt5Gui.dll
+	Qt5Multimedia.dll
+	Qt5MultimediaWidgets.dll
+	Qt5Network.dll
+	Qt5OpenGL.dll
+	Qt5Positioning.dll
+	Qt5PrintSupport.dll
+	Qt5Qml.dll
+	Qt5Quick.dll
+	Qt5Sensors.dll
+	Qt5Sql.dll
+	Qt5Svg.dll
+	Qt5WebChannel.dll
+	Qt5WebKit.dll
+	Qt5WebKitWidgets.dll
+	Qt5Widgets.dll
+	Qt5Xml.dll
+	Qt5XmlPatterns.dll

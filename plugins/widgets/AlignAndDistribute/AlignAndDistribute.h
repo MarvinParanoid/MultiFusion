@@ -6,7 +6,6 @@
 #include "./../../../pluginTool/Plugin.h"
 #include "./../../../pluginTool/InterfacePlugin.h"
 #include "./../../../interfaces/MainWindowInterface.h"
-#include "./../../../interfaces/AlignAndDistributeInterface.h"
 #include "./../../../paintWidget/GContainer.h"
 #include "./../../../interfaces/GSRInterface.h"
 #include "./../../../interfaces/RPWInterface.h"
@@ -15,10 +14,9 @@
 
 enum { LEFT, CENTERX, RIGHT, TOP, CENTERY, BOTTOM, GAPSX, GAPSY};
 
-class AlignAndDistribute:public QWidget, public AlignAndDistributeInterface, public InterfacePlugin
+class AlignAndDistribute:public QWidget, public InterfacePlugin
 {
-	Q_OBJECT
-    Q_INTERFACES( AlignAndDistributeInterface )
+    Q_OBJECT
     Q_INTERFACES( InterfacePlugin )
 
 	public:

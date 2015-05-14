@@ -10,7 +10,6 @@
 
 #include "./../../../pluginTool/Plugin.h"
 #include "./../../../pluginTool/InterfacePlugin.h"
-#include "./../../../interfaces/RulerInterface.h"
 #include "./../../../interfaces/MainWindowInterface.h"
 #include "./../../../interfaces/PaintWidgetInterface.h"
 #include "./../../../interfaces/GSRInterface.h"
@@ -22,10 +21,9 @@
 // расстояние на котором рамка начинает присасываться к направляющей
 #define S_DIST 5
 
-class Ruler:public QWidget, public RulerInterface, public InterfacePlugin
+class Ruler:public QWidget, public InterfacePlugin
 {
-	Q_OBJECT
-    Q_INTERFACES( RulerInterface )
+    Q_OBJECT
 	Q_INTERFACES( InterfacePlugin )
 
 	signals:
