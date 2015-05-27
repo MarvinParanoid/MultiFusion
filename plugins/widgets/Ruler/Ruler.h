@@ -2,7 +2,7 @@
 #define __RULER_H__
 
 #include "QDRuler.h"
-#include "Wayline.h"
+#include "WayLine.h"
 #include <QWidget>
 #include <QLayout>
 #include <QGridLayout>
