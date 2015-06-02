@@ -70,6 +70,7 @@ void PaintWidget::scale( qreal s )
 {
     qreal k = (scaleVal+s)/scaleVal;
     scaleVal += s;
+    if (scaleVal<0.2) return;
 
     setViewportFixedSize( QSize( painter.size.width()*k, painter.size.height()*k ) );
 

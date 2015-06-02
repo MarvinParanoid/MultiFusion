@@ -22,6 +22,25 @@ void WayLine::setMousePress(bool b)
     isMousePress = b;
 }
 
+int WayLine::getCoord()
+{
+    return coord;
+}
+
+void WayLine::setCoord(int c)
+{
+    coord = c;
+}
+
+//void WayLine::setGeometry(int x, int y, int w, int h)
+//{
+//    QWidget::setGeometry(x,y,w,h);
+//    if ( waylineType == Vertical)
+//        coord = y;
+//    else
+//        coord = x;
+//}
+
 bool WayLine::getMousePress()
 {
     return isMousePress;

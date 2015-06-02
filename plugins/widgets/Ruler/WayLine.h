@@ -9,6 +9,9 @@
 #include <QMouseEvent>
 #include <QDebug>
 
+#define HEIGHT 1080
+#define WIDTH 1920
+
 class WayLine : public QWidget
 {
     Q_OBJECT
@@ -22,10 +25,12 @@ public:
     WayLine::WayLineType getType();
     bool getMousePress();
     void setMousePress(bool b);
+    int getCoord();
+    void setCoord(int c);
 
 private:
-    WayLineType waylineType;
     int coord;
+    WayLineType waylineType;
     bool isMousePress;
 
     virtual void paintEvent(QPaintEvent* event);

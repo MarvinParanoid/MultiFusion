@@ -73,6 +73,22 @@ void Ruler::zoomEvent(qreal scale)
 {
     mHorzRuler->setRulerZoom(scale);
     mVertRuler->setRulerZoom(scale);
+
+    for(int i=0; i<W_COUNT; i++)
+    {
+        if (waylines[i]->isVisible()==true)
+        {
+            if (waylines[i]->getType()==WayLine::Horizontal)
+            {
+                waylines[i]->setGeometry( 0, (waylines[i]->getCoord()) * scale + mVertRuler->origin(), waylines[i]->width(), 1 );
+            }
+            else
+            {
+                //+ mHorzRuler->origin()
+                waylines[i]->setGeometry( (waylines[i]->getCoord()) * scale + mHorzRuler->origin(), 0, 1, waylines[i]->height() );
+            }
+        }
+    }
 }
 
 void Ruler::mouseMoveOrigin(QPoint origin)
@@ -91,11 +107,13 @@ void Ruler::mouseMoveCoords(QPoint origin, QPoint global, qreal scale)
         {
             if (waylines[i]->getType()==WayLine::Vertical)
             {
-                waylines[i]->setGeometry(global.x(),0,1,painter->viewport()->height());
+                waylines[i]->setGeometry(global.x(),0,1,HEIGHT);
+                waylines[i]->setCoord(global.x()-mHorzRuler->origin());
             }
             else
             {
-                waylines[i]->setGeometry(0,global.y(),painter->viewport()->width(),1);
+                waylines[i]->setGeometry(0,global.y(),WIDTH,1);
+                waylines[i]->setCoord(global.y()-mVertRuler->origin());
             }
             break;
         }
@@ -110,8 +128,9 @@ void Ruler::rulerClickedH(QPoint point)
     if (w)
     {
         w->setVisible(true);
-        w->setType(WayLine::Vertical);//
-        w->setGeometry(point.x(),0,1,painter->viewport()->height());
+        w->setType(WayLine::Vertical);
+        w->setGeometry(point.x(),0,1,HEIGHT);
+        w->setCoord(point.x()-mHorzRuler->origin());
     }
 }
 
@@ -122,7 +141,8 @@ void Ruler::rulerClickedV(QPoint point)
     {
         w->setVisible(true);
         w->setType(WayLine::Horizontal);//
-        w->setGeometry(0,point.y(),painter->viewport()->width(),1);
+        w->setGeometry(0,point.y(),WIDTH,1);
+        w->setCoord(point.y()-mVertRuler->origin());
     }
 }
 
