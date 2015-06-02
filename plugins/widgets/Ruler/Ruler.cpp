@@ -84,7 +84,6 @@ void Ruler::zoomEvent(qreal scale)
             }
             else
             {
-                //+ mHorzRuler->origin()
                 waylines[i]->setGeometry( (waylines[i]->getCoord()) * scale + mHorzRuler->origin(), 0, 1, waylines[i]->height() );
             }
         }

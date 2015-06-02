@@ -4,7 +4,7 @@
 
 RealPaintWidget::RealPaintWidget( plugin::PluginsManager *manager, QWidget *parent ):
     RPWInterface( parent ), background( 0 ),
-    fixedSize( false ), size( 640, 480 ),
+    fixedSize( false ), size( 640, 480 ), realSize( 640, 480 ),
     selection( manager, this, QRect( QPoint( 0, 0 ), size ) ),
     inKeyPressedHandler( false ),
     currentTool( 0 ), inSelectionMode( false ), _manager(manager)

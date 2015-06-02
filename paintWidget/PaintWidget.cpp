@@ -72,7 +72,9 @@ void PaintWidget::scale( qreal s )
     scaleVal += s;
     if (scaleVal<0.2) return;
 
-    setViewportFixedSize( QSize( painter.size.width()*k, painter.size.height()*k ) );
+    // масштабируем лист
+    qDebug() << painter.realSize << scaleVal;
+    setViewportFixedSizeScale( QSize( painter.realSize.width()*scaleVal, painter.realSize.height()*scaleVal ) );
 
     // масштабируем фигуры
     QPointF center = QPointF( 0,0 );
@@ -80,8 +82,6 @@ void PaintWidget::scale( qreal s )
     {
         painter.layers[i]->scale( k, k, center );
     }
-
-    // масштабируем лист
 
     painter.selection.reset();
     painter.update();
@@ -92,10 +92,19 @@ void PaintWidget::scale( qreal s )
 
 void PaintWidget::setViewportFixedSizeScale(const QSize &s )
 {
+    painter.size = s;
+
+    if( viewportType() == fixedViewport )
+        painter.resize( painter.size );
+
+    setAlignment( Qt::AlignCenter );
+    painter.update();
+    update();
 }
 
 void PaintWidget::setViewportFixedSize( const QSize &s )
 {
+    painter.realSize = s;
     painter.size = s;
 
     if( viewportType() == fixedViewport )

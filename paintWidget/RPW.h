@@ -84,7 +84,7 @@ class RealPaintWidget:public RPWInterface
 
 		virtual void setBackground(QObject* back);
 
-		virtual bool getFixedSize();
+        virtual bool getFixedSize();
 
 		virtual void setFixedSize(bool back);
 
@@ -149,6 +149,8 @@ class RealPaintWidget:public RPWInterface
 		QAction *propertiesAct;
 		QObject *background;
 		bool fixedSize;
+
+        QSize realSize;
 		QSize size;
 		GSelectionRect selection;
 		QVector <GLayer*> layers;
