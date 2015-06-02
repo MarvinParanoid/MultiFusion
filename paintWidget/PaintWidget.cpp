@@ -23,6 +23,7 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 	
     connect( &painter, SIGNAL( objectCreated() ), this, SIGNAL( objectCreated() ) );
     connect( &painter, SIGNAL( frameChanged( qreal ) ), this, SIGNAL( frameChanged( qreal ) ) );
+    connect( &painter, SIGNAL( frameChanged( qreal ) ), this, SLOT( setSizeTo100() ) );
     connect( &painter, SIGNAL( undoEvents() ), this, SIGNAL( undoEvents() ) );
     connect( &painter, SIGNAL( isFrame( bool) ), this, SIGNAL( isFrame(bool) ) );
     connect( &painter, SIGNAL( figureSelected( int, int ) ), this, SIGNAL( figureSelected( int, int ) ) );
@@ -34,6 +35,14 @@ PaintWidget::PaintWidget( QWidget *parent, plugin::PluginsManager *manager):
 void PaintWidget::RPW_paintEvent(QPoint origin)
 {
     emit paintEvent(origin);
+}
+
+void PaintWidget::setSizeTo100()
+{
+    qreal dx = 1-scaleVal;
+    scale(dx);
+    emit zoomEvent(1);
+    painter.size = painter.realSize;
 }
 
 QPoint PaintWidget::getWidgetOriginPoint()
@@ -143,7 +152,7 @@ void PaintWidget::setViewportType( const PaintWidget::ViewportType t )
 
 bool PaintWidget::reset()
 {
-    emit zoomEvent(scaleVal = 1);
+    setSizeTo100();
 
     setFrame(0.0, false);
     if( !painter.isEnabled() ) return false;

@@ -587,6 +587,7 @@ class PaintWidget:public PaintWidgetInterface
 
 	public slots:
 
+        void setSizeTo100();
         void RPW_paintEvent(QPoint origin);
 
 		/**
