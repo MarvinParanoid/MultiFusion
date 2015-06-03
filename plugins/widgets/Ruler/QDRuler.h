@@ -29,7 +29,6 @@
 #include <QWidget>
 #include <QPainter>
 #include <QMouseEvent>
-#include <QDebug>
 
 class QDRuler : public QWidget
 {

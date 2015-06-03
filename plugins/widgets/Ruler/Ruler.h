@@ -53,6 +53,7 @@ class Ruler:public QWidget, public InterfacePlugin
 
 	private:
 
+        qreal scale;
         GSRInterface* selection;
         RPWInterface* realPainter;
         MainWindowInterface* mainWin;

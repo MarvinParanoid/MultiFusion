@@ -48,7 +48,7 @@ void PaintWidget::setSizeTo100()
 QPoint PaintWidget::getWidgetOriginPoint()
 {
     QPoint origin;
-    if (painter.getFixedSize()) //et viewportType()==hintViewport)
+    if (painter.getFixedSize())
     {
         QSize sz = widget()->rect().size() - painter.getSize();
         origin = QPoint( sz.width() / 2, sz.height() / 2 );
@@ -82,7 +82,6 @@ void PaintWidget::scale( qreal s )
     if (scaleVal<0.2) return;
 
     // масштабируем лист
-    qDebug() << painter.realSize << scaleVal;
     setViewportFixedSizeScale( QSize( painter.realSize.width()*scaleVal, painter.realSize.height()*scaleVal ) );
 
     // масштабируем фигуры

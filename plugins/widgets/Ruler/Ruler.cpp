@@ -4,6 +4,7 @@ EXPORT_QOBJECT_PLUGIN( Ruler )
 
 Ruler::Ruler(plugin::PluginsManager *manager)
 {
+    scale = 1;
 }
 
 void Ruler::createPlugin(QObject *parent, QString idParent,plugin::PluginsManager *manager)
@@ -71,9 +72,17 @@ WayLine *Ruler::getFreeWayline()
 
 void Ruler::zoomEvent(qreal scale)
 {
+    this->scale = scale;
     mHorzRuler->setRulerZoom(scale);
     mVertRuler->setRulerZoom(scale);
+}
 
+void Ruler::mouseMoveOrigin(QPoint origin)
+{
+    mHorzRuler->setOrigin(origin.x());
+    mVertRuler->setOrigin(origin.y());
+
+    // передвигаем направляющие, если сменились origin'ы или был зум
     for(int i=0; i<W_COUNT; i++)
     {
         if (waylines[i]->isVisible()==true)
@@ -90,12 +99,6 @@ void Ruler::zoomEvent(qreal scale)
     }
 }
 
-void Ruler::mouseMoveOrigin(QPoint origin)
-{
-    mHorzRuler->setOrigin(origin.x());
-    mVertRuler->setOrigin(origin.y());
-}
-
 void Ruler::mouseMoveCoords(QPoint origin, QPoint global, qreal scale)
 {
     // здесь будем смотреть не зажата ли направляющая
@@ -107,12 +110,12 @@ void Ruler::mouseMoveCoords(QPoint origin, QPoint global, qreal scale)
             if (waylines[i]->getType()==WayLine::Vertical)
             {
                 waylines[i]->setGeometry(global.x(),0,1,HEIGHT);
-                waylines[i]->setCoord(global.x()-mHorzRuler->origin());
+                waylines[i]->setCoord((global.x()-mHorzRuler->origin())/scale);
             }
             else
             {
                 waylines[i]->setGeometry(0,global.y(),WIDTH,1);
-                waylines[i]->setCoord(global.y()-mVertRuler->origin());
+                waylines[i]->setCoord((global.y()-mVertRuler->origin())/scale);
             }
             break;
         }
@@ -129,7 +132,7 @@ void Ruler::rulerClickedH(QPoint point)
         w->setVisible(true);
         w->setType(WayLine::Vertical);
         w->setGeometry(point.x(),0,1,HEIGHT);
-        w->setCoord(point.x()-mHorzRuler->origin());
+        w->setCoord((point.x()-mHorzRuler->origin())/scale);
     }
 }
 
@@ -141,7 +144,7 @@ void Ruler::rulerClickedV(QPoint point)
         w->setVisible(true);
         w->setType(WayLine::Horizontal);//
         w->setGeometry(0,point.y(),WIDTH,1);
-        w->setCoord(point.y()-mVertRuler->origin());
+        w->setCoord((point.y()-mVertRuler->origin())/scale);
     }
 }
 
