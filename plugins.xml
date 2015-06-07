@@ -1,5 +1,5 @@
-<plugins>
-    <plugin included="true">
+﻿<plugins>
+    <plugin included="false">
         <Id>Scale</Id>
         <path>./plugins/Scale/</path>
         <Widgets>
@@ -169,20 +169,6 @@
     <plugin included="true">
         <Id>Tutorials</Id>
         <path>./plugins/Tutorials/</path>
-        <Widgets>
-            <Widget>Main</Widget>
-        </Widgets>
-    </plugin>
-    <plugin included="true">
-        <Id>ClippingPath</Id>
-        <path>./plugins/ClippingPath/</path>
-        <Widgets>
-            <Widget>Main</Widget>
-        </Widgets>
-    </plugin>
-    <plugin included="true">
-        <Id>Mask</Id>
-        <path>./plugins/Mask/</path>
         <Widgets>
             <Widget>Main</Widget>
         </Widgets>
