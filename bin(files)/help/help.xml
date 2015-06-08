@@ -295,6 +295,46 @@
 			<Id>ToolBox</Id>
 		</SeeAlso>
     </plugin>
+	
+	<plugin>
+        <Id>ClippingPath</Id>
+        <Caption>Инструмент "Обтравочный контур"</Caption>
+        <Help>
+		<br/>Позволяет обрезать несколько фигур по контуру.<br/>
+		<br/>Нужно выделить фигуры.<br/>
+		<img src="images/clip_02.png"/>
+		<br/><br/>
+		Открыть меню "Object" и кликнуть пункт "Clip"
+		<br/>
+		<img src="images/clip_01.png"/>
+		<br/><br/>Фигуры обрежутся по контуру верхней фигуры рабочего слоя.<br/>
+		<img src="images/clip_03.png"/>
+		<br/>
+		</Help>
+		<SeeAlso>
+			<Id>ClippingPath</Id>
+		</SeeAlso>
+    </plugin>
+		<plugin>
+        <Id>Mask</Id>
+        <Caption>Инструмент "Маска"</Caption>
+        <Help>
+		<br/>Позволяет передавать градиент прозрачности исходной фигуры редактируемым фигурам.<br/>
+		<br/>Нужно выделить фигуры.<br/>
+		<img src="images/mask_01.png"/>
+		<br/><br/>
+		Открыть меню "Object" и кликнуть пункт "Mask"
+		<br/>
+		<img src="images/mask_02.png"/>
+		<br/><br/>В фигуры скопируется градиент прозрачности верхней фигуры рабочего слоя.<br/>
+		<img src="images/mask_03.png"/>
+		<br/>
+		</Help>
+		<SeeAlso>
+			<Id>Mask</Id>
+		</SeeAlso>
+    </plugin>
+	
     <plugin>
         <Id>PenBox</Id>
         <Caption>Инструмент "Текущее перо"</Caption>

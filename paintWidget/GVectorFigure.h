@@ -47,6 +47,14 @@ class GVectorFigure:public GObject
 		 */
 		virtual void setShowBezier(bool value);
 
+        /**
+         *  Установление точек фигуре
+         *
+         *  p - устанавливаемый набор точек
+         *  position - кадр, в который устанавливаются точки
+         */
+        virtual void setPoints(QPolygonF p, int position);
+
 		/**
 		 * Проверяет отбражать для фигуры линии Бизье или нет
 		 * @return true если отображать

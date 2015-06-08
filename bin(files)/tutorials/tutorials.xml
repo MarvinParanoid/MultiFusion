@@ -511,4 +511,54 @@
 			<Id>AlignAndDistribute</Id>
 		</plugins>
 	</Tutorial>
+	
+	<Tutorial>
+		<Id>Cheese</Id>
+		<Caption>Ломтик сыра</Caption>
+		<Text>
+			В этом уроке мы нарисуем ломтик сыра с большими дырками.<br/><br/>
+			Сначала нарисуем дырки.<br/>
+			<img src="images/cheese/cheese_1.png"/><br/><br/>
+			Затем нарисуем края нашего ломтика.<br/>
+			<img src="images/cheese/cheese_2.png"/><br/><br/>
+			После этого нужно скопировать фигуру-края, чтобы использовать копию для обрезки фигур дырок.
+			После обрезки копия фигуры-краев удалится.<br/><br/>
+			
+			Затем в меню Object жмем Clip.
+			<img src="images/cheese/cheese_3.png"/><br/><br/>
+
+			Наш ломтик сыра готов!<br/>
+		</Text>
+		<plugins>
+			<Id>ClippingPath</Id>
+		</plugins>
+	</Tutorial>
+	<Tutorial>
+		<Id>Cheese2</Id>
+		<Caption>Раскрашенный ломтик сыра</Caption>
+		<Text>
+			В этом уроке мы разукрасим наш ломтик сыра.<br/><br/>
+			Сыр может быть порезан где-то толще, где-то тоньше. Там, где он тоньше, он будет просвечиваться.<br/><br/>
+			Сначала разукрасим дырки. Для этого нажмем на квадрат под тулбоксом<br/>
+			<img src="images/cheese/cheese_12.png"/><br/><br/>
+			и зададим различные цвета нашим дыркам.<br/>
+			<img src="images/cheese/cheese_5.png"/><br/><br/>
+			Зададим различные оттенки и получим вот что<br/>
+			<img src="images/cheese/cheese_4.png"/><br/><br/>
+			Затем зададим градиент нашему ломтику(фигуре-краю).<br/>
+			<img src="images/cheese/cheese_6.png"/><br/><br/>
+			Получим<br/>
+			<img src="images/cheese/cheese_7.png"/><br/><br/>
+			Откроем меню Object и в нем нажмем Mask!<br/>
+			<img src="images/cheese/cheese_9.png"/><br/><br/>
+			В панели слоев передвинем ломтик(край) вниз<br/>
+			<img src="images/cheese/cheese_13.png"/><br/><br/>
+			Наш тонкий французский ломтик готов!<br/>
+			<img src="images/cheese/cheese_11.png"/><br/><br/>
+		</Text>
+		<plugins>
+			<Id>ClippingPath</Id>
+		</plugins>
+	</Tutorial>
+	
 </tutorials>

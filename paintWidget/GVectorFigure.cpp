@@ -37,6 +37,18 @@ void GVectorFigure::toSpline()
 	showBiese = true;
 }
 
+void GVectorFigure::setPoints(QPolygonF p, int position)
+{
+    GProperties prop;
+    prop.visible = true;
+    prop.alpha = 255;
+    prop.blocked = false;
+    prop.isTransform = true;
+    prop.position = position;
+    prop.points = p;
+    properties.setProperties(prop, getIndexFrameByPosition(frame()));
+}
+
 bool GVectorFigure::isSpline()
 {
 	return (_linesType == gSplines)?(true):(false);
