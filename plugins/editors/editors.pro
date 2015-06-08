@@ -3,4 +3,4 @@
 ######################################################################
 
 TEMPLATE = subdirs
-SUBDIRS = brusheditor coloreditor gradienteditor peneditor
+SUBDIRS = brusheditor coloreditor gradienteditor peneditor mask

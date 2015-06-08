@@ -2,6 +2,9 @@
 #include "MainWindow.h"
 #include "../pluginTool/PluginDialog.h"
 #include <QFileDialog>
+#include <QMenuBar>
+#include <QToolBar>
+#include <QStatusBar>
 
 class QMainWindow;
 class QAction;
