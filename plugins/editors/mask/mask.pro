@@ -9,7 +9,7 @@ INCLUDEPATH += . \
         ./../../../interfaces
 HEADERS += Mask.h \
         Plugin.h \
-        SignalHolder.h \
+        ./../../../pluginTool/SignalHolder.h \
         ../../../../interfaces/MainWindowInterface.h \
         ../../../../interfaces/PaintWidgetInterface.h \
         ../../../../Interfaces/RPWInterface.h \
