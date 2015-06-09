@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/BoolOperations">
+        <file>images/exclude.png</file>
+        <file>images/intersect.png</file>
+        <file>images/subtract.png</file>
+        <file>images/union.png</file>
+        <file>images/divide.png</file>
+    </qresource>
+</RCC>

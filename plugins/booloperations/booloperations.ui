@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BoolOperationsDock</class>
+ <widget class="QWidget" name="BoolOperationsDock">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>270</width>
+    <height>329</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Bool Operations</string>
+  </property>
+  <property name="toolTip">
+   <string>Boolean operations on objects</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QToolButton" name="unionButton">
+       <property name="toolTip">
+        <string>Union multiple objects</string>
+       </property>
+       <property name="icon">
+        <iconset resource="booloperations.qrc">
+         <normaloff>:/BoolOperations/images/union.png</normaloff>:/BoolOperations/images/union.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>16</height>
+        </size>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl++</string>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="subtractButton">
+       <property name="toolTip">
+        <string>Subtract one object from other</string>
+       </property>
+       <property name="icon">
+        <iconset resource="booloperations.qrc">
+         <normaloff>:/BoolOperations/images/subtract.png</normaloff>:/BoolOperations/images/subtract.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>16</height>
+        </size>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl+-</string>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="intersectButton">
+       <property name="toolTip">
+        <string>Intersect multiple objects</string>
+       </property>
+       <property name="icon">
+        <iconset resource="booloperations.qrc">
+         <normaloff>:/BoolOperations/images/intersect.png</normaloff>:/BoolOperations/images/intersect.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>16</height>
+        </size>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl+*</string>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="excludeButton">
+       <property name="toolTip">
+        <string>Exclusion of two objects</string>
+       </property>
+       <property name="icon">
+        <iconset resource="booloperations.qrc">
+         <normaloff>:/BoolOperations/images/exclude.png</normaloff>:/BoolOperations/images/exclude.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>16</height>
+        </size>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl+6</string>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="divideButton">
+       <property name="toolTip">
+        <string>Divide objects</string>
+       </property>
+       <property name="icon">
+        <iconset resource="booloperations.qrc">
+         <normaloff>:/BoolOperations/images/divide.png</normaloff>:/BoolOperations/images/divide.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>16</height>
+        </size>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl+/</string>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Expanding</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>277</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="booloperations.qrc"/>
+ </resources>
+ <connections/>
+</ui>
