@@ -55,6 +55,13 @@ class GVectorFigure:public GObject
          */
         virtual void setPoints(QPolygonF p, int position);
 
+        /**
+        *	Заменяет кадр по позиции c определёнными точками.
+        *	@param polF - точки
+        *	@param position - позиция на таймлайне;
+        */
+        virtual void setPoints( int position, QPolygonF polF);
+
 		/**
 		 * Проверяет отбражать для фигуры линии Бизье или нет
 		 * @return true если отображать

@@ -326,6 +326,8 @@ class PaintWidget:public PaintWidgetInterface
 
 		virtual void deleteFigure(int layer, int obj );
 
+        virtual void addFigure(const QPolygonF &poly, QPen pen, QBrush brush, QString name, bool select);
+
 		/**
 		*	Устанавливает выделение на некоторый слой и некоторую фигуру
 		*

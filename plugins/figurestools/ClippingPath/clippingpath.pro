@@ -13,7 +13,7 @@ QT += opengl \
     xml \
     xmlpatterns
 LIBS += -L./../../../pluginTool
-DESTDIR = ./../../../bin/plugins/clippingpath
+DESTDIR = ./../../../bin/plugins/ClippingPath
 
 SOURCES += ClippingPath.cpp \
     ../../../PaintWidget/GContainer.cpp \

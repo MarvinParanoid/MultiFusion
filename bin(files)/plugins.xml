@@ -1,32 +1,25 @@
 ﻿<plugins>
 	<plugin included="true">
-	<Id>ClippingPath</Id>
-	<path>./plugins/ClippingPath/</path>
-	<Widgets>
-	<Widget>Main</Widget>
-	</Widgets>
+		<Id>BoolOperations</Id>
+		<path>./plugins/BoolOperations/</path>
+		<Widgets>
+		<Widget>Main</Widget>
+		</Widgets>
 	</plugin>
 	<plugin included="true">
-	<Id>Mask</Id>
-	<path>./plugins/Mask/</path>
-	<Widgets>
-	<Widget>Main</Widget>
-	</Widgets>
+		<Id>ClippingPath</Id>
+		<path>./plugins/ClippingPath/</path>
+		<Widgets>
+		<Widget>Main</Widget>
+		</Widgets>
 	</plugin>
-    <plugin included="true">
-        <Id>Ruler</Id>
-        <path>./plugins/ClippingPath/</path>
-        <Widgets>
-            <Widget>Main</Widget>
-        </Widgets>
-    </plugin>
-    <plugin included="true">
-        <Id>Mask</Id>
-        <path>./plugins/Mask/</path>
-        <Widgets>
-            <Widget>Main</Widget>
-        </Widgets>
-    </plugin>
+	<plugin included="true">
+		<Id>Mask</Id>
+		<path>./plugins/Mask/</path>
+		<Widgets>
+		<Widget>Main</Widget>
+		</Widgets>
+	</plugin>
     <plugin included="true">
         <Id>Ruler</Id>
         <path>./plugins/Ruler/</path>

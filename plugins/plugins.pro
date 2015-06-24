@@ -3,4 +3,4 @@
 ######################################################################
 
 TEMPLATE = subdirs
-SUBDIRS = background contexthelp editors figurestools saveSVG tutorials widgets
+SUBDIRS = background contexthelp editors figurestools saveSVG tutorials widgets booloperations

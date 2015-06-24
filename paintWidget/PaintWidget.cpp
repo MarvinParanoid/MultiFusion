@@ -199,6 +199,37 @@ bool PaintWidget::getHideFigures(int layer)
 	return painter.layers[layer]->getHideFigures();
 }
 
+void PaintWidget::addFigure(const QPolygonF &poly, QPen pen, QBrush brush, QString name, bool select)
+{
+    GVectorFigure* f = new GVectorFigure(poly, false, true, painter.currentFrame);
+    f->setPen(pen);
+    f->setBrush(brush);
+    f->setObjectName(name);
+
+    int index = painter.layers[painter.currentLayer]->add(f, true);
+    f->setFrame(painter.currentFrame);
+    f->setBlocked(false);
+    f->setVisible(true);
+
+    QVector <int> frames = painter.layers[painter.currentLayer]->getFrames();
+    for( int i = 0; i < frames.size(); i++ )
+        if( frames[i] != painter.currentFrame )
+            f->addFrame(frames[i], false);
+
+    if (!select) return;
+
+    if (!f->isVisible() || f->isBlocked()) {
+        painter.selection.reset();
+        painter.update();
+        return;
+    }
+
+    painter.selection.setSelected(f);
+    emit allLayersChanged();
+    painter.update();
+    emit figureSelected(painter.currentLayer, index);
+    emit StateChanged("Add Figure");
+}
 
 int PaintWidget::FigureIsSpline()
 {
