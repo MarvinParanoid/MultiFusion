@@ -1,7 +1,7 @@
 ﻿<plugins>
 	<plugin included="true">
-		<Id>BoolOperation</Id>
-		<path>./plugins/BoolOperation/</path>
+		<Id>BoolOperations</Id>
+		<path>./plugins/BoolOperations/</path>
 		<Widgets>
 		<Widget>Main</Widget>
 		</Widgets>

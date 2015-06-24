@@ -4,103 +4,114 @@
 <context>
     <name>BoolOperations</name>
     <message>
-        <location filename="BoolOperations.h" line="96"/>
         <source>Bool Operations</source>
-        <translation>Логические операции</translation>
+        <translation type="obsolete">Логические операции</translation>
     </message>
     <message>
-        <location filename="BoolOperations.h" line="104"/>
         <source>Union</source>
-        <translation>Объединение</translation>
+        <translation type="obsolete">Объединение</translation>
     </message>
     <message>
-        <location filename="BoolOperations.h" line="105"/>
         <source>Ctrl++</source>
-        <translation>Ctrl++</translation>
+        <translation type="obsolete">Ctrl++</translation>
     </message>
     <message>
-        <location filename="BoolOperations.h" line="109"/>
         <source>Difference</source>
-        <translation>Разность</translation>
+        <translation type="obsolete">Разность</translation>
     </message>
     <message>
-        <location filename="BoolOperations.h" line="110"/>
         <source>Ctrl+-</source>
-        <translation>Ctrl+-</translation>
+        <translation type="obsolete">Ctrl+-</translation>
     </message>
     <message>
-        <location filename="BoolOperations.h" line="114"/>
         <source>Intersection</source>
-        <translation>Пересечение</translation>
+        <translation type="obsolete">Пересечение</translation>
     </message>
     <message>
-        <location filename="BoolOperations.h" line="115"/>
         <source>Ctrl+*</source>
-        <translation>Ctrl+*</translation>
+        <translation type="obsolete">Ctrl+*</translation>
     </message>
     <message>
-        <location filename="BoolOperations.h" line="119"/>
         <source>Exclusion</source>
-        <translation>Исключающее ИЛИ</translation>
+        <translation type="obsolete">Исключающее ИЛИ</translation>
     </message>
     <message>
-        <location filename="BoolOperations.h" line="120"/>
-        <source>Ctrl+^</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="BoolOperations.h" line="124"/>
         <source>Division</source>
-        <translation>Разделить</translation>
+        <translation type="obsolete">Разделить</translation>
     </message>
     <message>
-        <location filename="BoolOperations.h" line="125"/>
         <source>Ctrl+/</source>
-        <translation type="unfinished">Ctrl+/</translation>
+        <translation type="obsolete">Ctrl+/</translation>
     </message>
     <message>
-        <location filename="BoolOperations.cpp" line="112"/>
-        <location filename="BoolOperations.cpp" line="142"/>
-        <location filename="BoolOperations.cpp" line="147"/>
-        <location filename="BoolOperations.cpp" line="174"/>
+        <location filename="BoolOperations.cpp" line="118"/>
+        <location filename="BoolOperations.cpp" line="150"/>
+        <location filename="BoolOperations.cpp" line="155"/>
+        <location filename="BoolOperations.cpp" line="187"/>
+        <location filename="BoolOperations.cpp" line="192"/>
+        <location filename="BoolOperations.cpp" line="224"/>
+        <location filename="BoolOperations.cpp" line="229"/>
+        <location filename="BoolOperations.cpp" line="279"/>
+        <location filename="BoolOperations.cpp" line="284"/>
         <source>Line</source>
         <translation>Линия</translation>
     </message>
     <message>
-        <location filename="BoolOperations.cpp" line="112"/>
-        <location filename="BoolOperations.cpp" line="142"/>
-        <location filename="BoolOperations.cpp" line="147"/>
-        <location filename="BoolOperations.cpp" line="174"/>
+        <location filename="BoolOperations.cpp" line="118"/>
+        <location filename="BoolOperations.cpp" line="150"/>
+        <location filename="BoolOperations.cpp" line="155"/>
+        <location filename="BoolOperations.cpp" line="187"/>
+        <location filename="BoolOperations.cpp" line="192"/>
+        <location filename="BoolOperations.cpp" line="224"/>
+        <location filename="BoolOperations.cpp" line="229"/>
+        <location filename="BoolOperations.cpp" line="279"/>
+        <location filename="BoolOperations.cpp" line="284"/>
         <source>Spline</source>
         <translation>Сплайн</translation>
     </message>
     <message>
-        <location filename="BoolOperations.cpp" line="116"/>
-        <location filename="BoolOperations.cpp" line="138"/>
-        <location filename="BoolOperations.cpp" line="143"/>
-        <location filename="BoolOperations.cpp" line="148"/>
-        <location filename="BoolOperations.cpp" line="178"/>
+        <location filename="BoolOperations.cpp" line="122"/>
+        <location filename="BoolOperations.cpp" line="146"/>
+        <location filename="BoolOperations.cpp" line="151"/>
+        <location filename="BoolOperations.cpp" line="156"/>
+        <location filename="BoolOperations.cpp" line="183"/>
+        <location filename="BoolOperations.cpp" line="188"/>
+        <location filename="BoolOperations.cpp" line="193"/>
+        <location filename="BoolOperations.cpp" line="220"/>
+        <location filename="BoolOperations.cpp" line="225"/>
+        <location filename="BoolOperations.cpp" line="230"/>
+        <location filename="BoolOperations.cpp" line="275"/>
+        <location filename="BoolOperations.cpp" line="280"/>
+        <location filename="BoolOperations.cpp" line="285"/>
         <source>Error!</source>
         <translation>Ошибка!</translation>
     </message>
     <message>
-        <location filename="BoolOperations.cpp" line="116"/>
-        <location filename="BoolOperations.cpp" line="178"/>
+        <location filename="BoolOperations.cpp" line="122"/>
         <source>The count of selected and closed objects are less then two objects.</source>
         <translation>Количество выбранных объектов менее двух.</translation>
     </message>
     <message>
-        <location filename="BoolOperations.cpp" line="138"/>
+        <location filename="BoolOperations.cpp" line="146"/>
+        <location filename="BoolOperations.cpp" line="183"/>
+        <location filename="BoolOperations.cpp" line="220"/>
+        <location filename="BoolOperations.cpp" line="275"/>
         <source>The count of selected objects are not equal two objects.</source>
         <translation>Количество выбранных объектов не равно двум.</translation>
     </message>
     <message>
-        <location filename="BoolOperations.cpp" line="143"/>
+        <location filename="BoolOperations.cpp" line="151"/>
+        <location filename="BoolOperations.cpp" line="188"/>
+        <location filename="BoolOperations.cpp" line="225"/>
+        <location filename="BoolOperations.cpp" line="280"/>
         <source>First selected object is not closed.</source>
         <translation>Первый выбранный объект не замкнут.</translation>
     </message>
     <message>
-        <location filename="BoolOperations.cpp" line="148"/>
+        <location filename="BoolOperations.cpp" line="156"/>
+        <location filename="BoolOperations.cpp" line="193"/>
+        <location filename="BoolOperations.cpp" line="230"/>
+        <location filename="BoolOperations.cpp" line="285"/>
         <source>Second selected object is not closed.</source>
         <translation>Второй выбранный объект не замкнут.</translation>
     </message>
@@ -108,65 +119,65 @@
 <context>
     <name>BoolOperationsDock</name>
     <message>
-        <location filename="booloperations.ui" line="14"/>
         <source>Bool Operations</source>
-        <translation>Логические операции</translation>
+        <translation type="obsolete">Логические операции</translation>
     </message>
     <message>
-        <location filename="booloperations.ui" line="17"/>
         <source>Boolean operations on objects</source>
-        <translation>Логические операции на объектах</translation>
+        <translation type="obsolete">Логические операции на объектах</translation>
     </message>
     <message>
-        <location filename="booloperations.ui" line="25"/>
         <source>Union multiple objects</source>
-        <translation>Объединить несколько объектов</translation>
+        <translation type="obsolete">Объединить несколько объектов</translation>
     </message>
     <message>
-        <location filename="booloperations.ui" line="38"/>
         <source>Ctrl++</source>
-        <translation>Ctrl++</translation>
+        <translation type="obsolete">Ctrl++</translation>
     </message>
     <message>
-        <location filename="booloperations.ui" line="48"/>
         <source>Subtract one object from other</source>
-        <translation>Вычесть один объект из другого</translation>
+        <translation type="obsolete">Вычесть один объект из другого</translation>
     </message>
     <message>
-        <location filename="booloperations.ui" line="61"/>
         <source>Ctrl+-</source>
-        <translation>Ctrl+-</translation>
+        <translation type="obsolete">Ctrl+-</translation>
     </message>
     <message>
-        <location filename="booloperations.ui" line="71"/>
         <source>Intersect multiple objects</source>
-        <translation>Найти пересечение нескольких объектов</translation>
+        <translation type="obsolete">Найти пересечение нескольких объектов</translation>
     </message>
     <message>
-        <location filename="booloperations.ui" line="84"/>
         <source>Ctrl+*</source>
-        <translation>Ctrl+*</translation>
+        <translation type="obsolete">Ctrl+*</translation>
     </message>
     <message>
-        <location filename="booloperations.ui" line="94"/>
         <source>Exclusion of two objects</source>
-        <translation>Найти исключающее ИЛИ двух объектов</translation>
+        <translation type="obsolete">Найти исключающее ИЛИ двух объектов</translation>
     </message>
     <message>
-        <location filename="booloperations.ui" line="107"/>
         <source>Ctrl+6</source>
         <oldsource>Ctrl+`</oldsource>
-        <translation type="unfinished">Ctrl+`</translation>
+        <translation type="obsolete">Ctrl+`</translation>
     </message>
     <message>
-        <location filename="booloperations.ui" line="117"/>
         <source>Divide objects</source>
-        <translation>Разделить объекты</translation>
+        <translation type="obsolete">Разделить объекты</translation>
     </message>
     <message>
-        <location filename="booloperations.ui" line="130"/>
         <source>Ctrl+/</source>
-        <translation>Ctrl+/</translation>
+        <translation type="obsolete">Ctrl+/</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="BoolOperations.cpp" line="138"/>
+        <location filename="BoolOperations.cpp" line="175"/>
+        <location filename="BoolOperations.cpp" line="212"/>
+        <location filename="BoolOperations.cpp" line="267"/>
+        <location filename="BoolOperations.cpp" line="309"/>
+        <source>Complex</source>
+        <translation>Полигон</translation>
     </message>
 </context>
 </TS>

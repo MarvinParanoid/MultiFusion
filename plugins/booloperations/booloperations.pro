@@ -21,7 +21,5 @@ TRANSLATIONS = BoolOperations_ru.ts
 FORMS += \
     booloperations.ui
 
-
-
 RESOURCES += \
     booloperations.qrc

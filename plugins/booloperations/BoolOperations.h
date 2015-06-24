@@ -25,10 +25,6 @@
 #include "./../../paintWidget/GObject.h"
 #include "./../../paintWidget/GContainer.h"
 #include "./../../paintWidget/GVectorFigure.h"
-#include "./../../paintWidget/GLayer.h"
-#include "./../../paintWidget/PaintWidget.h"
-
-
 #include "ui_booloperations.h"
 
 class BoolOperations: public QWidget, public BoolOperationsInterface, public InterfacePlugin
@@ -46,19 +42,13 @@ private:
 
 	MainWindowInterface* mainWin;
 	PaintWidgetInterface* painter;
-
-    PaintWidget* paintr;
-
 	RPWInterface* realPainter;
 	GSRInterface* selection;
 	GContainer* container;
 	QDockWidget* dock;
 	Ui::BoolOperationsDock ui;
 
-    QList<GObject *> setPolygonsToObjects(QList<QPolygonF> polygons, QList<GObject *> &objects);//Размещение Полигонов в фигуры
-    QList<GObject *> getSelectionObjects();//Возврат списка с выделенными объектами
-    QList<GObject *> delFramesInObjects(QList<QPolygonF> polygons, QList<GObject *> &objects);//удаление фигур в текущем слайде
-    QList<GObject *> checkAndChangeListUnion(QList<GObject *> &objects);//проверка фигуры на соответствии операции и выполнение операции
+
 public slots:
 	void onUnion() {
 		createUnion();
@@ -144,8 +134,6 @@ public:
 	{
 		return "BoolOperations";
 	}
-
-
 
 	BoolOperations(plugin::PluginsManager */*manager*/): mainWin(0), painter(0), realPainter(0) {
 		ui.setupUi(this);

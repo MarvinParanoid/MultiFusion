@@ -359,6 +359,16 @@ class PaintWidgetInterface:public QScrollArea
 		 */
 		virtual void deleteFigure(int layer, int obj ) = 0;
 
+		                /**
+                 * Добавляет фигуру в текущий слой, создавая ее из переданных параметров
+                 * @param poly - точки: из которых строится фигура
+                 * @param pen - перо
+                 * @param brush - кисть
+                 * @param name - название фигуры
+                 * @param select - выбирать ли фигуру после добавления
+                 */
+                virtual void addFigure(const QPolygonF &poly, QPen pen, QBrush brush, QString name, bool select) = 0;
+		
 		/**
 		 * Добавляет новый слой
 		 */
